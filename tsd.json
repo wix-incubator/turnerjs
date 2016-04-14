@@ -1,0 +1,23 @@
+{
+  "version": "v4",
+  "repo": "borisyankov/DefinitelyTyped",
+  "ref": "master",
+  "path": "app/typings",
+  "installed": {
+    "jquery/jquery.d.ts": {
+      "commit": "b2d17b5dad042e293e77d09f2a30d281325cb606"
+    },
+    "jasmine/jasmine.d.ts": {
+      "commit": "419793fb796b0e5c1ed11e018ad28475de0c3735"
+    },
+    "es6-shim/es6-shim.d.ts": {
+      "commit": "b2d17b5dad042e293e77d09f2a30d281325cb606"
+    },
+    "angularjs/angular.d.ts": {
+      "commit": "b2d17b5dad042e293e77d09f2a30d281325cb606"
+    },
+    "angularjs/angular-mocks.d.ts": {
+      "commit": "b2d17b5dad042e293e77d09f2a30d281325cb606"
+    }
+  }
+}
