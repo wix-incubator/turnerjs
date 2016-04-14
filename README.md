@@ -13,8 +13,8 @@ The test kit provides a base driver utility class - **WixComponentTestDriver**, 
 It provides basic methods to allow rendering a template, accessing underlying elements and ability to maintain drivers' hierarchy, in order to be able to reuse drivers in parent components.
 
 ## Installation
-1. Include ```'app/bower_components/wix-angular/dist/test/lib/spec/base-driver.js'``` in your karma.conf file
-2. Add ```"bower_components/wix-angular/dist/test/lib/spec/base-driver.d.ts"``` to your **tsconfig.json** 
+1. Include ```'app/bower_components/wix-angular/dist/test/lib/spec/turner-driver.js'``` in your karma.conf file
+2. Add ```"bower_components/wix-angular/dist/test/lib/spec/turner-driver.d.ts"``` to your **tsconfig.json** 
 
 ## Usage
 * Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):

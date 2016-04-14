@@ -1,7 +1,7 @@
 {
   "name": "component-test-kit",
   "version": "1.0.0",
-  "main": "dist/test/lib/base-driver.js",
+  "main": "dist/test/lib/turner-driver.js",
   "ignore": [
     ".*",
     "Gemfile*",

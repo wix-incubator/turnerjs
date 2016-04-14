@@ -9,8 +9,8 @@
     ],
     "files": [
         "scripts/app.ts",
-        "test/lib/base-driver.ts",
-        "test/spec/test-kit/base-driver-test.ts",
+        "test/lib/turner-driver.ts",
+        "test/spec/test-kit/turner-driver.spec.ts",
         "typings/angularjs/angular-mocks.d.ts",
         "typings/angularjs/angular.d.ts",
         "typings/es6-shim/es6-shim.d.ts",
