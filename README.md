@@ -13,8 +13,12 @@ The test kit provides a base driver utility class - **WixComponentTestDriver**, 
 It provides basic methods to allow rendering a template, accessing underlying elements and ability to maintain drivers' hierarchy, in order to be able to reuse drivers in parent components.
 
 ## Installation
-1. Include ```'app/bower_components/wix-angular/dist/test/lib/spec/turner-driver.js'``` in your karma.conf file
-2. Add ```"bower_components/wix-angular/dist/test/lib/spec/turner-driver.d.ts"``` to your **tsconfig.json** 
+1. install using bower  
+`bower install --save turnerjs`
+2. Include the following reference in your Karma configuration file  
+```'app/bower_components/wix-angular/dist/test/lib/spec/turner-driver.js'```
+3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
+```"bower_components/wix-angular/dist/test/lib/spec/turner-driver.d.ts"``` 
 
 ## Usage
 * Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):
@@ -148,7 +152,7 @@ For example, assuming 3 components are defined:
 
 ```
 
-3 Drivers that corresponds to each are defined:
+3 Drivers that corresponds to each are defined:  
 (When there is a list of child drivers - e.g. when using ng-repeat, **defineChildren** method should be used in order to declare an array of child drivers)
 ```javascript
   
@@ -229,9 +233,7 @@ describe('Usage Examples when there are repeatable drivers', () => {
 ```
 
 #### Credits
-
-Alon Yehezkel
-Shahar Talmi
-Boris Litvinski
-Amit Shvil
-
+Alon Yehezkel  
+Shahar Talmi  
+Boris Litvinski  
+Amit Shvil  
