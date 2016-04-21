@@ -1,5 +1,5 @@
 {
-  "name": "component-test-kit",
+  "name": "turnerjs",
   "version": "1.0.0",
   "main": "dist/test/lib/turner-driver.js",
   "ignore": [
