@@ -9,7 +9,7 @@ Slides: https://drive.google.com/a/wix.com/file/d/0BxJZ7qdtPbeYRU1QdUI3X1Y5WFE/v
 ## Overview
 Component tests allows testing the UI (provided that it is build as components/directives of course) in order to get instant feedback and minimize the use of protractor.
 
-The test kit provides a base driver utility class - **WixComponentTestDriver**, which allows writing tests using typescript in order to test components in a more readable, maintainable and quicker manner,
+The test kit provides a base driver utility class - **TurnerComponentDriver**, which allows writing tests using typescript in order to test components in a more readable, maintainable and quicker manner,
 It provides basic methods to allow rendering a template, accessing underlying elements and ability to maintain drivers' hierarchy, in order to be able to reuse drivers in parent components.
 
 ## Installation
@@ -24,7 +24,7 @@ It provides basic methods to allow rendering a template, accessing underlying el
 * Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):
 
 ```javascript
-   class ExampleComponentDriver extends WixComponentTestDriver {
+   class ExampleComponentDriver extends TurnerComponentDriver {
            
         constructor() {
           super();
@@ -64,7 +64,7 @@ It provides basic methods to allow rendering a template, accessing underlying el
 ## Global Methods added by the test kit
 |Param|Type|Arguments|Details|
 |---|---|---|---|
-|byDataHook|global method|dataHook: string|Create a data-hook selector it is useful for methods that uses selectors such as ***WixComponentTestDriver.defineChild***|
+|byDataHook|global method|dataHook: string|Create a data-hook selector it is useful for methods that uses selectors such as ***TurnerComponentDriver.defineChild***|
 
 ## Base Driver Methods/ Members
 |Param|Type|Arguments|Details|
@@ -73,8 +73,8 @@ It provides basic methods to allow rendering a template, accessing underlying el
 |renderFromTemplate|protected method|**template**: string, **args**?: Object, **selector**?: string|Allows rendering the component/directive, the args is a key value pairs object that will be added to the scope of the element, initializes the root of the driver according to the selector |
 |findByDataHook|protected method|**dataHook**: string|a utility method that should be used by drivers that inherits from the base driver in order to select an element (first if there are several) by **data-hook** attribute. It will throws an error if called before ***renderFromTemplate*** was called|
 |findAllByDataHook|protected method|**dataHook**: string|similar to ***findByDataHook*** but allows selecting several elements with the same **data-hook**|
-|defineChild|protected method|**childDriver**: Instance of T such that T extends **WixComponentTestDriver**, **selector**: string representing a CSS selector (preferably called with ***byDataHook(dataHook)***)|Declare a child driver of the current driver, allows components hierarchy, which is also returned by the method. This method should be called before ***renderFromTemplate*** was called|
-|defineChildren|protected method|**factory**: function that returns an instance of T such that T extends **WixComponentTestDriver**, **selector**: string representing a CSS selector (which is expected to return more than one result)|returns an array of child drivers (instances of T), it is useful when there is more than one child driver for parent driver (e.g. ng-repeat), the returned array will change when there is a change in the number of elements in the dom. This method should be called before ***renderFromTemplate*** was called|
+|defineChild|protected method|**childDriver**: Instance of T such that T extends **TurnerComponentDriver**, **selector**: string representing a CSS selector (preferably called with ***byDataHook(dataHook)***)|Declare a child driver of the current driver, allows components hierarchy, which is also returned by the method. This method should be called before ***renderFromTemplate*** was called|
+|defineChildren|protected method|**factory**: function that returns an instance of T such that T extends **TurnerComponentDriver**, **selector**: string representing a CSS selector (which is expected to return more than one result)|returns an array of child drivers (instances of T), it is useful when there is more than one child driver for parent driver (e.g. ng-repeat), the returned array will change when there is a change in the number of elements in the dom. This method should be called before ***renderFromTemplate*** was called|
 |applyChanges|public method|N/A|invokes $rootScope.$digest(), mainly aimed to 'hide' *AngularJS* related implementation|
 |connectToBody|public method|N/A|Connects the template to the karma's browser body - allows height/width related tests. ***disconnectFromBody*** has to be called at the end of the test. It will thorw an error if called before ***renderFromTemplate*** was called|
 |disconnectFromBody|public method|N/A|Clears the the body of the karma's browser, used in order to reset the browser to the original state prior to starting the next test|
@@ -86,7 +86,7 @@ It provides basic methods to allow rendering a template, accessing underlying el
 |$rootScope|ng.IRootScopeService|N/A|Reference to the **$rootScope** service (removes the need to inject it in tests)|
 
 ## Nested drivers
-In order to allow reuse of drivers, the base driver supports initializing any child element (member) that extends **WixComponentTestDriver**
+In order to allow reuse of drivers, the base driver supports initializing any child element (member) that extends **TurnerComponentDriver**
 For example, assuming 3 components are defined:
 ```javascript
    angular.module('myModule', []);
@@ -156,7 +156,7 @@ For example, assuming 3 components are defined:
 (When there is a list of child drivers - e.g. when using ng-repeat, **defineChildren** method should be used in order to declare an array of child drivers)
 ```javascript
   
-class IndividualComponentDriver extends WixComponentTestDriver {
+class IndividualComponentDriver extends TurnerComponentDriver {
 
   constructor() {
     super();
@@ -171,7 +171,7 @@ class IndividualComponentDriver extends WixComponentTestDriver {
   }
 }
 
-class ItemComponentDriver extends WixComponentTestDriver {
+class ItemComponentDriver extends TurnerComponentDriver {
 
   constructor() {
     super();
@@ -186,7 +186,7 @@ class ItemComponentDriver extends WixComponentTestDriver {
   }
 }
 
-class ParentComponentDriver extends WixComponentTestDriver {
+class ParentComponentDriver extends TurnerComponentDriver {
   public innerComponent: IndividualComponentDriver;
   public itemComponents: ItemComponentDriver[];
 
@@ -213,7 +213,7 @@ class ParentComponentDriver extends WixComponentTestDriver {
   }
 }
 ```
-**WixComponentTestDriver** will initialize the member's scope & element automatically as soon as the renderFromTemplate method is invoked.
+**TurnerComponentDriver** will initialize the member's scope & element automatically as soon as the renderFromTemplate method is invoked.
 The above drivers will allow testing each component separately and also testing the parent component that wraps the two:
 ```javascript
 describe('Usage Examples when there are repeatable drivers', () => {
