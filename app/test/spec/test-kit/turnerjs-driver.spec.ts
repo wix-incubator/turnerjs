@@ -1,5 +1,5 @@
 'use strict';
-class InnerDriverExample extends WixComponentTestDriver {
+class InnerDriverExample extends TurnerComponentDriver {
   public child: InnerDriverExample;
 
   constructor(public item?, public index?) {
@@ -22,7 +22,7 @@ class AppendedToBodyDriver extends InnerDriverExample {
   }
 }
 
-class SimpleSelectorsDriver extends WixComponentTestDriver {
+class SimpleSelectorsDriver extends TurnerComponentDriver {
   render() {
     this.renderFromTemplate(
       `<div data-hook="root-element">
@@ -47,7 +47,7 @@ class SimpleSelectorsDriver extends WixComponentTestDriver {
   }
 }
 
-class DomManipulationDriverExample extends WixComponentTestDriver {
+class DomManipulationDriverExample extends TurnerComponentDriver {
   setChildPresenceInDom(exist: boolean, elementToSet: string = 'exist') {
     this.scope['ngIfIndication'][elementToSet] = exist;
     this.applyChanges();
@@ -82,7 +82,7 @@ class MultiChildLevelDriversExample extends DomManipulationDriverExample {
   }
 }
 
-class RepeatableChildDriversExample extends WixComponentTestDriver {
+class RepeatableChildDriversExample extends TurnerComponentDriver {
   public innerDriversByCss: Array<InnerDriverExample>;
   public innerDriversByDataHook: Array<InnerDriverExample>;
 
@@ -109,13 +109,13 @@ class RepeatableChildDriversExample extends WixComponentTestDriver {
 }
 
 class HeightChangedWrapperDriver extends DomManipulationDriverExample {
-  public wixHeightChanged: InnerDriverExample;
-  public wixTpaHeightChanged: InnerDriverExample;
+  public firstChild: InnerDriverExample;
+  public secondChild: InnerDriverExample;
 
   constructor() {
     super();
-    this.wixTpaHeightChanged = this.defineChild(new InnerDriverExample(), '.first-directive');
-    this.wixHeightChanged = this.defineChild(new InnerDriverExample(), '.second-directive');
+    this.secondChild = this.defineChild(new InnerDriverExample(), '.first-directive');
+    this.firstChild = this.defineChild(new InnerDriverExample(), '.second-directive');
   }
 
   render(callback) {
@@ -123,11 +123,11 @@ class HeightChangedWrapperDriver extends DomManipulationDriverExample {
       `<div data-hook="root-element">
         <div class="driver-part">
           <div ng-if="ngIfIndication.exist" data-hook="ng-if-container">
-            <div wix-tpa-height-changed class="first-directive">
+            <div class="first-directive">
               <div data-hook="inner-driver-example-content">TPA</div>
             </div>
           </div>
-          <div wix-height-changed="callback(height)"  class="second-directive">
+          <div class="second-directive">
             <div data-hook="inner-driver-example-content">REGULAR</div>
           </div>
         </div>
@@ -135,7 +135,7 @@ class HeightChangedWrapperDriver extends DomManipulationDriverExample {
   }
 }
 
-class ParentWithChildAppendedToBodyDriver extends WixComponentTestDriver {
+class ParentWithChildAppendedToBodyDriver extends TurnerComponentDriver {
   public childAppendedToBody: AppendedToBodyDriver;
 
   render() {
@@ -156,8 +156,8 @@ class ParentWithChildAppendedToBodyDriver extends WixComponentTestDriver {
   }
 }
 
-describe('Directive: wix test base driver', () => {
-  let driver: WixComponentTestDriver;
+describe('Directive: turnerjs test base driver', () => {
+  let driver: TurnerComponentDriver;
 
   afterEach(() => {
     driver.disconnectFromBody();
@@ -204,28 +204,28 @@ describe('Directive: wix test base driver', () => {
     it('should initialize the root element for child drivers and allow searching in it', () => {
       heightDriver.render(callback);
       heightDriver.connectToBody();
-      expect(heightDriver.wixHeightChanged.getContent()).toEqual('REGULAR');
-      expect(heightDriver.wixTpaHeightChanged.getContent()).toEqual('TPA');
+      expect(heightDriver.firstChild.getContent()).toEqual('REGULAR');
+      expect(heightDriver.secondChild.getContent()).toEqual('TPA');
     });
 
     it('should be able to call apply changes from child driver', () => {
       heightDriver.render(callback);
-      expect(() => heightDriver.wixHeightChanged.applyChanges()).not.toThrow();
+      expect(() => heightDriver.firstChild.applyChanges()).not.toThrow();
     });
 
     it('should initialize the scope for each driver member', () => {
       heightDriver.render(callback);
       heightDriver.connectToBody();
-      expect(angular.element(heightDriver.element[0].querySelector('.second-directive')).scope()).toEqual(heightDriver.wixHeightChanged.scope);
-      expect(angular.element(heightDriver.element[0].querySelector('.first-directive')).scope()).toEqual(heightDriver.wixTpaHeightChanged.scope);
+      expect(angular.element(heightDriver.element[0].querySelector('.second-directive')).scope()).toEqual(heightDriver.firstChild.scope);
+      expect(angular.element(heightDriver.element[0].querySelector('.first-directive')).scope()).toEqual(heightDriver.secondChild.scope);
     });
 
     it('should reinitialize a child driver when its element is re-added to the dom', () => {
       heightDriver.render(callback);
       heightDriver.setChildPresenceInDom(false);
-      expect(() => heightDriver.wixTpaHeightChanged.scope).toThrow();
+      expect(() => heightDriver.secondChild.scope).toThrow();
       heightDriver.setChildPresenceInDom(true);
-      expect(() => heightDriver.wixTpaHeightChanged.scope).not.toThrow();
+      expect(() => heightDriver.secondChild.scope).not.toThrow();
     });
   });
 

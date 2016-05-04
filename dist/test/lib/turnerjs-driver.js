@@ -2,12 +2,12 @@
 window['byDataHook'] = function (dataHook) {
     return "[data-hook='" + dataHook + "']";
 };
-var WixComponentTestDriver = (function () {
-    function WixComponentTestDriver() {
+var TurnerComponentDriver = (function () {
+    function TurnerComponentDriver() {
         this.childDrivers = [];
         this.body = angular.element(document.body);
     }
-    Object.defineProperty(WixComponentTestDriver.prototype, "element", {
+    Object.defineProperty(TurnerComponentDriver.prototype, "element", {
         get: function () {
             this.verifyRendered();
             return this._element;
@@ -15,7 +15,7 @@ var WixComponentTestDriver = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(WixComponentTestDriver.prototype, "scope", {
+    Object.defineProperty(TurnerComponentDriver.prototype, "scope", {
         get: function () {
             this.verifyRendered();
             return this._scope;
@@ -23,18 +23,18 @@ var WixComponentTestDriver = (function () {
         enumerable: true,
         configurable: true
     });
-    Object.defineProperty(WixComponentTestDriver.prototype, "isRendered", {
+    Object.defineProperty(TurnerComponentDriver.prototype, "isRendered", {
         get: function () {
             return !!this._scope;
         },
         enumerable: true,
         configurable: true
     });
-    WixComponentTestDriver.prototype.connectToBody = function () {
+    TurnerComponentDriver.prototype.connectToBody = function () {
         this.verifyRendered();
         this.body.append(this.templateRoot);
     };
-    WixComponentTestDriver.prototype.disconnectFromBody = function () {
+    TurnerComponentDriver.prototype.disconnectFromBody = function () {
         if (this.templateRoot) {
             this.templateRoot.remove();
         }
@@ -42,16 +42,16 @@ var WixComponentTestDriver = (function () {
             this._element.remove();
         }
     };
-    WixComponentTestDriver.prototype.applyChanges = function () {
+    TurnerComponentDriver.prototype.applyChanges = function () {
         this.$rootScope.$digest();
     };
-    WixComponentTestDriver.prototype.findByDataHook = function (dataHook) {
+    TurnerComponentDriver.prototype.findByDataHook = function (dataHook) {
         return angular.element(this.element[0].querySelector(byDataHook(dataHook)));
     };
-    WixComponentTestDriver.prototype.findAllByDataHook = function (dataHook) {
+    TurnerComponentDriver.prototype.findAllByDataHook = function (dataHook) {
         return angular.element(this.element[0].querySelectorAll(byDataHook(dataHook)));
     };
-    WixComponentTestDriver.prototype.renderFromTemplate = function (template, args, selector) {
+    TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector) {
         var _this = this;
         if (args === void 0) { args = {}; }
         inject(function ($rootScope, $compile) {
@@ -66,7 +66,7 @@ var WixComponentTestDriver = (function () {
         this.initializeDriver(this.templateRoot, selector);
         this.$rootScope.$watch(function () { return _this.initChildDrivers(); });
     };
-    WixComponentTestDriver.prototype.initChildDrivers = function () {
+    TurnerComponentDriver.prototype.initChildDrivers = function () {
         var _this = this;
         this.childDrivers.forEach(function (child) {
             if (child.type === 0 /* CHILD_REGULAR */) {
@@ -77,10 +77,10 @@ var WixComponentTestDriver = (function () {
             }
         });
     };
-    WixComponentTestDriver.prototype.defineChild = function (childDriver, selector) {
+    TurnerComponentDriver.prototype.defineChild = function (childDriver, selector) {
         return this.defineIndexedChild(childDriver, selector, 0);
     };
-    WixComponentTestDriver.prototype.defineChildren = function (factory, selector) {
+    TurnerComponentDriver.prototype.defineChildren = function (factory, selector) {
         var children = [];
         this.childDrivers.push({
             type: 1 /* CHILD_ARRAY */,
@@ -91,7 +91,7 @@ var WixComponentTestDriver = (function () {
         });
         return children;
     };
-    WixComponentTestDriver.prototype.defineIndexedChild = function (childDriver, selector, selectorIndex) {
+    TurnerComponentDriver.prototype.defineIndexedChild = function (childDriver, selector, selectorIndex) {
         if (selectorIndex === void 0) { selectorIndex = 0; }
         this.childDrivers.push({
             selector: selector,
@@ -102,7 +102,7 @@ var WixComponentTestDriver = (function () {
         childDriver.parent = this;
         return childDriver;
     };
-    WixComponentTestDriver.prototype.initializeDriver = function (containingElement, selector, selectorIndex) {
+    TurnerComponentDriver.prototype.initializeDriver = function (containingElement, selector, selectorIndex) {
         if (selectorIndex === void 0) { selectorIndex = 0; }
         var searchElement = this.appendedToBody ? this.body : containingElement;
         this._element = selector ? angular.element(searchElement[0].querySelectorAll(selector)[selectorIndex]) : containingElement;
@@ -111,7 +111,7 @@ var WixComponentTestDriver = (function () {
             this.initChildDrivers();
         }
     };
-    WixComponentTestDriver.prototype.initArrayChild = function (child) {
+    TurnerComponentDriver.prototype.initArrayChild = function (child) {
         var _this = this;
         child.drivers.splice(0, child.drivers.length);
         [].forEach.call(this._element[0].querySelectorAll(child.selector), function (item, index) {
@@ -122,14 +122,14 @@ var WixComponentTestDriver = (function () {
         });
     };
     ;
-    WixComponentTestDriver.prototype.initRegularChild = function (child) {
+    TurnerComponentDriver.prototype.initRegularChild = function (child) {
         var childDriver = child.drivers[0];
         childDriver.initializeDriver(this._element, child.selector, child.selectorIndex);
         childDriver.$compile = this.$compile;
         childDriver.$rootScope = this.$rootScope;
     };
     ;
-    WixComponentTestDriver.prototype.verifyRendered = function () {
+    TurnerComponentDriver.prototype.verifyRendered = function () {
         if (this.parent) {
             this.parent.verifyRendered();
         }
@@ -140,6 +140,6 @@ var WixComponentTestDriver = (function () {
             throw 'cannot interact with driver before element is rendered';
         }
     };
-    return WixComponentTestDriver;
+    return TurnerComponentDriver;
 }());
 //# sourceMappingURL=turnerjs-driver.js.map
