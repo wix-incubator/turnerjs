@@ -22,31 +22,6 @@ class AppendedToBodyDriver extends InnerDriverExample {
   }
 }
 
-class SimpleSelectorsDriver extends TurnerComponentDriver {
-  render() {
-    this.renderFromTemplate(
-      `<div data-hook="root-element">
-        <div class="driver-part">
-          <div data-hook="inner-element-multi">Multi1</div>
-          <div data-hook="inner-element-multi">Multi2</div>
-          <div data-hook="inner-element-singular">Single</div>
-        </div>
-      </div>`, {}, '.driver-part');
-  }
-
-  getSingleInnerElementText() {
-    return this.findByDataHook('inner-element-singular').text();
-  }
-
-  getInnerElements() {
-    return this.findAllByDataHook('inner-element-multi');
-  }
-
-  getInnerElementByIndex(index: number) {
-    return angular.element(this.getInnerElements()[index]);
-  }
-}
-
 class DomManipulationDriverExample extends TurnerComponentDriver {
   setChildPresenceInDom(exist: boolean, elementToSet: string = 'exist') {
     this.scope['ngIfIndication'][elementToSet] = exist;
@@ -82,59 +57,6 @@ class MultiChildLevelDriversExample extends DomManipulationDriverExample {
   }
 }
 
-class RepeatableChildDriversExample extends TurnerComponentDriver {
-  public innerDriversByCss: Array<InnerDriverExample>;
-  public innerDriversByDataHook: Array<InnerDriverExample>;
-
-  constructor() {
-    super();
-    this.innerDriversByCss = this.defineChildren((item, index) => new InnerDriverExample(item, index), '.inner-driver-example');
-    this.innerDriversByDataHook = this.defineChildren(() => new InnerDriverExample(), byDataHook('repeatable-child'));
-  }
-
-  render(items: {arr: Array<number>} = {arr: [1, 2, 3, 4]}) {
-    this.renderFromTemplate(
-      `<div data-hook="root-element">
-        <div class="driver-part">
-          <div class="title">I a the title of the list and under the same parent</div>
-          <div ng-repeat="item in items.arr">
-            <div class="item-title">I am the title of a single element</div>
-            <div class="inner-driver-example" data-hook="repeatable-child">
-              <div data-hook="inner-driver-example-content">text{{item}}</div>
-            </div>
-          </div>
-        </div>
-      </div>`, {items}, '.driver-part');
-  }
-}
-
-class HeightChangedWrapperDriver extends DomManipulationDriverExample {
-  public firstChild: InnerDriverExample;
-  public secondChild: InnerDriverExample;
-
-  constructor() {
-    super();
-    this.secondChild = this.defineChild(new InnerDriverExample(), '.first-directive');
-    this.firstChild = this.defineChild(new InnerDriverExample(), '.second-directive');
-  }
-
-  render(callback) {
-    this.renderFromTemplate(
-      `<div data-hook="root-element">
-        <div class="driver-part">
-          <div ng-if="ngIfIndication.exist" data-hook="ng-if-container">
-            <div class="first-directive">
-              <div data-hook="inner-driver-example-content">TPA</div>
-            </div>
-          </div>
-          <div class="second-directive">
-            <div data-hook="inner-driver-example-content">REGULAR</div>
-          </div>
-        </div>
-      </div>`, {callback, ngIfIndication: {exist: true}}, '.driver-part');
-  }
-}
-
 class ParentWithChildAppendedToBodyDriver extends TurnerComponentDriver {
   public childAppendedToBody: AppendedToBodyDriver;
 
@@ -158,32 +80,27 @@ class ParentWithChildAppendedToBodyDriver extends TurnerComponentDriver {
 
 describe('Directive: turnerjs test base driver', () => {
   let driver: TurnerComponentDriver;
+  beforeEach(() => {
+    angular.mock.module('turnerjsAppInternal');
+  });
 
   afterEach(() => {
     driver.disconnectFromBody();
   });
 
-  describe('Usage Examples for a simple driver with selectors', () => {
-    let simpleSelectorsDriver: SimpleSelectorsDriver;
+  describe('Turner Driver: errors', () => {
+    let simpleSelectorsDriver: NameFormatterDriver;
 
     beforeEach(() => {
-      simpleSelectorsDriver = driver = new SimpleSelectorsDriver();
-    });
-
-    it('should allow querying multiple inner elements', () => {
-      simpleSelectorsDriver.render();
-      expect(simpleSelectorsDriver.getInnerElements().length).toBe(2);
-      expect(simpleSelectorsDriver.getInnerElementByIndex(0).text()).toBe('Multi1');
-      expect(simpleSelectorsDriver.getInnerElementByIndex(1).text()).toBe('Multi2');
-      expect(simpleSelectorsDriver.getSingleInnerElementText()).toBe('Single');
+      simpleSelectorsDriver = driver = new NameFormatterDriver();
     });
 
     it('should throw an error when trying to connect to body before render is called', () => {
       expect(() => simpleSelectorsDriver.connectToBody()).toThrow();
     });
 
-    it('should throw an error when trying to query an element to body before render is called', () => {
-      expect(() => simpleSelectorsDriver.getInnerElements()).toThrow();
+    it('should throw an error when trying to query an element before render is called', () => {
+      expect(() => simpleSelectorsDriver.getFormattedName()).toThrow();
     });
 
     it('should throw when accessing element/scope before render', () => {
@@ -192,44 +109,44 @@ describe('Directive: turnerjs test base driver', () => {
     });
   });
 
-  describe('Usage Examples when there are drivers with nested drivers defined elsewhere', () => {
-    let heightDriver: HeightChangedWrapperDriver;
-    let callback: jasmine.Spy;
+  describe('Turner Driver: initialization of child drivers', () => {
+    let listDriver: NameListDriver;
 
     beforeEach(() => {
-      heightDriver = driver = new HeightChangedWrapperDriver();
-      callback = jasmine.createSpy('callback');
+      listDriver = driver = new NameListDriver();
     });
 
     it('should initialize the root element for child drivers and allow searching in it', () => {
-      heightDriver.render(callback);
-      heightDriver.connectToBody();
-      expect(heightDriver.firstChild.getContent()).toEqual('REGULAR');
-      expect(heightDriver.secondChild.getContent()).toEqual('TPA');
+      listDriver.render(['a', 'b']);
+      expect(listDriver.nameDrivers[0].getFormattedName()).toContain('a');
     });
 
-    it('should be able to call apply changes from child driver', () => {
-      heightDriver.render(callback);
-      expect(() => heightDriver.firstChild.applyChanges()).not.toThrow();
+    it('should be able to call apply changes from child and parent driver', () => {
+      listDriver.render(['a', 'b']);
+      expect(() => listDriver.applyChanges()).not.toThrow();
+      expect(() => listDriver.nameDrivers[0].applyChanges()).not.toThrow();
     });
 
     it('should initialize the scope for each driver member', () => {
-      heightDriver.render(callback);
-      heightDriver.connectToBody();
-      expect(angular.element(heightDriver.element[0].querySelector('.second-directive')).scope()).toEqual(heightDriver.firstChild.scope);
-      expect(angular.element(heightDriver.element[0].querySelector('.first-directive')).scope()).toEqual(heightDriver.secondChild.scope);
+      listDriver.render(['a', 'b']);
+      listDriver.connectToBody();
+      expect(angular.element(listDriver.element[0].querySelector('#name-number-0')).scope()).toEqual(listDriver.nameDrivers[0].scope.$parent);
     });
 
     it('should reinitialize a child driver when its element is re-added to the dom', () => {
-      heightDriver.render(callback);
-      heightDriver.setChildPresenceInDom(false);
-      expect(() => heightDriver.secondChild.scope).toThrow();
-      heightDriver.setChildPresenceInDom(true);
-      expect(() => heightDriver.secondChild.scope).not.toThrow();
+      let names = ['a', 'b'];
+      listDriver.render(names);
+      let secondChildDriver = listDriver.nameDrivers[1];
+      names.pop();
+      driver.applyChanges();
+      expect(() => secondChildDriver.scope).toThrow();
+      names.push('c');
+      driver.applyChanges();
+      expect(() => secondChildDriver.scope).not.toThrow();
     });
   });
 
-  describe('Usage Examples when there are drivers with nested drivers defined elsewhere', () => {
+  describe('Usage Examples when there are drivers with nested drivers in multiple hierarchies', () => {
     let multiLevelsDriver: MultiChildLevelDriversExample;
 
     beforeEach(() => {
@@ -252,47 +169,6 @@ describe('Directive: turnerjs test base driver', () => {
       expect(() => multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toThrow();
       multiLevelsDriver.setChildPresenceInDom(true, 'grandchild');
       expect(multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toBe('Last');
-    });
-  });
-
-  describe('Usage Examples when there are repeatable drivers', () => {
-    let driverWithRepeat: RepeatableChildDriversExample;
-
-    beforeEach(() => {
-      driverWithRepeat = driver = new RepeatableChildDriversExample();
-    });
-
-    it('should support selecting children by css selector', () => {
-      driverWithRepeat.render();
-      let children = driverWithRepeat.innerDriversByCss;
-      expect(children.length).toBe(4);
-      expect(children[0].getContent()).toBe('text1');
-      expect(children[2].index).toBe(2);
-    });
-
-    it('should support selecting children by data-hook selector', () => {
-      driverWithRepeat.render();
-      let children = driverWithRepeat.innerDriversByDataHook;
-      expect(children.length).toBe(4);
-      expect(children[3].getContent()).toBe('text4');
-    });
-
-    it('should respond to changes in the repeatable array', () => {
-      let items = {
-        arr: [1, 2, 3, 4]
-      };
-      driverWithRepeat.render(items);
-      let children = driverWithRepeat.innerDriversByCss;
-      expect(children.length).toBe(4);
-      items.arr.push(5);
-      driver.applyChanges();
-      expect(children.length).toBe(5);
-      expect(children[4].getContent()).toBe('text5');
-      items.arr.pop();
-      items.arr.pop();
-      driver.applyChanges();
-      expect(children.length).toBe(3);
-      expect(children[2].getContent()).toBe('text3');
     });
   });
 

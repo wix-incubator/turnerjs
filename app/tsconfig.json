@@ -9,7 +9,11 @@
     ],
     "files": [
         "scripts/app.ts",
+        "scripts/components/name-formatter.ts",
+        "scripts/components/name-list.ts",
         "test/lib/turnerjs-driver.ts",
+        "test/spec/components/name-formatter.spec.ts",
+        "test/spec/components/name-list.spec.ts",
         "test/spec/test-kit/turnerjs-driver.spec.ts",
         "typings/angularjs/angular-mocks.d.ts",
         "typings/angularjs/angular.d.ts",

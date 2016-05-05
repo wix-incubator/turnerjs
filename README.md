@@ -231,9 +231,23 @@ describe('Usage Examples when there are repeatable drivers', () => {
     });
   });
 ```
+#### Contribution
+Via pull requests,  
+    
+After cloning the repository please run `npm install` and `bower install` in order to fetch dependencies   
+  
+Running/Building the project is done by using ***grunt***:  
+`grunt serve:clean` - will start the server, there is no real UI for it, but it will run the unit tests on each save
+`grunt build` - build the project to make sure that changes are valid and meeting all code style definitions
 
 #### Credits
 Alon Yehezkel  
 Shahar Talmi  
 Boris Litvinski  
 Amit Shvil  
+
+## License
+
+The MIT License.
+
+See [LICENSE](https://github.com/shahata/angular-debounce/blob/master/LICENSE)
