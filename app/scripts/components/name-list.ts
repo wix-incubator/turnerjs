@@ -10,7 +10,7 @@ angular
 
     template: `<div data-hook="names-container">
                 <ul>
-                    <li ng-repeat="name in $ctrl.names"><name-formatter id="name-number-{{$index}}" name="name"></name-formatter></li>
+                    <li ng-repeat="name in $ctrl.names track by $index"><name-formatter id="name-number-{{$index}}" name="name"></name-formatter></li>
                 </ul>
                </div>`,
     controller: NameList,
