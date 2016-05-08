@@ -22,41 +22,6 @@ class AppendedToBodyDriver extends InnerDriverExample {
   }
 }
 
-class DomManipulationDriverExample extends TurnerComponentDriver {
-  setChildPresenceInDom(exist: boolean, elementToSet: string = 'exist') {
-    this.scope['ngIfIndication'][elementToSet] = exist;
-    this.applyChanges();
-  }
-}
-
-class MultiChildLevelDriversExample extends DomManipulationDriverExample {
-  public innerDriverWithNesting: InnerDriverExample;
-
-  constructor() {
-    super();
-    this.innerDriverWithNesting = this.defineChild(new InnerDriverExample(), '.inner-driver-example');
-    this.innerDriverWithNesting.initChild();
-    this.innerDriverWithNesting.child.initChild();
-  }
-
-  render() {
-    this.renderFromTemplate(
-      `<div data-hook="root-element">
-        <div class="driver-part">
-          <div class="inner-driver-example" ng-if="ngIfIndication.parent">
-            <div data-hook="inner-driver-example-content">Root</div>
-            <div class="inner-driver-example" ng-if="ngIfIndication.child">
-              <div data-hook="inner-driver-example-content">Middle</div>
-              <div class="inner-driver-example" ng-if="ngIfIndication.grandchild">
-                <div data-hook="inner-driver-example-content">Last</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>`, {ngIfIndication: {parent: true, child: true, grandchild: true}}, '.driver-part');
-  }
-}
-
 class ParentWithChildAppendedToBodyDriver extends TurnerComponentDriver {
   public childAppendedToBody: AppendedToBodyDriver;
 
@@ -147,28 +112,25 @@ describe('Directive: turnerjs test base driver', () => {
   });
 
   describe('Usage Examples when there are drivers with nested drivers in multiple hierarchies', () => {
-    let multiLevelsDriver: MultiChildLevelDriversExample;
+    let multiLevelsDriver: NamesAppDriver;
 
     beforeEach(() => {
-      multiLevelsDriver = driver = new MultiChildLevelDriversExample();
+      multiLevelsDriver = driver = new NamesAppDriver();
     });
 
     it('should support nested drivers', () => {
       multiLevelsDriver.render();
-      expect(multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toBe('Last');
+      multiLevelsDriver.addName('Test Name');
+      expect(multiLevelsDriver.list.nameDrivers[0].getFormattedName()).toContain('Test Name');
     });
 
     it('should support nested drivers reinitialization', () => {
       multiLevelsDriver.render();
-      multiLevelsDriver.setChildPresenceInDom(false, 'parent');
-      multiLevelsDriver.setChildPresenceInDom(false, 'grandchild');
-      expect(() => multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toThrow();
-      multiLevelsDriver.setChildPresenceInDom(true, 'parent');
-      expect(multiLevelsDriver.innerDriverWithNesting.getContent()).toBe('Root');
-      expect(multiLevelsDriver.innerDriverWithNesting.child.getContent()).toBe('Middle');
-      expect(() => multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toThrow();
-      multiLevelsDriver.setChildPresenceInDom(true, 'grandchild');
-      expect(multiLevelsDriver.innerDriverWithNesting.child.child.getContent()).toBe('Last');
+      multiLevelsDriver.toggleVisibility();
+      multiLevelsDriver.addName('Test Name');
+      expect(() => multiLevelsDriver.list.scope).toThrow();
+      multiLevelsDriver.toggleVisibility();
+      expect(multiLevelsDriver.list.nameDrivers[0].getFormattedName()).toContain('Test Name');
     });
   });
 
