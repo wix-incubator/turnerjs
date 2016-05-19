@@ -16,9 +16,9 @@ It provides basic methods to allow rendering a template, accessing underlying el
 1. install using bower  
 `bower install --save turnerjs`
 2. Include the following reference in your Karma configuration file  
-`'app/bower_components/turnerjs/dist/test/lib/spec/turner-driver.js'`
+`'app/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'`
 3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
-`"bower_components/turnerjs/dist/test/lib/spec/turner-driver.d.ts"`
+`"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"`
 
 ## Usage
 * Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):
