@@ -1,11 +1,5 @@
 'use strict';
 
-window['byDataHook'] = (dataHook): string => {
-  return `[data-hook='${dataHook}']`;
-};
-
-declare function byDataHook(dataHook: string): string;
-
 const enum TurnerChildDriverType {
   CHILD_REGULAR,
   CHILD_ARRAY
@@ -36,6 +30,10 @@ class TurnerComponentDriver {
 
   constructor() {
     this.body = angular.element(document.body);
+  }
+
+  static byDataHook(dataHook): string {
+    return `[data-hook='${dataHook}']`;
   }
 
   public get element() {
@@ -71,11 +69,11 @@ class TurnerComponentDriver {
   }
 
   protected findByDataHook(dataHook: string): ng.IAugmentedJQuery {
-    return angular.element(this.element[0].querySelector(byDataHook(dataHook)));
+    return angular.element(this.element[0].querySelector(TurnerComponentDriver.byDataHook(dataHook)));
   }
 
   protected findAllByDataHook(dataHook: string): ng.IAugmentedJQuery {
-    return angular.element(this.element[0].querySelectorAll(byDataHook(dataHook)));
+    return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
   }
 
   protected renderFromTemplate(template: string, args: Object = {}, selector?) {
@@ -168,3 +166,8 @@ class TurnerComponentDriver {
     }
   }
 }
+
+window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
+
+declare function byDataHook(dataHook: string): string;
+
