@@ -13,6 +13,7 @@
         "scripts/components/name-list.ts",
         "scripts/components/names-app.ts",
         "test/lib/turnerjs-driver.ts",
+        "test/lib/turnerjs-export.ts",
         "test/spec/components/name-formatter.spec.ts",
         "test/spec/components/name-list.spec.ts",
         "test/spec/components/names-app.spec.ts",

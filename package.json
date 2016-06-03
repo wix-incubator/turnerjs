@@ -1,15 +1,20 @@
 {
   "name": "turnerjs",
-  "version": "1.0.82",
+  "version": "1.0.0",
   "scripts": {
     "build": "node_modules/wix-gruntfile/scripts/build.sh",
     "release": "node_modules/wix-gruntfile/scripts/release.sh",
-    "test": "#tbd",
+    "test": "grunt build",
     "start": "grunt serve"
   },
-  "publishConfig": {
-    "registry": "http://repo.dev.wix/artifactory/api/npm/npm-local/"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix-private/turnerjs.git"
   },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
+  },
+  "main": "dist/test/lib/turnerjs-export.js",
   "dependencies": {},
   "devDependencies": {
     "wix-gruntfile": "^0.1.231",
