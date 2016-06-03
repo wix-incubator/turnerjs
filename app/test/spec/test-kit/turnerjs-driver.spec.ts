@@ -157,4 +157,15 @@ describe('Directive: turnerjs test base driver', () => {
       expect(parentWithAppendedToBodyDriver.isChildFoundInDom()).toBe(false);
     });
   });
+
+  describe('by data hook global', () => {
+    it('should support global by data hook method', () => {
+      let element = document.createElement('div');
+      element.setAttribute('data-hook', 'check');
+      element.innerHTML = 'aa';
+      document.body.appendChild(element);
+
+      expect(angular.element(document.body.querySelector(byDataHook('check'))).text()).toBe('aa');
+    });
+  });
 });

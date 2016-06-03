@@ -1,4 +1,3 @@
-declare function byDataHook(dataHook: string): string;
 declare const enum TurnerChildDriverType {
     CHILD_REGULAR = 0,
     CHILD_ARRAY = 1,
@@ -22,6 +21,7 @@ declare class TurnerComponentDriver {
     private templateRoot;
     private childDrivers;
     constructor();
+    static byDataHook(dataHook: any): string;
     element: ng.IAugmentedJQuery;
     scope: ng.IScope;
     isRendered: boolean;
@@ -40,3 +40,4 @@ declare class TurnerComponentDriver {
     private initRegularChild(child);
     verifyRendered(): void;
 }
+declare function byDataHook(dataHook: string): string;

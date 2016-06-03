@@ -1,12 +1,12 @@
 'use strict';
-window['byDataHook'] = function (dataHook) {
-    return "[data-hook='" + dataHook + "']";
-};
 var TurnerComponentDriver = (function () {
     function TurnerComponentDriver() {
         this.childDrivers = [];
         this.body = angular.element(document.body);
     }
+    TurnerComponentDriver.byDataHook = function (dataHook) {
+        return "[data-hook='" + dataHook + "']";
+    };
     Object.defineProperty(TurnerComponentDriver.prototype, "element", {
         get: function () {
             this.verifyRendered();
@@ -46,10 +46,10 @@ var TurnerComponentDriver = (function () {
         this.$rootScope.$digest();
     };
     TurnerComponentDriver.prototype.findByDataHook = function (dataHook) {
-        return angular.element(this.element[0].querySelector(byDataHook(dataHook)));
+        return angular.element(this.element[0].querySelector(TurnerComponentDriver.byDataHook(dataHook)));
     };
     TurnerComponentDriver.prototype.findAllByDataHook = function (dataHook) {
-        return angular.element(this.element[0].querySelectorAll(byDataHook(dataHook)));
+        return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
     };
     TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector) {
         var _this = this;
@@ -142,4 +142,5 @@ var TurnerComponentDriver = (function () {
     };
     return TurnerComponentDriver;
 }());
+window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
 //# sourceMappingURL=turnerjs-driver.js.map
