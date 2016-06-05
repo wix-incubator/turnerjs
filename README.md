@@ -250,4 +250,4 @@ Amit Shvil
 
 The MIT License.
 
-See [LICENSE](https://github.com/shahata/angular-debounce/blob/master/LICENSE)
+See [LICENSE](https://opensource.org/licenses/MIT)
