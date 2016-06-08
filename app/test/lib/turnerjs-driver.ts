@@ -76,20 +76,24 @@ class TurnerComponentDriver {
     return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
   }
 
-  protected renderFromTemplate(template: string, args: Object = {}, selector?) {
+  protected attachToElement(element: ng.IAugmentedJQuery, selector?) {
     inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
       this.$rootScope = $rootScope;
       this.$compile = $compile;
     });
-    let scope = this.$rootScope.$new();
-    scope = angular.extend(scope, args);
-
-    this.templateRoot = angular.element(template);
-    this.$compile(this.templateRoot)(scope);
-    this.$rootScope.$digest();
-
+    this.templateRoot = element;
     this.initializeDriver(this.templateRoot, selector);
     this.$rootScope.$watch(() => this.initChildDrivers());
+  }
+
+  protected renderFromTemplate(template: string, args: Object = {}, selector?) {
+    inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
+      let scope = $rootScope.$new();
+      scope = angular.extend(scope, args);
+      var compiled = $compile(angular.element(template))(scope);
+      $rootScope.$digest();
+      this.attachToElement(compiled, selector);
+    });
   }
 
   protected initChildDrivers() {
