@@ -26,8 +26,6 @@ module.exports = function (config) {
     files: [
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
-      'app/bower_components/es5-shim/es5-shim.js',
-      'app/bower_components/es6-shim/es6-shim.js',
       '{app,.tmp}/*.js',
       '{app,.tmp}/scripts/*.js',
       '{app,.tmp}/scripts/*/**/*.js',
