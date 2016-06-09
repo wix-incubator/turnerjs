@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Turnerjs by wix-private</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Turnerjs</h1>
+      <h2 class="project-tagline">Created by carmelc</h2>
+      <a href="https://github.com/wix-private/turnerjs" class="btn">View on GitHub</a>
+      <a href="https://github.com/wix-private/turnerjs/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/wix-private/turnerjs/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="angular-components-test-kit" class="anchor" href="#angular-components-test-kit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Angular Components Test Kit</h1>
+
+<h2>
+<a id="talk" class="anchor" href="#talk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Talk</h2>
+
+<p>Can be downloaded via <a href="https://u5283.ct.sendgrid.net/wf/click?upn=uO6HrIECmgsMyMFzOPMkJYGYLADpdUHdfI6J1dVtgwnTWzZ1-2B1a5bySNoLYlu9QIldML-2FPycLoyx-2FRfHUroVVRKQI0G-2BB7wD2GmagU-2F-2BaFO1GcQKZqTrLfcvI0-2Feq88U4MDDbWxKTMQq15nEkNaTrkhZIEN-2BIjBAqqg35v-2BUjy2Twh3o7-2F-2BMoBQuxY83o7cP_-2F0-2FOxt-2FTDNjPdgoVegGf3gWbc1x6lNE40K0OYIqiiEvA6QswJ-2BwAuEpEMZUWwF9pCCtXpZHa-2Blt19xDW8YLhwNH0buvisU141e9DwO8i-2FtHG4W1yIqIwmvtfz6eqxMt-2FKGTTQY4eR-2F43Sq5XMM2Dcv8czg-2FptYVNvd7fSa-2Fk1ulilJE5DRaYf8AWqy7gUQ2GQKrYehzRQiMwRXFmhxUPi9p5elNaeRifJJbzOrwyHJCJE85erCOU9BC6cqRFonXG-2FgLI0fQq9IJA61i4Z8AJDcRFZrLP3ZQqfF2Xvf-2FiSZ1jKPBpFVsd9RO-2FsqBDo6BeXrm5zSCKTDfxsL0cHIUqkcH4jesDUnfJR67EoqU8SyJo0NnGZlbOM04OaAwKTZDw">Slideshare</a>
+<strong>Note</strong> - please download in order to be able to utilize the animations included in the deck.</p>
+
+<h2>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Overview</h2>
+
+<p>Component tests allows testing the UI (provided that it is build as components/directives of course) in order to get instant feedback and minimize the use of protractor.</p>
+
+<p>The test kit provides a base driver utility class - <strong>TurnerComponentDriver</strong>, which allows writing tests using typescript in order to test components in a more readable, maintainable and quicker manner,
+It provides basic methods to allow rendering a template, accessing underlying elements and ability to maintain drivers' hierarchy, in order to be able to reuse drivers in parent components.</p>
+
+<p>The best practice implemented by TurnerJS in regards to elements' selectors is by using a 'data-hook' attribute in order to mark elements which are accessed by your code.
+It implements the approach demonstrates in <a href="http://html5doctor.com/html5-custom-data-attributes/">this</a> article, but it is not mandated by the framework, one can use any other data selectors approach.</p>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<ol>
+<li>install using bower<br>
+<code>bower install --save turnerjs</code>
+</li>
+<li>Include the following reference in your Karma configuration file<br>
+<code>'&lt;path to your app&gt;/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'</code>
+</li>
+<li>
+<em>Optional</em> - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:<br>
+<code>"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"</code>
+</li>
+</ol>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h2>
+
+<ul>
+<li>Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>   <span class="pl-k">class</span> <span class="pl-en">ExampleComponentDriver</span> <span class="pl-k">extends</span> <span class="pl-e">TurnerComponentDriver</span> {
+
+        <span class="pl-en">constructor</span>() {
+          <span class="pl-v">super</span>();
+        }
+
+        <span class="pl-en">render</span>(<span class="pl-smi">param1</span>, <span class="pl-smi">param2</span>) {
+          <span class="pl-c">//renders the template and adds the input parameters as scope params (second argument to renderFromTemplate method)</span>
+          <span class="pl-c">//passing a selector is needed when the element containing the directive is not the first element in the template or when there is more than one driver</span>
+          <span class="pl-v">this</span>.<span class="pl-en">renderFromTemplate</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;example-component another-attribute="param2"&gt;&lt;div data-hook="inner-element"&gt;{{param1}}&lt;/div&gt;&lt;/example-component&gt;<span class="pl-pds">'</span></span>, {param1, param2}, <span class="pl-s"><span class="pl-pds">'</span>example-component<span class="pl-pds">'</span></span>);
+        }
+
+        <span class="pl-en">isInnerElementValid</span>()<span class="pl-k">:</span> boolean {
+           <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">findByDataHook</span>(<span class="pl-s"><span class="pl-pds">'</span>inner-element<span class="pl-pds">'</span></span>).<span class="pl-c1">text</span>() <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>valid<span class="pl-pds">'</span></span>;
+        }
+      }</pre></div>
+
+<ul>
+<li>Write tests that utilizes the driver</li>
+</ul>
+
+<div class="highlight highlight-source-js"><pre>    <span class="pl-k">let</span> driver<span class="pl-k">:</span> ExampleComponentDriver;
+    <span class="pl-en">beforeEach</span>(() <span class="pl-k">=&gt;</span> {
+       driver <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ExampleComponentDriver</span>();
+       <span class="pl-smi">driver</span>.<span class="pl-en">render</span>(<span class="pl-s"><span class="pl-pds">'</span>valid<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>yada yada<span class="pl-pds">'</span></span>);
+       <span class="pl-smi">driver</span>.<span class="pl-en">connectToBody</span>();
+    });
+
+    <span class="pl-en">afterEach</span>(() <span class="pl-k">=&gt;</span> {
+        <span class="pl-smi">driver</span>.<span class="pl-en">disconnectFromBody</span>();
+    });
+
+    <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">'</span>should contain a valid element value<span class="pl-pds">'</span></span>, () <span class="pl-k">=&gt;</span> {
+        <span class="pl-en">expect</span>(<span class="pl-smi">driver</span>.<span class="pl-en">isInnerElementValid</span>()).<span class="pl-en">toBeTruthy</span>();
+    });</pre></div>
+
+<h2>
+<a id="global-methods-added-by-the-test-kit" class="anchor" href="#global-methods-added-by-the-test-kit" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Global Methods added by the test kit</h2>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Arguments</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>byDataHook</td>
+<td>global method</td>
+<td>dataHook: string</td>
+<td>Create a data-hook selector it is useful for methods that uses selectors such as <strong><em>TurnerComponentDriver.defineChild</em></strong>
+</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="base-driver-methods-members" class="anchor" href="#base-driver-methods-members" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base Driver Methods/ Members</h2>
+
+<table>
+<thead>
+<tr>
+<th>Param</th>
+<th>Type</th>
+<th>Arguments</th>
+<th>Details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>constructor</td>
+<td>Constructor</td>
+<td>N/A</td>
+<td>Creates the driver</td>
+</tr>
+<tr>
+<td>renderFromTemplate</td>
+<td>protected method</td>
+<td>
+<strong>template</strong>: string, <strong>args</strong>?: Object, <strong>selector</strong>?: string</td>
+<td>Allows rendering the component/directive, the args is a key value pairs object that will be added to the scope of the element, initializes the root of the driver according to the selector</td>
+</tr>
+<tr>
+<td>findByDataHook</td>
+<td>protected method</td>
+<td>
+<strong>dataHook</strong>: string</td>
+<td>a utility method that should be used by drivers that inherits from the base driver in order to select an element (first if there are several) by <strong>data-hook</strong> attribute. It will throws an error if called before <strong><em>renderFromTemplate</em></strong> was called</td>
+</tr>
+<tr>
+<td>findAllByDataHook</td>
+<td>protected method</td>
+<td>
+<strong>dataHook</strong>: string</td>
+<td>similar to <strong><em>findByDataHook</em></strong> but allows selecting several elements with the same <strong>data-hook</strong>
+</td>
+</tr>
+<tr>
+<td>defineChild</td>
+<td>protected method</td>
+<td>
+<strong>childDriver</strong>: Instance of T such that T extends <strong>TurnerComponentDriver</strong>, <strong>selector</strong>: string representing a CSS selector (preferably called with <strong><em>byDataHook(dataHook)</em></strong>)</td>
+<td>Declare a child driver of the current driver, allows components hierarchy, which is also returned by the method. This method should be called before <strong><em>renderFromTemplate</em></strong> was called</td>
+</tr>
+<tr>
+<td>defineChildren</td>
+<td>protected method</td>
+<td>
+<strong>factory</strong>: function that returns an instance of T such that T extends <strong>TurnerComponentDriver</strong>, <strong>selector</strong>: string representing a CSS selector (which is expected to return more than one result)</td>
+<td>returns an array of child drivers (instances of T), it is useful when there is more than one child driver for parent driver (e.g. ng-repeat), the returned array will change when there is a change in the number of elements in the dom. This method should be called before <strong><em>renderFromTemplate</em></strong> was called</td>
+</tr>
+<tr>
+<td>applyChanges</td>
+<td>public method</td>
+<td>N/A</td>
+<td>invokes $rootScope.$digest(), mainly aimed to 'hide' <em>AngularJS</em> related implementation</td>
+</tr>
+<tr>
+<td>connectToBody</td>
+<td>public method</td>
+<td>N/A</td>
+<td>Connects the template to the karma's browser body - allows height/width related tests. <strong><em>disconnectFromBody</em></strong> has to be called at the end of the test. It will thorw an error if called before <strong><em>renderFromTemplate</em></strong> was called</td>
+</tr>
+<tr>
+<td>disconnectFromBody</td>
+<td>public method</td>
+<td>N/A</td>
+<td>Clears the the body of the karma's browser, used in order to reset the browser to the original state prior to starting the next test</td>
+</tr>
+<tr>
+<td>afterRender</td>
+<td>protected method</td>
+<td>N/A</td>
+<td>You can override this method if you need extra setup after render</td>
+</tr>
+<tr>
+<td>element</td>
+<td>ng.IAugmentedJQuery</td>
+<td>N/A</td>
+<td>Reference to the element that represents the root of the driver (by selector if provided or template root)</td>
+</tr>
+<tr>
+<td>scope</td>
+<td>ng.IScope</td>
+<td>N/A</td>
+<td>Reference to the scope of <strong><em>element</em></strong> member</td>
+</tr>
+<tr>
+<td>isRendered</td>
+<td>boolean</td>
+<td>N/A</td>
+<td>defines whether the driver is rendered - whether its template was rendered and its scope is valid (defined and part of the dom)</td>
+</tr>
+<tr>
+<td>appendedToBody</td>
+<td>boolean</td>
+<td>N/A</td>
+<td>defines whether the driver's element is appended to body (e.g. a driver for bootstrap tooltip)</td>
+</tr>
+<tr>
+<td>$rootScope</td>
+<td>ng.IRootScopeService</td>
+<td>N/A</td>
+<td>Reference to the <strong>$rootScope</strong> service (removes the need to inject it in tests)</td>
+</tr>
+</tbody>
+</table>
+
+<h2>
+<a id="nested-drivers" class="anchor" href="#nested-drivers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nested drivers</h2>
+
+<p>In order to allow reuse of drivers, the base driver supports initializing any child element (member) that extends <strong>TurnerComponentDriver</strong>
+For example, assuming 3 components are defined:</p>
+
+<div class="highlight highlight-source-js"><pre>   <span class="pl-smi">angular</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myModule<span class="pl-pds">'</span></span>, []);
+   <span class="pl-k">class</span> <span class="pl-en">ItemComponentCtrl</span> {
+     <span class="pl-k">public</span> item<span class="pl-k">:</span> {value<span class="pl-k">:</span> number};
+
+     <span class="pl-en">isValid</span>()<span class="pl-k">:</span>  boolean {
+       <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-smi">item</span>.<span class="pl-c1">value</span> <span class="pl-k">&gt;</span> <span class="pl-c1">1</span>;
+     }
+   }
+
+   angular
+     .<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myModule<span class="pl-pds">'</span></span>)
+     .<span class="pl-en">component</span>(<span class="pl-s"><span class="pl-pds">'</span>itemComponent<span class="pl-pds">'</span></span>, {
+       template<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>&lt;div data-hook="item-element" ng-class="{'valid': $ctrl.isValid()}"/&gt;<span class="pl-pds">`</span></span>,
+       controller<span class="pl-k">:</span> ItemComponentCtrl,
+       bindings<span class="pl-k">:</span> {
+         item<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>=<span class="pl-pds">'</span></span>
+       }
+     });
+
+   <span class="pl-k">class</span> <span class="pl-en">IndividualComponentCtrl</span> {
+     <span class="pl-k">public</span> item<span class="pl-k">:</span> {value<span class="pl-k">:</span> number};
+
+     <span class="pl-en">getText</span>()<span class="pl-k">:</span>  string {
+       <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-smi">item</span>.<span class="pl-c1">value</span> <span class="pl-k">&gt;</span> <span class="pl-c1">1</span> <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">'</span>valid<span class="pl-pds">'</span></span> <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>invalid<span class="pl-pds">'</span></span>;
+     }
+   }
+
+   angular
+     .<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myModule<span class="pl-pds">'</span></span>)
+     .<span class="pl-en">component</span>(<span class="pl-s"><span class="pl-pds">'</span>individualComponent<span class="pl-pds">'</span></span>, {
+       template<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>&lt;div data-hook="inner-element"&gt;{{$ctrl.getText()}}&lt;/div&gt;<span class="pl-pds">`</span></span>,
+       controller<span class="pl-k">:</span> IndividualComponentCtrl,
+       bindings<span class="pl-k">:</span> {
+         item<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>=<span class="pl-pds">'</span></span>
+       }
+     });
+
+   <span class="pl-k">class</span> <span class="pl-en">ParentComponentCtrl</span> {
+     <span class="pl-k">public</span> items<span class="pl-k">:</span> {value<span class="pl-k">:</span> number}[];
+
+     <span class="pl-en">constructor</span>() {
+       <span class="pl-v">this</span>.<span class="pl-smi">items</span> <span class="pl-k">=</span> [];
+       <span class="pl-k">for</span> (<span class="pl-k">let</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-c1">5</span>; i<span class="pl-k">++</span>) {
+         <span class="pl-c">//push either 1 or 2</span>
+         <span class="pl-v">this</span>.<span class="pl-smi">items</span>.<span class="pl-c1">push</span>({
+           value<span class="pl-k">:</span> <span class="pl-c1">Math</span>.<span class="pl-c1">floor</span>((<span class="pl-c1">Math</span>.<span class="pl-c1">random</span>() <span class="pl-k">*</span> <span class="pl-c1">2</span>) <span class="pl-k">+</span> <span class="pl-c1">1</span>)
+         });
+       }
+     }
+   }
+
+   angular
+     .<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myModule<span class="pl-pds">'</span></span>)
+     .<span class="pl-en">component</span>(<span class="pl-s"><span class="pl-pds">'</span>parentComponent<span class="pl-pds">'</span></span>, {
+       template<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">`</span>&lt;div&gt;</span>
+<span class="pl-s">                    &lt;individual-component item="$ctrl.items[0]"/&gt;</span>
+<span class="pl-s">                    &lt;item-component ng-repeat="item in $ctrl.items" item="item"/&gt;</span>
+<span class="pl-s">                  &lt;/div&gt;<span class="pl-pds">`</span></span>,
+       controller<span class="pl-k">:</span> ParentComponentCtrl
+     });
+</pre></div>
+
+<p>3 Drivers that corresponds to each are defined:<br>
+(When there is a list of child drivers - e.g. when using ng-repeat, <strong>defineChildren</strong> method should be used in order to declare an array of child drivers)</p>
+
+<div class="highlight highlight-source-js"><pre>
+<span class="pl-k">class</span> <span class="pl-en">IndividualComponentDriver</span> <span class="pl-k">extends</span> <span class="pl-e">TurnerComponentDriver</span> {
+
+  <span class="pl-en">constructor</span>() {
+    <span class="pl-v">super</span>();
+  }
+
+  <span class="pl-en">render</span>(<span class="pl-smi">item</span>) {
+    <span class="pl-v">this</span>.<span class="pl-en">renderFromTemplate</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;individual-component item="item"/&gt;<span class="pl-pds">'</span></span>, {item});
+  }
+
+  <span class="pl-en">isValid</span>()<span class="pl-k">:</span> boolean {
+    <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">findByDataHook</span>(<span class="pl-s"><span class="pl-pds">'</span>inner-element<span class="pl-pds">'</span></span>).<span class="pl-c1">text</span>() <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">'</span>valid<span class="pl-pds">'</span></span>;
+  }
+}
+
+<span class="pl-k">class</span> <span class="pl-en">ItemComponentDriver</span> <span class="pl-k">extends</span> <span class="pl-e">TurnerComponentDriver</span> {
+
+  <span class="pl-en">constructor</span>() {
+    <span class="pl-v">super</span>();
+  }
+
+  <span class="pl-en">render</span>(<span class="pl-smi">item</span>) {
+    <span class="pl-v">this</span>.<span class="pl-en">renderFromTemplate</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;item-component item="item"/&gt;<span class="pl-pds">'</span></span>, {item}, <span class="pl-s"><span class="pl-pds">'</span>item-component<span class="pl-pds">'</span></span>);
+  }
+
+  <span class="pl-en">isValid</span>()<span class="pl-k">:</span> boolean {
+    <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">findByDataHook</span>(<span class="pl-s"><span class="pl-pds">'</span>item-element<span class="pl-pds">'</span></span>).<span class="pl-en">hasClass</span>(<span class="pl-s"><span class="pl-pds">'</span>valid<span class="pl-pds">'</span></span>);
+  }
+}
+
+<span class="pl-k">class</span> <span class="pl-en">ParentComponentDriver</span> <span class="pl-k">extends</span> <span class="pl-e">TurnerComponentDriver</span> {
+  <span class="pl-k">public</span> innerComponent<span class="pl-k">:</span> IndividualComponentDriver;
+  <span class="pl-k">public</span> itemComponents<span class="pl-k">:</span> ItemComponentDriver[];
+
+  <span class="pl-en">constructor</span>() {
+    <span class="pl-v">super</span>();
+    <span class="pl-v">this</span>.<span class="pl-smi">innerComponent</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">defineChild</span>(<span class="pl-k">new</span> <span class="pl-en">IndividualComponentDriver</span>(), <span class="pl-s"><span class="pl-pds">'</span>individual-component<span class="pl-pds">'</span></span>);
+    <span class="pl-v">this</span>.<span class="pl-smi">itemComponents</span> <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">defineChildren</span>(() <span class="pl-k">=&gt;</span> <span class="pl-k">new</span> <span class="pl-en">ItemComponentDriver</span>(), <span class="pl-s"><span class="pl-pds">'</span>item-component<span class="pl-pds">'</span></span>);
+  }
+
+  <span class="pl-en">render</span>() {
+    <span class="pl-v">this</span>.<span class="pl-en">renderFromTemplate</span>(<span class="pl-s"><span class="pl-pds">`</span>&lt;parent-component&gt;<span class="pl-pds">`</span></span>);
+  }
+
+  <span class="pl-en">isIndividualValid</span>()<span class="pl-k">:</span> boolean {
+    <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-smi">innerComponent</span>.<span class="pl-en">isValid</span>();
+  }
+
+  <span class="pl-en">isItemsValid</span>()<span class="pl-k">:</span> boolean {
+    <span class="pl-k">let</span> result <span class="pl-k">=</span> <span class="pl-c1">true</span>;
+    <span class="pl-v">this</span>.<span class="pl-smi">itemComponents</span>.<span class="pl-en">forEach</span>(<span class="pl-smi">itemDriver</span> <span class="pl-k">=&gt;</span> {
+      result <span class="pl-k">=</span> result <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">itemDriver</span>.<span class="pl-en">isValid</span>();
+    });
+    <span class="pl-k">return</span> result;
+  }
+}</pre></div>
+
+<p><strong>TurnerComponentDriver</strong> will initialize the member's scope &amp; element automatically as soon as the renderFromTemplate method is invoked.
+The above drivers will allow testing each component separately and also testing the parent component that wraps the two:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">'</span>Usage Examples when there are repeatable drivers<span class="pl-pds">'</span></span>, () <span class="pl-k">=&gt;</span> {
+    <span class="pl-k">let</span> parentComponentDriver<span class="pl-k">:</span> ParentComponentDriver;
+    <span class="pl-en">beforeEach</span>(() <span class="pl-k">=&gt;</span> {
+      <span class="pl-c1">module</span>(<span class="pl-s"><span class="pl-pds">'</span>myModule<span class="pl-pds">'</span></span>);
+      parentComponentDriver <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ParentComponentDriver</span>();
+    });
+
+    <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">'</span>should be valid when the random values are above 1<span class="pl-pds">'</span></span>, () <span class="pl-k">=&gt;</span> {
+      <span class="pl-en">spyOn</span>(<span class="pl-c1">Math</span>, <span class="pl-s"><span class="pl-pds">'</span>random<span class="pl-pds">'</span></span>).<span class="pl-smi">and</span>.<span class="pl-c1">returnValue</span>(<span class="pl-c1">0.9</span>);
+      <span class="pl-smi">parentComponentDriver</span>.<span class="pl-en">render</span>();
+      <span class="pl-en">expect</span>(<span class="pl-smi">parentComponentDriver</span>.<span class="pl-en">isIndividualValid</span>()).<span class="pl-en">toBe</span>(<span class="pl-c1">true</span>);
+      <span class="pl-en">expect</span>(<span class="pl-smi">parentComponentDriver</span>.<span class="pl-en">isItemsValid</span>()).<span class="pl-en">toBe</span>(<span class="pl-c1">true</span>);
+    });
+  });</pre></div>
+
+<h2>
+<a id="non-typescript-usage" class="anchor" href="#non-typescript-usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Non TypeScript usage</h2>
+
+<p>Though the recommendation is to use TypeScript with turnerjs, if you are not using it, you can create the driver using prototypical inheritance.
+There are various ways to implement it, but the test kits includes a test spec for ES5 usage (see <strong><em>app/test/spec/components/es5-name-formatter.js</em></strong>)
+The below provides the basic implementation of such driver:</p>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-c">/* globals TurnerComponentDriver */</span> <span class="pl-c">//for jshint</span>
+<span class="pl-k">function</span> <span class="pl-en">ES5Driver</span>() {
+  <span class="pl-smi">TurnerComponentDriver</span>.<span class="pl-c1">call</span>(<span class="pl-v">arguments</span>);
+}
+
+<span class="pl-smi">ES5Driver</span>.<span class="pl-c1">prototype</span> <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">TurnerComponentDriver</span>();
+<span class="pl-smi">ES5Driver</span>.<span class="pl-c1">constructor</span> <span class="pl-k">=</span> ES5Driver;
+
+<span class="pl-smi">ES5Driver</span>.<span class="pl-c1">prototype</span>.<span class="pl-en">render</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {
+  <span class="pl-v">this</span>.<span class="pl-en">renderFromTemplate</span>(<span class="pl-s"><span class="pl-pds">'</span>&lt;es5-component-template&gt;&lt;/es5-component-template&gt;<span class="pl-pds">'</span></span>);  
+};
+<span class="pl-c">//other driver methods</span>
+
+<span class="pl-en">describe</span>(<span class="pl-s"><span class="pl-pds">'</span>your tests are here<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {
+    <span class="pl-k">var</span> es5driver;
+
+    <span class="pl-en">beforeEach</span>(<span class="pl-k">function</span> () {
+        <span class="pl-smi">angular</span>.<span class="pl-smi">mock</span>.<span class="pl-en">module</span>(<span class="pl-s"><span class="pl-pds">'</span>turnerjsAppInternal<span class="pl-pds">'</span></span>);
+        driver <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">ES5Driver</span>();
+    });
+
+    <span class="pl-en">it</span>(<span class="pl-s"><span class="pl-pds">'</span>...<span class="pl-pds">'</span></span>, <span class="pl-k">function</span> () {
+        <span class="pl-smi">driver</span>.<span class="pl-en">render</span>();
+        <span class="pl-c">//test e</span>
+    });
+});</pre></div>
+
+<h4>
+<a id="contribution" class="anchor" href="#contribution" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Contribution</h4>
+
+<p>Via pull requests,  </p>
+
+<p>After cloning the repository please run <code>npm install</code> and <code>bower install</code> in order to fetch dependencies   </p>
+
+<p>Running/Building the project is done by using <strong><em>grunt</em></strong>:<br>
+<code>grunt serve:clean</code> - will start the server, there is no real UI for it, but it will run the unit tests on each save
+<code>grunt build</code> - build the project to make sure that changes are valid and meeting all code style definitions</p>
+
+<h4>
+<a id="credits" class="anchor" href="#credits" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Credits</h4>
+
+<p>Alon Yehezkel<br>
+Shahar Talmi<br>
+Boris Litvinski<br>
+Amit Shvil  </p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>License</h2>
+
+<p>The MIT License.</p>
+
+<p>See <a href="https://opensource.org/licenses/MIT">LICENSE</a></p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/wix-private/turnerjs">Turnerjs</a> is maintained by <a href="https://github.com/wix-private">wix-private</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
