@@ -1,10 +1,8 @@
 # Angular Components Test Kit
 
-## Watch Talk
-
-Video: https://www.youtube.com/watch?v=SUcaPh4MHes
-
-Slides: https://drive.google.com/a/wix.com/file/d/0BxJZ7qdtPbeYRU1QdUI3X1Y5WFE/view
+## Talk
+Can be downloaded via [Slideshare](https://u5283.ct.sendgrid.net/wf/click?upn=uO6HrIECmgsMyMFzOPMkJYGYLADpdUHdfI6J1dVtgwnTWzZ1-2B1a5bySNoLYlu9QIldML-2FPycLoyx-2FRfHUroVVRKQI0G-2BB7wD2GmagU-2F-2BaFO1GcQKZqTrLfcvI0-2Feq88U4MDDbWxKTMQq15nEkNaTrkhZIEN-2BIjBAqqg35v-2BUjy2Twh3o7-2F-2BMoBQuxY83o7cP_-2F0-2FOxt-2FTDNjPdgoVegGf3gWbc1x6lNE40K0OYIqiiEvA6QswJ-2BwAuEpEMZUWwF9pCCtXpZHa-2Blt19xDW8YLhwNH0buvisU141e9DwO8i-2FtHG4W1yIqIwmvtfz6eqxMt-2FKGTTQY4eR-2F43Sq5XMM2Dcv8czg-2FptYVNvd7fSa-2Fk1ulilJE5DRaYf8AWqy7gUQ2GQKrYehzRQiMwRXFmhxUPi9p5elNaeRifJJbzOrwyHJCJE85erCOU9BC6cqRFonXG-2FgLI0fQq9IJA61i4Z8AJDcRFZrLP3ZQqfF2Xvf-2FiSZ1jKPBpFVsd9RO-2FsqBDo6BeXrm5zSCKTDfxsL0cHIUqkcH4jesDUnfJR67EoqU8SyJo0NnGZlbOM04OaAwKTZDw)
+**Note** - please download in order to be able to utilize the animations included in the deck.
 
 ## Overview
 Component tests allows testing the UI (provided that it is build as components/directives of course) in order to get instant feedback and minimize the use of protractor.
@@ -12,11 +10,14 @@ Component tests allows testing the UI (provided that it is build as components/d
 The test kit provides a base driver utility class - **TurnerComponentDriver**, which allows writing tests using typescript in order to test components in a more readable, maintainable and quicker manner,
 It provides basic methods to allow rendering a template, accessing underlying elements and ability to maintain drivers' hierarchy, in order to be able to reuse drivers in parent components.
 
+The best practice implemented by TurnerJS in regards to elements' selectors is by using a 'data-hook' attribute in order to mark elements which are accessed by your code.
+It implements the approach demonstrates in [this](http://html5doctor.com/html5-custom-data-attributes/) article, but it is not mandated by the framework, one can use any other data selectors approach.
+
 ## Installation
 1. install using bower  
 `bower install --save turnerjs`
 2. Include the following reference in your Karma configuration file  
-`'app/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'`
+`'<path to your app>/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'`
 3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
 `"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"`
 
@@ -230,6 +231,38 @@ describe('Usage Examples when there are repeatable drivers', () => {
       expect(parentComponentDriver.isItemsValid()).toBe(true);
     });
   });
+```
+## Non TypeScript usage
+Though the recommendation is to use TypeScript with turnerjs, if you are not using it, you can create the driver using prototypical inheritance.
+There are various ways to implement it, but the test kits includes a test spec for ES5 usage (see ***app/test/spec/components/es5-name-formatter.js***)
+The below provides the basic implementation of such driver:
+```javascript
+/* globals TurnerComponentDriver */ //for jshint
+function ES5Driver() {
+  TurnerComponentDriver.call(arguments);
+}
+
+ES5Driver.prototype = new TurnerComponentDriver();
+ES5Driver.constructor = ES5Driver;
+
+ES5Driver.prototype.render = function () {
+  this.renderFromTemplate('<es5-component-template></es5-component-template>');  
+};
+//other driver methods
+
+describe('your tests are here', function () {
+    var es5driver;
+    
+    beforeEach(function () {
+        angular.mock.module('turnerjsAppInternal');
+        driver = new ES5Driver();
+    });
+    
+    it('...', function () {
+        driver.render();
+        //test e
+    });
+});
 ```
 #### Contribution
 Via pull requests,  
