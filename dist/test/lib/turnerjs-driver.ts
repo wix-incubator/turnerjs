@@ -170,4 +170,3 @@ class TurnerComponentDriver {
 window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
 
 declare function byDataHook(dataHook: string): string;
-
