@@ -1,6 +1,6 @@
 {
   "name": "turnerjs",
-  "version": "1.0.71",
+  "version": "1.0.83",
   "scripts": {
     "build": "node_modules/wix-gruntfile/scripts/build.sh",
     "release": "node_modules/wix-gruntfile/scripts/release.sh",
@@ -14,7 +14,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "module/base-driver-exp.js",
+  "main": "module/index.js",
   "dependencies": {},
   "devDependencies": {
     "wix-gruntfile": "^0.1.231"
