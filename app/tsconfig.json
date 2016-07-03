@@ -20,7 +20,6 @@
         "test/spec/test-kit/turnerjs-driver.spec.ts",
         "typings/angularjs/angular-mocks.d.ts",
         "typings/angularjs/angular.d.ts",
-        "typings/es6-shim/es6-shim.d.ts",
         "typings/jasmine/jasmine.d.ts",
         "typings/jquery/jquery.d.ts"
     ]
