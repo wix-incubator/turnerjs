@@ -17,7 +17,9 @@ It implements the approach demonstrates in [this](http://html5doctor.com/html5-c
 1. install using bower  
 `bower install --save turnerjs`
 2. Include the following reference in your Karma configuration file  
-`'<path to your app>/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'`
+`'<path to your app>/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'` 
+   or   
+`require(turnerjs)` (when window is supported)
 3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
 `"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"`
 
@@ -25,9 +27,7 @@ It implements the approach demonstrates in [this](http://html5doctor.com/html5-c
 1. install using node package manager  
 `npm install -S turnerjs`
 2. Include the following reference in your Karma configuration file  
-`'node_modules/turnerjs/module/generated/turnerjs-driver.js'` 
-   or   
-`require(turnerjs)` (when window is supported)
+`'node_modules/turnerjs/module/generated/turnerjs-driver.js'`
 3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
 `"../node_modules/turnerjs/module/generated/turnerjs-driver.d.ts"`
 
