@@ -8,4 +8,7 @@ module.exports = function (grunt) {
     protractor: false,
     bowerComponent: true
   });
+  var useminPrepare = grunt.config('useminPrepare');
+  useminPrepare.options.flow.steps.concat = ['concat'];
+  grunt.config('useminPrepare', useminPrepare);
 };

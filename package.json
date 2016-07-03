@@ -14,7 +14,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "dist/test/lib/turnerjs-export.js",
+  "main": "module/base-driver-exp.js",
   "dependencies": {},
   "devDependencies": {
     "wix-gruntfile": "^0.1.231"
