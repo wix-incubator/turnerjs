@@ -8,14 +8,9 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="stylesheets/custom.css" media="screen">
-    <link rel="icon" type="image/png" href="images/turnerjs.png">
   </head>
   <body>
     <section class="page-header">
-      <h1 class="project-icon">
-          <img src="images/turnerjs.png">
-      </h1>
       <h1 class="project-name">Turnerjs</h1>
       <h2 class="project-tagline">Created by carmelc</h2>
       <a href="https://github.com/wix-private/turnerjs" class="btn">View on GitHub</a>
@@ -30,7 +25,7 @@
 <h2>
 <a id="talk" class="anchor" href="#talk" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Talk</h2>
 
-<p>Can be downloaded via <a href="https://u5283.ct.sendgrid.net/wf/click?upn=uO6HrIECmgsMyMFzOPMkJYGYLADpdUHdfI6J1dVtgwnTWzZ1-2B1a5bySNoLYlu9QIldML-2FPycLoyx-2FRfHUroVVRKQI0G-2BB7wD2GmagU-2F-2BaFO1GcQKZqTrLfcvI0-2Feq88U4MDDbWxKTMQq15nEkNaTrkhZIEN-2BIjBAqqg35v-2BUjy2Twh3o7-2F-2BMoBQuxY83o7cP_-2F0-2FOxt-2FTDNjPdgoVegGf3gWbc1x6lNE40K0OYIqiiEvA6QswJ-2BwAuEpEMZUWwF9pCCtXpZHa-2Blt19xDW8YLhwNH0buvisU141e9DwO8i-2FtHG4W1yIqIwmvtfz6eqxMt-2FKGTTQY4eR-2F43Sq5XMM2Dcv8czg-2FptYVNvd7fSa-2Fk1ulilJE5DRaYf8AWqy7gUQ2GQKrYehzRQiMwRXFmhxUPi9p5elNaeRifJJbzOrwyHJCJE85erCOU9BC6cqRFonXG-2FgLI0fQq9IJA61i4Z8AJDcRFZrLP3ZQqfF2Xvf-2FiSZ1jKPBpFVsd9RO-2FsqBDo6BeXrm5zSCKTDfxsL0cHIUqkcH4jesDUnfJR67EoqU8SyJo0NnGZlbOM04OaAwKTZDw">Slideshare</a><br>
+<p>Can be downloaded via <a href="https://u5283.ct.sendgrid.net/wf/click?upn=uO6HrIECmgsMyMFzOPMkJYGYLADpdUHdfI6J1dVtgwnTWzZ1-2B1a5bySNoLYlu9QIldML-2FPycLoyx-2FRfHUroVVRKQI0G-2BB7wD2GmagU-2F-2BaFO1GcQKZqTrLfcvI0-2Feq88U4MDDbWxKTMQq15nEkNaTrkhZIEN-2BIjBAqqg35v-2BUjy2Twh3o7-2F-2BMoBQuxY83o7cP_-2F0-2FOxt-2FTDNjPdgoVegGf3gWbc1x6lNE40K0OYIqiiEvA6QswJ-2BwAuEpEMZUWwF9pCCtXpZHa-2Blt19xDW8YLhwNH0buvisU141e9DwO8i-2FtHG4W1yIqIwmvtfz6eqxMt-2FKGTTQY4eR-2F43Sq5XMM2Dcv8czg-2FptYVNvd7fSa-2Fk1ulilJE5DRaYf8AWqy7gUQ2GQKrYehzRQiMwRXFmhxUPi9p5elNaeRifJJbzOrwyHJCJE85erCOU9BC6cqRFonXG-2FgLI0fQq9IJA61i4Z8AJDcRFZrLP3ZQqfF2Xvf-2FiSZ1jKPBpFVsd9RO-2FsqBDo6BeXrm5zSCKTDfxsL0cHIUqkcH4jesDUnfJR67EoqU8SyJo0NnGZlbOM04OaAwKTZDw">Slideshare</a>
 <strong>Note</strong> - please download in order to be able to utilize the animations included in the deck.</p>
 
 <h2>
@@ -45,7 +40,7 @@ It provides basic methods to allow rendering a template, accessing underlying el
 It implements the approach demonstrates in <a href="http://html5doctor.com/html5-custom-data-attributes/">this</a> article, but it is not mandated by the framework, one can use any other data selectors approach.</p>
 
 <h2>
-<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+<a id="installation---bower" class="anchor" href="#installation---bower" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation - Bower</h2>
 
 <ol>
 <li>install using bower<br>
@@ -57,6 +52,23 @@ It implements the approach demonstrates in <a href="http://html5doctor.com/html5
 <li>
 <em>Optional</em> - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:<br>
 <code>"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"</code>
+</li>
+</ol>
+
+<h2>
+<a id="installation---npm" class="anchor" href="#installation---npm" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation - NPM</h2>
+
+<ol>
+<li>install using node package manager<br>
+<code>npm install -S turnerjs</code>
+</li>
+<li>Include the following reference in your Karma configuration file<br>
+<code>'node_modules/turnerjs/module/generated/turnerjs-driver.js'</code> 
+or<br>
+<code>require(turnerjs)</code> (when window is supported)</li>
+<li>
+<em>Optional</em> - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:<br>
+<code>"../node_modules/turnerjs/module/generated/turnerjs-driver.d.ts"</code>
 </li>
 </ol>
 
@@ -128,13 +140,14 @@ It implements the approach demonstrates in <a href="http://html5doctor.com/html5
 
 <h2>
 <a id="base-driver-methods-members" class="anchor" href="#base-driver-methods-members" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Base Driver Methods/ Members</h2>
-<table class="api-table">
+
+<table>
 <thead>
 <tr>
-<th class="api-column--param">Param</th>
-<th class="api-column--type">Type</th>
-<th class="api-column--arguments">Arguments</th>
-<th class="api-column--details">Details</th>
+<th>Param</th>
+<th>Type</th>
+<th>Arguments</th>
+<th>Details</th>
 </tr>
 </thead>
 <tbody>
@@ -236,6 +249,7 @@ It implements the approach demonstrates in <a href="http://html5doctor.com/html5
 </tr>
 </tbody>
 </table>
+
 <h2>
 <a id="nested-drivers" class="anchor" href="#nested-drivers" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Nested drivers</h2>
 
@@ -441,7 +455,7 @@ Amit Shvil  </p>
 
 <p>The MIT License.</p>
 
-<p>See <a href="https://opensource.org/licenses/MIT">LICENSE</a></p>
+<p>See <a href="LICENSE.md">LICENSE</a></p>
 
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/wix-private/turnerjs">Turnerjs</a> is maintained by <a href="https://github.com/wix-private">wix-private</a>.</span>
