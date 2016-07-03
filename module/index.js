@@ -1,3 +1,3 @@
-declare var module;
+require('./generated/turnerjs-driver');
 
 module.exports = TurnerComponentDriver;

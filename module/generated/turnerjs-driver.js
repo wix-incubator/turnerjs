@@ -149,5 +149,3 @@ var TurnerComponentDriver = function() {
 }();
 
 window["byDataHook"] = window["byDataHook"] || TurnerComponentDriver.byDataHook;
-
-module.exports = TurnerComponentDriver;
