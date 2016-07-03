@@ -13,13 +13,23 @@ It provides basic methods to allow rendering a template, accessing underlying el
 The best practice implemented by TurnerJS in regards to elements' selectors is by using a 'data-hook' attribute in order to mark elements which are accessed by your code.
 It implements the approach demonstrates in [this](http://html5doctor.com/html5-custom-data-attributes/) article, but it is not mandated by the framework, one can use any other data selectors approach.
 
-## Installation
+## Installation - Bower
 1. install using bower  
 `bower install --save turnerjs`
 2. Include the following reference in your Karma configuration file  
 `'<path to your app>/bower_components/turnerjs/dist/test/lib/turnerjs-driver.js'`
 3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
 `"bower_components/turnerjs/dist/test/lib/turnerjs-driver.d.ts"`
+
+## Installation - NPM
+1. install using node package manager  
+`npm install -S turnerjs`
+2. Include the following reference in your Karma configuration file  
+`'node_modules/turnerjs/module/generated/turnerjs-driver.js'` 
+   or   
+`require(turnerjs)` (when window is supported)
+3. *Optional* - if you are using TypeScript (recommended) add reference to the d.ts file in your tsconfig file:  
+`"../node_modules/turnerjs/module/generated/turnerjs-driver.d.ts"`
 
 ## Usage
 * Create a driver that extends the base driver and implement the methods that are required for your tests, for example (in the spec file or elsewhere):
@@ -283,4 +293,4 @@ Amit Shvil
 
 The MIT License.
 
-See [LICENSE](https://opensource.org/licenses/MIT)
+See [LICENSE](LICENSE.md)
