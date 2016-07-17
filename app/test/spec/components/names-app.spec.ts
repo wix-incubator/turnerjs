@@ -2,10 +2,12 @@
 
 class NamesAppDriver extends TurnerComponentDriver {
   list: NameListDriver;
+  input: NameInputDriver;
 
   constructor() {
     super();
     this.list = this.defineChild(new NameListDriver(), 'name-list');
+    this.input = this.defineChild(new NameInputDriver(), 'name-input');
   }
 
   render() {
@@ -13,10 +15,7 @@ class NamesAppDriver extends TurnerComponentDriver {
   }
 
   addName(name: string) {
-    this.findByDataHook('name-input').val(name);
-    this.findByDataHook('name-input').triggerHandler('change');
-    this.findByDataHook('add-name-button').triggerHandler('click');
-    this.applyChanges();
+    this.input.addName(name);
   }
 
   toggleVisibility() {

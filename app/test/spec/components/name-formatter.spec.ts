@@ -9,6 +9,10 @@ class NameFormatterDriver extends TurnerComponentDriver {
   getFormattedName() {
     return this.findByDataHook('name-container').text();
   }
+
+  getOriginalName() {
+    return this.getFormattedName().split('Name: ')[1];
+  }
 }
 
 describe('Component: nameFormatter', () => {

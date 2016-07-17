@@ -32,7 +32,7 @@ describe('Component: nameList', () => {
 
   it('should format the names', () => {
     driver.render(['Elyaniv Barda', 'Maor Melikson']);
-    expect(driver.nameDrivers[0].getFormattedName()).toEqual('Name: Elyaniv Barda');
+    expect(driver.nameDrivers[0].getOriginalName()).toEqual('Elyaniv Barda');
   });
 
   it('should respond to changes in the names array', () => {
