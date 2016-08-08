@@ -1,6 +1,6 @@
 {
   "name": "turnerjs",
-  "version": "1.0.196",
+  "version": "1.0.197",
   "scripts": {
     "build": "node_modules/wix-gruntfile/scripts/build.sh",
     "release": "node_modules/wix-gruntfile/scripts/release.sh",
