@@ -167,6 +167,8 @@ class TurnerComponentDriver {
   }
 }
 
-window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
+if (window) {
+  window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
+}
 
 declare function byDataHook(dataHook: string): string;
