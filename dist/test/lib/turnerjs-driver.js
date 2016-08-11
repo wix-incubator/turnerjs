@@ -142,7 +142,5 @@ var TurnerComponentDriver = (function () {
     };
     return TurnerComponentDriver;
 }());
-if (window) {
-    window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
-}
+window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
 //# sourceMappingURL=turnerjs-driver.js.map
