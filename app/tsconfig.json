@@ -1,0 +1,27 @@
+{
+    "compilerOptions": {
+        "outDir": "../.tmp"
+    },
+    "filesGlob": [
+        "scripts/**/*.ts",
+        "test/**/*.ts",
+        "typings/**/*.d.ts"
+    ],
+    "files": [
+        "scripts/app.ts",
+        "scripts/components/name-formatter.ts",
+        "scripts/components/name-input.ts",
+        "scripts/components/name-list.ts",
+        "scripts/components/names-app.ts",
+        "test/lib/turnerjs-driver.ts",
+        "test/spec/components/name-formatter.spec.ts",
+        "test/spec/components/name-input.spec.ts",
+        "test/spec/components/name-list.spec.ts",
+        "test/spec/components/names-app.spec.ts",
+        "test/spec/test-kit/turnerjs-driver.spec.ts",
+        "typings/angularjs/angular-mocks.d.ts",
+        "typings/angularjs/angular.d.ts",
+        "typings/jasmine/jasmine.d.ts",
+        "typings/jquery/jquery.d.ts"
+    ]
+}
