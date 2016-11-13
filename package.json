@@ -14,7 +14,13 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "module/index.js",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "module/generated/turnerjs-driver.js",
+    "module/generated/turnerjs-driver.d.ts"
+  ],
   "dependencies": {},
   "devDependencies": {
     "wix-gruntfile": "^0.1.231"
