@@ -9,8 +9,7 @@ module.exports = function (grunt) {
     bowerComponent: true
   });
   var copy = grunt.config('copy');
-  copy.dist.files = [
-    {
+  copy.dist.files.push({
       expand: true,
       cwd: '.tmp/test/lib/',
       src: ['*.d.ts', '*.js'],
@@ -22,7 +21,6 @@ module.exports = function (grunt) {
       rename: function () {
         return 'index.d.ts';
       }
-    }
-  ];
+    });
   grunt.config('copy', copy);
 };
