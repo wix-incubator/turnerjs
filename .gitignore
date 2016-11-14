@@ -20,3 +20,4 @@ Gruntfile.private.js
 .baseDir.ts
 .tscache
 npm-debug.log*
+index.d.ts

@@ -1,15 +1,14 @@
-"use strict";
-
-var TurnerComponentDriver = function() {
+'use strict';
+var TurnerComponentDriver = (function () {
     function TurnerComponentDriver() {
         this.childDrivers = [];
         this.body = angular.element(document.body);
     }
-    TurnerComponentDriver.byDataHook = function(dataHook) {
+    TurnerComponentDriver.byDataHook = function (dataHook) {
         return "[data-hook='" + dataHook + "']";
     };
     Object.defineProperty(TurnerComponentDriver.prototype, "element", {
-        get: function() {
+        get: function () {
             this.verifyRendered();
             return this._element;
         },
@@ -17,7 +16,7 @@ var TurnerComponentDriver = function() {
         configurable: true
     });
     Object.defineProperty(TurnerComponentDriver.prototype, "scope", {
-        get: function() {
+        get: function () {
             this.verifyRendered();
             return this._scope;
         },
@@ -25,17 +24,17 @@ var TurnerComponentDriver = function() {
         configurable: true
     });
     Object.defineProperty(TurnerComponentDriver.prototype, "isRendered", {
-        get: function() {
+        get: function () {
             return !!this._scope;
         },
         enumerable: true,
         configurable: true
     });
-    TurnerComponentDriver.prototype.connectToBody = function() {
+    TurnerComponentDriver.prototype.connectToBody = function () {
         this.verifyRendered();
         this.body.append(this.templateRoot);
     };
-    TurnerComponentDriver.prototype.disconnectFromBody = function() {
+    TurnerComponentDriver.prototype.disconnectFromBody = function () {
         if (this.templateRoot) {
             this.templateRoot.remove();
         }
@@ -43,21 +42,19 @@ var TurnerComponentDriver = function() {
             this._element.remove();
         }
     };
-    TurnerComponentDriver.prototype.applyChanges = function() {
+    TurnerComponentDriver.prototype.applyChanges = function () {
         this.$rootScope.$digest();
     };
-    TurnerComponentDriver.prototype.findByDataHook = function(dataHook) {
+    TurnerComponentDriver.prototype.findByDataHook = function (dataHook) {
         return angular.element(this.element[0].querySelector(TurnerComponentDriver.byDataHook(dataHook)));
     };
-    TurnerComponentDriver.prototype.findAllByDataHook = function(dataHook) {
+    TurnerComponentDriver.prototype.findAllByDataHook = function (dataHook) {
         return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
     };
-    TurnerComponentDriver.prototype.renderFromTemplate = function(template, args, selector) {
+    TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector) {
         var _this = this;
-        if (args === void 0) {
-            args = {};
-        }
-        inject(function($rootScope, $compile) {
+        if (args === void 0) { args = {}; }
+        inject(function ($rootScope, $compile) {
             _this.$rootScope = $rootScope;
             _this.$compile = $compile;
         });
@@ -67,27 +64,26 @@ var TurnerComponentDriver = function() {
         this.$compile(this.templateRoot)(scope);
         this.$rootScope.$digest();
         this.initializeDriver(this.templateRoot, selector);
-        this.$rootScope.$watch(function() {
-            return _this.initChildDrivers();
-        });
+        this.$rootScope.$watch(function () { return _this.initChildDrivers(); });
     };
-    TurnerComponentDriver.prototype.initChildDrivers = function() {
+    TurnerComponentDriver.prototype.initChildDrivers = function () {
         var _this = this;
-        this.childDrivers.forEach(function(child) {
-            if (child.type === 0) {
+        this.childDrivers.forEach(function (child) {
+            if (child.type === 0 /* CHILD_REGULAR */) {
                 _this.initRegularChild(child);
-            } else if (child.type === 1) {
+            }
+            else if (child.type === 1 /* CHILD_ARRAY */) {
                 _this.initArrayChild(child);
             }
         });
     };
-    TurnerComponentDriver.prototype.defineChild = function(childDriver, selector) {
+    TurnerComponentDriver.prototype.defineChild = function (childDriver, selector) {
         return this.defineIndexedChild(childDriver, selector, 0);
     };
-    TurnerComponentDriver.prototype.defineChildren = function(factory, selector) {
+    TurnerComponentDriver.prototype.defineChildren = function (factory, selector) {
         var children = [];
         this.childDrivers.push({
-            type: 1,
+            type: 1 /* CHILD_ARRAY */,
             selector: selector,
             factory: factory,
             drivers: children,
@@ -95,23 +91,19 @@ var TurnerComponentDriver = function() {
         });
         return children;
     };
-    TurnerComponentDriver.prototype.defineIndexedChild = function(childDriver, selector, selectorIndex) {
-        if (selectorIndex === void 0) {
-            selectorIndex = 0;
-        }
+    TurnerComponentDriver.prototype.defineIndexedChild = function (childDriver, selector, selectorIndex) {
+        if (selectorIndex === void 0) { selectorIndex = 0; }
         this.childDrivers.push({
             selector: selector,
             selectorIndex: selectorIndex,
-            type: 0,
-            drivers: [ childDriver ]
+            type: 0 /* CHILD_REGULAR */,
+            drivers: [childDriver]
         });
         childDriver.parent = this;
         return childDriver;
     };
-    TurnerComponentDriver.prototype.initializeDriver = function(containingElement, selector, selectorIndex) {
-        if (selectorIndex === void 0) {
-            selectorIndex = 0;
-        }
+    TurnerComponentDriver.prototype.initializeDriver = function (containingElement, selector, selectorIndex) {
+        if (selectorIndex === void 0) { selectorIndex = 0; }
         var searchElement = this.appendedToBody ? this.body : containingElement;
         this._element = selector ? angular.element(searchElement[0].querySelectorAll(selector)[selectorIndex]) : containingElement;
         this._scope = this._element.isolateScope() || this._element.scope();
@@ -119,35 +111,38 @@ var TurnerComponentDriver = function() {
             this.initChildDrivers();
         }
     };
-    TurnerComponentDriver.prototype.initArrayChild = function(child) {
+    TurnerComponentDriver.prototype.initArrayChild = function (child) {
         var _this = this;
         child.drivers.splice(0, child.drivers.length);
-        [].forEach.call(this._element[0].querySelectorAll(child.selector), function(item, index) {
+        [].forEach.call(this._element[0].querySelectorAll(child.selector), function (item, index) {
             if (child.fullDriversArr.length <= index) {
                 child.fullDriversArr.push(_this.defineIndexedChild(child.factory(item, index), child.selector, index));
             }
             child.drivers.push(child.fullDriversArr[index]);
         });
     };
-    TurnerComponentDriver.prototype.initRegularChild = function(child) {
+    ;
+    TurnerComponentDriver.prototype.initRegularChild = function (child) {
         var childDriver = child.drivers[0];
         childDriver.initializeDriver(this._element, child.selector, child.selectorIndex);
         childDriver.$compile = this.$compile;
         childDriver.$rootScope = this.$rootScope;
     };
-    TurnerComponentDriver.prototype.verifyRendered = function() {
+    ;
+    TurnerComponentDriver.prototype.verifyRendered = function () {
         if (this.parent) {
             this.parent.verifyRendered();
-        } else {
+        }
+        else {
             this.initChildDrivers();
         }
         if (!this.isRendered) {
-            throw "cannot interact with driver before element is rendered";
+            throw 'cannot interact with driver before element is rendered';
         }
     };
     return TurnerComponentDriver;
-}();
-
+}());
 if (window) {
-    window["byDataHook"] = window["byDataHook"] || TurnerComponentDriver.byDataHook;
+    window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
 }
+//# sourceMappingURL=turnerjs-driver.js.map
