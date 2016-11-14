@@ -8,7 +8,21 @@ module.exports = function (grunt) {
     protractor: false,
     bowerComponent: true
   });
-  var useminPrepare = grunt.config('useminPrepare');
-  useminPrepare.options.flow.steps.concat = ['concat'];
-  grunt.config('useminPrepare', useminPrepare);
+  var copy = grunt.config('copy');
+  copy.dist.files = [
+    {
+      expand: true,
+      cwd: '.tmp/test/lib/',
+      src: ['*.d.ts', '*.js'],
+      dest: 'module/generated'
+    }, {
+      expand: true,
+      cwd: '.tmp/test/lib/',
+      src: ['*.d.ts'],
+      rename: function () {
+        return 'index.d.ts';
+      }
+    }
+  ];
+  grunt.config('copy', copy);
 };
