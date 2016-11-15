@@ -146,14 +146,14 @@ class TurnerComponentDriver {
       }
       child.drivers.push(child.fullDriversArr[index]);
     });
-  };
+  }
 
   private initRegularChild(child) {
     let childDriver = child.drivers[0];
     childDriver.initializeDriver(this._element, child.selector, child.selectorIndex);
     childDriver.$compile = this.$compile;
     childDriver.$rootScope = this.$rootScope;
-  };
+  }
 
   verifyRendered() {
     if (this.parent) {
@@ -172,3 +172,10 @@ if (window) {
 }
 
 declare function byDataHook(dataHook: string): string;
+
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+  module.exports = {
+    TurnerComponentDriver,
+    byDataHook: TurnerComponentDriver.byDataHook
+  };
+}

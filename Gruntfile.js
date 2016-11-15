@@ -23,4 +23,16 @@ module.exports = function (grunt) {
       }
     });
   grunt.config('copy', copy);
+
+  var replace = grunt.config('replace');
+  replace.dtsAsModule = {
+    src: ['index.d.ts'],
+    overwrite: true,
+    replacements: [{
+      from: /declare /g,
+      to: 'export '
+    }]
+  };
+  grunt.config('replace', replace);
+  grunt.hookTask('package').push('replace:dtsAsModule');
 };

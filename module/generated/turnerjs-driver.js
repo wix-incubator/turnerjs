@@ -145,4 +145,10 @@ var TurnerComponentDriver = (function () {
 if (window) {
     window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
 }
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = {
+        TurnerComponentDriver: TurnerComponentDriver,
+        byDataHook: TurnerComponentDriver.byDataHook
+    };
+}
 //# sourceMappingURL=turnerjs-driver.js.map
