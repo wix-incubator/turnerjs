@@ -121,14 +121,12 @@ var TurnerComponentDriver = (function () {
             child.drivers.push(child.fullDriversArr[index]);
         });
     };
-    ;
     TurnerComponentDriver.prototype.initRegularChild = function (child) {
         var childDriver = child.drivers[0];
         childDriver.initializeDriver(this._element, child.selector, child.selectorIndex);
         childDriver.$compile = this.$compile;
         childDriver.$rootScope = this.$rootScope;
     };
-    ;
     TurnerComponentDriver.prototype.verifyRendered = function () {
         if (this.parent) {
             this.parent.verifyRendered();
@@ -144,5 +142,11 @@ var TurnerComponentDriver = (function () {
 }());
 if (window) {
     window['byDataHook'] = window['byDataHook'] || TurnerComponentDriver.byDataHook;
+}
+if (typeof module !== 'undefined' && typeof module.exports !== 'undefined') {
+    module.exports = {
+        TurnerComponentDriver: TurnerComponentDriver,
+        byDataHook: TurnerComponentDriver.byDataHook
+    };
 }
 //# sourceMappingURL=turnerjs-driver.js.map
