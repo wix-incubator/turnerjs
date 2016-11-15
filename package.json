@@ -14,7 +14,7 @@
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
-  "main": "index.js",
+  "main": "module/generated/turnerjs-driver.js",
   "files": [
     "index.js",
     "index.d.ts",
