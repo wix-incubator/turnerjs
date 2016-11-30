@@ -1,0 +1,334 @@
+@charset "UTF-8";
+
+@import "../../skins/wix-sites-base";
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brw: 1px;
+$tdr: BASE_THEME_DIRECTORY;
+$trans: all .4s ease 0s;
+$BorderRadius: 6px;
+$BorderRadiusLeftOnly: $BorderRadius;
+
+
+
+#content {
+  font-family: "Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;
+  font-size: 21px;
+}
+
+:host:after {
+  display: none;
+  content: param-url(tdr, $tdr, "search-btn-hover.png") param-url(tdr, $tdr, "ajax-loader.gif") param-url(tdr, $tdr, "yes-icon.png") param-url(tdr, $tdr, "no-icon.png") param-url(tdr, $tdr, "buy-button.png") param-url(tdr, $tdr, "buy-button-hover.png") param-url(tdr, $tdr, "search-again-arrow.png");
+}
+
+.topBar {
+  border: param-border-size(brw, $brw) solid #cfcfcf;
+  @include param-border-radius(BorderRadius, $BorderRadius);
+  background-color: #f5f5f5;
+  height: 115px;
+}
+
+#searchDomainContainer {
+  display: none;
+  position: relative;
+  margin: 30px 15px;
+  height: 53px;
+  background-color: white;
+  border: param-border-size(brw, $brw) solid #cfcfcf;
+  @include param-border-radius(BorderRadius, $BorderRadius);
+}
+
+[data-state~="topBar-search"] #searchDomainContainer {
+  display: block;
+}
+
+#frmSearchDomain {
+  display: none;
+}
+
+.domainInputWrapper {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  right: 258px;
+  padding: 0 15px;
+}
+
+#txtDomain {
+  border: 0;
+  height: 53px;
+  line-height: 49px;
+  font-size: 21px;
+  width: 100%;
+}
+
+[data-state~="inputPlaceholder-on"] #txtDomain {
+  color: #aaa;
+}
+
+#suffixSelectionWrapper {
+  position: relative;
+  float: right;
+  margin-right: 174px;
+  width: 82px;
+  border-right: param-border-size(brw, $brw) solid #cfcfcf;
+  border-left: param-border-size(brw, $brw) solid #cfcfcf;
+  line-height: 53px;
+  height: 53px;
+  text-align: center;
+  color: #a9a9a9;
+  cursor: pointer;
+}
+
+.selectionArrow {
+  display: inline-block;
+  background: param-url(tdr, $tdr, "triangle-selector.png");
+  width: 12px;
+  height: 6px;
+  position: relative;
+  top: -3px;
+  left: 4px;
+}
+
+#selectedSuffixWrapper:hover {
+  background-color: #e7f3ff;
+}
+
+#suffixDropdown {
+  z-index: $zindex-domain-search-bar-skin-suffix-dropdown;
+  height: 0;
+  @include param-transition(trans, $trans);
+  position: absolute;
+  width: 100%;
+  top: 54px;
+  left: -1px;
+  border-left: param-border-size(brw, $brw) solid #cfcfcf;
+  border-right: param-border-size(brw, $brw) solid #cfcfcf;
+  overflow: hidden;
+}
+
+[data-state~="suffixMenu-open"] #suffixDropdown {
+  height: 324px;
+}
+
+#suffixDropdown li {
+  display: block;
+  height: 53px;
+  border-bottom: param-border-size(brw, $brw) solid #cfcfcf;
+  background-color: white;
+}
+
+#suffixDropdown li:hover {
+  background-color: #e7f3ff;
+}
+
+.searchDomainButtonWrapper {
+  position: absolute;
+  right: 0;
+}
+
+#searchDomainButton {
+  width: 174px;
+  height: 53px;
+  border: 0;
+  margin: 0;
+  font-size: 24px;
+  color: white;
+  background: param-url(tdr, $tdr, "search-btn.png");
+  padding: 0;
+  @include param-border-radius(BorderRadiusLeftOnly, $BorderRadiusLeftOnly);
+  cursor: pointer;
+}
+
+#searchDomainButton:hover {
+  background: param-url(tdr, $tdr, "search-btn-hover.png");
+}
+
+#loaderOverlay {
+  display: none;
+  width: 848px;
+  height: 53px;
+  background-color: white;
+  @include param-border-radius(BorderRadius, $BorderRadius);
+  @include opacity(0.4);
+  @include abs-distance(0);
+}
+
+#loader {
+  display: none;
+  background-image: param-url(tdr, $tdr, "ajax-loader.gif");
+  width: 32px;
+  height: 32px;
+  @include abs-distance(0);
+  margin: auto;
+}
+
+[data-state~="loader-on"] #loaderOverlay, [data-state~="loader-on"] #loader {
+  display: block;
+}
+
+#buyDomainContainer {
+  display: none;
+  position: relative;
+  height: 50px;
+  width: 728px;
+  margin: 33px auto 31px;
+  color: #555555;
+}
+
+[data-state~="topBar-buy"] #buyDomainContainer {
+  display: block;
+}
+
+.availableIcon {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  background: param-url(tdr, $tdr, "yes-icon.png");
+  margin-right: 15px;
+}
+
+#availableDomainName {
+  position: absolute;
+  top: -5px;
+  left: 70px;
+  font-size: 28px;
+  max-width: 337px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.availableLabel {
+  display: inline-block;
+  position: relative;
+  font-size: 20px;
+  color: #6bb445;
+}
+
+#availableDomainPrice {
+  display: inline-block;
+  position: absolute;
+  font-family: "Helvetica Neue Light", "HelveticaNeueW01-45Ligh", "HelveticaNeueW02-45Ligh", "HelveticaNeueW10-45Ligh", Helvetica, Arial, sans-serif;
+  font-size: 30px;
+  color: #555555;
+  right: 225px;
+  top: 10px;
+}
+
+#btnBuyAvailableDomain {
+  display: inline-block;
+  position: absolute;
+  font-family: "Helvetica Neue Medium", "HelveticaNeueW01-65Medi", "HelveticaNeueW02-65Medi", "HelveticaNeueW10-65Medi", Helvetica, Arial, sans-serif;
+  font-size: 24px;
+  color: white;
+  background: param-url(tdr, $tdr, "buy-button.png");
+  right: 0;
+  top: 3px;
+  padding: 8px 30px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+#btnBuyAvailableDomain:hover {
+  background: param-url(tdr, $tdr, "buy-button-hover.png");
+}
+
+#searchAgain {
+  position: absolute;
+  bottom: -57px;
+  left: -65px;
+  background: param-url(tdr, $tdr, "search-again-arrow.png") 0 1px no-repeat;
+  padding-left: 17px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#error {
+  display: none;
+  position: relative;
+  margin-top: 35px;
+  height: 50px;
+  background: param-url(tdr, $tdr, "no-icon.png") 0 0 no-repeat;
+  padding-left: 65px;
+  line-height: 54px;
+  font-size: 20px;
+  color: #555555;
+}
+
+[data-state~="error-on"] #error {
+  display: block;
+}
+
+#alternativeDomainsContainer {
+  display: none;
+  position: relative;
+  margin-top: 30px;
+  width: 100%;
+  font-size: 20px;
+  color: #555555;
+}
+
+[data-state~="altDomains-show"] #alternativeDomainsContainer {
+  display: block;
+}
+
+#alternativeDomainsContainer p {
+  margin-bottom: 5px;
+}
+
+#alternativeDomains li {
+  position: relative;
+  left: 0;
+  right: 0;
+  height: 53px;
+  line-height: 53px;
+}
+
+.altDomainInfo {
+  display: inline-block;
+  position: absolute;
+  left: 0;
+  right: 130px;
+  border-bottom: param-border-size(brw, $brw) solid #cfcfcf;
+}
+
+#alternativeDomains li:last-child .altDomainInfo {
+  border: 0;
+}
+
+.altDomainName {
+  float: left;
+}
+
+.altDomainPrice {
+  float: right;
+  color: black;
+}
+
+.btnBuyAltDomain {
+  position: relative;
+  float: right;
+  top: 5px;
+  color: #545454;
+  display: inline-block;
+  font-size: 16px;
+  background-color: #FFF;
+  border: 1px solid #CFCFCF;
+  @include param-border-radius(BorderRadius, $BorderRadius);
+  line-height: 42px;
+  padding: 0 20px;
+  cursor: pointer;
+}
+
+.btnBuyAltDomain:hover {
+  background-color: #f5f5f5;
+}
+

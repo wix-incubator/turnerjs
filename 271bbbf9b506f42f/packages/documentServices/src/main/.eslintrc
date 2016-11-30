@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "new-cap": [2, {"capIsNewExceptions": ["immutable.List", "immutable.Map"]}],
+    "santa/no-getSiteData": 2,
+    "santa/no-unused-imports": 0
+    }
+}

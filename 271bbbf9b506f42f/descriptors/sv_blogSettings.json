@@ -1,0 +1,8 @@
+{
+    "owner": "tome",
+    "description": "fetch blog settings data in app part - for locale/shoutout",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

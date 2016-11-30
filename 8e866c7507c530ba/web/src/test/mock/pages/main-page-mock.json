@@ -1,0 +1,590 @@
+{
+  "structure": {
+    "type": "Page",
+    "layout": {
+      "width": 980,
+      "height": 698,
+      "x": 0,
+      "y": 0
+    },
+    "styleId": "p1",
+    "components": [
+      {
+        "type": "Component",
+        "layout": {
+          "width": 980,
+          "height": 550,
+          "x": 0,
+          "y": 5,
+          "anchors": [
+            {
+              "distance": 15,
+              "topToTop": 565,
+              "originalValue": 570,
+              "type": "BOTTOM_TOP",
+              "locked": true,
+              "targetComponent": "Clprt0-h5m"
+            },
+            {
+              "distance": 45,
+              "topToTop": 595,
+              "originalValue": 600,
+              "type": "BOTTOM_TOP",
+              "locked": true,
+              "targetComponent": "StBttn0-6ms"
+            },
+            {
+              "distance": 50,
+              "topToTop": 600,
+              "originalValue": 605,
+              "type": "BOTTOM_TOP",
+              "locked": true,
+              "targetComponent": "StBttn0-6h9"
+            }
+          ]
+        },
+        "styleId": "ssg2",
+        "id": "mainPage_SlideShowGallery_0",
+        "dataQuery": "#component_9280",
+        "skin": "wysiwyg.viewer.skins.gallery.SlideShowTextOverlay",
+        "propertyQuery": "mainPage_SlideShowGallery_0",
+        "componentType": "wysiwyg.viewer.components.SlideShowGallery"
+      },
+      {
+        "type": "Component",
+        "layout": {
+          "width": 128,
+          "height": 128,
+          "x": 370,
+          "y": 570,
+          "anchors": [
+            {
+              "distance": 0,
+              "topToTop": 570,
+              "originalValue": 698,
+              "type": "BOTTOM_PARENT",
+              "locked": false,
+              "targetComponent": "mainPage"
+            }
+          ]
+        },
+        "styleId": "ca1",
+        "componentName": "star",
+        "behaviors": "\ncomponent.click(function(){\n\n\tWix.getComponent('button',function(comp){\n    \tcomp.hide();\n    });\n\n});\n",
+        "id": "Clprt0-h5m",
+        "dataQuery": "#c1rgj",
+        "skin": "wysiwyg.viewer.skins.photo.NoSkinPhoto",
+        "propertyQuery": "Clprt0-h5m",
+        "componentType": "wysiwyg.viewer.components.ClipArt"
+      },
+      {
+        "type": "Component",
+        "layout": {
+          "width": 130,
+          "height": 60,
+          "x": 150,
+          "y": 600,
+          "anchors": [
+            {
+              "distance": 33,
+              "topToTop": 600,
+              "originalValue": 693,
+              "type": "BOTTOM_PARENT",
+              "locked": false,
+              "targetComponent": "mainPage"
+            }
+          ]
+        },
+        "styleId": "b2",
+        "id": "StBttn0-6ms",
+        "dataQuery": "#c1mdh",
+        "skin": "wysiwyg.viewer.skins.button.TextOnlyButtonSkin",
+        "propertyQuery": "StBttn0-6ms",
+        "componentType": "wysiwyg.viewer.components.SiteButton"
+      },
+      {
+        "type": "Component",
+        "layout": {
+          "width": 130,
+          "height": 60,
+          "x": 590,
+          "y": 605,
+          "anchors": [
+            {
+              "distance": 33,
+              "topToTop": 605,
+              "originalValue": 698,
+              "type": "BOTTOM_PARENT",
+              "locked": false,
+              "targetComponent": "mainPage"
+            }
+          ]
+        },
+        "styleId": "b3",
+        "componentName": "button",
+        "id": "StBttn0-6h9",
+        "dataQuery": "#c161e",
+        "skin": "wysiwyg.viewer.skins.button.ButtonLiftedShadow",
+        "propertyQuery": "StBttn0-6h9",
+        "componentType": "wysiwyg.viewer.components.SiteButton"
+      }
+    ],
+    "id": "mainPage",
+    "dataQuery": "#mainPage",
+    "skin": "wysiwyg.viewer.skins.area.RectangleArea",
+    "componentType": "mobile.core.components.Page"
+  },
+  "data": {
+    "document_data": {
+      "c1rgj": {
+        "type": "Image",
+        "id": "c1rgj",
+        "metaData": {
+          "isPreset": false,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "star",
+        "uri": "94384e3764ba8fd35fc69d03995d26a9.wix_mp",
+        "description": "",
+        "width": 70,
+        "height": 70,
+        "alt": ""
+      },
+      "c199t": {
+        "type": "Page",
+        "id": "c199t",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Portraits",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "portraits",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "image1ips": {
+        "type": "Image",
+        "id": "image1ips",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "I'm a title",
+        "uri": "84770f_a3897ae7c57ef49f24f61ae5dd7ce2f7.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 481,
+        "alt": ""
+      },
+      "component_9280": {
+        "type": "ImageList",
+        "id": "component_9280",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "items": [
+          "#image1ips",
+          "#image6js",
+          "#image1cku",
+          "#imagecaw"
+        ]
+      },
+      "c65q": {
+        "type": "Page",
+        "id": "c65q",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Video",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "video",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "#Link1v77": {
+        "type": "TextLink",
+        "id": "#Link1v77",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "_self",
+        "linkType": "PAGE",
+        "href": "#!Home/mainPage"
+      },
+      "SITE_STRUCTURE": {
+        "type": "Document",
+        "id": "SITE_STRUCTURE",
+        "metaData": {
+          "isPreset": false,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "siteName": "Template Base",
+        "mainPage": "#mainPage",
+        "renderModifiers": {
+          "pageAutoShrink": false
+        }
+      },
+      "Linkq6g": {
+        "type": "TextLink",
+        "id": "Linkq6g",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "target": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "MAIN_MENU": {
+        "type": "Menu",
+        "id": "MAIN_MENU",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "items": [
+          {
+            "refId": "#mainPage",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#c240r",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#c199t",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#c1n0f",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#cyuu",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#c65q",
+            "items": [
+              
+            ]
+          },
+          {
+            "refId": "#czpl",
+            "items": [
+              
+            ]
+          }
+        ]
+      },
+      "mainPage": {
+        "type": "Page",
+        "id": "mainPage",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Home",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "home",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "c1mdh": {
+        "type": "SiteButton",
+        "id": "c1mdh",
+        "metaData": {
+          "isPreset": false,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "label": "Click me"
+      },
+      "c161e": {
+        "type": "SiteButton",
+        "id": "c161e",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "label": "MY BUTTON"
+      },
+      "image6js": {
+        "type": "Image",
+        "id": "image6js",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "I'm a title",
+        "uri": "84770f_6387a975fc630d77396e6937af1649ab.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 481,
+        "alt": ""
+      },
+      "imagecaw": {
+        "type": "Image",
+        "id": "imagecaw",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "I'm a title",
+        "uri": "84770f_19263c2998d0350100ec37b25ae1bed1.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 481,
+        "alt": ""
+      },
+      "#Link2zk": {
+        "type": "TextLink",
+        "id": "#Link2zk",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "czpl": {
+        "type": "Page",
+        "id": "czpl",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Contact",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "contact",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "cyuu": {
+        "type": "Page",
+        "id": "cyuu",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Landscape",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "landscape",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "c1n0f": {
+        "type": "Page",
+        "id": "c1n0f",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Fashion",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "fashion",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "Linkqin": {
+        "type": "TextLink",
+        "id": "Linkqin",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "target": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "image1cku": {
+        "type": "Image",
+        "id": "image1cku",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "I'm a title",
+        "uri": "84770f_370a7c58c23499c20996bcba6702eac2.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 481,
+        "alt": ""
+      },
+      "c240r": {
+        "type": "Page",
+        "id": "c240r",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "About",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "about",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      }
+    },
+    "theme_data": {
+      
+    },
+    "component_properties": {
+      "Clprt0-h5m": {
+        "type": "WPhotoProperties",
+        "displayMode": "stretch"
+      },
+      "StBttn0-6ms": {
+        "type": "ButtonProperties",
+        "align": "center",
+        "margin": 0
+      },
+      "StBttn0-6h9": {
+        "type": "ButtonProperties",
+        "align": "center",
+        "margin": 0
+      },
+      "mainPage_SlideShowGallery_0": {
+        "type": "SlideShowGalleryProperties",
+        "expandEnabled": true,
+        "galleryImageOnClickAction": "zoomMode",
+        "goToLinkText": "Go to link",
+        "imageMode": "clipImage",
+        "transition": "crossfade",
+        "autoplayInterval": 4.1,
+        "autoplay": true,
+        "transDuration": 0.8,
+        "bidirectional": true,
+        "reverse": false,
+        "showAutoplay": false,
+        "showNavigation": false,
+        "showCounter": true,
+        "showExpand": true,
+        "showSocial": true
+      }
+    }
+  },
+  "title": "Home",
+  "pageUriSEO": "home"
+}

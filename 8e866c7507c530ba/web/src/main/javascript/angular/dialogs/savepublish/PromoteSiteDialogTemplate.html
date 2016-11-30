@@ -1,0 +1,46 @@
+<div class="wix-dialog" wix-fit-content-to-window>
+    <div class="promote-dialog" ng-controller="PromoteDialogController as promoteDialogCtrl">
+        <div class="promote-close-button" ng-click="dialog.close(false,'DISMISS')"
+             ng-style="{'background-image': 'url({{topology.webThemeDir}}icons/top-bar-icons.png)'}"></div>
+        <div class="prettyScroll wix-content-wrapper promote-content-wrapper">
+            <div class="promote-title" wix-translate="PROMOTEDIALOG_WEB_SHARE_MAIN_LABEL"></div>
+            <div class="promote-subtitle" wix-translate="PromoteDialog_WEB_SHARE_SUB_LABEL"></div>
+            <div class="promote-box-wrapper">
+                <div class="promote-box promote-shoutout-box">
+                    <div class="promote-shoutout-icon"
+                         ng-style="{background: 'url({{topology.webThemeDir}}icons/shoutout_logo.png) 50% 50% no-repeat'}"></div>
+                    <div class="promote-box-title" wix-translate="PromoteDialog_WEB_SHARE_SHOUTOUT_LABEL"></div>
+                    <a href="{{promoteDialogCtrl.shoutOutUrl}}"
+                       target="_blank">
+                        <wix-button button-width="140px" button-height="38px" class="promote-action-button"
+                                    click-handler="promoteDialogCtrl.onShoutoutClick()"
+                                    label="PromoteDialog_WEB_SHARE_SHOUTOUT_BUTTON">
+                        </wix-button>
+                    </a>
+                </div>
+                <div class="promote-box promote-facebook-box">
+                    <div class="promote-facebook-icon"
+                         ng-style="{background: 'url({{topology.webThemeDir}}icons/facebook_logo.png) 50% 50% no-repeat'}"></div>
+                    <div class="promote-box-title" wix-translate="PromoteDialog_WEB_SHARE_FACEBOOK_LABEL"></div>
+                    <wix-button button-width="140px" button-height="38px" class="promote-action-button"
+                                click-handler="promoteDialogCtrl.onPostInFacebookClick()"
+                                label="PromoteDialog_WEB_SHARE_FACEBOOK_BUTTON"></wix-button>
+                </div>
+                <div class="promote-box promote-twitter-box">
+                    <div class="promote-twitter-icon"
+                         ng-style="{background: 'url({{topology.webThemeDir}}icons/twitter_logo.png) 50% 50% no-repeat'}"></div>
+                    <div class="promote-box-title" wix-translate="PromoteDialog_WEB_SHARE_TWITTER_LABEL"></div>
+                    <wix-button button-width="140px" button-height="38px" class="promote-action-button"
+                                click-handler="promoteDialogCtrl.onTweetInTwitterClick()"
+                                label="PromoteDialog_WEB_SHARE_TWITTER_BUTTON"></wix-button>
+                </div>
+            </div>
+            <div class="promote-divider"></div>
+            <wix-checkbox class="promote-dont-show-again" label="DONT_SHOW_AGAIN"
+                          wix-data="promoteDialogCtrl.dontShowAgain"></wix-checkbox>
+            <wix-button class="promote-later-button" label="PromoteDialog_WEB_SHARE_CONTINUE_EDIT_LINK"
+                        click-handler="dialog.close(false,'MAYBE_LATER')" button-width="178px"
+                        button-height="40px"></wix-button>
+        </div>
+    </div>
+</div>

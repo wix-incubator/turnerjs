@@ -1,0 +1,12 @@
+export const UPLOAD_STATES = {
+  PENDING: 'PENDING',
+  RUNNING: 'RUNNING',
+  FINISHED: 'FINISHED',
+  FAILED: 'FAILED',
+  CANCELLED: 'CANCELLED',
+  SERVER: 'SERVER'
+};
+
+export const DEFAULT_FOLDER = 'Mobile Uploads';
+export const FOLDER_PENDING = 'FOLDER_PENDING';
+

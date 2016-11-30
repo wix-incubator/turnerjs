@@ -1,0 +1,83 @@
+<div class="sets" ng-class="{img: selectedImg.id}">
+    <nav class="switcher">
+        <a class="triangle left" ng-click="selectImg(-1)" ng-class="{disabled: !selectedImg.position}"></a>
+                <span class="num">
+                    <span class="current">{{getPos()}}</span>/<span class="of">{{images.length}}</span>
+                </span>
+        <a class="triangle right" ng-click="selectImg(1)" ng-class="{disabled: selectedImg.position === images.length - 1}"></a>
+    </nav>
+    <div class="buttonSet">
+        <button translate
+                tabindex="3" 
+                class="replace gray" 
+                ng-disabled="!selectedImg.id" 
+                ng-click="openMediaGallery()" 
+                bi-event="ORGIMAGES_CLICK_REPLACE">
+            ORGANIZE_IMAGES_DIALOG_REPLACE
+        </button>
+        <button tabindex="4" class="edit gray" ng-disabled="!selectedImg.id"><i></i></button>
+    </div>
+    <fieldset class="previewCont">
+        <!--<header>-->
+            <!--<span>Drag this image to crop</span>-->
+            <!--<i class="settings"></i>-->
+            <!--<i class="icon-help tooltip" data-tooltip="Some explanation text will be here"></i>-->
+        <!--</header>-->
+        <div class="preview">
+            <!--<figure ng-style="{'background-image': getUrl(), 'height': height, 'width': width}" ng-class="thumb().mode"></figure>-->
+            <figure ng-style="{'background-image': getUrl(), 'height': height, 'width': width}">
+            </figure>
+            <p translate>ORGANIZE_IMAGES_DIALOG_NO_IMG_SELECTED</p>
+        </div>
+    </fieldset>
+    <fieldset>
+        <div class="row">
+            <label translate>ORGANIZE_IMAGES_DIALOG_IMG_TITLE</label>
+            <i translate class="icon-help tooltip" data-tooltip="ORGANIZE_IMAGES_DIALOG_IMG_TITLE_TOOLTIP"></i>
+            <input name="title"
+                   translate 
+                   tabindex="5" 
+                   type="text" 
+                   placeholder="ORGANIZE_IMAGES_DIALOG_IMG_TITLE_PLACEHOLDER" 
+                   class="uilib-input" 
+                   ng-disabled="!selectedImg.id" 
+                   ng-model="selectedImg.data.title" 
+                   ng-keydown="keyDown($event)"
+                   maxlength="36" 
+                   ng-change="change()" 
+                   bi-event="ORGIMAGES_EDIT_TITLE" data-bi-event-type="change" data-bi-event-bind="on" data-bi-event-collect="true">
+        </div>
+        <div class="row">
+            <label translate>ORGANIZE_IMAGES_DIALOG_IMG_DESC</label>
+            <i translate class="icon-help tooltip" data-tooltip="ORGANIZE_IMAGES_DIALOG_IMG_DESC_TOOLTIP"></i>
+            <textarea name="description"
+                      translate 
+                      tabindex="6" 
+                      placeholder="ORGANIZE_IMAGES_DIALOG_IMG_DESC_PLACEHOLDER" 
+                      class="uilib-input" 
+                      ng-disabled="!selectedImg.id" 
+                      ng-model="selectedImg.data.description" 
+                      ng-keydown="keyDown($event)" 
+                      maxlength="500" 
+                      ng-change="change()" 
+                      bi-event="ORGIMAGES_EDIT_DESCRIPTION" data-bi-event-type="change" data-bi-event-bind="on" data-bi-event-collect="true">
+            </textarea>
+        </div>
+        <div class="row link">
+            <label translate>ORGANIZE_IMAGES_DIALOG_IMG_LINK</label>
+            <input name="link"
+                   translate 
+                   type="text" 
+                   placeholder="ORGANIZE_IMAGES_DIALOG_IMG_LINK_PLACEHOLDER" 
+                   class="uilib-input" 
+                   disabled="disabled" 
+                   ng-model="selectedImg.linkText" 
+                   ng-keydown="$event.stopPropagation()" 
+                   maxlength="1024">
+            <span class="link-overlay" ng-click="openLinkDialog($event)"></span>
+            <button tabindex="7" class="gray" ng-disabled="!selectedImg.id" ng-click="openLinkDialog($event)">
+                <i></i>
+            </button>
+        </div>
+    </fieldset>
+</div>

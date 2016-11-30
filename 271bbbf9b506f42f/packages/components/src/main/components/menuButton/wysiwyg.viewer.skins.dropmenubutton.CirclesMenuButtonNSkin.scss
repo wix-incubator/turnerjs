@@ -1,0 +1,162 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$bg: color_11;
+$bgh: color_17;
+$bgs: color_18;
+$brw: 0;
+$brd: color_15;
+$brdh: color_15;
+$brds: color_15;
+$rdDrop: 10px;
+$rd: 50%;
+$rdTop: rdDrop;
+$rdBottom: rdDrop;
+$nord: 0;
+$trans1: color .4s ease 0s;
+$trans2: background-color .4s ease 0s;
+
+:host {
+  display: inline-block;
+}
+
+.gapper {
+  margin: 0 0 0 -5%;
+  padding: 0 param-padding-size(pad, $pad);
+}
+
+#borderWrapper {
+  @include param-border-radius(rd, $rd);
+  cursor: pointer;
+  padding: param-padding-size(brw, $brw);
+  background-color: param-bg-color(brd, $brd);
+  @include param-transition(trans2, $trans2);
+}
+
+#bg {
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  @include param-transition(trans2, $trans2);
+}
+
+#label {
+  display: inline-block;
+  @include param-font(fnt, $fnt);
+  padding: 0 5%;
+  color: param-text-color(txt, $txt);
+  @include param-transition(trans1, $trans1);
+}
+
+[data-listposition="left"] .gapper {
+  padding-left: 0;
+}
+
+[data-listposition="right"]  .gapper {
+  padding-right: 0;
+}
+
+[data-listposition="lonely"] .gapper {
+  padding: 0;
+}
+
+[data-state="over"] #borderWrapper {
+  background-color: param-bg-color(brdh, $brdh);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state="over"] #bg {
+  background-color: param-bg-color(bgh, $bgh);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state="over"] #label {
+  color: param-text-color(txth, $txth);
+  @include param-transition(trans1, $trans1);
+}
+
+[data-state="selected"] #borderWrapper {
+  background-color: param-bg-color(brds, $brds);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state="selected"] #bg {
+  background-color: param-bg-color(bgs, $bgs);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state="selected"] #label {
+  color: param-text-color(txts, $txts);
+  @include param-transition(trans1, $trans1);
+}
+
+[data-container="drop"] {
+  width: 100%;
+  display: block;
+}
+
+[data-container="drop"] .gapper {
+  @include param-border-radius(nord, $nord);
+  margin: 0;
+  padding: 0;
+}
+
+[data-container="drop"] #borderWrapper {
+  background: none;
+  padding: 0;
+  @include param-border-radius(nord, $nord);
+}
+
+[data-container="drop"] #bg {
+  background-color: transparent;
+  @include param-border-radius(nord, $nord);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-container="drop"] #label {
+  padding: 0 .5em;
+}
+
+[data-listposition="dropLonely"] #bg {
+  @include param-border-radius(rdDrop, $rdDrop);
+}
+
+[data-listposition="top"] #bg {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-listposition="bottom"] #bg {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-container="drop"][data-state="over"] #borderWrapper {
+  background: none;
+}
+
+[data-container="drop"][data-state="over"] #bg {
+  background-color: param-bg-color(bgh, $bgh);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-container="drop"][data-state="selected"] #borderWrapper {
+  background: none;
+}
+
+[data-container="drop"][data-state="selected"] #bg {
+  background-color: param-bg-color(bgs, $bgs);
+  @include param-transition(trans2, $trans2);
+}
+

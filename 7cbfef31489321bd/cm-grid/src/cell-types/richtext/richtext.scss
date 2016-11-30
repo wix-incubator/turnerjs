@@ -1,0 +1,10 @@
+.richtext {
+  width: 250px;
+  height: 200px;
+  border: none;
+  outline: none;
+}
+
+.validation-error:focus {
+  outline: 2px solid red;
+}

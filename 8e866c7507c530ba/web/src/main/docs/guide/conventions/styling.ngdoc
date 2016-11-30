@@ -1,0 +1,52 @@
+@doc overview
+@id styling
+@name Styling
+@description #Styling in NGEditor
+
+We use [Sass](http://sass-lang.com) to style ngEditor.  More specifically we use the SCSS Syntax which is a superset of CSS.
+to install Sass see {@link setup/setupsass Setting up sass}.
+
+## Compiling sass
+
+You have three ways to compile sass:
+ 
+1.  Manually.  You can compile sass manually by running:
+    
+    grunt css
+    
+from the command line. 
+
+2.  Using grunt watch.  Running 
+
+    grunt watch:css
+    
+Will continuously compile sass for you as long as you can keep the task running.
+
+3. using Intellij.  see {@link setup/setupsass Setting up sass} on how to set it up.  Once done intellij will compile on change. 
+
+## Adding new files
+
+New scss files should be added to editor.scss to be compiled into the css.
+
+## writing sass
+
+We are using the SCSS syntax of sass which means its a superset of css.  Anything that works in css will work equally well in sass.
+
+## Using topology for icons
+
+Since we don't know the full path to the icons in advance (client version),
+style with icons should be in the html files with angular binding.
+
+The topology object is available on **$rootScope** so you can use it on every other scope.
+
+example -
+This code from the skin -
+
+    background: [bgColor] url([webThemeDir]button/button-gradient.png) repeat-x 0 50%;
+
+Should be replaced with this in the html -
+
+    style="background: #f9fafc url({{topology.webThemeDir}}/button-gradient.png) repeat-x 0 50%"
+
+
+

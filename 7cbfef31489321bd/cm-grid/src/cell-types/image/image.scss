@@ -1,0 +1,33 @@
+.image-thumbnail-container {
+  margin: 1px auto 0 auto;
+  width: 34px;
+  height: 22px;
+  background-color: #f9ad81;
+  border: solid 2px #b6c1cd;
+  display: inline-block;
+}
+
+.image-thumbnail {
+  width: 34px;
+  height: 22px;
+}
+
+.menu-panel {
+  font-size: 16px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.container {
+  min-width: 30px;
+  min-height: 20px;
+}
+
+.plus-icon {
+  display:inline-block;
+}
+
+.preview-image {
+  max-width: 334px;
+  max-height: 157px;
+}

@@ -1,0 +1,135 @@
+{
+    "removeIncluded":false,
+    "insertNewLine":true,
+    "fixLastSemicolon":true,
+    "aggregations":[
+        {
+            "inputDir":"target/main",
+            "output":"target/main/common.js",
+            "includes":[
+                "libs/modernizr.custom.37811.js",
+                "libs/modernizr-extensions.js",
+                "libs/mootools-core-1.3-full-nocompat.js",
+                "libs/mootools-more.js",
+                "libs/mousetrap.js",
+                "libs/mousetrap-extras.js",
+                "libs/swfobject.js",
+                "libs/lodash.js",
+                "lodash-settings.js",
+
+                "javascript/deployment/BaseClasses.js",
+                "javascript/base/Deploy.js",
+                "javascript/base/Define.js",
+
+                "javascript/managers/classmanager/*.js"
+
+            ],
+            "excludes":[]
+        },
+
+        {
+            "inputDir":"target/main",
+            "output":"target/main/viewer.js",
+            "includes":[],
+            "excludes":[]
+        },
+
+        {
+            "inputDir":"target/main",
+            "output":"target/main/editor.js",
+            "includes":[],
+            "excludes":[]
+        },
+
+        {
+            "inputDir":"target/main",
+            "output":"target/main/libs.js",
+            "includes":[
+                "libs/modernizr.custom.37811.js",
+                "libs/modernizr-extensions.js",
+                "libs/mootools-core-1.3-full-nocompat.js",
+                "libs/mootools-more.js",
+                "libs/mousetrap.js",
+                "libs/mousetrap-extras.js",
+                "libs/swfobject.js"
+            ],
+            "excludes":[]
+        },
+        {
+            "inputDir":"target/main",
+            "output":"target/main/bi.js",
+            "includes":[
+                "javascript/bi/LogMessages.js",
+                "javascript/bi/Analytics.js",
+                "javascript/bi/WixBI.js",
+                "javascript/bi/Logger.js",
+	            "javascript/bi/UserCookies.js"
+            ],
+            "excludes":[]
+        },
+        {
+            "inputDir":"target/main",
+            "output":"target/main/bootstrap.js",
+            "includes":[
+                "javascript/bootstrap/Setup.js",
+                "javascript/bootstrap/SecurityDomain.js",
+                "javascript/bootstrap/Constants.js",
+                "javascript/bootstrap/WClass.js",
+                "javascript/h/extend.js",
+                "javascript/h/imports.js",
+                "javascript/h/traits.js",
+                "javascript/managers/classmanager/ClassRepository.js",
+                "javascript/managers/classmanager/ClassParser.js",
+                "javascript/managers/classmanager/ScriptLoader.js",
+                "javascript/managers/classmanager/ClassManager.js",
+                "javascript/bootstrap/Events.js",
+                "javascript/managers/BaseManager.js",
+                "javascript/managers/ExperimentsManager.js",
+                "javascript/managers/Managers.js",
+
+                "javascript/utils/styles.js",
+                "javascript/utils/Tween.js",
+                "javascript/bootstrap/hash.js",
+                "javascript/utils/UtilsClass/WUtils.js",
+                "javascript/utils/UtilsClass/PLoggerUtils.js",
+                "javascript/utils/UtilsClass/AnalyticsUtils.js",
+                "javascript/utils/UtilsClass/BrowserUtils.js",
+                "javascript/utils/UtilsClass/DebugUtils.js",
+                "javascript/utils/UtilsClass/EditorUtils.js",
+                "javascript/utils/UtilsClass/HelperUtils.js",
+                "javascript/utils/UtilsClass/TestUtils.js",
+                "javascript/utils/UtilsClass/ValidationUtils.js",
+                "javascript/utils/UtilsClass/HashingUtils.js",
+	            "javascript/utils/UtilsClass/Cookies.js",
+
+	            "javascript/managers/BufferFunction.js",
+                "javascript/bootstrap/Object.js",
+                "javascript/bootstrap/Array.js",
+                "javascript/bootstrap/Async.js",
+                "javascript/bootstrap/Queue.js",
+                "javascript/bootstrap/Element.js",
+
+                "javascript/utils/Color.js",
+                "javascript/utils/BorderRadius.js",
+                "javascript/utils/BoxShadow.js",
+                "javascript/utils/Size.js",
+                "javascript/utils/Commands.js",
+                "javascript/utils/InputBindings.js",
+                "javascript/utils/LinkUtils.js",
+
+                "javascript/managers/events/ObjectsByIds.js",
+                "javascript/managers/events/DispatcherToHandlersMap.js",
+                "javascript/managers/events/ListenerToDispatchersMap.js",
+                "javascript/managers/events/EventsManager.js",
+                "javascript/managers/events/ElementEventDispatching.js",
+                "javascript/managers/events/TimersHandler.js",
+                "javascript/managers/events/EventDispatcherBase.js",
+                "javascript/managers/events/Command.js",
+                "javascript/managers/events/CommandsManager.js"
+            ],
+
+            "excludes":[]
+            }
+    ]
+}
+

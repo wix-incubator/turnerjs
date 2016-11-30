@@ -1,0 +1,203 @@
+@import "strUtils";
+
+@function create-attr-selector($name, $value, $relation: '=') {
+  @return unquote('[#{$name}#{$relation}"#{$value}"]');
+}
+
+@function append-selector($result, $selector-to-append) {
+  @return append($result, unquote("#{$selector-to-append}"), comma);
+}
+
+@function append-class-to-selector($selector, $class-name) {
+  @return set-nth($selector, 1, if($class-name, '.' + $class-name, '') + nth($selector, 1));
+}
+
+@function append-pseudo-to-selector($selector, $pseudo-class-name) {
+  @return set-nth($selector, 1, nth($selector, 1) + if($pseudo-class-name, ':' + $pseudo-class-name, ''));
+}
+
+@function append-attr-selector-to-selector($selector, $attr-selector) {
+  $first-part: nth($selector, 1);
+  $last-attr-selector-position: str-last-index($first-part, ']');
+  $first-part-with-attr-selector: if($last-attr-selector-position==null, $first-part + $attr-selector, str-insert($first-part, $attr-selector, $last-attr-selector-position + 1));
+
+  @return set-nth($selector, 1, $first-part-with-attr-selector);
+}
+
+@mixin when-root-has-all($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      $new-selector: $selector;
+
+      @each $class-name in $class-names {
+        $new-selector: append-class-to-selector($new-selector, $class-name);
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $new-selector: append-pseudo-to-selector($new-selector, $pseudo);
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $new-selector: append-attr-selector-to-selector($new-selector, $attr-selector);
+      }
+
+      $multiple-selectors: append-selector($multiple-selectors, $new-selector);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-any($class-names: (), $pseudo-class-names: (), $attr-selectors: ()) {
+  @at-root {
+    $multiple-selectors: ();
+
+    @each $selector in selector-parse(#{&}) {
+      @each $class-name in $class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-class-to-selector($selector, $class-name));
+      }
+
+      @each $pseudo in $pseudo-class-names {
+        $multiple-selectors: append-selector($multiple-selectors, append-pseudo-to-selector($selector, $pseudo));
+      }
+
+      @each $attr-selector in $attr-selectors {
+        $multiple-selectors: append-selector($multiple-selectors, append-attr-selector-to-selector($selector, $attr-selector));
+      }
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+@mixin when-root-has-class($class-name) {
+  @include when-root-has-all($class-name) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-classes($class-names) {
+  @include when-root-has-all($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-class($class-names) {
+  @include when-root-has-any($class-names) {
+    @content;
+  }
+}
+
+@mixin when-root-has-pseudo-class($pseudo-class) {
+  @include when-root-has-all((), $pseudo-class) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-pseudo-classes($pseudo-classes) {
+  @include when-root-has-all((), $pseudo-classes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-pseudo-classes($pseudo-classes) {
+  @include when-root-has-any((), $pseudo-classes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-attr($attribute) {
+  @include when-root-has-all((), (), $attribute) {
+    @content;
+  }
+}
+
+@mixin when-root-has-all-attrs($attributes) {
+  @include when-root-has-all((), (), $attributes) {
+    @content;
+  }
+}
+
+@mixin when-root-has-any-attr($attributes) {
+  @include when-root-has-any((), (), $attributes) {
+    @content;
+  }
+}
+
+
+//parse a selector string to logical parts (attach selector relations to right hand)
+//similar to the webstorm breadcrumbs.
+//e.g
+//   ".parent > .child + .child2 .descendant"
+//will be parsed to:
+//  ".parent", "> .child", "+ .child2", ".descendant"
+@function selector-parse-to-parts($remaining) {
+  $delimiters: ('> ', '+ ', '~ ', ' '); //space must be last
+  $max-delimiter-length: 2;
+  $result: ();
+
+  $i: 0;
+  @while $i + $max-delimiter-length < str-length($remaining) {
+    $i: $i + 1;
+    $found: false; //no @break or @continue until SASS 4.0. So we need to implement it
+
+    @each $delimiter in $delimiters {
+      @if not $found {
+        //slice strings from the end (right) of the string, at the size of $i (increasing) plus the length of the delimiter.
+        $slice: str-slice($remaining, -1 * ($i + str-length($delimiter)));
+
+        //if the sliced string starts with a delimiter - append and break;
+        @if (str-starts-with($slice, $delimiter)) {
+          $found: true;
+          $result: join((str-trim($slice)), $result);
+          $remaining: str-slice($remaining, 1, -1 * (str-length($slice) + 1));
+          $i: 0;
+        }
+      }
+    }
+  }
+
+  $result: join((str-trim($remaining)), $result);
+  @return $result;
+}
+
+
+//specify pseudo class for a predecessor part of the selector.
+//e.g for: ".root > .input + .label > .text-label"
+//when styling inside .text-label, calling when-predecessor-has-pseudo(checked, 2) will refer to the selector:
+//".root > .input:checked + .label > .text-label"
+//similar to the breadcrumbs in webstorm
+@mixin when-ancestor-has-pseudo($pseudo-classes, $levels) {
+  $pseudos-to-append: '';
+
+  @each $pseudo in $pseudo-classes {
+    $pseudos-to-append: $pseudos-to-append + ':' + $pseudo;
+  }
+
+  @at-root {
+    $multiple-selectors: ();
+    @each $selector in selector-parse(#{&}) {
+      $parts: selector-parse-to-parts(list-join($selector, ' '));
+      $ancestor-index: length($parts) - $levels;
+      $selector-with-pseudo: set-nth($parts, $ancestor-index, nth($parts, $ancestor-index) + if($pseudos-to-append, $pseudos-to-append, ''));
+      $multiple-selectors: append-selector($multiple-selectors, $selector-with-pseudo);
+    }
+
+    #{$multiple-selectors} {
+      @content;
+    }
+  }
+}
+
+//shorthand for parent (1 level up)
+@mixin when-parent-has-pseudo($pseudo-classes) {
+  @include when-ancestor-has-pseudo($pseudo-classes, 1) {
+    @content;
+  }
+}

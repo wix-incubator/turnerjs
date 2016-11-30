@@ -1,0 +1,32 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+@include exports("previousVideo:skin", "wysiwyg.viewer.components.videoBackgroundSkin");
+@include exports("currentVideo:skin", "wysiwyg.viewer.components.videoBackgroundSkin");
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$txth: color_14;
+$txt: color_15;
+$fnt: font_7;
+$trans: color .4s ease 0s;
+
+
+:host {
+  width: 100%;
+  position: absolute;
+}
+
+#bgBeforeTransition {
+  position: absolute;
+  top:0;
+}
+
+#bgAfterTransition {
+  position: absolute;
+  top:0;
+}

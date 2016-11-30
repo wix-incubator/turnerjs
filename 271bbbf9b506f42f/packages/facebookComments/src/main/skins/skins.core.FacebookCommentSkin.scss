@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+
+
+#fb-root {
+  display: none;
+}
+
+[data-state~="dark"] {
+  background: param-url(tdr, $tdr, "dark-facebook-comments.png") no-repeat;
+}
+
+[data-state~="light"] {
+  background: param-url(tdr, $tdr, "bright-facebook-comments.png") no-repeat;
+}
+
+[data-state~="mobileView"][data-state~="dark"] {
+  background: param-url(tdr, $tdr, "mobile-dark-facebook-comments.jpg") no-repeat;
+}
+
+[data-state~="mobileView"][data-state~="light"] {
+  background: param-url(tdr, $tdr, "mobile-bright-facebook-comments.jpg") no-repeat;
+}
+
+[data-state~="disabled"] {
+  pointer-events: none;
+}
+

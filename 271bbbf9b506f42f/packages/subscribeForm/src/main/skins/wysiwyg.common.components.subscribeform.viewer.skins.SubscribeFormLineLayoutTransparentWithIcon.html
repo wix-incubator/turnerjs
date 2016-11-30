@@ -1,0 +1,93 @@
+<template>
+  <div id="wrapper" class="wrapper">
+    <div class="container">
+      <div class="table invertible">
+        <div class="table-row">
+          <div class="table-cell table-cell-container">
+            <div class="table fixed">
+              <div class="table-row">
+                <div class="table-cell table-cell-title">
+                  <div>
+                    <i class="icon-envelope">
+                      <svg width="54" height="54" xmlns="http://www.w3.org/2000/svg">
+                        <g>
+                          <rect fill="" fill-opacity="0.0" stroke="#ffffff" stroke-width="3" stroke-linejoin="miter" stroke-linecap="butt" x="14.75" y="20" width="24" height="16" id="svg_3">
+                          </rect>
+                          <line fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="miter" stroke-linecap="butt" x1="15.5" y1="25.75" x2="29.58013" y2="25.75" id="svg_10" transform="rotate(37.00132751464844 22.540069580078132,25.749999999999996)">
+                          </line>
+                          <line fill="none" stroke="#ffffff" stroke-width="3" stroke-linejoin="miter" stroke-linecap="butt" x1="23.95994" y1="25.75" x2="38.04007" y2="25.75" id="svg_11" transform="rotate(-36.52885437011719 31,25.750000000000007)">
+                          </line>
+                        </g>
+                      </svg>
+                    </i>
+                  </div>
+                  <h1 id="formTitle" class="title with-envelope-icon">
+                  </h1>
+                </div>
+                <label id="emailFieldLabel" class="hidden">
+                </label>
+                <div class="table-cell">
+                  <input id="emailField" class="input" placeholder="enter your e-mail address" name="email" type="email" />
+                </div>
+              </div>
+            </div>
+            <div class="line">
+              <div class="line-item phone row" id="phoneRow">
+                <div class="phone_wrapper">
+                  <label id="phoneFieldLabel" class="hidden">
+                  </label>
+                  <div id="phoneField" class="phoneField">
+                    <span class="drop-list">
+                      <input id="selected" class="input selected" type="text" name="code" data-skip-placeholder="true" disabled="disabled" />
+                      <span class="after">
+                        <svg version="1.1" xmlns="http://www.w3.org/2000/svg" width="15px" height="7.634px" viewbox="0 0 12.854 7.634">
+                          <polygon fill="#FFFFFF" points="11.658,0 6.427,5.231 1.197,0 0,1.197 5.231,6.427 5.221,6.437 6.417,7.634 6.427,7.624 7.624,6.427 12.854,1.197 ">
+                          </polygon>
+                        </svg>
+                      </span>
+                      <select id="countryCodesField" data-skip-placeholder="true">
+                      </select>
+                    </span>
+                    <div class="forPhone">
+                      <input id="phoneNumberField" class="input" type="phone" name="phone" placeholder="Phone number" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="line-item table fixed">
+                <div class="table-row">
+                  <div class="table-cell with-inner-table">
+                    <div class="table fixed">
+                      <div class="table-row">
+                        <label id="firstNameFieldLabel" class="hidden">
+                        </label>
+                        <div class="table-cell row bottom" id="firstNameRow">
+                          <input id="firstNameField" class="input" name="first" placeholder="First Name" type="text" />
+                        </div>
+                        <label id="lastNameFieldLabel" class="hidden">
+                        </label>
+                        <div class="table-cell row bottom" id="lastNameRow">
+                          <input id="lastNameField" class="input" name="last" placeholder="Last Name" type="text" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="table-cell table-cell-button-container">
+            <div class="button">
+              <button id="submit">
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="notifications">
+      </div>
+    </div>
+    <div id="message" class="message">
+    </div>
+  </div>
+</template>

@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+@include displayer-text-overflow;
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_15;
+$txt: color_11;
+$fntt: font_6;
+$fntds: font_8;
+$trns: opacity .5s ease 0s;
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper {
+  position: absolute;
+}
+
+#zoom {
+  @include abs-distance(0);
+  ;
+}
+
+#panel {
+  background-color: param-bg-color(bg, $bg);
+  @include param-transition(trns, $trns);
+  @include opacity(0);
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+#title {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  padding: 10px 10px 0 10px;
+}
+
+#description {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  padding: 10px;
+}
+
+#link {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  padding: 0 10px 10px 10px;
+  display: block;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[data-state~="link"]   #link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[data-state~="noLink"] #link {
+  display: none;
+}
+
+[data-state~="showPanel"] #panel {
+  @include opacity(1);
+}
+[data-state~="notShowPanel"] #panel {
+  @include opacity(0);
+}
+[data-state~="transOut"] #panel {
+  @include opacity(0);
+}
+[data-state~="transIn"]  #panel {
+  @include opacity(0);
+}

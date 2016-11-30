@@ -1,0 +1,7 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+#inlineContent, #background {
+  @include abs-distance(0);
+}

@@ -1,0 +1,290 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$color1: #fff;
+$bg1: color1;
+$color2: #000;
+$bg2: color2;
+$brd: bg2Hover;
+$rd1: 50%;
+$tdr: BASE_THEME_DIRECTORY;
+$rd: 60px;
+$left: rd;
+$top: rd;
+$rdb: 55px;
+$left2: rdb;
+$trans-point: all .6s ease-in .9s;
+$trans-point2: opacity .3s ease-in 2s;
+$re-trans-point: all .4s ease-in 2s;
+$re-trans-point2: opacity .2s ease-in 1s;
+$trans-width: width .4s ease-out 0s;
+$trans-width2: width 1s ease-in .5s;
+
+@include define-mapped-param(brd, bg2Hover, COLOR_ALPHA);
+
+:host {
+  cursor: pointer;
+}
+
+h5 {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 36px;
+  height: 30px;
+  background: param-url(tdr, $tdr, "wixads/wf_label_static.png") left bottom no-repeat;
+}
+
+.point {
+  @include param-border-radius(rd1, $rd1);
+  width: 10px;
+  height: 10px;
+  background-color: mutate-bg-color-param(bg1Hover, alpha, .8, color1);
+  border: solid 4px param-border-color-alpha(brd, $brd);
+  text-align: center;
+  @include opacity(0);
+  @include param-transition(transPoint, $trans-point);
+
+  h5 {
+    content: "";
+    display: inline-block;
+    text-indent: -9999px;
+    width: 36px;
+    height: 30px;
+    margin-top: 15px;
+    @include opacity(0);
+    @include param-transition(transPoint2, $trans-point2);
+    background: param-url(tdr, $tdr, "wixads/wf_label_static.png") left bottom no-repeat;
+  }
+}
+
+.topBorder {
+  position: fixed;
+  right: 0;
+  top: 20px;
+  padding: 5px;
+  background-color: mutate-bg-color-param(bg2, alpha, .7, color2);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  width: 55px;
+  height: 110px;
+  @include param-transition(transWidth, $trans-width);
+
+  .point {
+    margin-top: -75px;
+    margin-left: -60px;
+  }
+}
+
+#topRect {
+  font-size: 1.2em;
+  color: #404040;
+  font-weight: bold;
+  padding: 5px;
+  background-color: mutate-bg-color-param(bg1, alpha, .7, color1);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  height: 100px;
+  display: table-cell;
+  vertical-align: middle;
+  overflow: hidden;
+  @include param-transition(transWidth2, $trans-width2);
+
+  span {
+    display: block;
+    line-height: 15px;
+  }
+
+  .smallMusa,
+  .smallLogo,
+  .logodot {
+    display: inline-block;
+    text-indent: -9999px;
+    background: param-url(tdr, $tdr, "wixads/wf_label_static.png") no-repeat;
+    text-align: left;
+  }
+
+  .smallMusa {
+    width: 15px;
+    height: 16px;
+    line-height: 18px;
+    background-position: 0% 0%;
+  }
+
+  .smallLogo {
+    width: 29px;
+    height: 16px;
+    margin: 0 -2px 0 1px;
+    background-position: -16px top;
+    vertical-align: -3px;
+  }
+
+  .logoDot {
+    width: 39px;
+    height: 15px;
+    background-position: right -17px;
+    line-height: 20px;
+  }
+
+  .emphasis {
+    display: inline-block;
+    color: #fc0;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 20px;
+    text-shadow: 0 0 4px #000;
+  }
+}
+
+#topRectLabel {
+  width: 40px;
+  padding: 5px;
+  text-align: right;
+}
+
+#topRectContent {
+  background-color: mutate-bg-color-param(bg1, alpha, .7, color1);
+  width: 265px;
+  height: 80px;
+  text-align: center;
+  padding: 7px 7px 7px 15px;
+  line-height: 16px;
+  display: none;
+}
+
+.topBorder:hover {
+  width: 280px;
+  background-color: mutate-bg-color-param(bg2Hover, alpha, .9, color2);
+  @include param-transition(transWidth, $trans-width);
+
+  #topRect {
+    width: 280px;
+    padding: 5px 0;
+    @include param-transition(transWidth2, $trans-width2);
+
+    #topRectLabel {
+      display: none;
+    }
+
+    #topRectContent {
+      display: block;
+    }
+
+    .smallLogo {
+      margin: 0;
+      line-height: 26px;
+    }
+  }
+
+  .point {
+    width: 60px;
+    height: 60px;
+    margin-top: -105px;
+    margin-left: -90px;
+    @include opacity(1);
+    @include param-transition(reTransPoint, $re-trans-point);
+
+    h5 {
+      @include opacity(1);
+      @include param-transition(reTransPoint2, $re-trans-point2);
+    }
+  }
+}
+
+.footBorder {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  margin-left: -370px;
+  height: 45px;
+  width: 740px;
+  padding: 4px 4px 0;
+  background-color: mutate-bg-color-param(bg2Hover, alpha, .9, color2);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+#footerLabel {
+  background-color: mutate-bg-color-param(bg1, alpha, .7, color1);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  text-align: center;
+  height: 100%;
+
+  .wrapper {
+    display: inline-block;
+    height: 30px;
+    margin: 5px auto;
+    text-align: left;
+  }
+
+  h5 {
+    float: left;
+    clear: none;
+    margin-top: 1px;
+  }
+
+  p.txt {
+    display: inline-block;
+    float: left;
+    clear: none;
+    font-size: 13px;
+    line-height: 17px;
+    color: #fff;
+    font-weight: bold;
+    padding: 0 12px;
+  }
+
+  .emphasis {
+    font-size: 16px;
+    color: #fc0;
+    text-transform: uppercase;
+    font-weight: bold;
+    text-shadow: 0 0 4px #000;
+  }
+
+  .logoDot {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 39px;
+    height: 15px;
+    background: param-url(tdr, $tdr, "wixads/wf_label_static.png") right -17px no-repeat;
+  }
+
+  .single {
+    line-height: 40px;
+    margin-top: 10px;
+
+    .emphasis {
+      vertical-align: -1px;
+    }
+  }
+
+  .smallMusa {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 15px;
+    height: 16px;
+    margin-right: 4px;
+    background-image: param-url(tdr, $tdr, "wixads/wf_label_static.png");
+    background-repeat: no-repeat;
+    background-position: 0% 0%;
+  }
+
+  .smallLogo {
+    display: inline-block;
+    text-indent: -9999px;
+    width: 29px;
+    height: 16px;
+    margin: 0 -2px 0 1px;
+    background-image: param-url(tdr, $tdr, "wixads/wf_label_static.png");
+    background-repeat: no-repeat;
+    background-position: -16px top;
+  }
+}

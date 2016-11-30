@@ -1,0 +1,390 @@
+@charset "UTF-8";
+
+@import 'baseSubscribeForm';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$llf-bg1: color_11;
+$llf-bg2: color_19;
+$llf-bg3: color_12;
+$llf-bg4: color_18;
+$llf-txt1: color_15;
+$llf-txt2: color_11;
+$llf-txt3: color_15;
+$llf-title-color: color_15;
+$llf-label-color: color_12;
+$llf-error-color: #8b0000;
+$llf-success-color: rgba(186, 218, 85, 1);
+$llf-brd: color_12;
+$llf-brw: 1px;
+$llf-tfnt: font_6;
+$llf-fnt: font_9;
+$llf-fnt2: font_9;
+$llf-efnt: font_9;
+$llf-shd: 0 1px 4px rgba(0, 0, 0, 0.6);
+
+@include exports("hidePlaceholders", "false");
+@include exports("successMessageOutside", "true");
+
+:host {
+  min-width: 724px;
+  min-height: 85px;
+  max-width: 1000px;
+  max-height: 300px;
+}
+
+#wrapper.wrapper {
+  width: 100%;
+
+  .container {
+    background-color: param-bg-color(llf_bg3, $llf-bg3);
+    padding: 30px 24px 40px;
+    @include param-box-shadow(llf_shd, $llf-shd);
+
+    .table-cell.table-cell-container {
+      padding-right: 14px;
+      padding-top: 0;
+      width: 100%;
+    }
+
+    .table {
+      display: table;
+      width: 100%;
+
+      &.fixed {
+        table-layout: fixed;
+      }
+    }
+
+    .table-row {
+      display: table-row;
+      width: 100%;
+    }
+
+    .table-cell {
+      vertical-align: bottom;
+      display: table-cell;
+      padding-right: 10px;
+      padding-top: 10px;
+
+      &.with-inner-table {
+        padding-right: 0;
+        padding-top: 0;
+      }
+
+      &.table-cell-button-container {
+        padding-right: 0;
+      }
+    }
+
+    .button {
+      margin-bottom: 1px;
+
+      a {
+        @include param-font(llf_fnt2, $llf-fnt2);
+        white-space: nowrap;
+        max-width: 250px;
+        overflow: hidden;
+        color: param-text-color(llf_txt2, $llf-txt2);
+        padding: calc(6px + #{param-border-size(llf_brw, $llf-brw)}) 24px;
+        box-sizing: border-box;
+        display: block;
+        background-color: param-bg-color(llf_bg2, $llf-bg2);
+        border: none;
+
+        &:active, &:hover {
+          color: param-text-color(llf_txt3, $llf-txt3);
+          background-color: param-bg-color(llf_bg4, $llf-bg4);
+        }
+      }
+    }
+
+    .title {
+      @include param-font(llf_tfnt, $llf-tfnt);
+      color: param-text-color(llf_titleColor, $llf-title-color);
+      vertical-align: bottom;
+    }
+
+    .input {
+      box-sizing: border-box;
+      color: param-text-color(llf_txt1, $llf-txt1);
+      background-color: param-bg-color(llf_bg1, $llf-bg1);
+      @include param-font(llf_fnt, $llf-fnt);
+      padding: 7px;
+      width: 100%;
+      border: param-border-size(llf_brw, $llf-brw) solid param-border-color-alpha(llf_brd, $llf-brd);
+      margin: 0;
+
+      &::placeholder {
+        color: param-text-color(llf_labelTxt, $llf-label-color);
+        padding-left: 15px;
+      }
+
+      &.error {
+        border: mutate-size-param(maxbrw, max, 1, llf_brw) solid param-border-color(llf_txtError, $llf-error-color);
+        color: param-border-color(llf_txtError, $llf-error-color);
+      }
+    }
+
+    .line {
+      overflow: hidden;
+
+      .line-item {
+        float: left;
+        width: 50%;
+
+        &.phone {
+          padding-top: 10px;
+          position: relative;
+
+          .note {
+            font-size: 13px;
+            position: absolute;
+            color: param-text-color(llf_txt1, $llf-txt1);
+            left: 0;
+          }
+        }
+      }
+    }
+
+    .phone_wrapper {
+      padding-right: 10px;
+      direction: initial;
+
+      .phoneField {
+        position: relative;
+
+        .drop-list {
+          background-color: param-bg-color(llf_bg1, $llf-bg1);
+          display: inline-block;
+          width: 106px;
+          position: relative;
+          padding: 0;
+          vertical-align: top;
+          overflow: hidden;
+          white-space: nowrap;
+          border: param-border-size(llf_brw, $llf-brw) solid param-border-color-alpha(llf_brd, $llf-brd);
+          box-sizing: border-box;
+
+          .selected {
+            background-color: transparent;
+            display: block;
+            color: param-text-color(llf_txt1, $llf-txt1);
+            overflow: hidden;
+            width: 100%;
+            margin: 0;
+            @include param-font(llf_fnt, $llf-fnt);
+            text-align: center;
+            border: 0;
+            padding-right: 20px;
+          }
+
+          .after {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            bottom: 5px;
+            text-align: center;
+            padding: 5px;
+            width: 14px;
+            background-color: param-bg-color(llf_bg3, $llf-bg3);
+            background-repeat: no-repeat;
+            background-position: 50% 50%;
+            @include param-font(llf_fnt, $llf-fnt);
+
+            svg {
+              position: absolute;
+              top: 50%;
+              margin-top: -4px;
+              left: 50%;
+              margin-left: -8px;
+            }
+
+            polygon {
+              fill: param-bg-color(llf_bg1, $llf-bg1);
+            }
+          }
+
+          select {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            background-image: none;
+            border: 0;
+            @include opacity(0);
+          }
+        }
+
+        .forPhone {
+          position: absolute;
+          display: block;
+          left: 116px;
+          right: 0;
+          top: 0;
+        }
+      }
+    }
+
+    div.error {
+      @include param-font(llf_efnt, $llf-efnt);
+      color: param-border-color(llf_txtError, $llf-error-color);
+      padding-top: 5px;
+    }
+  }
+
+  .message {
+    margin: 15px 0 0;
+    padding: 10px 0;
+    text-align: center;
+    @include param-font(llf_efnt, $llf-efnt);
+    background-color: #26e089;
+    display: none;
+
+    &.success {
+      background-color: transparent;
+      color: param-text-color(llf_txtSuccess, $llf-success-color);
+      display: block;
+    }
+
+    &.error {
+      background-color: transparent;
+      color: param-border-color(llf_txtError, $llf-error-color);
+      display: block;
+    }
+
+    &.editorView {
+      border: 1px solid rgb(209, 209, 209);
+      background-color: rgb(238, 238, 238);
+      display: block;
+      color: rgb(209, 209, 209);
+    }
+  }
+}
+
+[data-state~="right"] #wrapper {
+  .table.invertible {
+    direction: rtl;
+  }
+
+  .table-cell.table-cell-container {
+    padding-left: 24px;
+    padding-right: 0;
+  }
+
+  #phoneNumberField {
+    direction: rtl;
+  }
+
+  .container {
+    .phone_wrapper {
+      .phoneField {
+        .drop-list {
+          float: left;
+        }
+      }
+    }
+  }
+}
+
+[data-state~="mobile"] {
+
+  min-width: initial;
+  min-height: initial;
+  max-width: initial;
+  max-height: initial;
+
+  #wrapper {
+
+    .table {
+      display: block;
+      width: 100%;
+    }
+
+    .table-row {
+      display: block;
+      width: 100%;
+    }
+
+    .table-cell {
+      display: block;
+      width: 100%;
+      vertical-align: bottom;
+      padding-right: 0;
+    }
+
+    .input {
+      font-size: 14px;
+      margin: 0 0 5px 0;
+      height: 45px;
+      line-height: normal;
+      @include appearance(none);
+    }
+
+    .phone_wrapper {
+      padding-right: 0;
+
+      .phoneField {
+
+        .drop-list {
+          height: 45px;
+          margin-top: 0;
+          line-height: 45px;
+          width: 86px;
+
+          .selected {
+            height: 45px;
+            line-height: 45px;
+            font-size: 14px;
+          }
+
+          select {
+            font-size: 14px;
+            height: 45px;
+            line-height: 45px;
+          }
+        }
+
+        .forPhone {
+          left: 96px;
+        }
+      }
+    }
+
+    div.button {
+      margin-top: 5px;
+
+      span {
+        display: block;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      a {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: initial;
+        min-width: initial;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    .line {
+      overflow: hidden;
+
+      .line-item {
+        width: 100%;
+
+        &.phone {
+          padding-bottom: 5px;
+        }
+      }
+    }
+
+  }
+}

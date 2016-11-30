@@ -1,0 +1,11 @@
+{
+	"createTime": "2014-08-06T11:09:43.369",
+	"owner": "tanyak@wix.com",
+	"description": "Multi Section ecom store in add menu (used in editormenu)",
+	"tags": [
+		"editor"
+	],
+	"constraints": {
+		"MultiSectionApp" : "required-before"
+	}
+}

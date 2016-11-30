@@ -1,0 +1,176 @@
+@import 'baseContactForm';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg1: color_11;
+$txt1: color_15;
+$bg2: color_18;
+$txt2: color_15;
+$txt3: color_15;
+$txt-error: #8b0000;
+$txt-success: #bada55;
+$brd: color_15;
+$brw: 0;
+$fnt: font_7;
+$fnt2: font_7;
+$rd: 5px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+#wrapper {
+  position: absolute;
+  width: 100%;
+}
+
+label {
+  color: param-text-color(txt3, $txt3);
+  display: block;
+  @include param-font(fnt, $fnt);
+  padding: 5px 0;
+  width: 100%;
+}
+
+span {
+  color: param-text-color(txt1, $txt1);
+  float: left;
+  font: normal 14px 'Helvetica Neue', Helvetica, sans-serif;
+  max-width: 60%;
+
+  &.success {
+    color: param-text-color(txtSuccess, $txt-success);
+  }
+
+  &.error {
+    color: param-border-color(txtError, $txt-error);
+  }
+}
+
+button,
+input,
+textarea {
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+input,
+textarea {
+  background-color: param-bg-color(bg1, $bg1);
+  @include param-font(fnt, $fnt);
+  @include appearance(none);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  color: param-text-color(txt1, $txt1);
+  display: block;
+  padding: 5px;
+  width: 100%;
+
+  &.error {
+    @include param-font(fnt, $fnt);
+    border: mutate-size-param(maxbrw, max, 1, brw) solid param-border-color(txtError, $txt-error);
+    color: param-border-color(txtError, $txt-error);
+  }
+
+  &::placeholder {
+    color: transparent;
+  }
+}
+
+button {
+  background-color: param-bg-color(bg2, $bg2);
+  @include param-font(fnt2, $fnt2);
+  border: 0;
+  color: param-text-color(txt2, $txt2);
+  cursor: pointer;
+  float: right;
+  margin: 0;
+  max-width: 35%;
+  padding: 5px;
+}
+
+input {
+  margin: 0 0 5px;
+}
+
+textarea {
+  height: 130px;
+  margin: 2px 0 17px;
+  resize: none;
+}
+
+[data-state~="mobile"] {
+  label {
+    display: block;
+    font-size: 14px;
+    margin: 3px 0;
+    padding: 0;
+    width: 100%;
+  }
+
+  input,
+  textarea {
+    @include appearance(none);
+    display: block;
+    font-size: 14px;
+    padding: 0 5px;
+    width: 100%;
+  }
+
+  input {
+    height: 45px;
+    line-height: 45px;
+    margin: 0;
+  }
+
+  textarea {
+    height: 150px;
+    margin: 0 0 17px;
+  }
+}
+
+[data-state~="right"] {
+  direction: rtl;
+  text-align: right;
+
+  span {
+    float: right;
+  }
+
+  button {
+    float: left;
+  }
+}
+
+[data-state~="left"] {
+  direction: ltr;
+  text-align: left;
+
+  span {
+    float: left;
+  }
+
+  button {
+    float: right;
+  }
+}
+
+
+$fields: (name, email, subject, phone, address, message);
+$selector: ();
+@each $field in $fields {
+  $selector: append($selector, unquote('[data-state~="#{$field}Hidden"] ##{$field}Field'), comma)
+}
+
+#{$selector} {
+  display: none !important;
+}
+
+$fields: (name, email, subject, phone, address, message);
+$selector: ();
+@each $field in $fields {
+  $selector: append($selector, unquote('[data-state~="#{$field}Hidden"] #label_#{$field}'), comma)
+}
+
+#{$selector} {
+  display: none !important;
+}

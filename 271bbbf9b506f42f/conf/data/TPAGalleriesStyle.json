@@ -1,0 +1,157 @@
+{
+  "wysiwyg.viewer.skins.TPAFreestyleSkin" : {
+    "color1": {
+      "type": "BORDER_COLOR_ALPHA",
+      "defaultValue": "color_15",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAMasonrySkin" : {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "#000000",
+      "state": "regular"
+    },
+    "color2": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "#000000",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "BG_COLOR",
+      "defaultValue": "#ffffff",
+      "state": "regular"
+    },
+    "color4": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "#000000",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAAccordionSkin": {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_15",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "BG_COLOR_ALPHA",
+      "defaultValue": "color_14",
+      "state": "regular"
+    },
+    "color4": {
+      "type": "BORDER_COLOR_ALPHA",
+      "defaultValue": "color_11",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPA3DCarouselSkin": {},
+  "wysiwyg.viewer.skins.TPA3DGallerySkin": {},
+  "wysiwyg.viewer.skins.TPACollageSkin": {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_15",
+      "state": "regular"
+    },
+    "color2": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_14",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_11",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAEcomGallerySkin": {},
+  "wysiwyg.viewer.skins.TPAImpressSkin": {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_13",
+      "state": "regular"
+    },
+    "color2": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_18",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_23",
+      "state": "regular"
+    },
+    "color4": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_28",
+      "state": "regular"
+    },
+    "color5": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_33",
+      "state": "regular"
+    },
+    "color6": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_16",
+      "state": "regular"
+    },
+    "color7": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_1",
+      "state": "regular"
+    },
+    "color8": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_14",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAStripShowcaseSkin": {},
+  "wysiwyg.viewer.skins.TPAStripSlideshowSkin": {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_18",
+      "state": "regular"
+    },
+    "color2": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_15",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "BG_COLOR_ALPHA",
+      "defaultValue": "color_11",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAThumbnailsSkin": {
+    "color1": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_11",
+      "state": "regular"
+    },
+    "color2": {
+      "type": "TEXT_COLOR",
+      "defaultValue": "color_11",
+      "state": "regular"
+    },
+    "color3": {
+      "type": "BG_COLOR_ALPHA",
+      "defaultValue": "color_15",
+      "state": "regular"
+    }
+  },
+  "wysiwyg.viewer.skins.TPAHoneycombSkin": {
+    "color3": {
+      "type": "BG_COLOR_ALPHA",
+      "defaultValue": "color_15",
+      "state": "regular"
+    },
+    "color4": {
+      "type": "BORDER_COLOR_ALPHA",
+      "defaultValue": "color_11",
+      "state": "regular"
+    }
+  }
+}

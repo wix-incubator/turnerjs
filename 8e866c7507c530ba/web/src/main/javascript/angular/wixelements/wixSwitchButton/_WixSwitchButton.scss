@@ -1,0 +1,17 @@
+.wix-switch-button {
+  width: 48px;
+  height: 23px;
+  background-image: url(http://static.parastorage.com/services/skins/2.947.3/images/wysiwyg/core/themes/editor_web/icons/toggle_on_off_sprite.png);
+  display: block;
+  cursor:pointer;
+}
+
+.wix-switch-button.disabled {
+  background-position-x: 0;
+  background-position-y: 0;
+}
+
+.wix-switch-button.enabled {
+  background-position-x: 0;
+  background-position-y: 24px;
+}

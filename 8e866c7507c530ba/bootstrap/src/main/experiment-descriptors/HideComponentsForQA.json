@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-09-14T12:32:31.026",
+    "owner": "leerons",
+    "description": "Hide specefied components from site. For QA automation tests",
+    "tags": [
+        "viewer",
+        "editor"
+    ],
+    "constraints": {}
+}

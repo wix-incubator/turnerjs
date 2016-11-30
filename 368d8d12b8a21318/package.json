@@ -1,0 +1,36 @@
+{
+  "name": "santa-integration-protractor",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:wix/santa-integration-protractor.git"
+  },
+  "scripts": {
+    "server": "node server"
+  },
+  "devDependencies": {
+    "blink-diff": "^1.0.13",
+    "express": "^4.13.4",
+    "grunt": "~0.4.1",
+    "grunt-aws-s3": "^0.13.0",
+    "grunt-aws-s3-gzip": "0.10.1",
+    "grunt-cli": "~0.1.13",
+    "grunt-exec": "^0.4.6",
+    "grunt-execute": "^0.2.2",
+    "grunt-iisexpress": "*",
+    "grunt-protractor-runner": "^1.2.1",
+    "jasmine-before-all": "<0.1.0",
+    "jasmine-reporters": "<2.0.0",
+    "node-resemble-js": "^0.1.1",
+    "png-crop": "0.0.1",
+    "protractor": "^3.1.1",
+    "request": "^2.55.0",
+    "rimraf": "^2.3.2",
+    "selenium-webdriver": "^3.0.1",
+    "underscore": "^1.8.2",
+    "url": "^0.10.3",
+    "wget": "0.0.1",
+    "xml2json": "^0.6.1"
+  }
+}

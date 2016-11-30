@@ -1,0 +1,8 @@
+{
+    "owner": "dansh",
+    "description": "performance experiment: signal that HTTPS is used instead of HTTP for downloading static resources",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

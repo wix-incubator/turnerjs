@@ -1,0 +1,11 @@
+{
+	"createTime": "2014-11-25T10:00:00",
+	"owner": "alexandrer",
+	"description": "marketing banner considering geo and language",
+	"tags": [
+		"editor"
+	],
+	"constraints": {
+		"PublishMarketingBanner": "required-before"
+	}
+}

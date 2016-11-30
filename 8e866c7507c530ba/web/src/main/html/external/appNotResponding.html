@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title></title>
+    <style>
+        #description {
+            text-align: center;
+            font-size: 25px;
+            color: #4c4c4c;
+            font-family: helvetica;
+        }
+        #title {
+            margin-top: 20px;
+            margin-bottom: 5px;
+            text-align: center;
+            color: #0099ff;
+            font-family: georgia;
+            font-size: 100px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+<p id="title">Oops,</p>
+<p id="description">Application is not responding</p>
+
+
+<script type="text/javascript">
+    if (window.innerWidth < 300) {
+        var titleSize = window.innerWidth / 3;
+        document.getElementById('title').style.fontSize = titleSize + 'px';
+        document.getElementById('description').style.fontSize = (titleSize/4) + 'px';
+    }
+</script>
+
+</body>
+</html>

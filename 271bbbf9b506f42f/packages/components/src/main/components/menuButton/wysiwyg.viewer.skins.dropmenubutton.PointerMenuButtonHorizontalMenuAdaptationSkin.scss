@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@import 'wysiwyg.viewer.skins.dropmenubutton.PointerMenuButtonNSkin';
+
+[data-listposition="bottom"] #bg {
+  border-radius: 0;
+}
+
+[data-listposition="top"] #bg {
+  border-radius: 0;
+}

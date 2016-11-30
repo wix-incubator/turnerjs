@@ -1,0 +1,11 @@
+{
+    "UNSAFE_HTML_IN_TEXT_COMPONENT": {
+    "eventId": 369,
+    "adapter": "ugc-viewer",
+    "params": {
+      "filtered_content": "filtered_content",
+      "component_id": "component_id",
+      "component_type": "component_type"
+    }
+  }
+}

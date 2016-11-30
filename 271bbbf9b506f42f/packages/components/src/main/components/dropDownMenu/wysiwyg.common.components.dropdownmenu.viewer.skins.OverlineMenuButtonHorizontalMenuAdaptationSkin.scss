@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@import 'wysiwyg.common.components.dropdownmenu.viewer.skins.OverlineMenuButtonSkin';
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.OverlineMenuButtonHorizontalMenuAdaptationSkin");
+
+#dropWrapper {
+  background-color: param-bg-color(bgDrop, 'transparent');
+  @include param-border-radius(rd, 0);
+  @include param-box-shadow(shd, 'none');
+}

@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "santa/module-definition": 0,
+        "santa/enforce-package-access": 0
+    },
+    "env": {
+        "jasmine": true
+    }
+}

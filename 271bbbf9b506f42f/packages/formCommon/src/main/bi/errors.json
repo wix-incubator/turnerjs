@@ -1,0 +1,29 @@
+{
+    "FORM_SUBMIT_FAILURE": {
+        "errorCode": 101027,
+        "severity": "error",
+        "params": {
+            "p1": "componentId",
+            "p2": "componentType",
+            "p3": "errorDesc",
+            "p4": "response"
+        }
+    },
+    "FORM_SUBMIT_FINAL_FALLBACK": {
+        "errorCode": 101028,
+        "severity": "fatal",
+        "params": {
+            "p1": "componentId",
+            "p2": "componentType",
+            "p3": "errorDesc",
+            "p4": "response"
+        }
+    },
+    "FORM_SUBMIT_INVALID_EMAIL": {
+        "errorCode": 101029,
+        "severity": "error",
+        "params": {
+            "p1": "email"
+        }
+    }
+}

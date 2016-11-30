@@ -1,0 +1,17 @@
+<template>
+    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" id="form">
+        <input type="hidden" id="cmd" name="cmd">
+        <input type="hidden" id="item_name" name="item_name">
+        <input type="hidden" id="item_number" name="item_number">
+        <input type="hidden" id="bn" name="bn">
+        <input type="hidden" id="business" name="business">
+        <input type="hidden" id="currency_code" name="currency_code">
+        <input type="hidden" id="notify_url" name="notify_url">
+        <input type="hidden" id="return" name="return">
+        <input type="hidden" id="cancel_return" name="cancel_return">
+        <input type="hidden" id="amount" name="amount">
+
+        <img id="submitImage">
+        <img id="trackingPixel" width="1" height="1">
+    </form>
+</template>

@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Include theme -->
+    <link type="text/css" href="css/jquery-ui-1.8.5.custom.css" rel="Stylesheet"/>
+
+    <!-- Include jQuery and UI -->
+    <script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+    <script type="text/javascript" src="js/jquery-ui-1.8.9.custom.min.js"></script>
+
+
+    <!-- Include jQuery CoverFlow widget -->
+    <script type="text/javascript" src="js/ui.coverflow.js"></script>
+
+    <link type="text/css" href="css/demos.css" rel="stylesheet"/>
+
+    <!-- Transformie is a plugin that makes webkit's CSS transforms work in Internet Explorer -->
+    <script src="js/sylvester.js" type="text/javascript"></script>
+    <script src="js/transformie.js" type="text/javascript"></script>
+
+    <!-- Include mousewheel dependancies and app files -->
+    <script src="js/jquery.mousewheel.min.js" type="text/javascript"></script>
+    <script src='http://sslstatic.wix.com/services/js-sdk/1.17.0/js/Wix.js'></script>
+
+</head>
+<body>
+
+<div class="wrapper">
+    <div id="coverflow">
+        <img src="img/gorillaz-plasticbeach.jpg" data-artist="Gorillaz" data-album="Plastic Beach"/>
+    </div>
+</div>
+
+<!--<div id="imageCaption"></div>-->
+<!--<div id='slider'></div>-->
+
+
+<script type="text/javascript">
+    var $el = $('#coverflow');
+    var items = [];
+    var props = {};
+    var currentMode = {};
+    var widthDivider = 6//1.6108 * 2;
+    var initWidth = Math.floor(window.innerWidth/widthDivider);
+    var initHeight = initWidth//Math.floor(initWidth/1.6108);
+
+    var tm;
+    window.onresize = function () {
+        clearTimeout(tm);
+        tm = setTimeout(function () {
+            refreshSlider()
+        }, 60);
+    }
+
+    Wix.addEventListener(Wix.Events.SETTINGS_UPDATED, function (message) {
+        if (message.cmd === 'zoomClosed') {
+            //updateAutoPlay();
+        } else {
+            props = message.props || {};
+            items = message.items || [];
+            refreshSlider();
+        }
+    });
+
+    function createSliderDom() {
+        var item;
+        var fragment = document.createDocumentFragment();
+        for (var i = 0; i < items.length; i++) {
+            item = items[i];
+            fragment.appendChild(createSingleItem(item, i))
+        }
+        return fragment;
+    }
+
+    function createSingleItem(item, index) {
+
+        var width = Math.floor(window.innerWidth/widthDivider);
+        var height = width//Math.floor(width/1.6108);
+
+        var img = document.createElement('img');
+        img.width = width;
+        img.height = height;
+        img.className = '';
+        img.title = item.title;
+        img.alt = item.description;
+        img.src = Wix.Utils.Media.getResizedImageUrl(item.uri, initWidth, initHeight);//{{src}}
+
+        if(props.galleryImageOnClickAction === 'zoomMode'){
+            img.style.cursor = 'pointer';
+            img.onclick = function(evt){
+                if(+img.style.zIndex === 100){
+                    Wix.pushState(JSON.stringify({cmd:'zoom', args:[index]}));
+                    stopAutoPlay();
+                    return false;
+                }
+            };
+        }
+
+        if(item.linkType !== "FREE_LINK" && props.galleryImageOnClickAction === 'goToLink'){
+            var uri;
+            var navigate;
+            var a = document.createElement('a');
+
+            if (item.linkType === 'DOCUMENT') {
+                uri = Wix.Utils.Media.getDocumentUrl(item.uri);
+            }
+
+            if(item.linkType === 'PAGE'){
+                uri = '#';
+                navigate = function(){
+                    stopAutoPlay();
+                    Wix.navigateToPage(item.href.split('/').pop());
+                }
+            }
+
+            a.onclick = function(){
+                if(+$(img).andSelf().find('img').css('zIndex')=== 100){
+                    if(navigate){
+                        navigate();
+                        return false;
+                    }
+                    return true;
+                }
+                return false;
+            }
+
+            a.href = uri || item.href;
+            a.alt = item.title;
+            a.target = item.target === '_self' ? '_parent' : item.target;
+            a.appendChild(img);
+            img = a;
+        }
+
+        return img;
+    }
+
+    function getPlugin() {
+        return $el.data('coverflow');
+    }
+
+    function refreshSlider() {
+        var plugin = getPlugin();
+        plugin && getPlugin().destroy();
+
+        $el.html('').append(createSliderDom());
+        $el.coverflow({
+            item: $el.children().length/2 << 0,
+            duration: 1200,
+            select: function (event, sky) {
+                //coverflowApp.skipTo(sky.value);
+            }
+        });
+    }
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+<div ng-controller="LinkDialogController as linkDialogController">
+    <div>
+        <wix-button ng-if="linkDialogController.showBackButton" label="LINK_DLG_BACK_TO_OPTIONS"
+                    style="display:block; text-align:left;"
+                    click-handler="linkDialogController.showLinkOptions()"
+                    class="wix-button-text-only">
+        </wix-button>
+    </div>
+    <div class="wix-dialog-groupBox">
+        <div ng-include="linkDialogController.linkContent"></div>
+    </div>
+</div>
+

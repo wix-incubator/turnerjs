@@ -1,0 +1,10 @@
+{
+    "createTime": "2000-01-01T00:01:00",
+    "owner": "xxxx",
+    "description": "For Studio use only",
+    "constraints": {
+    },
+    "tags": [
+        "editor"
+    ]
+}

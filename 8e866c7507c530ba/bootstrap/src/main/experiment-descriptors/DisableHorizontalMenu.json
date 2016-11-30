@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-09-18T11:29:00.000",
+    "owner": "shaila@wix.com",
+    "description": "Disable HorizontalMenu editing functionality",
+    "tags": [
+        "viewer",
+        "editor"
+    ],
+    "constraints": {}
+}

@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$brw: 0;
+$rd: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$tdr: BASE_THEME_DIRECTORY;
+
+
+
+:host {
+  background-color: param-bg-color(brd, $brd);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+.shd {
+  position: absolute;
+  bottom: -26px;
+  width: 165px;
+  height: 26px;
+  background-image: param-url(tdr, $tdr, "liftedshadow_medium.png");
+  background-repeat: no-repeat;
+}
+
+.left {
+  left: -20px;
+  background-position: 0 0;
+}
+
+.right {
+  right: -20px;
+  background-position: 100% 0;
+}
+
+#videoFrame {
+  overflow: hidden;
+  position: absolute;
+  @include param-border-radius(rd, $rd);
+  @include abs-distance(param-size(brw, $brw));
+  display: block;
+}
+
+iframe {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.hidden {
+  display: none!important;
+}

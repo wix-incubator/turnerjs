@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: #ffffff;
+$bgh: #ffffff;
+$bgf: #ffffff;
+$bge: #ffffff;
+$brd: #e3e3e3;
+$brdh: #a3d9f6;
+$brdf: #a3d9f6;
+$brdd: #a3d9f6;
+$brde: #a3d9f6;
+$txt: color_15;
+$txt2: color_15;
+$brw: 1px;
+$brwh: 1px;
+$brwf: 1px;
+$brwd: 1px;
+$brwe: 1px;
+$tdr: BASE_THEME_DIRECTORY;
+$fnt: font_8;
+$rd: 0;
+$trns: opacity .5s ease 0s, border .5s ease 0s, color .5s ease 0s;
+$shd: 0 0 0 rgba(0, 0, 0, 0);
+
+:host {
+  position: relative;
+  min-height: 25px;
+}
+
+#input {
+  @include param-box-shadow(shd, $shd);
+  @include param-border-radius(rd, $rd);
+  @include param-font(fnt, $fnt);
+  background-color: param-bg-color(bg, $bg);
+  box-sizing: border-box !important;
+  color: param-text-color(txt, $txt);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  padding: 3px;
+  margin: 0;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  text-overflow: ellipsis;
+
+  &::placeholder {
+    color: param-text-color(txt2, $txt2);
+  }
+
+  &:hover,
+  &[data-preview~="hover"] {
+    background-color: param-bg-color(bgh, $bgh);
+    border: param-border-size(brwh, $brwh) solid param-border-color-alpha(brdh, $brdh);
+
+  }
+
+  &:focus,
+  &[data-preview~="focus"] {
+    background-color: param-bg-color(bgf, $bgf);
+    border: param-border-size(brwf, $brwf) solid param-border-color-alpha(brdf, $brdf);
+  }
+}
+
+.left-direction {
+  #input {
+    text-align: left;
+  }
+}
+
+.right-direction {
+  #input {
+    text-align: right;
+  }
+}
+
+.center-direction {
+  #input {
+    text-align: center;
+  }
+}
+
+p {
+  @include param-transition(trns, $trns);
+  @include opacity(0);
+  @include param-border-radius(rd, $rd);
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 100%;
+  width: 140px;
+  padding: 10px;
+  font-size: 13px;
+  line-height: 16px;
+  background: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+}
+
+p:after {
+  content: "▼";
+  position: absolute;
+  bottom: -12px;
+  right: 10px;
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, .6);
+  @include param-border-radius(rd, $rd);
+}
+
+[data-disabled="true"],
+[data-preview~="disabled"]{
+  #input {
+    @include disabled-bg-color(bgd);
+    @include disabled-text-color(txtd);
+    border: param-border-size(brwd, $brwd) solid param-border-color-alpha(brdd, $brdd);
+  }
+}
+
+[data-error="true"],
+[data-state~="invalid"],
+[data-preview~="error"]{
+  #input {
+    background-color: param-bg-color(bge, $bge);
+    border: solid param-border-size(brwe, $brwe) param-border-color-alpha(brde, $brde);
+  }
+}
+

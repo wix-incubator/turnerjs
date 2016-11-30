@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_17;
+$bgh: color_18;
+$txth: color_15;
+$txt: color_15;
+$fnt: font_6;
+$rd: 12px;
+$trans1: background-color .4s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+
+[data-disabled="false"] {
+  overflow: visible !important;
+  cursor: pointer !important;
+
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #link {
+      background-color: param-bg-color(bgh, $bgh);
+      @include param-transition(trans1, $trans1);
+    }
+
+    #label {
+      color: param-text-color(txth, $txth);
+    }
+  }
+}
+
+#link {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  @include param-transition(trans1, $trans1);
+  background: param-url(tdr, $tdr, 'gaming_pattern.png') repeat 0 0;
+  background-color: param-bg-color(bg, $bg);
+  border: solid #000 2px;
+  box-shadow: rgba(255, 255, 255, .3) 0 3px 6px 0 inset,
+              rgba(0, 0, 0, .6) -2px -3px 6px 0 inset,
+              rgba(0, 0, 0, .6) 1px 1px 6px 1px,
+              rgba(255, 255, 255, .3) 1px 1px 3px 0;
+  width: 100%;
+}
+
+.left,
+.right {
+  background-position: 0 center;
+  background-repeat: no-repeat;
+  height: 100%;
+  position: absolute;
+  width: 66px;
+}
+
+.left {
+  background-image: param-url(tdr, $tdr, 'darknessleft.png');
+  border-radius: 10px 0 0 10px;
+  left: 0;
+}
+
+.right {
+  background-image: param-url(tdr, $tdr, 'darknessright.png');
+  border-radius: 0 10px 10px 0;
+  right: 0;
+}
+
+#label {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  display: inline-block;
+  margin-top: -1px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.shineOnYouCrazyDiamond {
+  bottom: 50%;
+  top: 0;
+  left: 0;
+  background: param-url(tdr, $tdr, "whitegradient.png") repeat-x 0 100%;
+  overflow: hidden;
+  border-radius: 12px 12px 0 0;
+  width: 100%;
+  content: '';
+  position: absolute;
+}
+
+[data-disabled="true"] {
+  #link {
+    @include disabled-bg-color(bgd);
+  }
+
+  #label {
+    @include disabled-text-color(txtd);
+  }
+}

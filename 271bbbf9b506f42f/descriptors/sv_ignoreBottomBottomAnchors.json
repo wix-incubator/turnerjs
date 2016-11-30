@@ -1,0 +1,8 @@
+{
+    "owner": "guyr",
+    "description": "do not enforce bottomBottom anchors for pages marked to ignore them",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

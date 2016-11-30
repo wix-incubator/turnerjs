@@ -1,0 +1,10 @@
+{
+  "createTime": "2014-06-12T12:51:00",
+  "owner": "dimar",
+  "description": "Sandbox htmlComponent iframes for free users in new Santa viewer. Related to experiment SandboxIframeInEditor",
+  "constraints": {
+  },
+  "tags": [
+    "viewer"
+  ]
+}

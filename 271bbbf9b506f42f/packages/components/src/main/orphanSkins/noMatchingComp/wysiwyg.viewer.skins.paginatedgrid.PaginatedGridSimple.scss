@@ -1,0 +1,110 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$bgh: color_12;
+$strip: color_12;
+$rbn: color_18;
+$itemBrw: 1px;
+$itemBrc: color_12;
+$itemBrch: color_12;
+$txth: color_15;
+$txtHoverOutOfStock: 228, 82, 63, 1;
+$paging: color_15;
+$tdr: BASE_THEME_DIRECTORY;
+$rd: 0;
+
+#itemsContainer {
+  overflow: hidden;
+
+  &.show-counter {
+    height: calc(100% - 40px) !important; // we reduce 40px in order to leave enough space to the pagination/'ul' element
+  }
+}
+
+.hid {
+  display: none;
+}
+
+.galleryDisplayer {
+  box-sizing: border-box;
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  border: param-border-size(itemBrw, $itemBrw) solid param-border-color-alpha(itemBrc, $itemBrc);
+  cursor: pointer !important;
+}
+
+.galleryDisplayer .rolloverStrip {
+  background: transparent;
+}
+
+.galleryDisplayer .ribbon {
+  background-color: param-bg-color(rbn, $rbn);
+}
+
+.galleryDisplayer:hover .rolloverStrip {
+  background: param-bg-color(strip, $strip);
+}
+
+.galleryDisplayer:hover .txtHoverColor * {
+  color: param-text-color(txth, $txth) !important;
+}
+
+.galleryDisplayer:hover .txtHoverColorOutOfStock * {
+  color: param-text-color(txtHoverOutOfStock, $txtHoverOutOfStock);
+}
+
+.galleryDisplayer .txtHoverColorOutOfStockMobile * {
+  color: param-text-color(txtHoverOutOfStock, $txtHoverOutOfStock);
+}
+
+.galleryDisplayer:hover {
+  background-color: param-bg-color(bgh, $bgh);
+  border-color: param-border-color-alpha(itemBrch, $itemBrch);
+}
+
+.galleryDisplayer:hover .pic:after {
+  content: "";
+  @include abs-distances(0, 0, -6px, 0);
+  background: transparent param-url(tdr, $tdr, "wix_apps/magnify.png") right top no-repeat;
+  border-bottom: solid 3px param-text-color(txth, $txth);
+}
+
+#buttonPrev {
+  cursor: pointer !important;
+}
+
+#buttonPrev > span:before {
+  content: '◄';
+}
+
+#buttonNext > span:before {
+  content: '►';
+}
+
+#buttonNext {
+  cursor: pointer !important;
+}
+
+ul {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: param-text-color(paging, $paging) !important;
+}
+
+li {
+  padding: 0 5px;
+  display: inline !important;
+  font-size: 14px;
+  color: param-text-color(paging, $paging) !important;
+}
+

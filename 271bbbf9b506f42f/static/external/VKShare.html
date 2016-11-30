@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            margin:  0;
+        }
+        div, span ,a{
+            white-space: nowrap
+        }
+    </style>
+
+    <script type="text/javascript" src="//vk.com/js/api/share.js?90" charset="windows-1251"></script>
+</head>
+
+<body>
+    <script type="text/javascript">
+        (function () {
+            var query = window.location.search.substring(1).split("&"),
+                params = [],
+                tagName,
+                buttonWidth,
+                counterWidth = 43,
+                buttonElm;
+
+            if(!window.VK) {
+                return;
+            }
+
+            for (var i= 0, length = query.length; i < length; i++){
+                var pair = query[i].split("=");
+                params[pair[0]] = pair[1];
+            }
+
+            function trimUrlAfterQuestionMark(url){
+                var indexOfQuestionMark = url.indexOf('%3F');
+                return indexOfQuestionMark > -1 ? url.substring(0,indexOfQuestionMark) : url;
+            }
+
+            var type = 'button',
+                url = trimUrlAfterQuestionMark(params['url']),  //URL needs to stay encoded (see hack below)
+                text = decodeURIComponent(params['text']),
+                title = (params['title']) ? decodeURIComponent(params['title']) : undefined,
+                description = (params['description']) ? decodeURIComponent(params['description']) : undefined,
+                image = (params['image']) ? decodeURIComponent(params['image']) : undefined;
+
+            switch(params['style']){
+                case 'Button':
+                    type = 'button';
+                    break;
+                case 'ButtonWithoutCounter':
+                    type = 'button_nocount';
+                    break;
+                case 'Link':
+                    type = 'link' ;
+                    break;
+                case 'LinkWithoutIcon':
+                    type = 'link_noicon';
+                    break;
+                case 'Icon':
+                    type = 'custom' ;
+                    text = '<img src="http://vk.com/images/vk32.png?1" />';
+                    break;
+            }
+
+            /************************************************
+             * PLEASE READ THE FOLLOWING HACK DOCUMENTATION *
+             ************************************************/
+
+            document.write(VK.Share.button(
+                {
+                    "url": decodeURIComponent(url),
+                    "image": image,
+                    "noparse": true,
+                    "title":title,
+                    "description": description
+                },
+                {
+                    "type": type,
+                    "text": text
+                }
+            ));
+
+            //Table Tag:
+            //---------
+            // Button(button/round)
+            // ButtonWithoutCounter(button_nocount/round_nocount)
+            // Link(link)
+
+            //A Tag:
+            //-----
+            // LinkWithoutIcon(link_noicon)
+            // Icon(custom)
+
+            //Decide which HTML tag name holds the button
+            switch(type) {
+                case 'button':
+                case 'round':
+                case 'button_nocount':
+                case 'round_nocount':
+                case 'link':
+                    tagName = 'table';
+                    break;
+                case 'link_noicon':
+                case 'custom':
+                    tagName = 'a';
+                    break;
+            }
+
+            //type 'custom' doesn't have text - no need to measure (the rest of the code below)
+            if(type == 'custom') {
+                return;
+            }
+
+            //Measure the width of the first button (the one with the correct counter)
+            buttonElm = document.body.getElementsByTagName(tagName)[0];
+            buttonElm.style['white-space'] = 'pre';  //Make sure that white space is not ignored
+            buttonWidth = buttonElm.offsetWidth;
+
+            //Add width to button with counter (the counter isn't measured)
+            if(type == 'button' || type == 'round') {
+                buttonWidth += counterWidth;
+            }
+
+            //If the button width is exceeds the the width of the body - send post message to the component
+            if (buttonWidth > document.body.offsetWidth) {
+                var msgData = JSON.stringify({
+                    id: decodeURIComponent(params['id']),
+                    width: buttonWidth
+                });
+                window.parent.postMessage(msgData, "*");  //Tell the component to make itself wider
+            }
+
+            //Helper function
+            function isIE () {
+                var myNav = navigator.userAgent.toLowerCase();
+                return (myNav.indexOf('msie') != -1) ? parseInt(myNav.split('msie')[1], 10) : false;
+            }
+        }());
+    </script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$bg: #000;
+
+:host {
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  @include tap-highlight-color(rgba(0, 0, 0, 0));
+  z-index: $zindex-mobile-media-zoom-skin-host;
+  background: #000;
+}
+
+#xButton {
+  top: 0;
+  right: 0;
+  background: param-url(tdr, $tdr, "x_button.png") no-repeat;
+  background-size: cover;
+}
+
+#xButton {
+  [data-state~="tablet"] {
+    @include param-orientation-zoom-fix(zoom);
+  }
+}
+
+.btn {
+  @include param-inverted-viewzoom-fixed(zoom);
+  position: absolute;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+#buttonNext,
+#buttonPrev {
+  display: none;
+}
+
+// States
+[data-state~="tablet"],
+[data-state~="mobile"] {
+  .btn {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+[data-state~="hideButtons"] {
+  .btn {
+    display: none;
+  }
+}
+

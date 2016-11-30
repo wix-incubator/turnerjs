@@ -1,0 +1,33 @@
+.wix-color-selector {
+  position: relative;
+  width: 80px;
+  height: 40px;
+}
+
+.wix-color-selector-transparent {
+  background-repeat: repeat;
+  background-position: 0 0;
+  width: 70px;
+  height: 25px;
+  position: absolute;
+  top:0;
+  left:0;
+  margin:5px;
+}
+
+.wix-color-selector-color {
+  width: 70px;
+  height: 25px;
+  top:0;
+  left:0;
+  margin:5px;
+  position: absolute;
+}
+
+.wix-color-selector-button {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top:0;
+}

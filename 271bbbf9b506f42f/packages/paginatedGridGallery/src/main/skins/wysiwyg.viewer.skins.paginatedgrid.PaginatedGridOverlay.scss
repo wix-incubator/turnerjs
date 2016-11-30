@@ -1,0 +1,176 @@
+@charset "UTF-8";
+
+@import 'paginaredGridGalleryBase';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fntt: font_6;
+$fntds: font_8;
+$bg: color_11;
+$bgh: color_11;
+$txt: color_15;
+$linkColor: color_15;
+$trans: opacity .3s ease 0s, color .3s ease 0s, background-color .3s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include exports("img:skin", "skins.core.ImageSkin");
+
+#itemsContainer {
+  overflow: hidden;
+  height: 100% !important;
+}
+
+.opc {
+  @include param-transition(trans, $trans);
+  @include opacity(0);
+  color: param-border-color(txt, $txt);
+}
+
+:host:hover[data-state~="notMobile"]  .opc {
+  @include opacity(1);
+}
+
+#rolloverHolder {
+  box-sizing: border-box !important;
+  @include param-font(fntds, $fntds);
+  background-color: param-bg-color(bg, $bg);
+  color: param-border-color(txt, $txt);
+  @include opacity(0);
+  padding: 10px !important;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+[data-state~="rollover"] #rolloverHolder {
+ // @include param-transition(trans, $trans);
+  @include opacity(1);
+}
+
+.rolloverHolder {
+  background-color: param-bg-color(bgh, $bgh);
+  @include param-font(fntds, $fntds);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
+  min-height: 15px;
+}
+
+#title {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  @include param-font(fntt, $fntt);
+}
+
+#description {
+  white-space: pre-line;
+  text-overflow: ellipsis;
+  display: block;
+  overflow: hidden;
+  margin-right: 70px;
+}
+
+#link {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position:absolute;
+  display: block;
+  overflow: hidden;
+  text-decoration: underline;
+  color: param-text-color(linkColor, $linkColor);
+}
+
+.btn {
+  @include param-transition(trans, $trans);
+  @include opacity(0.4);
+  height: 65px;
+  background-image: param-url(tdr, $tdr, "arrows_white.png");
+  background-repeat: no-repeat;
+  width: 33px;
+  position: absolute;
+  top: 50%;
+  margin-top: -22px;
+  cursor: pointer;
+}
+
+[data-state~="mobile"] .btn {
+  @include opacity(1);
+}
+
+#buttonPrev {
+  left: 20px;
+  background-position: 0 0;
+}
+
+#buttonNext {
+  right: 20px;
+  background-position: 100% 0;
+}
+
+[data-state~="notMobile"] .buttons {
+  @include param-transition(trans, $trans);
+  @include opacity(0);
+}
+
+:host:hover > .buttons {
+  @include opacity(1);
+}
+
+.btn:hover {
+  @include opacity(1);
+}
+
+.hlp {
+  position: absolute;
+  color: param-border-color(txt, $txt);
+}
+
+.hlp span {
+  display: block;
+}
+
+#autoplay {
+  right: 25px;
+  width:35px;
+  height:35px;
+  bottom:0px;
+
+}
+#autoplayImg{
+  margin-top:40%;
+  margin-left:40%
+}
+
+#counter {
+  right: 5px;
+  bottom: 8px;
+  font-size: 13px;
+}
+
+[data-state~="noLink"]  #link {
+  display: none;
+}
+
+[data-state~="autoplayOff"] #autoplay > span {
+  border: 6px solid transparent;
+  border-left: 6px solid param-border-color(txt, $txt);
+}
+
+[data-state~="autoplayOn"]  #autoplay > span {
+  border-left: 3px solid param-border-color(txt, $txt);
+  border-right: 3px solid param-border-color(txt, $txt);
+  margin-right: 5px;
+  height: 12px;
+  width: 1px;
+}
+#textWrapper{
+  pointer-events:none;
+}

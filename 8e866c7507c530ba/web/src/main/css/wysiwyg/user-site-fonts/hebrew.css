@@ -1,0 +1,145 @@
+/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web fonts:  http://webfonts.fonts.com
+*/
+
+@font-face {
+  font-family: "Adler-W26-Regular";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/8fa9b915-180f-4b72-aee7-22fd066c52c6.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/8fa9b915-180f-4b72-aee7-22fd066c52c6.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/fcb3f76f-a112-479e-ab7f-ab1c2be906c9.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/ceda4e97-a631-4986-8cab-709e1775be33.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/353c7faf-0d58-475b-8caa-f1d863e0cf1d.svg#353c7faf-0d58-475b-8caa-f1d863e0cf1d") format("svg");
+}
+
+@font-face {
+  font-family: "Frank-Ruhl-W26-Regular";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/90882399-52f1-42a9-986b-c2c49d3fb409.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/90882399-52f1-42a9-986b-c2c49d3fb409.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/0e834425-e268-4b38-b5a8-f24b8632d6ae.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/cb5aceab-5dbf-4c09-b650-7c9d526cc117.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/850e45c9-2003-49fa-8e3f-c7dfd6579acc.svg#850e45c9-2003-49fa-8e3f-c7dfd6579acc") format("svg");
+}
+
+@font-face {
+  font-family: "Haim-Arukeem-W26-Medium";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/6de8df0c-23af-49b9-9578-42db4c756d2d.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/6de8df0c-23af-49b9-9578-42db4c756d2d.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/f70c24b0-d6be-4d04-99cd-46efc41d00b4.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/2dd64ac4-7c3a-47fb-acdb-063b811c93d5.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/a7ab1444-5d94-4474-9d31-86df47d8d5c1.svg#a7ab1444-5d94-4474-9d31-86df47d8d5c1") format("svg");
+}
+
+@font-face {
+  font-family: "Miriam-W26-Medium";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/acfa87dd-5042-40e1-87e9-12e4a559269f.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/acfa87dd-5042-40e1-87e9-12e4a559269f.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/21aeb0a3-3309-4415-818b-36f94e2a1a3a.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/c5acaffd-7553-42ff-a693-8b9be795b4b3.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/dd50d8fb-6769-469f-8bfa-9caed8e6df18.svg#dd50d8fb-6769-469f-8bfa-9caed8e6df18") format("svg");
+}
+
+@font-face {
+  font-family: "Nekudot-W26-Bold";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/c0a57107-844c-4847-afc6-00f3cb3c4d5f.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/c0a57107-844c-4847-afc6-00f3cb3c4d5f.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/c28b65cd-9544-42f1-9ffc-d6ffa544e6fb.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/9aa74607-c9af-4c4b-9a3f-fc76488dca25.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/00381de4-f82a-4939-b8e1-1bbde51ac4ce.svg#00381de4-f82a-4939-b8e1-1bbde51ac4ce") format("svg");
+}
+
+@font-face {
+  font-family: "Gulash-W26-Regular";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/7c672276-1d07-4ff2-8b1d-3245af0dc5cc.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/7c672276-1d07-4ff2-8b1d-3245af0dc5cc.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/64f53eeb-1d5e-493c-aa3b-aa8e2c066320.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/7e32a874-81bc-4d38-87aa-ff626ce5a400.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/857d7efc-7a9c-457d-8aa5-44f0992e6441.svg#857d7efc-7a9c-457d-8aa5-44f0992e6441") format("svg");
+}
+
+@font-face {
+  font-family: "Shabazi-W26-Bold";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/dc7f3c57-fb2d-4656-9224-ef9f1c88477e.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/dc7f3c57-fb2d-4656-9224-ef9f1c88477e.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/09048cb1-f6a6-4b44-9d96-6d20013ef7e8.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/fec4486e-254a-4cb4-b1a0-859cf2190792.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/b25da79b-ff9a-486e-bf4f-2893c47da939.svg#b25da79b-ff9a-486e-bf4f-2893c47da939") format("svg");
+}
+
+@font-face{
+font-family:"Chips-W26-Normal";
+src:url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/aa157336-ffa1-476e-9a72-e9f516e87ca3.eot?#iefix");
+src:url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/aa157336-ffa1-476e-9a72-e9f516e87ca3.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/e526922d-4fe2-4e4d-834d-6b62ebd244da.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/03e7eb16-072f-4c53-b299-08535bff2421.ttf") format("truetype"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/b21a0ec6-8efb-40de-99f1-20a11d482401.svg#b21a0ec6-8efb-40de-99f1-20a11d482401") format("svg");
+}
+
+@font-face {
+  font-family: "Alef-Regular";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/alef-regular.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/alef-regular.eot?#iefix") format("eot"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/alef-regular.woff") format("woff"),url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/alef-regular.ttf") format("truetype");
+}
+
+@font-face {
+  font-family: "OpenSansHebrewCondensed-Regular";
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/opensans-hebrew-condensed-regular.eot?#iefix");
+  src: url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/opensans-hebrew-condensed-regular.eot?#iefix") format("eot"),
+  url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/opensans-hebrew-condensed-regular.woff") format("woff"),
+  url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/opensans-hebrew-condensed-regular.ttf") format("truetype");
+}
+
+@font-face{
+	font-family:'almoni-dl-aaa-300';
+	font-weight:300; /*(light)*/
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-300.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-300.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-300.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-300.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'almoni-dl-aaa-400';
+	font-weight:400; /*(regular)*/
+	font-style: normal;
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-400.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-400.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-400.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-400.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'almoni-dl-aaa-700';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-700.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-700.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-700.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/almoni-dl-aaa-700.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'asimon-aaa-400';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/asimon-aaa-400.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/asimon-aaa-400.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/asimon-aaa-400.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/asimon-aaa-400.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'atlas-aaa-500';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/atlas-aaa-500.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/atlas-aaa-500.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/atlas-aaa-500.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/atlas-aaa-500.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'mixtape-aaa-400';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/mixtape-aaa-400.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/mixtape-aaa-400.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/mixtape-aaa-400.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/mixtape-aaa-400.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'museum-aaa-400';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/museum-aaa-400.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/museum-aaa-400.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/museum-aaa-400.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/museum-aaa-400.ttf') format('truetype');
+}
+
+@font-face{
+	font-family:'omes-aaa-400';
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/omes-aaa-400.eot');
+	src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/omes-aaa-400.eot?#iefix') format('embedded-opentype'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/omes-aaa-400.woff') format('woff'),
+		url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/omes-aaa-400.ttf') format('truetype');
+}
+
+@font-face{
+    font-family:'MeodedPashut-oeregular';
+    src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/meodedpashut_oeregular.eot');
+    src: url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/meodedpashut_oeregular.eot?#iefix') format('embedded-opentype'),
+    url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/meodedpashut_oeregular.woff') format('woff'),
+    url('//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/open-source/meodedpashut_oeregular.ttf') format('truetype'),
+    url("//static.parastorage.com/services/third-party/fonts/user-site-fonts/fonts/meodedpashut_oeregular.svg#meodedpashut_oeregular") format("svg");
+}
+

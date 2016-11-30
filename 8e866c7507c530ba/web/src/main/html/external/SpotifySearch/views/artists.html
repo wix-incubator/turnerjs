@@ -1,0 +1,39 @@
+<div>
+    <table class="outer-table">
+        <tbody>
+        <tr>
+            <td>
+                <table class="inner-table-top">
+                    <tr>
+                        <td class="col-header remove-right-border">{{ 'artistName' | translate }}</td>
+                        <td class="col-header col-header-spacer">&nbsp;</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div class="results-table-scroll-wrapper">
+                    <table class="inner-table-bottom table-striped">
+                        <tbody>
+                            <tr ng-repeat="item in searchResults.artists | limitTo: 100"
+                                ng-click="selectItem(item)"
+                                ng-dblclick="chooseItem(item)"
+                                ng-class="{true: 'selectedItem'}[selectedItemInfo.tab == 'artists' && item.index == selectedItemInfo.index]">
+                                <td>{{item.artistName}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+    <div class="no-results" ng-show="(!showWelcome && searchResults.artists.length == 0)">
+        <div class="no-results-img"></div>
+        <div class="no-results-txt">
+            {{ 'artistNoResults' | translate }}
+        </div>
+    </div>
+</div>

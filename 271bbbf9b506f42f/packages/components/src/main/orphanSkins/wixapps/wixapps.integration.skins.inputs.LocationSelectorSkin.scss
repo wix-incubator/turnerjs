@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$baseThemeDir: BASE_THEME_DIRECTORY;
+
+#container {
+  height: 30px;
+  line-height: 30px;
+  padding-right: 35px;
+  position: relative;
+}
+
+#address {
+  width: 100%;
+}
+
+#viewMode {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+[data-state~="loading"] #viewMode {
+  background: transparent param-url(baseThemeDir, $baseThemeDir, "wix_apps/loading.gif") center center no-repeat;
+}
+
+[data-state~="error"] #viewMode {
+  background: transparent param-url(baseThemeDir, $baseThemeDir, "wix_apps/icon_x.png") center center no-repeat;
+}
+
+[data-state~="found"] #viewMode {
+  background: transparent param-url(baseThemeDir, $baseThemeDir, "wix_apps/icon_v.png") center center no-repeat;
+}
+
+[data-state~="search"] #viewMode {
+  background: transparent param-url(baseThemeDir, $baseThemeDir, "wix_apps/spy_glass.png") center center no-repeat;
+  cursor: pointer;
+}
+
+[data-state~="invalid"] #message {
+  height: 20px;
+  line-height: 20px;
+  color: #d00;
+  font-size: 12px;
+}
+

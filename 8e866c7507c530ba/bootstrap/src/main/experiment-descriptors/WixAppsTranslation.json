@@ -1,0 +1,12 @@
+{
+    "createTime": "2014-05-11T19:05:00",
+    "owner": "shimil",
+    "description": "Supporting new translation systen in wixapps",
+    "tags": [
+        "editor",
+        "viewer"
+    ],
+    "constraints": {
+        "SiteMemberAdditionalTranslations": "optional-before"
+    }
+}

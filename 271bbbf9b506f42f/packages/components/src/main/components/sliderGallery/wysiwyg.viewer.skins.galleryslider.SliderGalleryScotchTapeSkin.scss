@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@import 'sliderGalleryBase';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$trans: opacity .4s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.galleryslider.SliderDisplayerScotchTapeSkin");
+@include exports("imageItem:styleGroup", "inherit");
+@include exports("itemContainerTotalOffset", 80);
+
+
+#itemsContainer {
+  position: absolute;
+  left: 40px !important;
+  right: 40px !important;
+  top: 0;
+  bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.arr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 76px;
+  height: 45px;
+  cursor: pointer;
+}
+
+#swipeLeftHitArea {
+  left: -5px;
+  background: param-url(tdr, $tdr, "scotch_left_arrow.png") no-repeat;
+}
+
+#swipeRightHitArea {
+  right: -5px;
+  background: param-url(tdr, $tdr, "scotch_right_arrow.png") no-repeat;
+}
+
+#autoplay {
+  display: none;
+}
+

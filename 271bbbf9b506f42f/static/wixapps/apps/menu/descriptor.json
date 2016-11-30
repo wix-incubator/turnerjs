@@ -1,0 +1,4126 @@
+{
+    "id": "e4c4a4fb-673d-493a-9ef1-661fa3823ad7",
+    "packageName": "menu",
+    "name": "Restaurant Menu",
+    "appIcon": "images/menu-icon.png",
+    "pictures": [
+        "images/menu-screen-1.jpg",
+        "images/menu-screen-2.jpg",
+        "images/menu-screen-3.jpg"
+    ],
+    "experiments": {},
+    "description": "Restaurant menu application lets you create and manage your menus data and design seamlessly",
+    "version": 1,
+    "helpId": "/node/8298",
+    "parts": [
+        {
+            "id": "1660c5f3-b183-4e6c-a873-5d6bbd918224",
+            "name": "Restaurant Menu",
+            "description": "Change the design of your menu and try out the different menu layouts. To add new items to your menu, click Edit Menus.",
+            "widgetIcon": "images/menu-icon.png",
+            "pictures": [],
+            "defaultWidth": 400,
+            "defaultHeight": 100,
+            "allowRtl": true,
+            "logic": {
+                "display": {
+                    "type": "wixapps.core.logics.TwoLevelCategoryLogic",
+                    "options": {
+                        "collectionId": "Menus",
+                        "itemId": "SampleMenu1"
+                    }
+                },
+                "seo": {
+                    "type": "SingleItem",
+                    "options": {
+                        "collectionId": "Menus",
+                        "itemId": "SampleMenu1"
+                    }
+                }
+            },
+            "views": [
+                "Center",
+                "Left",
+                "Inline",
+                "LeftImage",
+                "LeftThumb",
+                "Gallery"
+            ],
+            "customizationsViewMapping": {
+                "Center": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ],
+                "Left": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ],
+                "LeftThumb": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ],
+                "LeftImage": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ],
+                "Gallery": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ],
+                "Inline": [
+                    "InlineLeft",
+                    "InlineLeft2"
+                ]
+            }
+        }
+    ],
+    "viewDescriptions": [
+        {
+            "id": "Center",
+            "name": "Centered menu",
+            "description": "Centered menu without images",
+            "icon": "generalviews/list-center.png"
+        },
+        {
+            "id": "Left",
+            "name": "Left aligned menu",
+            "description": "Left aligned menu with large images",
+            "icon": "generalviews/list-left.png"
+        },
+        {
+            "id": "LeftThumb",
+            "name": "Menu with small images",
+            "description": "Left aligned menu with small images",
+            "icon": "generalviews/list-thumb.png"
+        },
+        {
+            "id": "LeftImage",
+            "name": "Menu with images",
+            "description": "Menu with large images",
+            "icon": "generalviews/list-image.png"
+        },
+        {
+            "id": "Gallery",
+            "name": "Gallery menu",
+            "description": "Menu items presented in a gallery",
+            "icon": "generalviews/matrix.png"
+        },
+        {
+            "id": "Inline",
+            "name": "Inline left aligned menu",
+            "description": "Will present the full items without images with title and description inline",
+            "icon": "generalviews/list-inline.png"
+        }
+    ],
+    "links": [],
+    "collections": [
+        {
+            "id": "Menus",
+            "allowedTypes": [
+                "Menu"
+            ],
+            "name": "Menus"
+        },
+        {
+            "id": "Sections",
+            "allowedTypes": [
+                "Section"
+            ],
+            "name": "Sections"
+        },
+        {
+            "id": "Items",
+            "allowedTypes": [
+                "Item"
+            ],
+            "name": "Items"
+        }
+    ],
+    "types": [
+        {
+            "_iid": "Menu",
+            "_type": "wix:Type",
+            "fields": [
+                {
+                    "_type": "wix:Field",
+                    "name": "title",
+                    "type": "String",
+                    "defaultValue": "",
+                    "validations": [
+                        {
+                            "func": "minLength",
+                            "params": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "description",
+                    "type": "String",
+                    "defaultValue": ""
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "items",
+                    "type": "Array<wix:Ref<Section>, wix:Ref<Item>>",
+                    "defaultValue": []
+                }
+            ],
+            "permissions": {
+                "*": {
+                    "Read": "Anonymous",
+                    "Create": "SiteOwner",
+                    "Update": "SiteOwner",
+                    "Delete": "SiteOwner"
+                }
+            }
+        },
+        {
+            "_iid": "Section",
+            "_type": "wix:Type",
+            "fields": [
+                {
+                    "_type": "wix:Field",
+                    "name": "title",
+                    "type": "String",
+                    "defaultValue": "",
+                    "validations": [
+                        {
+                            "func": "minLength",
+                            "params": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "description",
+                    "type": "String",
+                    "defaultValue": ""
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "image",
+                    "type": "wix:Image",
+                    "defaultValue": {
+                        "_type": "wix:Image",
+                        "title": "Default image",
+                        "src": "2f7b76_0a5a22e60c65e780a8ea73b49d1893a4.png",
+                        "width": 1280,
+                        "height": 960
+                    }
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "items",
+                    "type": "Array<wix:Ref<Item>>",
+                    "defaultValue": []
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "parentRef",
+                    "type": "wix:Ref<Menu>",
+                    "defaultValue": {
+                        "_type": "wix:Ref",
+                        "collectionId": "VOID_REF",
+                        "itemId": "VOID_REF"
+                    }
+                }
+            ],
+            "permissions": {
+                "*": {
+                    "Read": "Anonymous",
+                    "Create": "SiteOwner",
+                    "Update": "SiteOwner",
+                    "Delete": "SiteOwner"
+                }
+            }
+        },
+        {
+            "_iid": "Item",
+            "_type": "wix:Type",
+            "fields": [
+                {
+                    "_type": "wix:Field",
+                    "name": "title",
+                    "type": "String",
+                    "validations": [
+                        {
+                            "func": "minLength",
+                            "params": [
+                                2
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "description",
+                    "type": "String",
+                    "defaultValue": ""
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "image",
+                    "type": "wix:Image",
+                    "defaultValue": {
+                        "_type": "wix:Image",
+                        "title": "Default image",
+                        "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                        "width": 1280,
+                        "height": 960
+                    }
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "price",
+                    "type": "String",
+                    "defaultValue": ""
+                },
+                {
+                    "_type": "wix:Field",
+                    "name": "parentRefs",
+                    "type": "Array<wix:Ref<Section>, wix:Ref<Menu>>",
+                    "defaultValue": []
+                }
+            ],
+            "permissions": {
+                "*": {
+                    "Read": "Anonymous",
+                    "Create": "SiteOwner",
+                    "Update": "SiteOwner",
+                    "Delete": "SiteOwner"
+                }
+            }
+        }
+    ],
+    "dataEditing": {
+        "logicParams": {
+            "dataSelection": {
+                "noCategoriesLabel": "No Menus found",
+                "addFirstCategoryLabel": "Create a new menu",
+                "anotherCategoryLabel": "No thanks, I'd like to create a new menu",
+                "inlineHelp": "Pick which menu or menu section you'd like to appear and click OK.",
+                "newItemType": "Menu",
+                "newItemCollection": "Menus",
+                "topLevelItemType": "Menu",
+                "midLevelItemType": "Section",
+                "topLevelCollection": "Menus",
+                "midLevelCollection": "Sections",
+                "categoriesSelectionSort": {
+                    "title": 1
+                },
+                "newItemOverrides": {
+                    "title": "New Menu",
+                    "description": "Edit the new menu description"
+                },
+                "newItemErrorTitle": "Error creating new menu",
+                "newItemErrorDescription": "Please try again in a few minutes"
+            }
+        },
+        "dataSelectionLabel": "Choose Menu",
+        "dataEditingLabel": "Edit Menu",
+        "helpId": "/node/8746",
+        "itemEditingHelpId": "/node/8746",
+        "categories": [
+            {
+                "name": "All Menus",
+                "newTypes": [
+                    "Menu"
+                ],
+                "height": 300,
+                "items": [
+                    {
+                        "type": "tree",
+                        "name": "Menu tree",
+                        "treeId": "menuTree"
+                    }
+                ]
+            },
+            {
+                "name": "Sections",
+                "newTypes": [],
+                "items": [
+                    {
+                        "type": "query",
+                        "name": "All sections",
+                        "collectionId": "Sections",
+                        "filter": {},
+                        "sort": {
+                            "title": 1
+                        },
+                        "skip": 0,
+                        "limit": -1,
+                        "isDefault": true,
+                        "defaultChildType": "Section",
+                        "noResultsMessage": "No sections defined"
+                    },
+                    {
+                        "type": "query",
+                        "name": "Hidden sections",
+                        "collectionId": "Sections",
+                        "filter": {
+                            "parentRef.itemId": "VOID_REF"
+                        },
+                        "sort": {
+                            "title": 1
+                        },
+                        "skip": 0,
+                        "limit": -1,
+                        "defaultChildType": "Section",
+                        "noResultsMessage": "You have no  hidden sections"
+                    }
+                ]
+            },
+            {
+                "name": "Dishes",
+                "newTypes": [],
+                "items": [
+                    {
+                        "type": "query",
+                        "name": "All dished",
+                        "collectionId": "Items",
+                        "filter": {},
+                        "sort": {
+                            "title": 1
+                        },
+                        "skip": 0,
+                        "limit": -1,
+                        "isDefault": true,
+                        "defaultChildType": "Item",
+                        "noResultsMessage": "No dishes defined"
+                    },
+                    {
+                        "type": "query",
+                        "name": "Hidden dishes",
+                        "collectionId": "Items",
+                        "filter": {
+                            "parentRefs": {
+                                "$size": 0
+                            }
+                        },
+                        "sort": {
+                            "title": 1
+                        },
+                        "skip": 0,
+                        "limit": -1,
+                        "defaultChildType": "Item",
+                        "noResultsMessage": "You have no hidden dishes"
+                    }
+                ]
+            }
+        ],
+        "trees": {
+            "menuTree": {
+                "collectionId": "Menus",
+                "includedTypes": [
+                    "Menu",
+                    "Section"
+                ],
+                "topLevelSorting": {
+                    "title": 1
+                }
+            }
+        },
+        "typeMetaData": {
+            "Item": {
+                "friendlyName": "Dish",
+                "validationMessages": {
+                    "title": "Title needs to be longer than 2 characters"
+                },
+                "newItemTemplate": {
+                    "_type": "Item",
+                    "title": "",
+                    "description": "",
+                    "price": "",
+                    "parentRefs": []
+                },
+                "parentField": "parentRefs",
+                "parentsTreeId": "menuTree",
+                "collectionId": "Items"
+            },
+            "Section": {
+                "friendlyName": "Section",
+                "validationMessages": {
+                    "title": "Title needs to be longer than 2 characters"
+                },
+                "newItemTemplate": {
+                    "_type": "Section",
+                    "title": "",
+                    "description": "",
+                    "items": []
+                },
+                "childrenField": "items",
+                "parentField": "parentRef",
+                "parentsTreeId": "menuTree",
+                "collectionId": "Sections",
+                "noChildrenMessage": "Your section is currently empty"
+            },
+            "Menu": {
+                "friendlyName": "Menu",
+                "validationMessages": {
+                    "title": "Title needs to be longer than 2 characters"
+                },
+                "newItemTemplate": {
+                    "_type": "Menu",
+                    "title": "",
+                    "description": "",
+                    "items": []
+                },
+                "childrenField": "items",
+                "parentField": "parentRef",
+                "parentsTreeId": "menuTree",
+                "collectionId": "Menus",
+                "noChildrenMessage": "Your menu is currently empty"
+            }
+        }
+    },
+    "preLoadedData": {
+        "Items": [
+            {
+                "_iid": "2D3807BB-D954-48B7-A261-145B160629B1",
+                "_type": "Item",
+                "title": "I'm a dish.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text. I'm a great place to say how delicious I am so your customers will want to eat me.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection4"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_13ac2d6d51698048912e81166fbabace.jpg",
+                    "width": 400,
+                    "height": 300
+                }
+            },
+            {
+                "_iid": "4E991DCC-BE76-4F7E-9513-C954A2CFA26C",
+                "_type": "Item",
+                "title": "I'm a dish.",
+                "description": "",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection1"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "Default image",
+                    "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                    "width": 1280,
+                    "height": 960
+                }
+            },
+            {
+                "_iid": "51511FD3-5E45-4F26-AB4B-28B8C7218A6F",
+                "_type": "Item",
+                "title": "I'm a dish.",
+                "description": "",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection1"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "Default image",
+                    "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                    "width": 1280,
+                    "height": 960
+                }
+            },
+            {
+                "_iid": "6FB1F211-1E0E-47AA-AB8C-04046CD13C3E",
+                "_type": "Item",
+                "title": "I'm a dish.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text. I'm a great place to say how delicious I am so your customers will want to eat me.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection4"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_f09995d80376386f8b02e668822b7415.jpg",
+                    "width": 400,
+                    "height": 300
+                }
+            },
+            {
+                "_iid": "83213601-BA0D-4A13-8616-79A7D1C3C50F",
+                "_type": "Item",
+                "title": "I'm a dish. Eat me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection5"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_5c2e5b8ae80aeaf4396a5c7a15d073ac.jpg",
+                    "width": 591,
+                    "height": 591
+                }
+            },
+            {
+                "_iid": "F29349A4-B687-4595-9B8C-AD6A12C35DF4",
+                "_type": "Item",
+                "title": "I'm a dish. Click to edit me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection5"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_41c2a9575c4fceff6a08af72109b73b1.jpg",
+                    "width": 506,
+                    "height": 338
+                }
+            },
+            {
+                "_iid": "FBE820B5-7457-4D90-8A17-E3947E736272",
+                "_type": "Item",
+                "title": "I'm a dish. Drink me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection3"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "Default image",
+                    "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                    "width": 1280,
+                    "height": 960
+                }
+            },
+            {
+                "_iid": "SampleItem1",
+                "_type": "Item",
+                "title": "I'm a dish. Click to edit me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text. I'm a great place to say how delicious I am so your customers will want to eat me.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection4"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_94f56aee5d9cfe22fbaa71a368afa0fe.jpg",
+                    "width": 400,
+                    "height": 300
+                }
+            },
+            {
+                "_iid": "SampleItem4",
+                "_type": "Item",
+                "title": "I'm a dish. Order me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection4"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_8fd32894d9ed4fe2b1ebc0fd619a26c7.jpg",
+                    "width": 400,
+                    "height": 300
+                }
+            },
+            {
+                "_iid": "SampleItem5",
+                "_type": "Item",
+                "title": "I'm a dish. Click to edit me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection3"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "Default image",
+                    "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                    "width": 1280,
+                    "height": 960
+                }
+            },
+            {
+                "_iid": "SampleItem6",
+                "_type": "Item",
+                "title": "I'm a dish. Drink me.",
+                "description": "I'm a dish description. Click \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "price": "$9.99",
+                "parentRefs": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection1"
+                    }
+                ],
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "Default image",
+                    "src": "2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png",
+                    "width": 1280,
+                    "height": 960
+                }
+            }
+        ],
+        "Sections": [
+            {
+                "_iid": "SampleSection1",
+                "_type": "Section",
+                "title": "I'm a menu section.",
+                "description": "",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "51511FD3-5E45-4F26-AB4B-28B8C7218A6F"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "SampleItem6"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "4E991DCC-BE76-4F7E-9513-C954A2CFA26C"
+                    }
+                ],
+                "parentRef": {
+                    "_type": "wix:Ref<Menu>",
+                    "collectionId": "Menus",
+                    "itemId": "SampleMenu2"
+                },
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_f0eb00fce4cff3e88405d8e0819b5517.jpg",
+                    "width": 1000,
+                    "height": 250
+                }
+            },
+            {
+                "_iid": "SampleSection3",
+                "_type": "Section",
+                "title": "I'm a menu section.",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "SampleItem5"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "FBE820B5-7457-4D90-8A17-E3947E736272"
+                    }
+                ],
+                "parentRef": {
+                    "_type": "wix:Ref<Menu>",
+                    "collectionId": "Menus",
+                    "itemId": "SampleMenu2"
+                },
+                "description": "",
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_cbbde4b93c1f859263af76a36ea63859.jpg",
+                    "width": 1000,
+                    "height": 250
+                }
+            },
+            {
+                "_iid": "SampleSection4",
+                "_type": "Section",
+                "title": "I'm a menu section.",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "SampleItem1"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "SampleItem4"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "6FB1F211-1E0E-47AA-AB8C-04046CD13C3E"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "2D3807BB-D954-48B7-A261-145B160629B1"
+                    }
+                ],
+                "parentRef": {
+                    "_type": "wix:Ref<Menu>",
+                    "collectionId": "Menus",
+                    "itemId": "SampleMenu1"
+                },
+                "description": "I'm a description. Click me and \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_964cc8d764266ce878cfaf06d21f7c1e.jpg",
+                    "width": 1000,
+                    "height": 250
+                }
+            },
+            {
+                "_iid": "SampleSection5",
+                "_type": "Section",
+                "title": "I'm a menu section.",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "F29349A4-B687-4595-9B8C-AD6A12C35DF4"
+                    },
+                    {
+                        "_type": "wix:Ref<Item>",
+                        "collectionId": "Items",
+                        "itemId": "83213601-BA0D-4A13-8616-79A7D1C3C50F"
+                    }
+                ],
+                "parentRef": {
+                    "_type": "wix:Ref<Menu>",
+                    "collectionId": "Menus",
+                    "itemId": "SampleMenu1"
+                },
+                "description": "",
+                "image": {
+                    "_type": "wix:Image",
+                    "title": "",
+                    "src": "2f7b76_9df199422501d9cfe7ec8aa161f3a1fc.jpg",
+                    "width": 1000,
+                    "height": 250
+                }
+            }
+        ],
+        "Menus": [
+            {
+                "_iid": "SampleMenu1",
+                "_type": "Menu",
+                "title": "I'm a menu title 1",
+                "description": "I'm a description for a section of your menu. Click me and then Menu\" to open the Restaurant Menu editor and change my text.",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection4"
+                    },
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection5"
+                    }
+                ]
+            },
+            {
+                "_iid": "SampleMenu2",
+                "_type": "Menu",
+                "title": "I'm a menu title 2",
+                "description": "I'm a menu description. Click me and then \"Edit Menu\" to open the Restaurant Menu editor and change my text.",
+                "items": [
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection1"
+                    },
+                    {
+                        "_type": "wix:Ref<Section>",
+                        "collectionId": "Sections",
+                        "itemId": "SampleSection3"
+                    }
+                ]
+            }
+        ]
+    },
+    "generatedViews": [
+        {
+            "name": "editorForm",
+            "forType": "Section",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "id": "label",
+                                                "value": "@VIEW_PHOTO@",
+                                                "comp": {
+                                                    "name": "Label"
+                                                }
+                                            },
+                                            {
+                                                "data": "image",
+                                                "comp": {
+                                                    "name": "ImageSelector"
+                                                },
+                                                "layout": {
+                                                    "margin": "0 20px 0 0",
+                                                    "width": 200,
+                                                    "height": 120
+                                                },
+                                                "id": "image"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "width": 200,
+                                        "spacerAfter": 10
+                                    },
+                                    "id": "def_2"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "id": "label",
+                                                "value": "@VIEW_TITLE@",
+                                                "comp": {
+                                                    "name": "Label"
+                                                }
+                                            },
+                                            {
+                                                "data": "title",
+                                                "comp": {
+                                                    "name": "TextInput",
+                                                    "placeholder": "@SECTION_TITLE_DEFAULT@"
+                                                },
+                                                "id": "title"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "id": "def_5"
+                                }
+                            ]
+                        },
+                        "layout": {
+                            "spacerAfter": 10
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "label",
+                        "value": "@VIEW_DESCRIPTION@",
+                        "comp": {
+                            "name": "Label"
+                        }
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "TextInput",
+                            "skin": "wixapps.integration.skins.TextAreaSkin",
+                            "placeholder": "@SECTION_DESC_DEFAULT@"
+                        },
+                        "layout": {
+                            "height": 135
+                        },
+                        "id": "description"
+                    }
+                ],
+                "css": {
+                    "width": "100%"
+                }
+            },
+            "id": "def_0"
+        },
+        {
+            "name": "editorForm",
+            "forType": "Item",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "id": "label",
+                                                "value": "@VIEW_PHOTO@",
+                                                "comp": {
+                                                    "name": "Label"
+                                                }
+                                            },
+                                            {
+                                                "data": "image",
+                                                "comp": {
+                                                    "name": "ImageSelector"
+                                                },
+                                                "layout": {
+                                                    "margin": "0 20px 0 0",
+                                                    "width": 200,
+                                                    "height": 120
+                                                },
+                                                "id": "image"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "width": 200,
+                                        "spacerAfter": 10
+                                    },
+                                    "id": "def_2"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "id": "label",
+                                                "value": "@VIEW_TITLE@",
+                                                "comp": {
+                                                    "name": "Label"
+                                                }
+                                            },
+                                            {
+                                                "data": "title",
+                                                "comp": {
+                                                    "name": "TextInput",
+                                                    "placeholder": "@DISH_TITLE_DEFAULT@"
+                                                },
+                                                "id": "title"
+                                            },
+                                            {
+                                                "id": "label",
+                                                "value": "@VIEW_PRICE@",
+                                                "comp": {
+                                                    "name": "Label"
+                                                }
+                                            },
+                                            {
+                                                "data": "price",
+                                                "comp": {
+                                                    "name": "TextInput",
+                                                    "placeholder": "@DISH_PRICE_DEFAULT@"
+                                                },
+                                                "id": "price"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "id": "def_5"
+                                }
+                            ]
+                        },
+                        "layout": {
+                            "spacerAfter": 10
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "label",
+                        "value": "@VIEW_DESCRIPTION@",
+                        "comp": {
+                            "name": "Label"
+                        }
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "TextInput",
+                            "skin": "wixapps.integration.skins.TextAreaSkin",
+                            "placeholder": "@DISH_DESC_DEFAULT@"
+                        },
+                        "layout": {
+                            "height": 135
+                        },
+                        "id": "description"
+                    }
+                ],
+                "css": {
+                    "width": "100%"
+                }
+            },
+            "id": "def_0"
+        },
+        {
+            "name": "ErrorInEditor",
+            "forType": "Error",
+            "data": "code",
+            "comp": {
+                "name": "SwitchBox",
+                "cases": {
+                    "default": [
+                        {
+                            "value": "@ERROR_MESSAGE_IN_EDITOR@",
+                            "comp": {
+                                "name": "Label",
+                                "isStyleEditable": "false"
+                            },
+                            "id": "def_1"
+                        }
+                    ],
+                    "-1021": [
+                        {
+                            "comp": {
+                                "name": "VBox",
+                                "box-align": "center",
+                                "items": [
+                                    {
+                                        "value": {
+                                            "_type": "wix:Image",
+                                            "src": "images/warning-icon.png",
+                                            "width": 256,
+                                            "height": 256
+                                        },
+                                        "comp": {
+                                            "name": "Image",
+                                            "isStyleEditable": "false"
+                                        },
+                                        "layout": {
+                                            "spacerBefore": 30,
+                                            "spacerAfter": 10,
+                                            "width": 64,
+                                            "height": 64
+                                        },
+                                        "id": "def_3"
+                                    },
+                                    {
+                                        "value": "@ERROR_ITEM_NOT_FOUND_TITLE@",
+                                        "comp": {
+                                            "name": "Label",
+                                            "style": "Heading M",
+                                            "isStyleEditable": "false",
+                                            "color": "#FFFFFF"
+                                        },
+                                        "layout": {
+                                            "spacerAfter": 10
+                                        },
+                                        "id": "def_4"
+                                    },
+                                    {
+                                        "value": "@ERROR_ITEM_NOT_FOUND_DESCRIPTION@",
+                                        "comp": {
+                                            "name": "Label",
+                                            "style": "Body M",
+                                            "isStyleEditable": "false",
+                                            "color": "#FFFFFF"
+                                        },
+                                        "layout": {
+                                            "spacerAfter": 10
+                                        },
+                                        "id": "def_5"
+                                    },
+                                    {
+                                        "value": "@ERROR_ITEM_NOT_FOUND_DISCLAIMER@",
+                                        "comp": {
+                                            "name": "Label",
+                                            "style": "Body XS",
+                                            "isStyleEditable": "false",
+                                            "color": "#FFFFFF",
+                                            "italic": "true"
+                                        },
+                                        "layout": {
+                                            "spacerAfter": 30
+                                        },
+                                        "id": "def_6"
+                                    }
+                                ],
+                                "css": {
+                                    "background-color": "red"
+                                }
+                            },
+                            "id": "def_2"
+                        }
+                    ]
+                }
+            },
+            "id": "code"
+        },
+        {
+            "name": "ErrorInPublished",
+            "forType": "Error",
+            "data": "code",
+            "comp": {
+                "name": "SwitchBox",
+                "cases": {
+                    "default": [
+                        {
+                            "value": "@ERROR_MESSAGE_IN_PUBLISHED@",
+                            "comp": {
+                                "name": "Label",
+                                "isStyleEditable": "false"
+                            },
+                            "id": "def_1"
+                        }
+                    ],
+                    "-1021": [
+                    ]
+                }
+            },
+            "id": "code"
+        }
+    ],
+    "views": [
+        {
+            "forType": "Menu",
+            "name": [
+                "Center",
+                "Left",
+                "LeftThumb",
+                "LeftImage",
+                "GalleryView",
+                "Inline"
+            ],
+            "id": "wholeMenu",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "data": "items",
+                        "comp": {
+                            "name": "VerticalList",
+                            "isStyleEditable": "false",
+                            "templates": {
+                                "item": {
+                                    "id": "def_4"
+                                }
+                            }
+                        },
+                        "layout": {
+                            "spacerBefore": 40
+                        },
+                        "id": "items"
+                    }
+                ]
+            },
+            "customizations": []
+        },
+        {
+            "name": [
+                "Center",
+                "Left",
+                "LeftThumb",
+                "LeftImage",
+                "GalleryView",
+                "Inline"
+            ],
+            "forType": "Menu",
+            "format": "Mobile",
+            "comp": {
+                "name": "InlineLeft"
+            },
+            "id": "def_0"
+        },
+        {
+            "name": [
+                "Center",
+                "Left",
+                "LeftThumb",
+                "LeftImage",
+                "GalleryView",
+                "Inline"
+            ],
+            "forType": "Section",
+            "format": "Mobile",
+            "comp": {
+                "name": "InlineLeft2"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Menu",
+            "name": "InlineLeft",
+            "format": "Mobile",
+            "id": "wholeMenu",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerAfter": 3
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    },
+                    {
+                        "value": {
+                            "$expr": "Array.length(this.items)"
+                        },
+                        "comp": {
+                            "name": "SwitchBox",
+                            "cases": {
+                                "1": [
+                                    {
+                                        "data": "this.items[0]",
+                                        "comp": {
+                                            "name": "InlineLeft2"
+                                        },
+                                        "id": "this.items[0]"
+                                    }
+                                ],
+                                "default": [
+                                    {
+                                        "data": "this.items",
+                                        "comp": {
+                                            "name": "List2"
+                                        },
+                                        "id": "this.items"
+                                    }
+                                ]
+                            }
+                        },
+                        "id": "def_4"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 100,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Menu title spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ]
+        },
+        {
+            "forType": "Section",
+            "name": [
+                "CenterUnderMenu",
+                "LeftUnderMenu",
+                "InlineLeftUnderMenu",
+                "InlineLeftUnderMenu2",
+                "LeftThumbUnderMenu",
+                "LeftImageUnderMenu",
+                "GalleryUnderMenu",
+                "InlineUnderMenu"
+            ],
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "id": "sectionView",
+                        "layout": {
+                            "spacerAfter": 25
+                        }
+                    },
+                    {
+                        "id": "h-line",
+                        "comp": {
+                            "name": "HorizontalLine",
+                            "style": "hl2"
+                        },
+                        "layout": {
+                            "width": "100%",
+                            "spacerAfter": 35
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 10,
+                    "fieldId": "h-line",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section separator",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Section",
+            "name": [
+                "Center",
+                "Left",
+                "LeftThumb",
+                "LeftImage",
+                "Inline"
+            ],
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "data": "image",
+                        "comp": {
+                            "name": "Image",
+                            "imageMode": "fill"
+                        },
+                        "layout": {
+                            "height": 120,
+                            "spacerBefore": 10
+                        },
+                        "id": "image"
+                    },
+                    {
+                        "data": "items",
+                        "comp": {
+                            "name": "VerticalList",
+                            "isStyleEditable": "false"
+                        },
+                        "layout": {
+                            "spacerBefore": 25
+                        },
+                        "id": "items"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 11,
+                    "fieldId": "image",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section image",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 12,
+                    "fieldId": "image",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Section image height",
+                        "minVal": 80,
+                        "maxVal": 450
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Section",
+            "name": [
+                "InlineLeft"
+            ],
+            "format": "Mobile",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "data": "image",
+                        "comp": {
+                            "name": "Image",
+                            "imageMode": "fill"
+                        },
+                        "layout": {
+                            "height": 120,
+                            "spacerBefore": 20
+                        },
+                        "id": "image"
+                    },
+                    {
+                        "data": "items",
+                        "comp": {
+                            "name": "VerticalList",
+                            "isStyleEditable": "false"
+                        },
+                        "layout": {
+                            "spacer": 20
+                        },
+                        "id": "items"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 10,
+                    "fieldId": "title",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section title",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 11,
+                    "fieldId": "image",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section image",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 12,
+                    "fieldId": "image",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Section image height",
+                        "minVal": 80,
+                        "maxVal": 450
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Section",
+            "name": [
+                "InlineLeft2"
+            ],
+            "format": "Mobile",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "data": "image",
+                        "comp": {
+                            "name": "Image",
+                            "imageMode": "fill"
+                        },
+                        "layout": {
+                            "height": 120,
+                            "spacerBefore": 20
+                        },
+                        "id": "image"
+                    },
+                    {
+                        "data": "items",
+                        "comp": {
+                            "name": "VerticalList",
+                            "isStyleEditable": "false"
+                        },
+                        "layout": {
+                            "spacer": 20
+                        },
+                        "id": "items"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 12,
+                    "fieldId": "title",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section title",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 11,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": true
+                    }
+                },
+                {
+                    "priority": 13,
+                    "fieldId": "image",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show section image",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 14,
+                    "fieldId": "image",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Section image height",
+                        "minVal": 80,
+                        "maxVal": 450
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "InlineUnderMenu",
+            "comp": {
+                "name": "Inline"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "Inline",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "comp": {
+                                        "name": "Css",
+                                        "items": [
+                                            {
+                                                "data": "title",
+                                                "comp": {
+                                                    "name": "InlineText"
+                                                },
+                                                "id": "title"
+                                            },
+                                            {
+                                                "id": "spc1",
+                                                "comp": {
+                                                    "name": "InlineSpacer",
+                                                    "size": 5
+                                                }
+                                            },
+                                            {
+                                                "data": "description",
+                                                "comp": {
+                                                    "name": "InlineText"
+                                                },
+                                                "id": "description"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "box-flex": 1,
+                                        "white-space": "normal"
+                                    },
+                                    "id": "def_2"
+                                },
+                                {
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "layout": {
+                                        "spacerBefore": 10
+                                    },
+                                    "id": "price"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                },
+                {
+                    "priority": 6,
+                    "fieldId": "spc1",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Title and description spacing",
+                        "minVal": 0,
+                        "maxVal": 50
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "CenterUnderMenu",
+            "comp": {
+                "name": "Center"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "Center",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "Css",
+                            "items": [
+                                {
+                                    "data": "title",
+                                    "comp": {
+                                        "name": "InlineText"
+                                    },
+                                    "id": "title"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "InlineSpacer",
+                                        "size": 10
+                                    },
+                                    "id": "def_3"
+                                },
+                                {
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "InlineText"
+                                    },
+                                    "id": "price"
+                                }
+                            ]
+                        },
+                        "layout": {
+                            "white-space": "normal",
+                            "text-align": "center"
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "text-align": "center",
+                            "spacerBefore": 3
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "LeftUnderMenu",
+            "comp": {
+                "name": "Left"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "Left",
+            "comp": {
+                "name": "HBox",
+                "box-align": "left",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "data": "title",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "id": "title"
+                                },
+                                {
+                                    "data": "description",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "layout": {
+                                        "spacerBefore": 3
+                                    },
+                                    "id": "description"
+                                },
+                                {
+                                    "id": "item-spacer",
+                                    "comp": {
+                                        "name": "VSpacer"
+                                    }
+                                }
+                            ]
+                        },
+                        "layout": {
+                            "box-flex": 1
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "data": "price",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerBefore": 10
+                        },
+                        "id": "price"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "InlineLeftUnderMenu",
+            "comp": {
+                "name": "InlineLeft"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "InlineLeft",
+            "format": "Mobile",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "data": "title",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "id": "title"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "HSpacer",
+                                        "size": "10"
+                                    },
+                                    "id": "def_3"
+                                },
+                                {
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "id": "price"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerBefore": 3
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 8,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 9,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": "false",
+                        "falseVal": "true",
+                        "defaultVal": "false"
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "InlineLeftUnderMenu2",
+            "comp": {
+                "name": "InlineLeft2"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "InlineLeft2",
+            "format": "Mobile",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "data": "title",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "id": "title"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "HSpacer",
+                                        "size": "10"
+                                    },
+                                    "id": "def_3"
+                                },
+                                {
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "id": "price"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerBefore": 3
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 8,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 9,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": "false",
+                        "falseVal": "true",
+                        "defaultVal": "false"
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "LeftThumbUnderMenu",
+            "comp": {
+                "name": "LeftThumb"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "LeftThumb",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "data": "image",
+                                    "comp": {
+                                        "name": "Image",
+                                        "imageMode": "fill"
+                                    },
+                                    "layout": {
+                                        "spacerAfter": 10,
+                                        "width": 75,
+                                        "height": 57
+                                    },
+                                    "id": "image"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "data": "title",
+                                                "comp": {
+                                                    "name": "Label"
+                                                },
+                                                "layout": {
+                                                    "spacer": "*"
+                                                },
+                                                "id": "title"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "id": "def_3"
+                                },
+                                {
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "data": "price",
+                                                "comp": {
+                                                    "name": "Label"
+                                                },
+                                                "layout": {
+                                                    "spacer": "*"
+                                                },
+                                                "id": "price"
+                                            }
+                                        ]
+                                    },
+                                    "layout": {
+                                        "spacerBefore": 10
+                                    },
+                                    "id": "def_5"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label",
+                            "hidden": true
+                        },
+                        "layout": {
+                            "spacerBefore": 10
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "id": "h-line",
+                        "comp": {
+                            "name": "HorizontalLine",
+                            "style": "hl2"
+                        },
+                        "layout": {
+                            "width": "100%",
+                            "spacer": 10
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "image",
+                    "key": "layout.width",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item's thumb width",
+                        "minVal": 25,
+                        "maxVal": 100
+                    }
+                },
+                {
+                    "priority": 6,
+                    "fieldId": "image",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item's thumb height",
+                        "minVal": 25,
+                        "maxVal": 75
+                    }
+                },
+                {
+                    "priority": 5,
+                    "fieldId": "h-line",
+                    "key": "layout.spacer",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "LeftImageUnderMenu",
+            "comp": {
+                "name": "LeftImage"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "LeftImage",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "comp": {
+                            "name": "HBox",
+                            "items": [
+                                {
+                                    "data": "image",
+                                    "comp": {
+                                        "name": "Image",
+                                        "imageMode": "fill"
+                                    },
+                                    "layout": {
+                                        "spacerAfter": 20,
+                                        "width": 120,
+                                        "height": 90
+                                    },
+                                    "id": "image"
+                                },
+                                {
+                                    "layout": {
+                                        "box-flex": 1
+                                    },
+                                    "comp": {
+                                        "name": "VBox",
+                                        "items": [
+                                            {
+                                                "data": "title",
+                                                "comp": {
+                                                    "name": "Label"
+                                                },
+                                                "id": "title"
+                                            },
+                                            {
+                                                "data": "description",
+                                                "comp": {
+                                                    "name": "Label"
+                                                },
+                                                "layout": {
+                                                    "spacerBefore": 3
+                                                },
+                                                "id": "description"
+                                            }
+                                        ]
+                                    },
+                                    "id": "def_3"
+                                },
+                                {
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "Label"
+                                    },
+                                    "layout": {
+                                        "spacerBefore": 20
+                                    },
+                                    "id": "price"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "item-spacer",
+                        "comp": {
+                            "name": "VSpacer"
+                        }
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 9,
+                    "fieldId": "description",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish description",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "image",
+                    "key": "layout.width",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item's image width",
+                        "minVal": 50,
+                        "maxVal": 200
+                    }
+                },
+                {
+                    "priority": 6,
+                    "fieldId": "image",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item's image height",
+                        "minVal": 50,
+                        "maxVal": 150
+                    }
+                },
+                {
+                    "priority": 5,
+                    "fieldId": "item-spacer",
+                    "key": "comp.size",
+                    "input": {
+                        "name": "slider",
+                        "label": "Item spacing",
+                        "minVal": 0,
+                        "maxVal": 300
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Section",
+            "name": "GalleryView",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "description"
+                    },
+                    {
+                        "data": "items",
+                        "comp": {
+                            "name": "Gallery",
+                            "columns": 2,
+                            "rows": 2,
+                            "gap": 20,
+                            "transition": "horizSwipeAllAtOnce",
+                            "isStyleEditable": "false"
+                        },
+                        "layout": {
+                            "height": 480,
+                            "width": "100%",
+                            "spacerBefore": 25
+                        },
+                        "id": "items"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 6,
+                    "fieldId": "items",
+                    "key": "layout.height",
+                    "input": {
+                        "name": "slider",
+                        "label": "Gallery height",
+                        "minVal": 10,
+                        "maxVal": 800
+                    }
+                },
+                {
+                    "priority": 7,
+                    "fieldId": "items",
+                    "key": "comp.rows",
+                    "input": {
+                        "name": "slider",
+                        "label": "Rows",
+                        "minVal": 1,
+                        "maxVal": 4
+                    }
+                },
+                {
+                    "priority": 8,
+                    "fieldId": "items",
+                    "key": "comp.columns",
+                    "input": {
+                        "name": "slider",
+                        "label": "Columns",
+                        "minVal": 1,
+                        "maxVal": 4
+                    }
+                },
+                {
+                    "priority": 9,
+                    "fieldId": "items",
+                    "key": "comp.transition",
+                    "input": {
+                        "name": "combobox",
+                        "label": "Transition",
+                        "options": [
+                            {
+                                "value": "none",
+                                "label": "@CUST_LABEL_NONE@"
+                            },
+                            {
+                                "value": "horizSwipeAllAtOnce",
+                                "label": "@CUST_LABEL_HORIZONTAL@"
+                            },
+                            {
+                                "value": "vertSwipeAllAtOnce",
+                                "label": "@CUST_LABEL_VERTICAL@"
+                            },
+                            {
+                                "value": "crossFadeAllAtOnce",
+                                "label": "@CUST_LABEL_CROSSFADE@"
+                            },
+                            {
+                                "value": "crossFadeHorizWave",
+                                "label": "@CUST_LABEL_CROSSFADE_HORIZ@"
+                            },
+                            {
+                                "value": "crossFadeVertWave",
+                                "label": "@CUST_LABEL_CROSSFADE_VERTI@"
+                            },
+                            {
+                                "value": "seq_crossFade_Diagonal",
+                                "label": "@CUST_LABEL_CROSSFADE_DIAGO@"
+                            },
+                            {
+                                "value": "seq_swipe_alternate",
+                                "label": "@CUST_LABEL_HORIZONTAL_ALTERNATE@"
+                            },
+                            {
+                                "value": "seq_swipe_alternate",
+                                "label": "@CUST_LABEL_ALTERNATE@"
+                            }
+                        ]
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "GalleryUnderMenu",
+            "comp": {
+                "name": "GalleryView"
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "GalleryView",
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "image",
+                        "comp": {
+                            "name": "Image",
+                            "imageMode": "fill"
+                        },
+                        "layout": {
+                            "box-flex": 1
+                        },
+                        "id": "image"
+                    },
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerBefore": 5
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "price",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "price"
+                    }
+                ]
+            },
+            "customizations": [
+                {
+                    "priority": 12,
+                    "fieldId": "price",
+                    "key": "comp.hidden",
+                    "input": {
+                        "name": "checkbox",
+                        "label": "Show dish price",
+                        "trueVal": false,
+                        "falseVal": true,
+                        "defaultVal": false
+                    }
+                }
+            ],
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "GalleryRollover",
+            "layout": {},
+            "comp": {
+                "name": "VBox",
+                "items": [
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "data": "description",
+                        "comp": {
+                            "name": "Label"
+                        },
+                        "layout": {
+                            "spacerBefore": 5
+                        },
+                        "id": "description"
+                    }
+                ]
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Menu",
+            "name": "editorSummary",
+            "layout": {
+                "height": "56px"
+            },
+            "comp": {
+                "name": "HBox",
+                "items": [
+                    {
+                        "layout": {
+                            "box-flex": 1,
+                            "spacerAfter": 200
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "id": "summaryTitle",
+                                    "data": "title",
+                                    "layout": {
+                                        "spacerBefore": "*",
+                                        "spacerAfter": 3
+                                    },
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": "true",
+                                        "postfix": " <span class=\"typeName\"> | Menu</span>"
+                                    }
+                                },
+                                {
+                                    "id": "descript",
+                                    "data": "description",
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": true
+                                    },
+                                    "layout": {
+                                        "spacerAfter": 9
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    }
+                ]
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Section",
+            "name": "editorSummary",
+            "layout": {
+                "height": "56px"
+            },
+            "comp": {
+                "name": "HBox",
+                "items": [
+                    {
+                        "layout": {
+                            "spacerBefore": 10,
+                            "spacerAfter": 20
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "id": "secLevelPic",
+                                    "data": "image",
+                                    "layout": {
+                                        "spacer": "*",
+                                        "width": 50,
+                                        "height": 50
+                                    },
+                                    "comp": {
+                                        "name": "Image"
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "center",
+                        "layout": {
+                            "box-flex": 1
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "id": "summaryTitle",
+                                    "data": "title",
+                                    "layout": {
+                                        "spacerBefore": "*",
+                                        "spacerAfter": 3
+                                    },
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": "true",
+                                        "postfix": " <span class=\"typeName\">| Section</span>"
+                                    }
+                                },
+                                {
+                                    "id": "descript",
+                                    "data": "description",
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": "true"
+                                    },
+                                    "layout": {
+                                        "spacerAfter": 9
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "comp": {
+                            "name": "Css"
+                        },
+                        "layout": {
+                            "width": 80
+                        },
+                        "id": "def_6"
+                    }
+                ]
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Item",
+            "name": "editorSummary",
+            "layout": {
+                "height": "56px"
+            },
+            "comp": {
+                "name": "HBox",
+                "items": [
+                    {
+                        "layout": {
+                            "spacerBefore": 10,
+                            "spacerAfter": 20
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "data": "image",
+                                    "layout": {
+                                        "spacer": "*",
+                                        "width": 50,
+                                        "height": 50
+                                    },
+                                    "comp": {
+                                        "name": "Image"
+                                    },
+                                    "id": "image"
+                                }
+                            ]
+                        },
+                        "id": "def_1"
+                    },
+                    {
+                        "id": "center",
+                        "layout": {
+                            "box-flex": 1
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "id": "summaryTitle",
+                                    "data": "title",
+                                    "layout": {
+                                        "spacerBefore": "*",
+                                        "spacerAfter": 3
+                                    },
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": "true",
+                                        "postfix": " <span class=\"typeName\">| Dish</span>"
+                                    }
+                                },
+                                {
+                                    "id": "descript",
+                                    "data": "description",
+                                    "comp": {
+                                        "name": "Label",
+                                        "singleLine": "true"
+                                    },
+                                    "layout": {
+                                        "spacerAfter": 9
+                                    }
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "layout": {
+                            "spacerBefore": 12,
+                            "spacerAfter": 90
+                        },
+                        "comp": {
+                            "name": "VBox",
+                            "items": [
+                                {
+                                    "id": "summaryPrice",
+                                    "data": "price",
+                                    "comp": {
+                                        "name": "Label",
+                                        "css": {
+                                            "text-overflow": "clip"
+                                        }
+                                    },
+                                    "layout": {
+                                        "spacer": "*"
+                                    }
+                                }
+                            ]
+                        },
+                        "id": "def_6"
+                    }
+                ]
+            },
+            "id": "def_0"
+        },
+        {
+            "forType": "Menu",
+            "name": "editorForm",
+            "comp": {
+                "css": {
+                    "width": "100%"
+                },
+                "name": "VBox",
+                "items": [
+                    {
+                        "id": "label",
+                        "value": "@FORM_TITLE@"
+                    },
+                    {
+                        "data": "title",
+                        "comp": {
+                            "name": "TextInput",
+                            "placeholder": "@FORM_TITLE_PLACEHOLDER@"
+                        },
+                        "layout": {
+                            "spacerAfter": 30
+                        },
+                        "id": "title"
+                    },
+                    {
+                        "id": "label",
+                        "value": "@FORM_DESCRIPTION@"
+                    },
+                    {
+                        "id": "textarea",
+                        "data": "description",
+                        "comp": {
+                            "name": "TextInput",
+                            "placeholder": "@FORM_DESCRIPTION_PLACEHOLDER@",
+                            "skin": "wixapps.integration.skins.TextAreaSkin"
+                        },
+                        "layout": {
+                            "height": 250
+                        }
+                    }
+                ]
+            },
+            "id": "def_0"
+        }
+    ],
+    "customizations": [
+        {
+            "forType": "Menu",
+            "view": "*",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": "Heading M"
+        },
+        {
+            "forType": "Menu",
+            "view": "InlineLeft",
+            "format": "Mobile",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": "Heading M"
+        },
+        {
+            "forType": "Menu",
+            "view": "*",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": "Body L"
+        },
+        {
+            "forType": "Section",
+            "view": "*",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": "Heading S"
+        },
+        {
+            "forType": "Section",
+            "view": "*",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": "Body M"
+        },
+        {
+            "forType": "Item",
+            "view": "*",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": "Body L"
+        },
+        {
+            "forType": "Item",
+            "view": "*",
+            "fieldId": "title",
+            "key": "comp.color",
+            "value": "color_20"
+        },
+        {
+            "forType": "Item",
+            "view": "*",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": "Body M"
+        },
+        {
+            "forType": "Item",
+            "view": "*",
+            "fieldId": "price",
+            "key": "comp.style",
+            "value": "Body L"
+        },
+        {
+            "forType": "Menu",
+            "view": "editorForm",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Menu",
+            "view": "editorForm",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Section",
+            "view": "editorForm",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Section",
+            "view": "editorForm",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Item",
+            "view": "editorForm",
+            "fieldId": "title",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Item",
+            "view": "editorForm",
+            "fieldId": "title",
+            "key": "comp.color",
+            "value": ""
+        },
+        {
+            "forType": "Item",
+            "view": "editorForm",
+            "fieldId": "description",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "Item",
+            "view": "editorForm",
+            "fieldId": "price",
+            "key": "comp.style",
+            "value": ""
+        },
+        {
+            "forType": "*",
+            "view": "editorForm",
+            "fieldId": "label",
+            "key": "comp.cssClass",
+            "value": "labelStyle"
+        },
+        {
+            "forType": "*",
+            "view": "editorForm",
+            "fieldId": "label",
+            "key": "comp.name",
+            "value": "Label"
+        },
+        {
+            "forType": "*",
+            "view": "editorSummary",
+            "fieldId": "descript",
+            "key": "comp.cssClass",
+            "value": "textItalic14"
+        },
+        {
+            "forType": "*",
+            "view": "editorSummary",
+            "fieldId": "summaryTitle",
+            "key": "comp.cssClass",
+            "value": "headingGrey18"
+        },
+        {
+            "forType": "Item",
+            "view": "editorSummary",
+            "fieldId": "summaryTitle",
+            "key": "comp.cssClass",
+            "value": "headingGrey16"
+        },
+        {
+            "forType": "Item",
+            "view": "editorSummary",
+            "fieldId": "summaryPrice",
+            "key": "comp.cssClass",
+            "value": "headingGrey18norm"
+        },
+        {
+            "forType": "Section",
+            "view": "editorSummary",
+            "fieldId": "secLevelPic",
+            "key": "comp.cssClass",
+            "value": "secLevelPic"
+        },
+        {
+            "forType": "*",
+            "view": "*",
+            "fieldId": "textarea",
+            "key": "comp.cssClass",
+            "value": "area51"
+        },
+        {
+            "forType": "*",
+            "view": "*",
+            "fieldId": "item-spacer",
+            "key": "comp.size",
+            "value": "15"
+        },
+        {
+            "forType": "*",
+            "view": "Inline",
+            "fieldId": "item-spacer",
+            "key": "comp.size",
+            "value": "5"
+        },
+        {
+            "forType": "*",
+            "view": "LeftImage",
+            "fieldId": "item-spacer",
+            "key": "comp.size",
+            "value": "20"
+        },
+        {
+            "forType": "*",
+            "view": "InlineLeft",
+            "format": "Mobile",
+            "fieldId": "item-spacer",
+            "key": "comp.size",
+            "value": "20"
+        },
+        {
+            "forType": "Menu",
+            "view": "InlineLeft",
+            "format": "Mobile",
+            "fieldId": "item-spacer",
+            "key": "comp.size",
+            "value": "20"
+        },
+        {
+            "forType": "Menu",
+            "view": "Center",
+            "fieldId": "title",
+            "key": "layout.text-align",
+            "value": "center"
+        },
+        {
+            "forType": "Menu",
+            "view": "Center",
+            "fieldId": "description",
+            "key": "layout.text-align",
+            "value": "center"
+        },
+        {
+            "forType": "Menu",
+            "view": "Center",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "CenterUnderMenu"
+        },
+        {
+            "forType": "Menu",
+            "view": "Left",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "LeftUnderMenu"
+        },
+        {
+            "forType": "Menu",
+            "view": "LeftThumb",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "LeftThumbUnderMenu"
+        },
+        {
+            "forType": "Menu",
+            "view": "LeftImage",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "LeftImageUnderMenu"
+        },
+        {
+            "forType": "Menu",
+            "view": "GalleryView",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "GalleryUnderMenu"
+        },
+        {
+            "forType": "Menu",
+            "view": "Inline",
+            "fieldId": "items",
+            "key": "comp.templates.item.comp.name",
+            "value": "InlineUnderMenu"
+        },
+        {
+            "forType": "Section",
+            "view": "CenterUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "Center"
+        },
+        {
+            "forType": "Section",
+            "view": "CenterUnderMenu",
+            "fieldId": "h-line",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "LeftUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "Left"
+        },
+        {
+            "forType": "Section",
+            "view": "LeftThumbUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "LeftThumb"
+        },
+        {
+            "forType": "Section",
+            "view": "LeftThumbUnderMenu",
+            "fieldId": "h-line",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "LeftImageUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "LeftImage"
+        },
+        {
+            "forType": "Section",
+            "view": "GalleryUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "GalleryView"
+        },
+        {
+            "forType": "Section",
+            "view": "GalleryUnderMenu",
+            "fieldId": "h-line",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "InlineUnderMenu",
+            "fieldId": "sectionView",
+            "key": "comp.name",
+            "value": "Inline"
+        },
+        {
+            "forType": "Section",
+            "view": "Center",
+            "fieldId": "title",
+            "key": "layout.text-align",
+            "value": "center"
+        },
+        {
+            "forType": "Section",
+            "view": "Center",
+            "fieldId": "description",
+            "key": "layout.text-align",
+            "value": "center"
+        },
+        {
+            "forType": "Section",
+            "view": "Center",
+            "fieldId": "image",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "LeftThumb",
+            "fieldId": "image",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "LeftImage",
+            "fieldId": "image",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "InlineLeft",
+            "format": "Mobile",
+            "fieldId": "description",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "InlineLeft2",
+            "format": "Mobile",
+            "fieldId": "title",
+            "key": "comp.hidden",
+            "value": true
+        },
+        {
+            "forType": "Section",
+            "view": "InlineLeft2",
+            "format": "Mobile",
+            "fieldId": "description",
+            "key": "comp.hidden",
+            "value": true
+        }
+    ],
+    "lang": {
+        "de": {
+            "DATA_SELECTION_LABEL": "Speisekarte auswählen",
+            "DATA_EDITING_LABEL": "Speisekarte bearbeiten",
+            "MENU_MAIN_APP_DESCRIPTION": "Die Restaurant-Speisekartenanwendung lässt Sie Ihre Speisekartendaten erstellen, bearbeiten und gestalten",
+            "MENU_PARTS_NAME": "Restaurant Speisekarte",
+            "MENU_PARTS_DESCRIPTION": "Ändern Sie das Design Ihrer Speisekarte und probieren Sie die verschiedenen Speisekartenlayouts aus. Um Ihrer Speisekarte neue Artikel hinzuzufügen, klicken Sie auf Speisekarten bearbeiten.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Zentrierte Speisekarte",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Links ausgerichtete Speisekarte",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Speisekarte mit kleinen Bildern",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Speisekarte mit Bildern",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Speisekartengalerie",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Inline links ausgerichtete Speisekarte ",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Keine Speisekarten gefunden",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Erstellen Sie eine neue Speisekarte",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "Nein danke, ich möchte eine neue Speisekarte erstellen",
+            "DATA_EDITING_INLINE_HELP": "Wählen Sie, welche Speisekarte oder welcher Speisekartenbereich erscheinen soll und klicken Sie auf OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Speisekarten",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Speisekarten",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Speisekarten",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Bereiche",
+            "NEW_ITEM_OVERRIDES_TITLE": "Neue Speisekarte",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Die neue Speisekartenbeschreibung bearbeiten",
+            "NEW_ITEM_ERROR_TITLE": "Fehler beim Erstellen einer neuen Speisekarte",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Bitte versuchen Sie es in ein paar Minuten erneut",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Alle Speisekarten",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Bereiche",
+            "DATA_EDITING_CATEGORIES_DISHES": "Gerichte",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Alle Bereiche",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Keine Bereiche definiert",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Ausgeblendete Bereiche",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Sie haben keine ausgeblendeten Bereiche",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Alle Gerichte",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Keine Gerichte definiert",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Ausgeblendete Gerichte",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Sie haben keine ausgeblendeten Gerichte",
+            "TYPE_META_DATA_DISH": "Gericht",
+            "TYPE_META_DATA_DISH_VALIDATION": "Der Titel muss mehr als zwei Zeichen lang sein",
+            "TYPE_META_DATA_SECTION": "Bereich",
+            "TYPE_META_DATA_EMPTY_SECTION": "Ihr Bereich ist aktuell leer",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Der Titel muss mehr als zwei Zeichen lang sein",
+            "TYPE_META_DATA_MENU": "Speisekarte",
+            "TYPE_META_DATA_MENU_VALIDATION": "Der Titel muss mehr als zwei Zeichen lang sein",
+            "TYPE_META_DATA_EMPTY_MENU": "Ihr Menü ist aktuell leer",
+            "CUST_LABEL_NONE": "Keine",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertikal",
+            "CUST_LABEL_CROSSFADE": "Überblenden",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Überblenden (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Überblenden (Vertikal)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Überblenden (Diagonal)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (ersetzen)",
+            "CUST_LABEL_ALTERNATE": "Ersetzen",
+            "FORM_TITLE": "Titel:",
+            "FORM_TITLE_PLACEHOLDER": "Ich bin ein Speisekartentitel.",
+            "FORM_DESCRIPTION": "Beschreibung:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Ich bin eine Speisekartenbeschreibung. Hier können Sie wunderbar beschreiben was sich auf Ihrer Speisekarte befindet.",
+            "VIEW_PHOTO": "Foto:",
+            "VIEW_TITLE": "Titel:",
+            "VIEW_DESCRIPTION": "Beschreibung:",
+            "VIEW_PRICE": "Preis:",
+            "SECTION_TITLE_DEFAULT": "Ich bin ein Bereichstitel",
+            "SECTION_DESC_DEFAULT": "Ich bin eine Bereichsbeschreibung. Unterteilen Sie Ihre Speisekarte in Bereiche, damit Ihre Kunden sich leicht zurecht finden, z.B.: Vorspeisen, Hauptgerichte, Süßes, Getränke.",
+            "DISH_TITLE_DEFAULT": "Ich bin der Titel eines Gerichts.",
+            "DISH_PRICE_DEFAULT": "Geben Sie mir einen Preis.",
+            "DISH_DESC_DEFAULT": "Ich bin die Beschreibung eines Gerichts. Teilen Sie Ihren Kunden mit wie köstlich ich bin, damit diese mich verspeisen wollen. ",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Speisekarte oder Bereich nicht gefunden",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Klicken und wählen Sie \"Speisekarte auswählen\" um eine gültige Speisekarte auszuwählen",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Diese Nachricht wird nicht auf Ihrer publizierten Site angezeigt",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Ein Fehler ist aufgetreten"
+        },
+        "en": {
+            "DATA_SELECTION_LABEL": "Choose Menu",
+            "DATA_EDITING_LABEL": "Edit Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "Restaurant menu application lets you create and manage your menus data and design seamlessly",
+            "MENU_PARTS_NAME": "Restaurant Menu",
+            "MENU_PARTS_DESCRIPTION": "Change the design of your menu and try out the different menu layouts. To add new items to your menu, click Edit Menus.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Centered menu",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Left aligned menu",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu with small images",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu with images",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Gallery menu",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Inline left aligned menu",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "No Menus found",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Create a new menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "No thanks, I'd like to create a new menu",
+            "DATA_EDITING_INLINE_HELP": "Pick which menu or menu section you'd like to appear and click OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menus",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menus",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Sections",
+            "NEW_ITEM_OVERRIDES_TITLE": "New Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Edit the new menu description",
+            "NEW_ITEM_ERROR_TITLE": "Error creating new menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Please try again in a few minutes",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "All Menus",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Sections",
+            "DATA_EDITING_CATEGORIES_DISHES": "Dishes",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "All sections",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "No sections defined",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Hidden sections",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "You have no  hidden sections",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "All dished",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "No dishes defined",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Hidden dishes",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "You have no hidden dishes",
+            "TYPE_META_DATA_DISH": "Dish",
+            "TYPE_META_DATA_DISH_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_SECTION": "Section",
+            "TYPE_META_DATA_EMPTY_SECTION": "Your section is currently empty",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_MENU": "Menu",
+            "TYPE_META_DATA_MENU_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_EMPTY_MENU": "Your menu is currently empty",
+            "CUST_LABEL_NONE": "none",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertical",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (Vertical)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (Diagonal)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (Alternate)",
+            "CUST_LABEL_ALTERNATE": "Alternate",
+            "FORM_TITLE": "Title:",
+            "FORM_TITLE_PLACEHOLDER": "I'm a menu title.",
+            "FORM_DESCRIPTION": "Description:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "I'm a menu description. I'm a great place to describe what's in your menu.",
+            "VIEW_PHOTO": "Photo:",
+            "VIEW_TITLE": "Title:",
+            "VIEW_DESCRIPTION": "Description:",
+            "VIEW_PRICE": "Price:",
+            "SECTION_TITLE_DEFAULT": "I'm a section title.",
+            "SECTION_DESC_DEFAULT": "I'm a section description. Separate your menu into sections and let your customers easily find the food they're craving e.g. Starters, Mains, Sweets, Drinks.",
+            "DISH_TITLE_DEFAULT": "I'm a dish title.",
+            "DISH_PRICE_DEFAULT": "Put a price on me.",
+            "DISH_DESC_DEFAULT": "I'm a dish description. Let your customers know how delicious I am,  so they'll want to eat me.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menu or Section not found",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Click and select \"Choose Menu\" to select a valid menu",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "This message will not be shown on your published site",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Error has occurred"
+        },
+        "es": {
+            "DATA_SELECTION_LABEL": "Elegir Menú",
+            "DATA_EDITING_LABEL": "Editar Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "La aplicación del Menú de Restaurante te permite crear y organizar eficientemente la información de tus menús y diseños. ",
+            "MENU_PARTS_NAME": "Menú de Restaurante ",
+            "MENU_PARTS_DESCRIPTION": "Modifica el diseño de tu menú y prueba los diferentes tipos de menús. Para agregar nuevos elementos a tu menú, haz clic en Editar Menús.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Menú Centrado",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Menú alineado a la izquierda ",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menú con imágenes pequeñas.",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menú con imágenes",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Menú de Galería",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Menú en línea, alineado a la izquierda",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Ningún menú encontrado",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Crear un menú nuevo",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "No gracias, me gustaría crear un menú nuevo",
+            "DATA_EDITING_INLINE_HELP": "Elige qué menú o sección del menú te gustaría que apareciese y haz clic en OK",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menú",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menús",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menús",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Secciones ",
+            "NEW_ITEM_OVERRIDES_TITLE": "Nuevo Menú",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Edita la descripción del nuevo menú",
+            "NEW_ITEM_ERROR_TITLE": "Error al crear un menú nuevo",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Por favor inténtalo de nuevo en unos minutos",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Todos los Menús",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Secciones",
+            "DATA_EDITING_CATEGORIES_DISHES": "Platos",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Todas las Secciones ",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Ninguna sección definida",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Secciones Ocultas",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "No tienes ninguna sección oculta",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Todos los platos ",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Ningún plato definido",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Platos Ocultos",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "No tienes ningún plato oculto",
+            "TYPE_META_DATA_DISH": "Plato",
+            "TYPE_META_DATA_DISH_VALIDATION": "El título debe tener más de 2 caracteres.",
+            "TYPE_META_DATA_SECTION": "Sección",
+            "TYPE_META_DATA_EMPTY_SECTION": "Tu sección está vacía por el momento",
+            "TYPE_META_DATA_SECTION_VALIDATION": "El título debe tener más de dos caracteres.",
+            "TYPE_META_DATA_MENU": "Menú",
+            "TYPE_META_DATA_MENU_VALIDATION": "El título debe tener más de 2 caracteres.",
+            "TYPE_META_DATA_EMPTY_MENU": "Tu menú está vacío por el momento",
+            "CUST_LABEL_NONE": "Nada",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertical",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (Vertical)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (Diagonal)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (Alternar)",
+            "CUST_LABEL_ALTERNATE": "Alternar ",
+            "FORM_TITLE": "Título",
+            "FORM_TITLE_PLACEHOLDER": "Soy el título de un menú",
+            "FORM_DESCRIPTION": "Descripción ",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Soy la descripción de un menú. Es el sitio ideal para describir qué incluye tu menú.",
+            "VIEW_PHOTO": "Foto:",
+            "VIEW_TITLE": "Título:",
+            "VIEW_DESCRIPTION": "Descripción ",
+            "VIEW_PRICE": "Precio:",
+            "SECTION_TITLE_DEFAULT": "Soy un título.",
+            "SECTION_DESC_DEFAULT": "Soy una descripción. Separa tu menú en secciones y deja que tus usuarios encuentren fácilmente la comida que les apetece, como por ejemplo, Entrantes, Platos Principales, Dulces, Bebidas. ",
+            "DISH_TITLE_DEFAULT": "Soy el título de un plato",
+            "DISH_PRICE_DEFAULT": "Colócame un precio",
+            "DISH_DESC_DEFAULT": "Soy la descripción de un plato. Informa a tus clientes de lo rico que estoy para que me quieran comer.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menú o Sección no encontrada",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Haz clic y selecciona \"Elegir Menú\" para seleccionar un menú válido",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Este mensaje no aparecerá en tu sitio publicado",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Se produjo un error"
+        },
+        "fr": {
+            "DATA_SELECTION_LABEL": "Choisir Menu",
+            "DATA_EDITING_LABEL": "Modifier Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "L'application Menu Restaurant vous permet de créer et de gérer les données et le design de vos menus",
+            "MENU_PARTS_NAME": "Menu Restaurant",
+            "MENU_PARTS_DESCRIPTION": "Modifiez le design de votre menu et testez les différentes mises en page de menus. Pour ajouter de nouveaux éléments à votre menu, cliquez sur Modifier Menus.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Menu Centré",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Menu aligné à gauche",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu avec petites images",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu avec images",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Menu Galerie",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Menu en ligne aligné à gauche",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Aucun Menu trouvé",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Créer un nouveau menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "Non merci, je souhaite créer un nouveau menu",
+            "DATA_EDITING_INLINE_HELP": "Choisissez le menu ou la section du menu que vous souhaitez afficher et cliquez sur OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menus",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menus",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Sections",
+            "NEW_ITEM_OVERRIDES_TITLE": "Nouveau Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Modifier la description du nouveau menu",
+            "NEW_ITEM_ERROR_TITLE": "Erreur de création du nouveau menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Veuillez réessayer dans quelques minutes",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Tous les menus",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Sections",
+            "DATA_EDITING_CATEGORIES_DISHES": "Plats",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Toutes les sections",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Aucune section définie",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Sections masquées",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Vous n'avez aucune section masquée",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Tous les plats",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Aucun plat défini",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Plats masqués",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Vous n'avez aucun plat masqué",
+            "TYPE_META_DATA_DISH": "Plat",
+            "TYPE_META_DATA_DISH_VALIDATION": "Le titre doit contenir au moins 2 caractères",
+            "TYPE_META_DATA_SECTION": "Section",
+            "TYPE_META_DATA_EMPTY_SECTION": "Votre section est vide pour le moment",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Le titre doit contenir au moins 2 caractères",
+            "TYPE_META_DATA_MENU": "Menu\n",
+            "TYPE_META_DATA_MENU_VALIDATION": "Le titre doit contenir au moins 2 caractères",
+            "TYPE_META_DATA_EMPTY_MENU": "Votre menu est vide pour le moment",
+            "CUST_LABEL_NONE": "aucun",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertical",
+            "CUST_LABEL_CROSSFADE": "Fondu Enchaîné",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Fondu Enchaîné (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Fondu Enchaîné (Vertical)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Fondu Enchaîné (Diagonale)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (Alterné)",
+            "CUST_LABEL_ALTERNATE": "Alterner",
+            "FORM_TITLE": "Titre:",
+            "FORM_TITLE_PLACEHOLDER": "Je suis un titre de menu.",
+            "FORM_DESCRIPTION": "Description:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Je suis une description de menu. L'endroit idéal pour décrire ce que propose votre menu.",
+            "VIEW_PHOTO": "Photo:",
+            "VIEW_TITLE": "Titre:",
+            "VIEW_DESCRIPTION": "Description:",
+            "VIEW_PRICE": "Prix:",
+            "SECTION_TITLE_DEFAULT": "Je suis un titre de section.",
+            "SECTION_DESC_DEFAULT": "Je suis une description de section. Divisez votre menu en sections et permettez à vos clients de trouver facilement ce dont ils ont envie. Ex: Entrées, Plats, Desserts, Boissons.",
+            "DISH_TITLE_DEFAULT": "Je suis un titre de plat.",
+            "DISH_PRICE_DEFAULT": "Attribuez-moi un prix.",
+            "DISH_DESC_DEFAULT": "Je suis une description de plat. Détaillez-moi à vos clients pour qu'ils aient envie de me commander.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menu ou Section introuvable",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Cliquez et sélectionnez \"Choisir Menu\" pour sélectionner un menu valide",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Ce message n’apparaîtra pas sur la version publiée de votre site",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Une erreur s'est produite"
+        },
+        "it": {
+            "DATA_SELECTION_LABEL": "Scegli Menu",
+            "DATA_EDITING_LABEL": "Modifica Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "L'applicazione del Menu Ristorante ti permette di creare e gestire le informazioni del tuo menu e progettare senza costrizioni",
+            "MENU_PARTS_NAME": "Menu Ristorante",
+            "MENU_PARTS_DESCRIPTION": "Cambia il design del tuo menu e prova i diversi layout di menu. Per aggiungere nuovi elementi al tuo menu, clicca Modifica Menu.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Menu centrato",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Menu allineato a sinistra",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu con immagini piccole",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu con immagini",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Menu galleria",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Menu allineato a sinistra in linea",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Nessun Menu trovato",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Crea un nuovo menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "No grazie, vorrei creare un nuovo menu",
+            "DATA_EDITING_INLINE_HELP": "Scegli quale menu o sezione del menu vorresti far apparire e clicca OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menu",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menu",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Sezioni",
+            "NEW_ITEM_OVERRIDES_TITLE": "Nuovo Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Modifica la descrizione del nuovo menu",
+            "NEW_ITEM_ERROR_TITLE": "Errore nella creazione del nuovo menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Per favore riprova tra qualche minuto",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Tutti i Menu",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Sezioni",
+            "DATA_EDITING_CATEGORIES_DISHES": "Piatti",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Tutte le sezioni",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Nessuna sezione definita",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Sezioni nascoste",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Non hai nessuna sezione nascosta",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Tutti i piatti",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Nessun piatto definito",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Piatti nascosti",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Non hai nessun piatto nascosto",
+            "TYPE_META_DATA_DISH": "Piatto",
+            "TYPE_META_DATA_DISH_VALIDATION": "Il titolo dev'essere più lungo di 2 caratteri",
+            "TYPE_META_DATA_SECTION": "Sezione",
+            "TYPE_META_DATA_EMPTY_SECTION": "La tua sezione è vuota al momento",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Il titolo dev'essere più lungo di 2 caratteri",
+            "TYPE_META_DATA_MENU": "Menu",
+            "TYPE_META_DATA_MENU_VALIDATION": "Il titolo dev'essere più lungo di 2 caratteri",
+            "TYPE_META_DATA_EMPTY_MENU": "Il tuo menu è vuoto al momento",
+            "CUST_LABEL_NONE": "nessuno",
+            "CUST_LABEL_HORIZONTAL": "Orizzontale",
+            "CUST_LABEL_VERTICAL": "Verticale",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Orizzontale)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (Verticale)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (Diagonale)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Orizzontale (Alternato)",
+            "CUST_LABEL_ALTERNATE": "Alternato",
+            "FORM_TITLE": "Titolo:",
+            "FORM_TITLE_PLACEHOLDER": "Sono il titolo di un menu.",
+            "FORM_DESCRIPTION": "Descrizione:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Sono la descrizione di un menu. Sono un posto perfetto per descrivere cosa c'è nel tuo menu.",
+            "VIEW_PHOTO": "Foto:",
+            "VIEW_TITLE": "Titolo:",
+            "VIEW_DESCRIPTION": "Descrizione:",
+            "VIEW_PRICE": "Prezzo:",
+            "SECTION_TITLE_DEFAULT": "Sono il titolo di una sezione.",
+            "SECTION_DESC_DEFAULT": "Sono la descrizione di una sezione. Dividi il tuo menu in sezioni e permetti ai tuoi clienti di trovare facilmente i piatti che stanno bramando. Per es. Antipasti, Primi, Dolci, Bibite.",
+            "DISH_TITLE_DEFAULT": "Sono il titolo di un piatto.",
+            "DISH_PRICE_DEFAULT": "Assegnami un prezzo.",
+            "DISH_DESC_DEFAULT": "Sono la descrizione di un piatto. Permetti ai tuoi clienti di scoprire quanto sono delizioso, così mi vorranno mangiare.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menu o Sezione non trovata",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Clicca e seleziona \"Scegli Menu\" per selezionare un menu valido",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Questo messaggio non verrà visualizzato sul tuo sito pubblicato",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Si è verificato un errore"
+        },
+        "ja": {
+            "DATA_SELECTION_LABEL": "メニュの選択",
+            "DATA_EDITING_LABEL": "メニューの編集",
+            "MENU_MAIN_APP_DESCRIPTION": "Restaurant Menuを使うと、メニューのデータとデザインを同時に作成・管理することが出来ます",
+            "MENU_PARTS_NAME": "レストランメニュー",
+            "MENU_PARTS_DESCRIPTION": "メニューのデザインを変更して、色々なメニューレイアウトをお試しください。メニューにアイテムを追加する場合、「メニューの編集」をクリックしてください。",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "メニューの中央揃え",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "メニューの左揃え",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "小さい画像付のメニュー",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "画像付のメニュー",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "ギャラリーメニュー",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "メニューのインライン左揃え",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "メニューが見つかりませんでした",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "新しいメニューの作成",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "いいえ、結構です。新しいメニューを作成します。",
+            "DATA_EDITING_INLINE_HELP": "表示させるメニューもしくはメニューセクションを選択し、OKをクリックしてください。",
+            "DATA_EDITING_NEW_ITEM_TYPE": "メニュー",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "メニュー",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "メニュー",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "セクション",
+            "NEW_ITEM_OVERRIDES_TITLE": "新しいメニュー",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "新しいメニューの説明の編集",
+            "NEW_ITEM_ERROR_TITLE": "新しいメニューの作成が出来ませんでした",
+            "NEW_ITEM_ERROR_DESCRIPTION": "しばらく経ってから再度お試しください",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "全てのメニュー",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "セクション",
+            "DATA_EDITING_CATEGORIES_DISHES": "料理",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "全てのセクション",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "セクションが見つかりませんでした",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "非表示のセクション",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "非表示のセクションはありません",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "全ての料理",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "設定された料理はありません",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "非表示の料理",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "非表示の料理はありません",
+            "TYPE_META_DATA_DISH": "料理",
+            "TYPE_META_DATA_DISH_VALIDATION": "タイトルは2文字以上で入力して下さい",
+            "TYPE_META_DATA_SECTION": "セクション",
+            "TYPE_META_DATA_EMPTY_SECTION": "現在セクションは入力されていません",
+            "TYPE_META_DATA_SECTION_VALIDATION": "タイトルは2文字以上で入力して下さい",
+            "TYPE_META_DATA_MENU": "メニュー",
+            "TYPE_META_DATA_MENU_VALIDATION": "タイトルは2文字以上で入力して下さい",
+            "TYPE_META_DATA_EMPTY_MENU": "現在メニューは入力されていません",
+            "CUST_LABEL_NONE": "なし",
+            "CUST_LABEL_HORIZONTAL": "横",
+            "CUST_LABEL_VERTICAL": "縦",
+            "CUST_LABEL_CROSSFADE": "クロスフェード",
+            "CUST_LABEL_CROSSFADE_HORIZ": "クロスフェード（横）",
+            "CUST_LABEL_CROSSFADE_VERTI": "クロスフェード（縦）",
+            "CUST_LABEL_CROSSFADE_DIAGO": "クロスフェード（斜め）",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "横（代替）",
+            "CUST_LABEL_ALTERNATE": "代替",
+            "FORM_TITLE": "タイトル:",
+            "FORM_TITLE_PLACEHOLDER": "ここにメニュータイトルを記入します:",
+            "FORM_DESCRIPTION": "詳細:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "ここにメニューの詳細を記入します。メニューの詳しい説明を記入してください。",
+            "VIEW_PHOTO": "写真:",
+            "VIEW_TITLE": "タイトル:",
+            "VIEW_DESCRIPTION": "説明:",
+            "VIEW_PRICE": "価格:",
+            "SECTION_TITLE_DEFAULT": "ここにセクションタイトルを記入します。",
+            "SECTION_DESC_DEFAULT": "ここにセクションの説明を記入します。メニューをセクション毎に分類すると、お客様がメニューを簡単に見つける事ができます。（例）スターター、メインディッシュ、デザート、飲み物",
+            "DISH_TITLE_DEFAULT": "ここに料理名を記入します。",
+            "DISH_PRICE_DEFAULT": "価格を設定してください。",
+            "DISH_DESC_DEFAULT": "ここに料理の説明を記入します。思わずオーダーしたくなるような料理の説明文を書きましょう。",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "メニューもしくはセクションが見つかりませんでした",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "「メニューの選択」をクリックして、有効なメニューを選択してください",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "このメッセージは、公開されたウェブサイトには表示されません",
+            "ERROR_MESSAGE_IN_PUBLISHED": "エラーが発生しました"
+        },
+        "ko": {
+            "DATA_SELECTION_LABEL": "Choose Menu",
+            "DATA_EDITING_LABEL": "Edit Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "Restaurant menu application lets you create and manage your menus data and design seamlessly",
+            "MENU_PARTS_NAME": "Restaurant Menu",
+            "MENU_PARTS_DESCRIPTION": "Change the design of your menu and try out the different menu layouts. To add new items to your menu, click Edit Menus.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Centered menu",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Left aligned menu",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu with small images",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu with images",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Gallery menu",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Inline left aligned menu",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "No Menus found",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Create a new menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "No thanks, I'd like to create a new menu",
+            "DATA_EDITING_INLINE_HELP": "Pick which menu or menu section you'd like to appear and click OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menus",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menus",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Sections",
+            "NEW_ITEM_OVERRIDES_TITLE": "New Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Edit the new menu description",
+            "NEW_ITEM_ERROR_TITLE": "Error creating new menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Please try again in a few minutes",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "All Menus",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Sections",
+            "DATA_EDITING_CATEGORIES_DISHES": "Dishes",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "All sections",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "No sections defined",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Hidden sections",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "You have no  hidden sections",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "All dished",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "No dishes defined",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Hidden dishes",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "You have no hidden dishes",
+            "TYPE_META_DATA_DISH": "Dish",
+            "TYPE_META_DATA_DISH_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_SECTION": "Section",
+            "TYPE_META_DATA_EMPTY_SECTION": "Your section is currently empty",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_MENU": "Menu",
+            "TYPE_META_DATA_MENU_VALIDATION": "Title needs to be longer than 2 characters",
+            "TYPE_META_DATA_EMPTY_MENU": "Your menu is currently empty",
+            "CUST_LABEL_NONE": "none",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertical",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (Vertical)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (Diagonal)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (Alternate)",
+            "CUST_LABEL_ALTERNATE": "Alternate",
+            "FORM_TITLE": "Title:",
+            "FORM_TITLE_PLACEHOLDER": "I'm a menu title.",
+            "FORM_DESCRIPTION": "Description:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "I'm a menu description. I'm a great place to describe what's in your menu.",
+            "VIEW_PHOTO": "Photo:",
+            "VIEW_TITLE": "Title:",
+            "VIEW_DESCRIPTION": "Description:",
+            "VIEW_PRICE": "Price:",
+            "SECTION_TITLE_DEFAULT": "I'm a section title.",
+            "SECTION_DESC_DEFAULT": "I'm a section description. Separate your menu into sections and let your customers easily find the food they're craving e.g. Starters, Mains, Sweets, Drinks.",
+            "DISH_TITLE_DEFAULT": "I'm a dish title.",
+            "DISH_PRICE_DEFAULT": "Put a price on me.",
+            "DISH_DESC_DEFAULT": "I'm a dish description. Let your customers know how delicious I am,  so they'll want to eat me.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menu or Section not found",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Click and select \"Choose Menu\" to select a valid menu",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "This message will not be shown on your published site",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Error has occurred"
+        },
+        "pl": {
+            "DATA_SELECTION_LABEL": "Wybierz Menu",
+            "DATA_EDITING_LABEL": "Edytuj Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "Aplikacja Menu Restauracji pozwala ci z łatwością stworzyć i zarządzać projektem i treścią menu",
+            "MENU_PARTS_NAME": "Menu Restauracji",
+            "MENU_PARTS_DESCRIPTION": "Zmień projekt menu i wypróbuj różnych układów. Aby dodać nowe elementy do menu, kliknij Edytuj Menu.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Wyśrodkowane menu",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Menu wyrównane do lewej",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu z małymi obrazami",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu z obrazami",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Menu galerii",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Wbudowane menu wyrównane do lewej",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Nie znaleziono Menu",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Stwórz nowe menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "Nie dziękuję, chciałbym stworzyć nowe menu",
+            "DATA_EDITING_INLINE_HELP": "Wybierz, które menu lub jego sekcję chcesz wyświetlić i kliknij OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menu",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menu",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Sekcje",
+            "NEW_ITEM_OVERRIDES_TITLE": "Nowe Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Edytuj opis nowego menu",
+            "NEW_ITEM_ERROR_TITLE": "Błąd przy tworzeniu nowego menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Spróbuj ponownie za kilka minut",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Wszystkie Menu",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Sekcje",
+            "DATA_EDITING_CATEGORIES_DISHES": "Dania",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Wszystkie sekcje",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Brak zdefiniowanych sekcji",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Ukryte sekcje",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Nie masz ukrytych sekcji",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Wszystkie dania",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Brak zdefiniowanego dania",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Ukryte dania",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Nie masz ukrytych dań",
+            "TYPE_META_DATA_DISH": "Danie",
+            "TYPE_META_DATA_DISH_VALIDATION": "Tytuł musi być dłuższy niż 2 znaki",
+            "TYPE_META_DATA_SECTION": "Sekcja",
+            "TYPE_META_DATA_EMPTY_SECTION": "Twoja sekcja jest obecnie pusta",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Tytuł musi być dłuższy niż 2 znaki",
+            "TYPE_META_DATA_MENU": "Menu",
+            "TYPE_META_DATA_MENU_VALIDATION": "Tytuł musi być dłuższy niż 2 znaki",
+            "TYPE_META_DATA_EMPTY_MENU": "Twoje menu jest obecnie puste",
+            "CUST_LABEL_NONE": "brak",
+            "CUST_LABEL_HORIZONTAL": "Pionowy",
+            "CUST_LABEL_VERTICAL": "Pionowy",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Poziomo)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade(Pionowy)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade(Ukośnie)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Pionowy(Zmienny)",
+            "CUST_LABEL_ALTERNATE": "Zmienny",
+            "FORM_TITLE": "Tytuł:",
+            "FORM_TITLE_PLACEHOLDER": "Jestem tytułem menu.",
+            "FORM_DESCRIPTION": "Opis:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Jestem opisem menu. Jestem świetnym miejscem na opisanie menu.",
+            "VIEW_PHOTO": "Zdjęcie:",
+            "VIEW_TITLE": "Tytuł:",
+            "VIEW_DESCRIPTION": "Opis:",
+            "VIEW_PRICE": "Cena:",
+            "SECTION_TITLE_DEFAULT": "Jestem tytułem sekcji",
+            "SECTION_DESC_DEFAULT": "Jestem opisem sekcji. Podziel swoje menu na sekcje i pozwól swoim klientom na łatwe odnalezienie żywności, na którą mają ochotę np. Przystawki, Dania Główne, Słodycze, Napoje.",
+            "DISH_TITLE_DEFAULT": "Jestem tytułem dania.",
+            "DISH_PRICE_DEFAULT": "Określ moją cenę.",
+            "DISH_DESC_DEFAULT": "Jestem opisem dania. Napisz jaki jestem smaczny, ale wzbudzić apetyt twoich klientów.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Nie znaleziono Menu lub Sekcji",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Kliknij i wybierz \"Wybierz Menu\", aby zaznaczyć ważne menu",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Ta wiadomość nie będzie widoczna na twojej opublikowanej stronie",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Wystąpił błąd"
+        },
+        "pt": {
+            "DATA_SELECTION_LABEL": "Escolher menu",
+            "DATA_EDITING_LABEL": "Editar Menu",
+            "MENU_MAIN_APP_DESCRIPTION": "O app Menu de Restaurante te permite criar e gerenciar as informações de seu menu e mudar o seu design facilmente.",
+            "MENU_PARTS_NAME": "Menu de Restaurante",
+            "MENU_PARTS_DESCRIPTION": "Mude o design do seu menu e experimente layouts diferentes. Para adicionar um novo item ao seu menu, clique em Editar Menus.",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "Menu Centralizado",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Menu alinhado á esquerda",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Menu com imagens pequenas",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Menu com imagens",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Menu de Galeria",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Menu em linha alinhado á esquerda",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Nenhum menu foi encontrado",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Criar um novo menu",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "Não obrigado, eu quero criar um novo menu ",
+            "DATA_EDITING_INLINE_HELP": "Escolha o menu ou seção de menu que deseja mostrar e clique em OK.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Menu",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Menus",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Menus",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Seções",
+            "NEW_ITEM_OVERRIDES_TITLE": "Novo Menu",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Editar a descrição do novo menu",
+            "NEW_ITEM_ERROR_TITLE": "Erro ao criar um novo menu",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Por favor, tente novamente em alguns minutos",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Todos os Menus",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Seções",
+            "DATA_EDITING_CATEGORIES_DISHES": "Pratos",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Todas as seções",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Nenhuma seção foi definida",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Seções Ocultas",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Você não tem seções ocultas",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Todos os pratos",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Nenhum prato definido",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Pratos Ocultos",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Você não tem pratos ocultos",
+            "TYPE_META_DATA_DISH": "Prato",
+            "TYPE_META_DATA_DISH_VALIDATION": "O título precisa ter mais que 2 caracteres.",
+            "TYPE_META_DATA_SECTION": "Seção",
+            "TYPE_META_DATA_EMPTY_SECTION": "A sua seção está vazia",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Título precisa ter mais que 2 caracteres",
+            "TYPE_META_DATA_MENU": "Menu",
+            "TYPE_META_DATA_MENU_VALIDATION": "O Título precisa ter mais que 2 caracteres",
+            "TYPE_META_DATA_EMPTY_MENU": "O seu menu está vazio",
+            "CUST_LABEL_NONE": "Nenhum",
+            "CUST_LABEL_HORIZONTAL": "Horizontal",
+            "CUST_LABEL_VERTICAL": "Vertical",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (Horizontal)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (Vertical)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (Diagonal)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Horizontal (Alternar)",
+            "CUST_LABEL_ALTERNATE": "Alternar",
+            "FORM_TITLE": "Título:",
+            "FORM_TITLE_PLACEHOLDER": "Sou o título de um menu.",
+            "FORM_DESCRIPTION": "Descrição:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Sou a descrição de um menu. Sou um ótimo lugar para descrever o que há no menu.",
+            "VIEW_PHOTO": "Foto:",
+            "VIEW_TITLE": "Título:",
+            "VIEW_DESCRIPTION": "Descrição:",
+            "VIEW_PRICE": "Preço:",
+            "SECTION_TITLE_DEFAULT": "Sou o título de uma seção.",
+            "SECTION_DESC_DEFAULT": "Eu sou a descrição de uma seção. Separe o seu menu em seções e facilite aos seus visitantes encontrar os pratos que desejam, por exemplo, Entradas, Pratos Principais, Sobremesas e Bebidas.",
+            "DISH_TITLE_DEFAULT": "Eu sou o título de um prato.",
+            "DISH_PRICE_DEFAULT": "Coloque um preço em mim.",
+            "DISH_DESC_DEFAULT": "Sou a descrição de um prato. Informe aos seus clientes quão delicioso eu sou, para que eles fiquem com água na boca.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Menu ou Seção não encontrados",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Clique e selecione \"Escolher menu\" e selecione um menu válido",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Esta mensagem não será mostrada em seu site online",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Ocorreu um erro"
+        },
+        "ru": {
+            "DATA_SELECTION_LABEL": "Выбрать меню",
+            "DATA_EDITING_LABEL": "Редактировать меню",
+            "MENU_MAIN_APP_DESCRIPTION": "Приложение Меню ресторана позволяет вам легко создать и управлять данными и дизайном меню",
+            "MENU_PARTS_NAME": "Меню ресторана",
+            "MENU_PARTS_DESCRIPTION": "Измените дизайн и попробуйте различные макеты меню. Для добавления новых элементов в меню, нажмите Редактировать меню",
+            "MENU_VIEW_DESCRIPTIONS_CENTERED_MENU_NAME": "По центру",
+            "MENU_VIEW_DESCRIPTIONS_LEFT_ALIGNED_MENU_NAME": "Выравнивание слева",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_SMALL_IMAGES_NAME": "Меню с иконками",
+            "MENU_VIEW_DESCRIPTIONS_MENU_WITH_IMAGES_NAME": "Меню с картинками",
+            "MENU_VIEW_DESCRIPTIONS_GALLERY_MENU_NAME": "Меню галереи",
+            "MENU_VIEW_DESCRIPTIONS_INLINE_LEFT_MENU_NAME": "Inline выравнивание слева",
+            "DATA_EDITING_NO_CATEGORIES_LABEL": "Меню не найдено",
+            "DATA_EDITING_ADD_FIRST_CATEGORY_LABEL": "Создать новое меню",
+            "DATA_EDITING_ANOTHER_CATEGORY_LABEL": "Нет, я хочу создать новое меню",
+            "DATA_EDITING_INLINE_HELP": "Выберите меню или секцию для отображения и кликните ОК.",
+            "DATA_EDITING_NEW_ITEM_TYPE": "Меню",
+            "DATA_EDITING_NEW_ITEM_COLLECTION": "Меню",
+            "DATA_EDITING_TOP_LEVEL_COLLECTION": "Меню",
+            "DATA_EDITING_MIDLEVEL_COLLECTION": "Секции",
+            "NEW_ITEM_OVERRIDES_TITLE": "Новое меню",
+            "NEW_ITEM_OVERRIDES_DESCRIPTION": "Редактировать новую секцию меню",
+            "NEW_ITEM_ERROR_TITLE": "Ошибка создания нового меню",
+            "NEW_ITEM_ERROR_DESCRIPTION": "Пожалуйста, попробуйте еще раз позже",
+            "DATA_EDITING_CATEGORIES_ALL_MENUS": "Все меню",
+            "DATA_EDITING_CATEGORIES_SECTIONS": "Секции",
+            "DATA_EDITING_CATEGORIES_DISHES": "Блюда",
+            "DATA_EDITING_CATEGORIES_ALL_SECTIONS": "Все секции",
+            "DATA_EDITING_NO_SECTIONS_DEFINED": "Не выбраны секции ",
+            "DATA_EDITING_CATEGORIES_HIDDEN_SECTIONS": "Скрытые секции",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_SECTIONS": "Нет скрытых секций",
+            "DATA_EDITING_CATEGORIES_ALL_DISHES": "Все блюда",
+            "DATA_EDITING_CATEGORIES_NO_DISHES": "Не выбраны блюда",
+            "DATA_EDITING_CATEGORIES_HIDDEN_DISHES": "Скрытые блюда",
+            "DATA_EDITING_CATEGORIES_NO_HIDDEN_DISHES": "Нет скрытых блюд",
+            "TYPE_META_DATA_DISH": "Блюдо",
+            "TYPE_META_DATA_DISH_VALIDATION": "Заголовок должен быть более 2 знаков",
+            "TYPE_META_DATA_SECTION": "Секция",
+            "TYPE_META_DATA_EMPTY_SECTION": "Ваша секция не заполнена",
+            "TYPE_META_DATA_SECTION_VALIDATION": "Заголовок должен быть более 2 знаков",
+            "TYPE_META_DATA_MENU": "Меню",
+            "TYPE_META_DATA_MENU_VALIDATION": "Заголовок должен быть более 2 знаков",
+            "TYPE_META_DATA_EMPTY_MENU": "Ваше меню не заполнено",
+            "CUST_LABEL_NONE": "Отсутствует",
+            "CUST_LABEL_HORIZONTAL": "Горизонталь",
+            "CUST_LABEL_VERTICAL": "Вертикаль",
+            "CUST_LABEL_CROSSFADE": "Cross-fade",
+            "CUST_LABEL_CROSSFADE_HORIZ": "Cross-fade (горизонталь)",
+            "CUST_LABEL_CROSSFADE_VERTI": "Cross-fade (вертикаль)",
+            "CUST_LABEL_CROSSFADE_DIAGO": "Cross-fade (диагональ)",
+            "CUST_LABEL_HORIZONTAL_ALTERNATE": "Горизонталь (другой)",
+            "CUST_LABEL_ALTERNATE": "Другой",
+            "FORM_TITLE": "Заголовок:",
+            "FORM_TITLE_PLACEHOLDER": "Я заголовок меню.",
+            "FORM_DESCRIPTION": "Описание:",
+            "FORM_DESCRIPTION_PLACEHOLDER": "Я - описание меню. Это идеальное место для описания вашего меню.",
+            "VIEW_PHOTO": "Фото:",
+            "VIEW_TITLE": "Заголовок:",
+            "VIEW_DESCRIPTION": "Описание:",
+            "VIEW_PRICE": "Цена:",
+            "SECTION_TITLE_DEFAULT": "Я заголовок секции.",
+            "SECTION_DESC_DEFAULT": "Я - описание секции. Разделите меню на секции и пусть ваши клиенты легко находят то, что они хотят, например: закуски, основные, десерты, напитки.",
+            "DISH_TITLE_DEFAULT": "Я название блюда",
+            "DISH_PRICE_DEFAULT": "Добавьте цену",
+            "DISH_DESC_DEFAULT": "Я - описание. Пусть все узнают, какое я вкусное блюдо, и захотят меня съесть.",
+            "ERROR_ITEM_NOT_FOUND_TITLE": "Меню или секция не найдены",
+            "ERROR_ITEM_NOT_FOUND_DESCRIPTION": "Кликните и нажмите \"Выбрать меню\", чтобы выбрать нужное меню",
+            "ERROR_ITEM_NOT_FOUND_DISCLAIMER": "Это сообщение не будет показано на опубликованном сайте",
+            "ERROR_MESSAGE_IN_PUBLISHED": "Произошла ошибка"
+        }
+    }
+}

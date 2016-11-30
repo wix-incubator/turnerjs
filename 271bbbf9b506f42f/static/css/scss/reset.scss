@@ -1,0 +1,75 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  vertical-align: baseline;
+  background: transparent;
+}
+
+body {
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+textarea, input, select {
+  font-family: Helvetica, Arial, sans-serif;
+  box-sizing: border-box; // Opera/IE 8+
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+:focus {
+  outline: 0;
+}
+
+ins {
+  text-decoration: none;
+}
+
+del {
+  text-decoration: line-through;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+a {
+  cursor: pointer;
+  text-decoration: none;
+}
+
+// *
+// * Set body and site structure to a minimum height of 100%
+// * this causes the body to be smaller than it's content, which means that when scrolling it looks like the content is out of body.
+// *
+html, body{
+  height : 100%;
+}
+
+// *************************************
+// * Body overflow settings, BE CAREFUL WHEN CHANGING THIS
+// *
+
+//  When in Public Viewer Mode
+body {
+  overflow-x : auto;
+  overflow-y : scroll;
+}
+

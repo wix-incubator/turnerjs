@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@import '../../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+#cont{
+  width:100%;
+  overflow:hidden;
+  position:relative;
+}
+
+#cont:after {
+  background-image: param-url(tdr, $tdr, "fadenotchlinenew.png");
+  background-position: 0 -30px;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
+#cont:before {
+  background-image: param-url(tdr, $tdr, "fadenotchlinenew.png");
+  background-position: 100% -30px;
+  width: 30px;
+  height: 30px;
+  right: 0;
+  position: absolute;
+  top: 0;
+  content: "";
+}
+
+#line {
+  background-image: param-url(tdr, $tdr, "fadenotchlinenew.png");
+  background-position: 0 0;
+  background-repeat: repeat-x;
+  margin: 0 30px;
+  height: 30px;
+}

@@ -1,0 +1,13 @@
+{
+    "createTime": "2000-01-01T00:11:00",
+    "owner": "Etai",
+    "description": "sends BI events for ads removed without premium and embedded sites",
+    "tags": [
+        "viewer"
+    ],
+    "constraints": {
+        "Staff": "optional-before",
+        "Dev": "optional-before",
+        "TPAExtensions": "optional-before"
+    }
+}

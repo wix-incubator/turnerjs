@@ -1,0 +1,64 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: #ffffff;
+$brd: #aaa9a9;
+$txt: #222222;
+$brw: 1px;
+$rd: 2px;
+
+
+
+:host {
+  position: relative;
+}
+
+#input {
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  color: param-text-color(txt, $txt);
+  border: param-border-size(brw, $brw) solid param-border-color(brd, $brd);
+  padding: 7px 3px;
+  margin: 0;
+  font-size: 20px;
+  line-height: 20px;
+  width: 100%;
+}
+
+#erase {
+  position: absolute;
+  font-size: 20px;
+  right: 3px;
+  cursor: pointer;
+  width: 33px;
+  height: auto;
+  text-align: center;
+  line-height: 20px;
+  color: param-text-color(txt, $txt);
+  padding: 9px 0;
+}
+
+#message {
+  display: none;
+}
+
+[data-state~="showButton"] #erase {
+  display: inline-block;
+}
+
+[data-state~="showButton"] #input {
+  padding-right: 38px;
+}
+
+[data-state~="hideButton"] #erase {
+  display: none;
+}
+

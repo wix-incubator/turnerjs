@@ -1,0 +1,9 @@
+{
+    "owner": "akaspi",
+    "description": "Reduce the site segments gap to 0",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "onlyForLoggedInUsers": "true",
+    "constraints": {}
+}

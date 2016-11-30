@@ -1,0 +1,12 @@
+@charset "UTF-8";
+@import "../../dialogs";
+@import "../../newDialogs";
+
+@include exports("okButton:skin", "wysiwyg.viewer.skins.button.BasicButton");
+@include exports("okButton:styleGroup", "b1");
+
+[data-state~="mobile"] {
+  #contentWrapper {
+    padding-bottom: 0;
+  }
+}

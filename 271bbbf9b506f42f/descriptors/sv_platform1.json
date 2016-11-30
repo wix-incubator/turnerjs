@@ -1,0 +1,8 @@
+{
+    "owner": "dori",
+    "description": "Platform 1.0",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$rd: 5px;
+$shd: 0 1px 2px rgba(0, 0, 0, .6);
+
+@include exports("heightDiff", 50);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.TextOnRollDisplayerSkin");
+@include exports("imageItem:styleGroup", "displayer");
+
+#showMore {
+  position: absolute;
+  cursor: pointer;
+  bottom: 10px;
+  height: 36px;
+  line-height: 36px;
+  padding: 0 10px;
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+[data-state~="fullView"] #showMore {
+  display: none;
+}
+
+#itemsContainer {
+  padding: 10px;
+}
+

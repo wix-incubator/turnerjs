@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-07-01T12:00:00",
+    "owner": "evgenyb",
+    "description": "Blocks the scroll from propagating to the preview site in certain scenarios",
+    "constraints": {
+    },
+    "tags": [
+        "editor"
+    ]
+}

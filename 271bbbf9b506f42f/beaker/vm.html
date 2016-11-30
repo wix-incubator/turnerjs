@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="/base/static/css/viewer.css">
+    <script src="/base/node_modules/requirejs/require.js"></script>
+    <script>
+        (function() {
+            function addScript(src, callback) {
+                var script = document.createElement("SCRIPT");
+                script.setAttribute("src", src);
+                document.head.appendChild(script);
+                script.addEventListener("load", callback);
+            }
+
+            var site = /[&?]site=([^&]+)/.exec(location.search);
+            site = site ? site[1] : "blank";
+            var serverPort = /[&?]serverPort=(\d+)/.exec(location.search)[1];
+
+            window.clientSideRender = true;
+            window.santaModels = true;
+            window.santaBase = "http://localhost:" + serverPort;
+            googleAnalytics ='UA-2117194-61';
+            window.documentServicesModel = {
+                originalTemplateId: '21bb4070-0fcb-41eb-87d6-bb35db2a803f',
+                version: 1,
+                revision: 1234,
+                metaSiteData: {
+                    externalUriMappings: [],
+                    favicon: '',
+                    indexable: true,
+                    metaTags: [
+                    ],
+                    suppressTrackingCookies: false,
+                    thumbnail: ''
+                },
+                editorSessionId: 'DA154192-AADC-48D0-8C75-E3EF62D97C2D',
+                firstSave: true,
+                publicUrl: 'http://sharag.wix.com/theamazingshraga',
+                usedMetaSiteNames: ['shraga','website'],
+                customHeadTags: '<meta name="shraga">',
+                permissionsInfo: {
+                    isOwner: true,
+                    permissions: []
+                }
+            };
+
+            function siteDataLoadListener() {
+                var siteJson = JSON.parse(this.responseText);
+                var keysToAssignToWindow = ["adData", "mobileAdData", "rendererModel", "serviceTopology", "siteAsJson"];
+                keysToAssignToWindow.forEach(function (k) {
+                    window[k] = siteJson[k];
+                });
+                serviceTopology.scriptsLocationMap.santa = window.santaBase;
+                siteJson.metas = siteJson.metas || [];
+                siteJson.metas.forEach(function (meta) {
+                    var tag = document.createElement("META");
+                    for (var attr in meta) {
+                        var value = meta[attr];
+                        if (value.length)
+                            tag.setAttribute(attr, value);
+                    }
+
+                    document.head.appendChild(tag);
+                });
+                addScript('/base/app/main-r.min.js');
+            }
+
+            var oReq = new XMLHttpRequest();
+            oReq.addEventListener("load", siteDataLoadListener);
+            oReq.open("GET", 'sites/' + site + '.json');
+            oReq.send();
+
+        })();
+
+    </script>
+</head>
+<body>
+    <div id="SITE_CONTAINER">
+
+    </div>
+</body>
+</html>

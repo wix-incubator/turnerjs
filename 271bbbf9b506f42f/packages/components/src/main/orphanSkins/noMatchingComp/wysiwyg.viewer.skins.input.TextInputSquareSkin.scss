@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+
+
+:host {
+  font-size: 1em;
+}
+
+label {
+  float: none;
+  font-size: 17px;
+  line-height: 25px;
+  color: #585858;
+}
+
+[data-state~="mobile"] label {
+  float: none;
+  font-size: 14px;
+  line-height: 20px;
+  color: #585858;
+}
+
+#input {
+  padding: 0 15px;
+  width: 100%;
+  height: 42px;
+  font-size: 19px;
+  line-height: 42px;
+  color: #0198ff;
+  margin: 0 -3px;
+  background: transparent param-url(tdr, $tdr, "viewer_login_sprite.png") repeat-x right -170px;
+  border: solid 1px #a1a1a1;
+  box-sizing: border-box;
+}
+
+[data-state~="mobile"] #input {
+  padding: 0 15px;
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #0198ff;
+  margin: 0 -3px;
+  background: transparent param-url(tdr, $tdr, "viewer_login_sprite.png") repeat-x right -170px;
+  border: solid 1px #a1a1a1;
+  box-sizing: border-box;
+}
+
+#input[data-type="password"] {
+  font-size: 38px;
+}
+
+[data-state~="mobile"] #input[data-type="password"] {
+  font-size: 14px;
+}
+
+#errorMessage {
+  display: block;
+  font-size: 12px;
+  color: #d74401;
+  text-align: right;
+  height: 15px;
+}
+
+:host:not([data-state~="invalid"]) #errorMessage {
+  visibility: hidden;
+}
+
+[data-state~="invalid"] #errorMessage {
+  visibility: visible;
+}
+
+[data-state~="invalid"] input {
+  border-color: #d74401;
+}
+
+[data-state~="invalid"] #input {
+  border-color: red;
+}
+

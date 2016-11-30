@@ -1,0 +1,8 @@
+{
+    "owner": "alexandrer",
+    "description": "added timeout of 2 seconds and sending BI events for fetching page json",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

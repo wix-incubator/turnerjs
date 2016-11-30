@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@import 'slideShowBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+$arrowColor: color_12;
+$dotsColor: color_12;
+$arrowContainerColor: color_11;
+$dotsSelectedColor: color_11;
+
+@include exports(arrowWidthToHeightRatio, 0.5);
+@include exports(arrowWidthToSizeRatio, 1);
+@include exports(selectedButtonSizeRatio, 1);
+
+#nextButton {
+  transform: scale(-1)
+}
+
+.navigation-dot {
+  background-color: param-bg-color(dotsColor, $dotsColor);
+
+  &.selected {
+    background-color: param-bg-color(dotsSelectedColor, $dotsSelectedColor);
+  }
+}
+
+.btn {
+  position: absolute;
+  cursor: pointer;
+
+  &:hover {
+    opacity: .6;
+  }
+
+  rect {
+    fill: param-bg-color(arrowContainerColor, $arrowContainerColor);
+  }
+
+  path {
+    fill: param-bg-color(arrowColor, $arrowColor);
+  }
+}
+

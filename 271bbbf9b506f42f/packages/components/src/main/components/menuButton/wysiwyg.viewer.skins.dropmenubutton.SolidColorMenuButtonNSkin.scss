@@ -1,0 +1,134 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$sep: color_15;
+$bgh: color_17;
+$bgs: color_18;
+$rd: 10px;
+$rdRight: rd;
+$rdLeft: rd;
+$rdDrop: 10px;
+$rdTop: rdDrop;
+$rdBottom: rdDrop;
+$trans: background-color .4s ease 0s;
+$trans2: color .4s ease 0s;
+
+:host {
+  display: inline-block;
+  cursor: pointer;
+  background-color: transparent;
+  @include param-transition(trans, $trans);
+}
+
+.gapper {
+  padding: 0 param-padding-size(pad, $pad);
+  border-left: 1px solid param-border-color-alpha(sep, $sep);
+}
+
+#label {
+  display: inline-block;
+  padding: 0 10px;
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-listposition="left"] {
+  @include param-border-radius(rd, $rd);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+
+  .gapper {
+    border: 0;
+    border-left: none;
+  }
+}
+
+[data-listposition="right"] {
+  @include param-border-radius(rd, $rd);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0
+
+}
+
+[data-listposition="lonely"] {
+  @include param-border-radius(rd, $rd);
+}
+
+[data-listposition="lonely"] .gapper {
+  border: 0;
+}
+
+[data-state~="drop"] {
+  width: 100%;
+  display: block;
+  background-color: transparent;
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="drop"] .gapper {
+  border: 0;
+  border-top: 1px solid param-border-color-alpha(sep, $sep);
+  padding: 0;
+  width: auto;
+}
+
+[data-state~="drop"] #label {
+  padding: 0 .5em;
+}
+
+[data-listposition="top"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0
+}
+
+[data-listposition="top"] .gapper {
+  border: 0;
+}
+
+[data-listposition="bottom"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-top-right-radius: 0;
+  border-top-left-radius: 0
+}
+
+[data-listposition="dropLonely"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+  .gapper {
+    border: 0;
+  }
+}
+
+[data-state~="over"] {
+  background-color: param-bg-color(bgh, $bgh);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="over"] #label {
+  color: param-text-color(txth, $txth);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state~="selected"] {
+  background-color: param-bg-color(bgs, $bgs);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="selected"] #label {
+  color: param-text-color(txts, $txts);
+  @include param-transition(trans2, $trans2);
+}
+

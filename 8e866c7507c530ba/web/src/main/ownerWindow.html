@@ -1,0 +1,28 @@
+<html>
+	lalala
+	<button id="but"/>
+	<script type="text/javascript">
+		var button = document.getElementById("but");
+		var int;
+		window.addEventListener("message", receiveMessage, false);  
+		function receiveMessage(event)  
+		{
+			clearInterval(int);
+			if (event.origin=="http://wysiwyg.pita.wixpress.com"){
+				source = event.source;
+				console.log("Received: "+event.data);
+			}
+		}
+		button.onclick = function(){
+			var popup = window.open("http://wysiwyg.pita.wixpress.com/src/main/popup.html");	
+			
+			int = setInterval(function(){
+				popup.postMessage("Hey", "http://wysiwyg.pita.wixpress.com");
+
+			}, 2500);
+		}
+		
+
+	</script>
+	
+</html>

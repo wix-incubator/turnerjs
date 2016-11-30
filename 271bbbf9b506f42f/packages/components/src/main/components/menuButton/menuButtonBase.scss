@@ -1,0 +1,9 @@
+:host {
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+
+[data-state~="header"] a, [data-state~="header"] div{
+  cursor: default !important;
+}

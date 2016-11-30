@@ -1,0 +1,10 @@
+$parser.setItemTemplate('   <script type="text/javascript" src="../../main/$relativePath"></script>')
+$parser.setSeparator("
+")
+<!-- libs -->
+$parser.itemsIn("libs.js")
+<!-- BI -->
+$parser.itemsIn("bi.js")
+<!-- Bootstrap -->
+$parser.itemsIn("bootstrap.js")
+

@@ -1,0 +1,57 @@
+@charset "UTF-8";
+@import "../skinParams/skinParamsUtils";
+
+@mixin opacity($value: 1) {
+  // IE8: (deprecated)
+  // -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=#{round($value * 100)})";
+
+  //IE9: (deprecated)
+  //  zoom: 1;
+  //  filter: alpha(opacity=$value * 100);
+
+  //any other normal browser:
+  opacity: $value;
+}
+
+//tap-hightlight-color isn't prefixed by autoprefixer
+@mixin tap-highlight-color($val) {
+  -webkit-tap-highlight-color: safe-unquote($val);
+}
+
+//user-drag isn't prefixed by autoprefixer
+@mixin user-drag($val) {
+  -webkit-user-drag: safe-unquote($val);
+     -moz-user-drag: safe-unquote($val);
+      -ms-user-drag: safe-unquote($val);
+          user-drag: safe-unquote($val);
+}
+
+//user-modify isn't prefixed by autoprefixer
+@mixin user-modify($val) {
+  -webkit-user-modify: safe-unquote($val);
+     -moz-user-modify: safe-unquote($val);
+      -ms-user-modify: safe-unquote($val);
+          user-modify: safe-unquote($val);
+}
+
+//https://github.com/postcss/autoprefixer#why-doesnt-autoprefixer-support-appearance
+//https://github.com/postcss/autoprefixer/issues/43
+@mixin appearance($val) {
+  -webkit-appearance: safe-unquote($val);
+     -moz-appearance: safe-unquote($val);
+}
+
+//deprecated the placdholder mixin: use &::placeholder { } syntax instead (supported by autoprefixer)
+
+////create placeholder pseudo selectors with specified @content
+//@mixin placeholder($is-decendant-selector: false) {
+//  //based on http://stackoverflow.com/questions/17181849/placeholder-mixin-scss-css
+//  $decendant-prefix: if($is-decendant-selector, '', '&');
+//
+//  //http://css-tricks.com/snippets/css/style-placeholder-text/
+//  @each $prefix in '::-webkit-input', '::-moz', ':-ms-input' {
+//    #{$decendant-prefix}#{$prefix}-placeholder {
+//      @content
+//    }
+//  }
+//}

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+
+@import 'sliderGalleryBase';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$trans: opacity .4s ease 0s;
+
+@include exports("widthDiff", 0);
+@include exports("heightDiff", 0);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.galleryslider.SliderDisplayerDefaultSkin");
+@include exports("imageItem:styleGroup", "inherit");
+@include exports("itemContainerTotalOffset", 70);
+
+
+
+#itemsContainer {
+  position: absolute;
+  left: 35px !important;
+  right: 35px !important;
+  top: 0;
+  bottom: 0;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.arr {
+  position: absolute;
+  top: 20%;
+  bottom: 20%;
+  width: 30px;
+  background: param-url(tdr, $tdr, "arrows_white.png") no-repeat;
+  cursor: pointer;
+}
+
+#swipeLeftHitArea {
+  left: 0;
+  background-position: 0 50%;
+  @include opacity(0.5);
+  @include param-transition(trans, $trans);
+}
+
+#swipeRightHitArea {
+  right: 0;
+  background-position: 100% 50%;
+  @include opacity(0.5);
+  @include param-transition(trans, $trans);
+}
+
+#swipeLeftHitArea:hover {
+  @include opacity(1);
+  @include param-transition(trans, $trans);
+}
+
+#swipeRightHitArea:hover {
+  @include opacity(1);
+  @include param-transition(trans, $trans);
+}
+
+.xxx {
+  @include abs-distance(0);
+  background: param-url(tdr, $tdr, "net.png") center center repeat;
+}
+

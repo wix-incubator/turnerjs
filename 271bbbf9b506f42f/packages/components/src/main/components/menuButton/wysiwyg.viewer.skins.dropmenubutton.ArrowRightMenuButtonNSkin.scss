@@ -1,0 +1,317 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$bg: color_11;
+$bgh: color_17;
+$bgs: color_18;
+$pad: 1;
+$rd: 10px;
+$rdDrop: 10px;
+$rdTop: rdDrop;
+$rdBottom: rdDrop;
+$trans: background-color .4s ease 0s;
+$trans2: color .4s ease 0s;
+$trans3: border-color .4s ease 0s;
+
+:host {
+  display: inline-block;
+  position: relative;
+  margin-left: calc(#{param-margin-left-size(pad, $pad)} - 70px);
+  box-sizing: border-box;
+  height: 100%;
+  pointer-events: none;
+}
+
+#bg {
+  height: 100%;
+  position: relative;
+}
+
+#label {
+  display: inline-block;
+  margin: 0 20px;
+  padding: 0 10px;
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  @include param-transition(trans2, $trans2);
+  text-indent: 60px;
+}
+
+#hitArea {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  bottom: 0;
+  right: 0;
+  cursor: pointer;
+  /*   this is a fix for ie z-index   */
+  background: #fff;
+  @include opacity(0);
+  pointer-events: auto;
+}
+
+.arrow {
+  @include abs-distance(0);
+}
+
+.sq {
+  position: absolute;
+  top: 0;
+  left: 70px;
+  bottom: 0;
+  right: 70px;
+  background-color: param-border-color-alpha(bg, $bg);
+  @include param-transition(trans, $trans);
+}
+
+.tail {
+  background-color: transparent;
+  @include param-transition(trans, $trans);
+  width: 70px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.tailTop {
+  border-top: 140px solid param-border-color-alpha(bg, $bg);
+  border-left: 70px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 50%;
+  right: 0;
+  @include param-transition(trans3, $trans3);
+}
+
+.tailBottom {
+  border-bottom: 140px solid param-border-color-alpha(bg, $bg);
+  border-left: 70px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  @include param-transition(trans3, $trans3);
+}
+
+.head {
+  background-color: transparent;
+  @include param-transition(trans, $trans);
+  width: 70px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.headTop {
+  border-bottom: 140px solid param-border-color-alpha(bg, $bg);
+  border-right: 70px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  bottom: 50%;
+  left: 0;
+  @include param-transition(trans3, $trans3);
+}
+
+.headBottom {
+  border-top: 140px solid param-border-color-alpha(bg, $bg);
+  border-right: 70px solid transparent;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  @include param-transition(trans3, $trans3);
+}
+
+[data-listposition="left"] {
+  margin-left: 0;
+}
+
+[data-listposition="left"] #label {
+  display: inline-block;
+  text-indent: 0;
+}
+
+[data-listposition="left"] .tail {
+  background-color: param-border-color-alpha(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+  width: auto;
+  right: 70px;
+}
+
+[data-listposition="left"] .tailTop, [data-listposition="left"] .tailBottom {
+  display: none;
+}
+
+[data-listposition="left"] #hitArea {
+  left: 0;
+  border: solid 1px red;
+}
+
+[data-listposition="right"] .head {
+  background-color: param-border-color-alpha(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+[data-listposition="right"] .headTop, [data-listposition="right"] .headBottom {
+  display: none;
+}
+
+[data-state~="over"][data-listposition="right"] .head {
+  background-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="selected"][data-listposition="right"] .head {
+  background-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="drop"] {
+  display: block;
+  background-color: param-border-color-alpha(bg, $bg);
+  @include param-transition(trans, $trans);
+  margin: 0 !important;
+  background-color: transparent;
+  overflow: hidden;
+}
+
+[data-state~="drop"] #label {
+  display: inline-block;
+  padding: 0 .5em;
+  text-indent: 0 !important;
+  margin: 0 !important;
+}
+
+[data-state~="drop"] .arrow {
+  display: none !important;
+}
+
+[data-state~="drop"] .head {
+  display: none;
+}
+
+[data-state~="drop"] #hitArea {
+  @include abs-distance(0);
+}
+
+[data-listposition="dropLonely"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+}
+
+[data-listposition="top"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-listposition="bottom"] {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-state~="drop"][data-state~="over"] {
+  @include param-transition(trans, $trans);
+  background-color: param-border-color-alpha(bgh, $bgh);
+}
+
+[data-state~="drop"][data-state~="selected"] {
+  @include param-transition(trans, $trans);
+  background-color: param-border-color-alpha(bgs, $bgs);
+}
+
+[data-state~="over"] .sq {
+  background-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="over"] .tailTop {
+  border-top-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="over"] .tailBottom {
+  border-bottom-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="over"] .headTop {
+  border-bottom-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="over"] .headBottom {
+  border-top-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="over"] #label {
+  display: inline-block;
+  color: param-text-color(txth, $txth);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-listposition="left"][data-state~="over"] .tail {
+  background-color: param-border-color-alpha(bgh, $bgh);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="selected"] .sq {
+  background-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="selected"] .tailTop {
+  border-top-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="selected"] .tailBottom {
+  border-bottom-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="selected"] .headTop {
+  border-bottom-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="selected"] .headBottom {
+  border-top-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans3, $trans3);
+}
+
+[data-state~="selected"] #label {
+  display: inline-block;
+  color: param-text-color(txts, $txts);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state~="selected"][data-listposition="left"] .tail {
+  background-color: param-border-color-alpha(bgs, $bgs);
+  @include param-transition(trans, $trans);
+}
+

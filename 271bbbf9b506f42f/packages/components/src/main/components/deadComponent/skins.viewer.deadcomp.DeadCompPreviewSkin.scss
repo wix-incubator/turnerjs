@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$themeDir: WEB_THEME_DIRECTORY;
+
+
+
+:host {
+  text-align: center;
+  background: #fff;
+  border: solid 1px #737373;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.sadIcon {
+  background: transparent param-url(themeDir, $themeDir, "deadCompSadFace.png") center no-repeat;
+  width: 74px;
+  height: 64px;
+  margin: auto;
+  margin-top: 15px;
+}
+
+.deadCompError {
+  font-family: Helvetica Neue 55 roman;
+  color: #373737;
+}
+
+#title {
+  font-size: 18px;
+  margin-top: 25px;
+}
+
+#desc {
+  font-size: 14px;
+  margin-top: 30px;
+}
+
+#desc2 {
+  font-size: 12px;
+  margin-top: 5px;
+}
+

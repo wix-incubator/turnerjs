@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$themeDir: THEME_DIRECTORY;
+$_bgColor: areaBgColor;
+$_borderRadius: radiusContainer;
+$border: borderContainer;
+$padding: padding1;
+$_font: fontText;
+$fontColor: textColor;
+$componentSpacing: componentSpacing;
+
+
+
+:host {
+  position: relative;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  border: param-cssstring(border, $border);
+  margin-bottom: param-cssstring(componentSpacing, $componentSpacing);
+}
+
+#bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: param-bg-color(_bgColor, $_bgColor);
+  background-image: param-url(themeDir, $themeDir, "inlineShadow.png");
+  background-repeat: repeat-x;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+}
+
+#richTextContainer {
+  position: relative;
+  padding: param-cssstring(padding, $padding);
+  color: param-text-color(fontColor, $fontColor)!important;
+}
+
+p, li {
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor)!important;
+}
+
+span {
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor)!important;
+  display: inline;
+}
+

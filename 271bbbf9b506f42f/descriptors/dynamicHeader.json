@@ -1,0 +1,8 @@
+{
+    "owner": "guyr",
+    "description": "allow components to change modes on scroll",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

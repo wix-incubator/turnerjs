@@ -1,0 +1,13 @@
+{
+    "createTime": "2014-05-12T15:09:00",
+    "owner": "shaila",
+    "description": "CustomMenu",
+    "constraints": {
+        "SiteNavigationRefactor": "required-before",
+        "BoldLabel": "required-before"
+    },
+    "tags": [
+        "viewer",
+        "editor"
+    ]
+}

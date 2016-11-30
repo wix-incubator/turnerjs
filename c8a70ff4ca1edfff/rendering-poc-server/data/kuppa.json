@@ -1,0 +1,540 @@
+{
+  "publicModel": {
+    "domain": "kuppacoffee.uk",
+    "externalBaseUrl": "http://www.kuppacoffee.uk/",
+    "unicodeExternalBaseUrl": "http://www.kuppacoffee.uk/",
+    "pageList": {
+      "masterPage": [
+        "https://static.wixstatic.com/sites/88c46e_700b13457795fe07e090159fc7f623cd_41.json.z?v=3",
+        "https://staticorigin.wixstatic.com/sites/88c46e_700b13457795fe07e090159fc7f623cd_41.json.z?v=3",
+        "https://www.kuppacoffee.uk/sites/88c46e_700b13457795fe07e090159fc7f623cd_41.json.z?v=3",
+        "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_700b13457795fe07e090159fc7f623cd_41.json"
+      ],
+      "pages": [
+        {
+          "pageId": "crcm",
+          "title": "Maps",
+          "pageUriSEO": "maps",
+          "urls": [
+            "https://static.wixstatic.com/sites/88c46e_7e02ecc5b6b87d98e34913a0475acd12_14.json.z?v=3",
+            "https://staticorigin.wixstatic.com/sites/88c46e_7e02ecc5b6b87d98e34913a0475acd12_14.json.z?v=3",
+            "https://www.kuppacoffee.uk/sites/88c46e_7e02ecc5b6b87d98e34913a0475acd12_14.json.z?v=3",
+            "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_7e02ecc5b6b87d98e34913a0475acd12_14.json"
+          ],
+          "pageJsonFileName": "88c46e_7e02ecc5b6b87d98e34913a0475acd12_14.json"
+        },
+        {
+          "pageId": "cjg9",
+          "title": "Home",
+          "pageUriSEO": "home",
+          "urls": [
+            "https://static.wixstatic.com/sites/88c46e_5e39cb04a962755e4281ac49d87698b0_41.json.z?v=3",
+            "https://staticorigin.wixstatic.com/sites/88c46e_5e39cb04a962755e4281ac49d87698b0_41.json.z?v=3",
+            "https://www.kuppacoffee.uk/sites/88c46e_5e39cb04a962755e4281ac49d87698b0_41.json.z?v=3",
+            "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_5e39cb04a962755e4281ac49d87698b0_41.json"
+          ],
+          "pageJsonFileName": "88c46e_5e39cb04a962755e4281ac49d87698b0_41.json"
+        },
+        {
+          "pageId": "soa9h",
+          "title": "iSubscribe",
+          "pageUriSEO": "isubscribe",
+          "urls": [
+            "https://static.wixstatic.com/sites/88c46e_88a3d0680d6d254e870c88d94f81a644_41.json.z?v=3",
+            "https://staticorigin.wixstatic.com/sites/88c46e_88a3d0680d6d254e870c88d94f81a644_41.json.z?v=3",
+            "https://www.kuppacoffee.uk/sites/88c46e_88a3d0680d6d254e870c88d94f81a644_41.json.z?v=3",
+            "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_88a3d0680d6d254e870c88d94f81a644_41.json"
+          ],
+          "pageJsonFileName": "88c46e_88a3d0680d6d254e870c88d94f81a644_41.json"
+        },
+        {
+          "pageId": "lifna",
+          "title": "Single Post",
+          "pageUriSEO": "single-post",
+          "urls": [
+            "https://static.wixstatic.com/sites/88c46e_8ed6144e818742bd2b3455ea8fa9a8ad_41.json.z?v=3",
+            "https://staticorigin.wixstatic.com/sites/88c46e_8ed6144e818742bd2b3455ea8fa9a8ad_41.json.z?v=3",
+            "https://www.kuppacoffee.uk/sites/88c46e_8ed6144e818742bd2b3455ea8fa9a8ad_41.json.z?v=3",
+            "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_8ed6144e818742bd2b3455ea8fa9a8ad_41.json"
+          ],
+          "pageJsonFileName": "88c46e_8ed6144e818742bd2b3455ea8fa9a8ad_41.json"
+        },
+        {
+          "pageId": "sl4qs",
+          "title": "Blog",
+          "pageUriSEO": "blog",
+          "urls": [
+            "https://static.wixstatic.com/sites/88c46e_65ddd12ceb2152cea14ce4462042f6f9_41.json.z?v=3",
+            "https://staticorigin.wixstatic.com/sites/88c46e_65ddd12ceb2152cea14ce4462042f6f9_41.json.z?v=3",
+            "https://www.kuppacoffee.uk/sites/88c46e_65ddd12ceb2152cea14ce4462042f6f9_41.json.z?v=3",
+            "https://fallback.wix.com/wix-html-editor-pages-webapp/page/88c46e_65ddd12ceb2152cea14ce4462042f6f9_41.json"
+          ],
+          "pageJsonFileName": "88c46e_65ddd12ceb2152cea14ce4462042f6f9_41.json"
+        }
+      ],
+      "mainPageId": "cjg9",
+      "masterPageJsonFileName": "88c46e_700b13457795fe07e090159fc7f623cd_41.json",
+      "topology": [
+        {
+          "baseUrl": "https://static.wixstatic.com/",
+          "parts": "sites/{filename}.z?v=3"
+        },
+        {
+          "baseUrl": "https://staticorigin.wixstatic.com/",
+          "parts": "sites/{filename}.z?v=3"
+        },
+        {
+          "baseUrl": "https://www.kuppacoffee.uk/",
+          "parts": "sites/{filename}.z?v=3"
+        },
+        {
+          "baseUrl": "https://fallback.wix.com/",
+          "parts": "wix-html-editor-pages-webapp/page/{filename}"
+        }
+      ]
+    },
+    "timeSincePublish": 11496406600,
+    "favicon": "",
+    "deviceInfo": {
+      "deviceType": "Desktop",
+      "browserType": "Chrome",
+      "browserVersion": 53
+    },
+    "siteRevision": 41,
+    "sessionInfo": {
+      "hs": 1772394710,
+      "svSession": "af7b076be6198edfa46b13d9361312c5c7e04bc807f905acd53864af4741385df00b59071700f763ae92f246911c29471e60994d53964e647acf431e4f798bcd15cc6802e6b3615af9846d536f5f4518484cb0313110fcfa1b0f1985cf53679a",
+      "ctToken": "eXM3dV9CVXplXzNaLVR6bUhwVTBGaWRHN0NNMmNaTVVHdFk0MFlRRTRjZ3x7InVzZXJBZ2VudCI6Ik1vemlsbGEvNS4wIChNYWNpbnRvc2g7IEludGVsIE1hYyBPUyBYIDEwXzEyXzApIEFwcGxlV2ViS2l0LzUzNy4zNiAoS0hUTUwsIGxpa2UgR2Vja28pIENocm9tZS81My4wLjI3ODUuMTE2IFNhZmFyaS81MzcuMzYiLCJ2YWxpZFRocm91Z2giOjE0NzYzNjcyNjc2NDR9",
+      "isAnonymous": false
+    },
+    "metaSiteFlags": [
+
+    ]
+  },
+  "serviceTopology": {
+    "serverName": "app202.vac.aws",
+    "cacheKillerVersion": "1",
+    "staticServerUrl": "http://static.parastorage.com/",
+    "usersScriptsRoot": "http://static.parastorage.com/services/wix-users/2.642.0",
+    "biServerUrl": "http://frog.wix.com/",
+    "userServerUrl": "http://users.wix.com/",
+    "billingServerUrl": "http://premium.wix.com/",
+    "mediaRootUrl": "http://static.wixstatic.com/",
+    "logServerUrl": "http://frog.wix.com/plebs",
+    "monitoringServerUrl": "http://TODO/",
+    "usersClientApiUrl": "https://users.wix.com/wix-users",
+    "publicStaticBaseUri": "http://static.parastorage.com/services/wix-public/1.214.0",
+    "basePublicUrl": "http://www.wix.com/",
+    "postLoginUrl": "http://www.wix.com/my-account",
+    "postSignUpUrl": "http://www.wix.com/new/account",
+    "baseDomain": "wix.com",
+    "staticMediaUrl": "https://static.wixstatic.com/media",
+    "staticAudioUrl": "https://media.wix.com/mp3",
+    "emailServer": "http://assets.wix.com/common-services/notification/invoke",
+    "blobUrl": "https://static.parastorage.com/wix_blob",
+    "htmlEditorUrl": "http://editor.wix.com/html",
+    "siteMembersUrl": "https://users.wix.com/wix-sm",
+    "scriptsLocationMap": {
+      "wixapps": "https://static.parastorage.com/services/wixapps/2.486.0",
+      "tpa": "https://static.parastorage.com/services/tpa/2.1062.0",
+      "santa-resources": "https://static.parastorage.com/services/santa-resources/1.2.0",
+      "wix-code-sdk": "https://static.parastorage.com/services/js-wixcode-sdk/1.43.0",
+      "bootstrap": "https://static.parastorage.com/services/bootstrap/2.1229.56",
+      "ck-editor": "https://static.parastorage.com/services/ck-editor/1.87.3",
+      "it": "https://static.parastorage.com/services/experiments/it/1.37.0",
+      "santa": "https://static.parastorage.com/services/santa/1.1800.4",
+      "dbsm-editor-app": "https://static.parastorage.com/services/dbsm-editor-app/1.76.0",
+      "skins": "https://static.parastorage.com/services/skins/2.1229.56",
+      "core": "https://static.parastorage.com/services/core/2.1229.56",
+      "sitemembers": "https://static.parastorage.com/services/sm-js-sdk/1.31.0",
+      "automation": "https://static.parastorage.com/services/automation/1.23.0",
+      "web": "https://static.parastorage.com/services/web/2.1229.56",
+      "dbsm-viewer-app": "https://static.parastorage.com/services/dbsm-viewer-app/1.30.0",
+      "ecommerce": "https://static.parastorage.com/services/ecommerce/1.203.0",
+      "hotfixes": "https://static.parastorage.com/services/experiments/hotfixes/1.15.0",
+      "langs": "https://static.parastorage.com/services/langs/2.568.0",
+      "santa-versions": "https://static.parastorage.com/services/santa-versions/1.419.0",
+      "ut": "https://static.parastorage.com/services/experiments/ut/1.2.0"
+    },
+    "developerMode": false,
+    "productionMode": true,
+    "staticServerFallbackUrl": "https://sslstatic.wix.com/",
+    "staticVideoUrl": "http://video.wixstatic.com/",
+    "scriptsDomainUrl": "https://static.parastorage.com/",
+    "userFilesUrl": "http://static.parastorage.com/",
+    "staticHTMLComponentUrl": "http://www.kuppacoffee.uk.usrfiles.com/",
+    "secured": false,
+    "ecommerceCheckoutUrl": "https://www.safer-checkout.com/",
+    "premiumServerUrl": "https://premium.wix.com/",
+    "appRepoUrl": "http://assets.wix.com/wix-lists-ds-webapp",
+    "digitalGoodsServerUrl": "http://dgs.wixapps.net/",
+    "wixCloudBaseDomain": "wix-code.com",
+    "mailServiceSuffix": "/_api/common-services/notification/invoke",
+    "staticVideoHeadRequestUrl": "http://storage.googleapis.com/video.wixstatic.com",
+    "protectedPageResolverUrl": "https://site-pages.wix.com/_api/wix-public-html-info-webapp/resolve_protected_page_urls",
+    "publicStaticsUrl": "http://static.parastorage.com/services/wix-public/1.214.0",
+    "staticDocsUrl": "http://media.wix.com/ugd"
+  },
+  "rendererModel": {
+    "metaSiteId": "18259ae9-33b5-4e55-8252-4d1e561392ae",
+    "siteInfo": {
+      "documentType": "UGC",
+      "applicationType": "HtmlWeb",
+      "siteId": "49acc850-5625-48e4-a535-8b829c70e065",
+      "siteTitleSEO": "Kuppa Coffee | Newcastle Speciality Coffee"
+    },
+    "clientSpecMap": {
+      "2": {
+        "type": "appbuilder",
+        "applicationId": 2,
+        "appDefinitionId": "3d590cbc-4907-4cc4-b0b1-ddf2c5edf297",
+        "instanceId": "140b80d4-3e0b-daa4-47f8-ed1ead537b35",
+        "state": "Initialized"
+      },
+      "3": {
+        "type": "public",
+        "applicationId": 3,
+        "appDefinitionId": "135c3d92-0fea-1f9d-2ba5-2a1dfb04297e",
+        "appDefinitionName": "Wix ShoutOut",
+        "instance": "UC66XvqcvbsUQAb9qY-3_xICybCzlnN9r4JgY3KmDHw.eyJpbnN0YW5jZUlkIjoiMWU1OTc2M2YtNGJkOS00N2ZlLThlNGMtOWRlNDA0YjZiNTk5Iiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiYWZkMDQxNmQtYTU5Yy00MDA4LTg2YzQtOWJmYzRmMWFjODNlIiwiYmlUb2tlbiI6IjA2N2NlY2Q2LTc4NmMtMDlhYi0wYzFlLWQwZmE1MmE1MjczNyIsInNpdGVPd25lcklkIjoiODhjNDZlYWYtZmQwYi00NzMzLWE4YWQtODM2NDc1M2Y3YWRmIn0",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+          "141995eb-c700-8487-6366-a482f7432e2b": {
+            "widgetUrl": "http://so-feed.wixapps.net/widget",
+            "widgetId": "141995eb-c700-8487-6366-a482f7432e2b",
+            "refreshOnWidthChange": true,
+            "mobileUrl": "http://so-feed.wixapps.net/widget",
+            "published": true,
+            "mobilePublished": true,
+            "seoEnabled": true
+          }
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": true,
+        "installedAtDashboard": true,
+        "permissions": {
+          "revoked": false
+        }
+      },
+      "4": {
+        "type": "public",
+        "applicationId": 4,
+        "appDefinitionId": "139ef4fa-c108-8f9a-c7be-d5f492a2c939",
+        "appDefinitionName": "Wix Automated Emails",
+        "instance": "9R_ticNOisd9-Kfz_dLS5E6_ruYUc5MR8AIBZYDPdlI.eyJpbnN0YW5jZUlkIjoiZGMzOTE4ZDUtZmFkMy00OTYwLWFhZTEtNjc4NmRmNzgzOGFmIiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiNzM2MGJkNDEtNGFhNy00ZTA4LWI3ZTAtZDQ3ZjRkY2M3YTEzIiwiYmlUb2tlbiI6ImM0MWM4MjNjLWM5NjYtMDczNS0yOGIzLTJhOTg4OTZiYWEwMSIsInNpdGVPd25lcklkIjoiODhjNDZlYWYtZmQwYi00NzMzLWE4YWQtODM2NDc1M2Y3YWRmIn0",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": true,
+        "installedAtDashboard": true,
+        "permissions": {
+          "revoked": false
+        }
+      },
+      "5": {
+        "type": "public",
+        "applicationId": 5,
+        "appDefinitionId": "141fbfae-511e-6817-c9f0-48993a7547d1",
+        "appDefinitionName": "Wix Engage",
+        "instance": "bIpH419-3YBjmFLE4Ejz2dpo1WlWXikcEdWYl8Cs30o.eyJpbnN0YW5jZUlkIjoiZjg0Y2E0NmYtZjM3NS00MmU5LThmMDEtMzQ2MjhkYmE3Nzk1Iiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiM2RjNWZkZWEtNTczYS00YTc3LTk4NGUtOWU2NTM4MGE3MjJjIiwic2l0ZU93bmVySWQiOiI4OGM0NmVhZi1mZDBiLTQ3MzMtYThhZC04MzY0NzUzZjdhZGYifQ",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": false,
+        "installedAtDashboard": true,
+        "permissions": {
+          "revoked": false
+        }
+      },
+      "13": {
+        "type": "sitemembers",
+        "applicationId": 13,
+        "collectionType": "Open",
+        "collectionFormFace": "Register",
+        "smcollectionId": "2fe76f25-6d03-4cf7-8b9a-d01d0c807834"
+      },
+      "15": {
+        "type": "public",
+        "applicationId": 15,
+        "appDefinitionId": "1375baa8-8eca-5659-ce9d-455b2009250d",
+        "appDefinitionName": "Wix Get Subscribers",
+        "instance": "XC_6jaaRFW3kAZJQjf4HJ7eHV43BUQA7XW980x71Rjo.eyJpbnN0YW5jZUlkIjoiZDQwMmQ5MDEtNDIyNS00NjE3LTg0MzUtNGM2MDA3ZWQ4NWFlIiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwib3JpZ2luSW5zdGFuY2VJZCI6IjAzNWYyNWVjLThkMDctNDhlNS1hYmQxLTdjNjAxODcxYjBiNSIsImFpZCI6IjJkOTFmY2Y3LTNkMzEtNGU1NS1iMjFhLTg5OGEwN2I1MDYwNyIsImJpVG9rZW4iOiJjYzI3NDNlOC03MTkwLTA4NDItMDY2Ny0wMTdlNTFmZTE3MDAiLCJzaXRlT3duZXJJZCI6Ijg4YzQ2ZWFmLWZkMGItNDczMy1hOGFkLTgzNjQ3NTNmN2FkZiJ9",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+          "1375babd-6f2b-87ed-ff19-5778602c8b86": {
+            "widgetUrl": "http://apps.wix.com/shoutout-get-subscriber-server-webapp/statics/index",
+            "widgetId": "1375babd-6f2b-87ed-ff19-5778602c8b86",
+            "refreshOnWidthChange": true,
+            "mobileUrl": "http://apps.wix.com/shoutout-get-subscriber-server-webapp/statics/index",
+            "published": true,
+            "mobilePublished": true,
+            "seoEnabled": true,
+            "preFetch": false
+          }
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": true,
+        "installedAtDashboard": false,
+        "permissions": {
+          "revoked": false
+        }
+      },
+      "17": {
+        "type": "public",
+        "applicationId": 17,
+        "appDefinitionId": "137a53e6-9579-5af1-cf55-7d3118c5e4cd",
+        "appDefinitionName": "Facebook Like Popup",
+        "instance": "jPPVwrvhgIl5ELlYrnNc07rHd2N3ECq2uHsPYMUuW-I.eyJpbnN0YW5jZUlkIjoiMTQwYzYyYjMtZTdmYy1jZWEwLTMwZTgtNGJhN2RmMmEyZDI5Iiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiMTc0NjIxMGMtNjM5NS00MzU1LTg2NWEtZDQxZWQ3MWE4MjNlIiwic2l0ZU93bmVySWQiOiI4OGM0NmVhZi1mZDBiLTQ3MzMtYThhZC04MzY0NzUzZjdhZGYifQ",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+          "137a541b-4256-e760-4943-fb02c8306877": {
+            "widgetUrl": "http://app.fbpopup.inffuse.com/widget.html",
+            "widgetId": "137a541b-4256-e760-4943-fb02c8306877",
+            "refreshOnWidthChange": true,
+            "gluedOptions": {
+              "placement": "BOTTOM_RIGHT",
+              "verticalMargin": 0,
+              "horizontalMargin": 0
+            },
+            "published": true,
+            "mobilePublished": false,
+            "seoEnabled": true
+          }
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": false,
+        "installedAtDashboard": true,
+        "permissions": {
+          "revoked": true
+        }
+      },
+      "18": {
+        "type": "public",
+        "applicationId": 18,
+        "appDefinitionId": "1346fcbb-e41e-6d12-ad1b-95ddfe1577d4",
+        "appDefinitionName": "Social Media Icons",
+        "instance": "xs1cqTJzgHAidxDkJzSjtaJg-05SmEEHIUHYjX5tiOs.eyJpbnN0YW5jZUlkIjoiMTQwYzYzNWEtYjA5Ni1lM2U0LTMwZTgtNGJhN2RmMmEyZDI5Iiwic2lnbkRhdGUiOiIyMDE2LTEwLTA2VDE0OjAxOjA3LjY0NFoiLCJ1aWQiOm51bGwsImlwQW5kUG9ydCI6IjEwNy4yMy42OC4xNzUvMzUyMDkiLCJ2ZW5kb3JQcm9kdWN0SWQiOm51bGwsImRlbW9Nb2RlIjpmYWxzZSwiYWlkIjoiNmQ5YTY5ZDMtOWIyOC00MDliLTgzN2EtOTdmNmMzMTUzNmE1Iiwic2l0ZU93bmVySWQiOiI4OGM0NmVhZi1mZDBiLTQ3MzMtYThhZC04MzY0NzUzZjdhZGYifQ",
+        "sectionPublished": true,
+        "sectionMobilePublished": false,
+        "sectionSeoEnabled": true,
+        "widgets": {
+          "1346fd41-903e-1a57-9057-980eff60156a": {
+            "widgetUrl": "https://www.powr.io/plugins/social-media-icons/wix_cached_view",
+            "widgetId": "1346fd41-903e-1a57-9057-980eff60156a",
+            "refreshOnWidthChange": true,
+            "mobileUrl": "https://www.powr.io/plugins/social-media-icons/wix_cached_view",
+            "published": true,
+            "mobilePublished": true,
+            "seoEnabled": true
+          }
+        },
+        "appRequirements": {
+          "requireSiteMembers": false
+        },
+        "isWixTPA": false,
+        "installedAtDashboard": true,
+        "permissions": {
+          "revoked": true
+        }
+      },
+      "19": {
+        "type": "wixapps",
+        "applicationId": 19,
+        "appDefinitionId": "61f33d50-3002-4882-ae86-d319c1a249ab",
+        "datastoreId": "140e9b9c-85be-7b59-de11-27851e18e9dd",
+        "packageName": "blog",
+        "state": "Initialized",
+        "widgets": {
+          "f72fe377-8abc-40f2-8656-89cfe00f3a22": {
+            "widgetId": "f72fe377-8abc-40f2-8656-89cfe00f3a22",
+            "defaultHeight": 300,
+            "defaultWidth": 210
+          },
+          "c340212a-6e2e-45cd-9dc4-58d01a5b63a7": {
+            "widgetId": "c340212a-6e2e-45cd-9dc4-58d01a5b63a7",
+            "defaultHeight": 300,
+            "defaultWidth": 210
+          },
+          "e000b4bf-9ff1-4e66-a0d3-d4b365ba3af5": {
+            "widgetId": "e000b4bf-9ff1-4e66-a0d3-d4b365ba3af5",
+            "defaultHeight": 400,
+            "defaultWidth": 210
+          },
+          "1b8c501f-ccc2-47e7-952a-47e264752614": {
+            "widgetId": "1b8c501f-ccc2-47e7-952a-47e264752614",
+            "defaultHeight": 280,
+            "defaultWidth": 916
+          },
+          "43c2a0a8-f224-4a29-bd19-508114831a3a": {
+            "widgetId": "43c2a0a8-f224-4a29-bd19-508114831a3a",
+            "defaultHeight": 40,
+            "defaultWidth": 210
+          },
+          "56ab6fa4-95ac-4391-9337-6702b8a77011": {
+            "widgetId": "56ab6fa4-95ac-4391-9337-6702b8a77011",
+            "defaultHeight": 400,
+            "defaultWidth": 210
+          },
+          "31c0cede-09db-4ec7-b760-d375d62101e6": {
+            "widgetId": "31c0cede-09db-4ec7-b760-d375d62101e6",
+            "defaultHeight": 600,
+            "defaultWidth": 680
+          },
+          "33a9f5e0-b083-4ccc-b55d-3ca5d241a6eb": {
+            "widgetId": "33a9f5e0-b083-4ccc-b55d-3ca5d241a6eb",
+            "defaultHeight": 220,
+            "defaultWidth": 210
+          },
+          "c7f57b50-8940-4ff1-83c6-6756d6f0a1f4": {
+            "widgetId": "c7f57b50-8940-4ff1-83c6-6756d6f0a1f4",
+            "defaultHeight": 220,
+            "defaultWidth": 210
+          },
+          "4de5abc5-6da2-4f97-acc3-94bb74285072": {
+            "widgetId": "4de5abc5-6da2-4f97-acc3-94bb74285072",
+            "defaultHeight": 800,
+            "defaultWidth": 800
+          },
+          "ea63bc0f-c09f-470c-ac9e-2a408b499f22": {
+            "widgetId": "ea63bc0f-c09f-470c-ac9e-2a408b499f22",
+            "defaultHeight": 800,
+            "defaultWidth": 800
+          }
+        }
+      }
+    },
+    "premiumFeatures": [
+      "HasDomain",
+      "ShowWixWhileLoading",
+      "AdsFree"
+    ],
+    "geo": "USA",
+    "languageCode": "en",
+    "previewMode": false,
+    "userId": "88c46eaf-fd0b-4733-a8ad-8364753f7adf",
+    "siteMetaData": {
+      "preloader": {
+        "enabled": true
+      },
+      "adaptiveMobileOn": true,
+      "quickActions": {
+        "socialLinks": [
+
+        ],
+        "colorScheme": "dark",
+        "configuration": {
+          "quickActionsMenuEnabled": false,
+          "navigationMenuEnabled": true,
+          "phoneEnabled": false,
+          "emailEnabled": false,
+          "addressEnabled": false,
+          "socialLinksEnabled": false
+        }
+      },
+      "contactInfo": {
+        "companyName": "",
+        "phone": "",
+        "fax": "",
+        "email": "",
+        "address": ""
+      }
+    },
+    "runningExperiments": {
+      "sv_blogRealPagination": "new",
+      "viewerGeneratedAnchors": "new",
+      "sv_popups": "new",
+      "blogItemProp": "new",
+      "sv_blogMobileFeed": "new",
+      "clickToAction_email": "new",
+      "noDynamicModelOnFirstLoad": "new",
+      "clickToAction_url": "new",
+      "ds_pageTransition": "new",
+      "tpaHideFromMenu": "new",
+      "sv_blogSocialCounters": "new",
+      "sv_boxSlideShow": "new",
+      "clickToAction_phone": "new",
+      "updateOgTags": "new",
+      "blogQueryProjection": "new",
+      "sv_googleMapsDesigns": "new",
+      "sv_stripMigrationViewer": "new",
+      "deepLinking": "new",
+      "sv_faviconFromServer": "new",
+      "sv_obMigrationFlow": "new",
+      "sv_fontsRefactor": "new",
+      "specs.users.NewLoginVelocityTemplateFT": "true",
+      "pageListNewFormat": "new",
+      "se_ignoreBottomBottomAnchors": "new",
+      "sv_passwordPages": "new",
+      "sv_buttonUsesFlex": "new",
+      "operationsQAllAsync": "new",
+      "remove_mobile_props_and_design_if_really_deleted": "new",
+      "sv_stripToColumnMigration": "new",
+      "duplicatedDesignItemsDataFixer": "new",
+      "sv_blogNotifySocialCounters": "new",
+      "newSiteMembersEndPoint": "new",
+      "sv_blogNewSocialShareButtonsInTemplates": "new",
+      "sv_ignoreBottomBottomAnchors": "new",
+      "sv_allowStripToColumnMigration": "new",
+      "sv_NewFacebookConversionPixel": "new",
+      "wixCodeBinding": "new",
+      "mobileAppBannerOnMobile": "new",
+      "contactFormActivity": "old"
+    },
+    "urlFormatModel": {
+      "format": "slash",
+      "forbiddenPageUriSEOs": {
+        "app": true,
+        "apps": true,
+        "_api": true,
+        "robots.txt": true,
+        "sitemap.xml": true,
+        "feed.xml": true,
+        "sites": true
+      },
+      "pageIdToResolvedUriSEO": {
+
+      }
+    },
+    "passwordProtectedPages": [
+
+    ],
+    "useSandboxInHTMLComp": false
+  },
+  "requestModel": {
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/52.0.2743.116 Safari/537.36",
+    "cookie": "",
+    "storage": {
+
+    },
+    "session": {
+
+    },
+    "deviceType": "desktop"
+  },
+
+  "currentUrl": "http://www.kuppacoffee.uk/"
+}

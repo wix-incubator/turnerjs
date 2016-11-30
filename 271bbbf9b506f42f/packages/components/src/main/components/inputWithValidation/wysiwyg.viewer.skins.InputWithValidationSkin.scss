@@ -1,0 +1,126 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+$input-color: color_15;
+$color-error: #ff3d3d;
+$font-family: Helvetica;
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+:host {
+  font-size: 1em;
+}
+
+#label {
+  float: none;
+  font-size: 17px;
+  line-height: 25px;
+  color: #585858;
+}
+
+
+#input {
+  width: 100%;
+  font-size: 19px;
+  line-height: 42px;
+  color: #0198ff;
+  margin: 0 -3px;
+  box-sizing: border-box;
+
+  &.mobile {
+    label {
+      font-size: 14px;
+      line-height: 20px;
+    }
+  }
+
+  &:not(.new) {
+    height: 42px;
+    padding: 0 15px;
+    background: transparent param-url(tdr, $tdr, "viewer_login_sprite.png") repeat-x right -170px;
+    border: solid 1px #a1a1a1;
+
+    &.error {
+      border-color: #d74401;
+    }
+  }
+
+  &.new {
+    height: 48px;
+    font-size: 14px;
+    font-family: $font-family;
+    font-weight: 300;
+    color: param-color(clr, $input-color);
+    line-height: 14px;
+    text-align: left;
+    padding: 0 12px;
+
+    &::placeholder {
+      color: param-color(clr, $input-color);
+      letter-spacing: 0;
+    }
+
+    &.error {
+      border: 1px solid $color-error;
+    }
+
+    &.mobile {
+      height: 40px;
+      font-size: 14px;
+      padding: 0;
+
+      &.error {
+        border-bottom: 1px solid $color-error;
+      }
+    }
+  }
+
+  &[type="password"] {
+    font-size: 38px;
+
+    &.new {
+      font-size: 14px;
+    }
+  }
+
+  &.mobile {
+    &.new {
+      font-size: 14px;
+    }
+
+    &[type="password"] {
+      font-size: 14px;
+      &.new {
+        font-size: 14px;
+      }
+    }
+  }
+}
+
+#errorMessage {
+  display: block;
+  font-size: 12px;
+  color: #d74401;
+  text-align: right;
+  height: 15px;
+
+  &.new {
+    font-family: $font-family;
+    color: #ff3d3d;
+    font-size: 12px; /* Approximation due to font substitution */
+    line-height: 24px; /* Approximation due to font substitution */
+    font-weight: 300;
+    text-align: left;
+    padding-bottom: 24px;
+    height: 0;
+
+    &.mobile {
+      font-size: 10px;
+    }
+  }
+}

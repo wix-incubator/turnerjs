@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$rdDrop: 10px;
+$bgDrop: color_11;
+$pad: 5px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.CirclesMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+#itemsContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+#dropWrapper {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 7px;
+  padding: 0 param-padding-size(pad, $pad);
+  box-sizing: border-box;
+}
+
+#dropWrapper[data-dropMode="dropUp"] {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#dropWrapper[data-dropHPosition="left"] {
+  padding-left: 0;
+}
+
+#dropWrapper[data-dropHPosition="right"] {
+  padding-right: 0;
+}
+
+#moreContainer {
+  background-color: param-bg-color(bgDrop, $bgDrop);
+  @include param-border-radius(rdDrop, $rdDrop);
+  @include param-box-shadow(shd, $shd);
+}
+

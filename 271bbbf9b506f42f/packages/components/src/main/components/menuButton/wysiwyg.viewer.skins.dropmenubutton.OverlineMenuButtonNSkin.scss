@@ -1,0 +1,74 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$brd: color_15;
+$brds: color_15;
+$brdh: color_15;
+
+:host {
+  display: inline-block;
+}
+
+.gapper {
+  padding: 0 param-padding-size(pad, $pad);
+}
+
+.wrapper {
+  cursor: pointer;
+  @include param-font(fnt, $fnt);
+  border-top: 1px solid param-color-alpha(brd, $brd);
+}
+
+#label {
+  color: param-text-color(txt, $txt);
+  display: inline-block;
+  padding: 8px;
+}
+
+[data-listposition="left"] {
+  padding-left: 0;
+}
+
+[data-listposition="right"] {
+  padding-right: 0;
+}
+
+[data-state~="drop"] {
+  width: 100%;
+  display: block;
+}
+
+[data-state~="over"] .wrapper {
+  border-top-width: 4px;
+  border-top-color: param-color-alpha(brdh, $brdh);
+}
+
+[data-state~="over"] #label {
+  color: param-text-color(txth, $txth);
+  display: inline-block;
+  padding-top: 5px;
+}
+
+[data-state~="selected"] .wrapper {
+  border-top-width: 4px;
+  border-top-color: param-color-alpha(brds, $brds);
+}
+
+[data-state~="selected"] #label {
+  color: param-text-color(txts, $txts);
+  display: inline-block;
+  padding-top: 5px;
+}
+

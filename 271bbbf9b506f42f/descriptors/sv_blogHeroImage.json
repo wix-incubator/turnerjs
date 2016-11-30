@@ -1,0 +1,8 @@
+{
+    "owner": "bogdanl",
+    "description": "Hero Image component",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

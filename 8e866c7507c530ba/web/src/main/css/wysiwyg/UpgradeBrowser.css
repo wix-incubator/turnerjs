@@ -1,0 +1,71 @@
+#upgrade-browser {
+    position: fixed;
+    _position: absolute;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    left: 0;
+    border-bottom: 2px solid #a5a5a5;
+    background-color: #d4d4d4;
+    font-family: sans-serif;
+    font-size: 14px;
+    height: 35px;
+    line-height: 35px;
+    text-align: left;
+    display: none;
+}
+
+    #upgrade-browser-inner {
+        width: 980px;
+        margin: 0 auto;
+        height: 100%;
+    }
+
+        #upgrade-browser-logo {
+            width: 24px;
+            height: 24px;
+            float: left;
+            position: relative;
+            top: 5px;
+        }
+
+        #upgrade-browser-message{
+            padding: 1px 0 0 20px;
+            float: left;
+        }
+
+            #upgrade-browser-link-wrapper {
+                float: left;
+                margin-left: 50px;
+                cursor: pointer;
+                top: 4px;
+                position: relative;
+            }
+
+                #upgrade-browser-link-wrapper i {
+                    height: 27px;
+                    width: 5px;
+                    display: inline-block;
+                }
+
+                #upgrade-browser-link {
+                    display: inline-block;
+                    height: 27px;
+                    vertical-align: top;
+                    line-height: 27px;
+                    color: #fff;
+                    font-family: sans-serif;
+                    font-size: 14px;
+                    padding: 0 10px;
+                    text-decoration: none;
+                }
+
+        #upgrade-browser-close-button {
+            position: absolute;
+            right: 10px;
+            top: 12px;
+            height: 11px;
+            width: 12px;
+            cursor: pointer;
+            background-repeat: no-repeat;
+        }

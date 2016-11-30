@@ -1,0 +1,70 @@
+{
+  "FORM_SUBMIT": {
+    "eventId": 100,
+    "adapter": "ugc-viewer",
+    "params": {
+      "c1": "componentId",
+      "c2": "componentType"
+    }
+  },
+  "FORM_SUBMIT_SUCCESS": {
+    "eventId": 367,
+    "adapter": "ugc-viewer",
+    "params": {
+      "component_id": "componentId",
+      "component_type": "componentType"
+    }
+  },
+  "TIME_IN_FOLD": {
+    "eventId": 354,
+    "adapter": "ugc-viewer",
+    "wixSiteSampleRatio": 1,
+    "params": {
+      "active_fold": "activeFold",
+      "total_folds": "totalFolds",
+      "time_in_fold": "timeInFold"
+    }
+  },
+  "MOBILE_APP_BANNER_SHOWN": {
+    "eventId": 404,
+    "adapter": "app-builder",
+    "src": 62,
+    "params": {
+      "metaSiteId": "metaSiteId",
+      "type": "type"
+    }
+  },
+  "MOBILE_APP_BANNER_GET_CLICKED": {
+    "eventId": 405,
+    "adapter": "app-builder",
+    "src": 62,
+    "params": {
+      "metaSiteId": "metaSiteId",
+      "link": "link"
+    }
+  },
+  "MOBILE_APP_BANNER_CLOSE_CLICKED": {
+    "eventId": 406,
+    "adapter": "app-builder",
+    "src": 62,
+    "params": {
+      "metaSiteId": "metaSiteId"
+    }
+  },
+  "MOBILE_ACTION_BAR_TOGGLE": {
+    "eventId": 370,
+    "adapter": "ugc-viewer",
+    "params": {
+      "site_id": "site_id",
+      "status": "status"
+    }
+  },
+  "MOBILE_ACTION_BAR_USAGE": {
+    "eventId": 371,
+    "adapter": "ugc-viewer",
+    "params": {
+      "site_id": "site_id",
+      "button_name": "button_name"
+    }
+  }
+}

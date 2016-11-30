@@ -1,0 +1,17 @@
+<configuration >
+
+    <appender name="GENERAL_LOG" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!--<pattern>%d{HH:mm:ss.SSS} %-5level host=[${HOSTNAME}] artifact=[%X{artifact}] thread=[%thread] class=[%logger{0}] url=[%X{url}] localUrl=[%X{localUrl}] ip=[%X{ip}] port=[%X{port}] user=[%X{user}] %marker %msg%n</pattern>-->
+            <pattern>%d{HH:mm:ss.SSS} %-5level class=[%logger{0}] %msg%n</pattern>
+        </encoder>
+    </appender>
+
+    <logger name="com.wixpress" level="error"/>
+    <logger name="org.springframework" level="warn"/>
+
+    <root level="error">
+        <appender-ref ref="GENERAL_LOG" />
+    </root>
+
+</configuration>

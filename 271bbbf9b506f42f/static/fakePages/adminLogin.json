@@ -1,0 +1,52 @@
+{
+    "structure":{
+        "type":"Page",
+        "layout":{
+            "width":980,
+            "height":1150,
+            "x":0,
+            "y":0,
+            "scale":1.0,
+            "rotationInDegrees":0.0,
+            "anchors":[
+
+            ]
+        },
+        "styleId":"p1",
+        "id":"mainPage",
+        "components":[
+            {
+                "componentType": "wysiwyg.viewer.components.AdminLogin",
+                "type": "Component",
+                "id": "hxxcc9ps",
+                "styleId": "loginDialog",
+                "skin": "wysiwyg.viewer.skins.PasswordLoginSkin",
+                "layout": {
+                    "x": 0,
+                    "y": 0,
+                    "width": 100,
+                    "height": 100,
+                    "scale": 1,
+                    "rotationInDegrees": 0,
+                    "anchors": []
+                }
+            }
+        ],
+        "dataQuery":"#mainPage",
+        "skin":"wysiwyg.viewer.skins.page.TransparentPageSkin",
+        "componentType":"mobile.core.components.Page"
+    },
+    "data":{
+        "document_data":{
+
+        },
+        "theme_data":{
+
+        },
+        "component_properties":{
+
+        }
+    },
+    "title":"CREDENTIALS",
+    "pageUriSEO":""
+}

@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+:host {
+  position: absolute;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+#imageContainer {
+  height: 100%;
+  will-change: transform;
+
+  img {
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    will-change: transform;
+  }
+}
+
+.parallax {
+  #imageContainer {
+    transform: translateZ(-0.2px) scale(1.2);
+  }
+}
+
+#leftFrame,
+#rightFrame {
+  will-change: transform;
+  background: #000;
+  height: 110vh;
+  top: -5vh;
+  z-index: 1;
+  flex-grow: 1;
+}
+
+
+#info {
+  white-space: pre-wrap;
+  position: absolute;
+  top: 60%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  align-items: flex-end;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+  will-change: transform;
+
+  > .info-field {
+    flex-basis: 100%;
+    text-align: center;
+    color: #fff;
+    margin: 0 10px 10px 10px;
+    font: normal normal 100 14px/1.5 Helvetica;
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    overflow: hidden;
+    overflow-wrap: break-word;
+
+    &.info-link {
+      text-decoration: underline;
+      font-style: italic;
+      font-family: 'Times New Roman';
+    }
+
+    &.hidden {
+      display: none;
+    }
+  }
+
+  &.hidden {
+    opacity: 0;
+  }
+}
+
+

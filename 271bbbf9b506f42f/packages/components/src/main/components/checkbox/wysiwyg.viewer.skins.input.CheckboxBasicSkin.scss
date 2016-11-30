@@ -1,0 +1,106 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brw: 0;
+$brwh: 0;
+$brwf: 0;
+$brwe: 0;
+
+$brd: color_15;
+$rd: 0;
+$brdh: color_15;
+$brdf: color_15;
+$brde: color_15;
+
+$bgc: color_1;
+$bgch: color_1;
+$bgcd: color_1;
+
+$bg: color_11;
+$bgh: color_11;
+$bgf: color_11;
+$bge: color_11;
+
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+#checkbox {
+  border: solid param-border-color-alpha(brd, $brd) param-border-size(brw, $brw);
+  background-color: param-bg-color(bg, $bg);
+  cursor: pointer;
+  display: block;
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  height: 100%;
+  box-sizing: border-box;
+}
+
+#checkmark {
+  cursor: pointer;
+  display: none;
+  height: 100%;
+  position: relative;
+  margin-top: -100%;
+
+  svg {
+    fill: param-bg-color(bgc, $bgc);
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+#input {
+  display: none;
+}
+
+#input:checked ~ #checkmark {
+  display: block;
+}
+
+[data-error="true"],
+[data-preview~="error"]{
+  #checkbox {
+    background-color: param-bg-color(bge, $bge);
+    border: solid param-border-color-alpha(brde, $brde) param-border-size(brwe, $brwe);
+  }
+}
+
+#container:focus,
+[data-preview~="focus"] {
+  #checkbox {
+    border: solid param-border-size(brwf, $brwf) param-border-color-alpha(brdf, $brdf);
+    background-color: param-bg-color(bgf, $bgf);
+  }
+}
+
+#container:hover,
+[data-preview~="hover"] {
+  #checkbox {
+    border: solid param-border-size(brwh, $brwh) param-border-color-alpha(brdh, $brdh);
+    background-color: param-bg-color(bgh, $bgh);
+  }
+  #checkmark svg {
+    fill: param-bg-color(bgch, $bgch);
+  }
+}
+
+[data-disabled="true"],
+[data-preview~="disabled"] {
+  #checkbox {
+    @include disabled-bg-color(bgd);
+    @include disabled-border-color(brdd);
+    cursor: auto;
+  }
+
+  #checkmark svg {
+    fill: param-bg-color(bgcd, $bgcd);
+  }
+}

@@ -1,0 +1,20 @@
+<div>
+    <div>
+         <span style="display:inline-block; margin:5px 3px" ng-repeat="item in linkDialogController.linkButtonsData">
+            <wix-button
+                    button-width="110px"
+                    icon-src="{{topology.webThemeDir}}icons/link_icons.png"
+                    icon-height="18px"
+                    icon-width="16px"
+                    icon-sprite-offset="{{item.spriteOffset.x}}px {{item.spriteOffset.y}}px"
+                    label="{{item.buttonLabel}}"
+                    click-handler="linkDialogController.linkOptionSelected($index)"
+                    class="wix-button-default wix-button-inline"></wix-button>
+            <div name="rowSeparator" ng-if="($index % linkDialogController.buttonsPerRow) !== 0"></div>
+        </span>
+    </div>
+    <wix-button ng-if="linkDialogController.linkExists" label="LINK_DLG_REMOVE_LINK"
+                style="display:block; text-align:right;"
+                class="wix-button-text-only">
+    </wix-button>
+</div>

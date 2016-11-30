@@ -1,0 +1,35 @@
+@charset "UTF-8";
+
+@import "screenWidthBase";
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bgc1: color_11;
+$bgc2: color_11;
+$rd: 5px;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+
+#centeredContent {
+  position: absolute;
+  left: 0;
+  height: 100%;
+}
+
+#screenWidthBackground {
+  background-color: param-bg-color(bgc1, $bgc1);
+}
+
+#bg {
+  @include abs-distances(10px, 0, 10px, 0);
+  background-color: param-bg-color(bgc2, $bgc2);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+#inlineContent {
+  @include abs-distance(20px);
+}
+

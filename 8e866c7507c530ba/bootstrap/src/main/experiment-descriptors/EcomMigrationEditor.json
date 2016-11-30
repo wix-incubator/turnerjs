@@ -1,0 +1,11 @@
+{
+  "createTime": "2014-08-06T11:09:43.369",
+  "owner": "tanyak@wix.com",
+  "description": "Old ecom migration in editor - store front will be able to work with alternate topology",
+  "tags": [
+    "editor"
+  ],
+  "constraints": {
+    "AtntFix": "optional-before"
+  }
+}

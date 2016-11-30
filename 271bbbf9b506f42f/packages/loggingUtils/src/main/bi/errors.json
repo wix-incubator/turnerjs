@@ -1,0 +1,26 @@
+{
+  "SINGLE_PAGE_RETRIEVAL_ATTEMPT_FAILED": {
+    "errorCode": 111020,
+    "severity": "warning",
+    "params": {
+      "p2": "pageId",
+      "p1": "hostname",
+      "p3": "url",
+      "p4": "responseStatusCode"
+      }
+    },
+  "ALL_PAGE_RETRIEVAL_ATTEMPTS_FAILED": {
+    "errorCode": 111021,
+    "severity": "fatal",
+    "params": {
+      "p1": "pageId"
+    }
+  },
+  "UNHANDLED_LINK_TYPE_IN_DATA_FIXER": {
+    "errorCode": 21067,
+    "severity": "fatal",
+    "params": {
+      "p1": "newLinkDataItem"
+    }
+  }
+}

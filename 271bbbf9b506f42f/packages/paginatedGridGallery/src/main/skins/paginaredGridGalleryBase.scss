@@ -1,0 +1,11 @@
+@import '../../../../components/src/main/mixins/components-base';
+
+[data-state~="touchRollOver"] .opc {
+  @include opacity(1);
+}
+
+#emptyDivToFillMatrix{
+  width:1px;
+  height: 1px;
+  opacity: 0;
+}

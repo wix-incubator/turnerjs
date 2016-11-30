@@ -1,0 +1,157 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bgDrop: color_11;
+$bg: color_14;
+$rb1: color_14;
+$rb2: color_14;
+$rb3: color_15;
+$rb4: color_15;
+$brd: color_14;
+$brw: 2px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.ForkedBannerMenuButtonSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+#itemsContainer {
+  position: absolute;
+  margin: 0 50px 14px 50px;
+}
+
+.bg {
+  box-sizing: border-box;
+  position: absolute;
+  top: 0;
+  bottom: 14px;
+  left: 50px;
+  right: 50px;
+  background: param-bg-color(bg, $bg);
+  display: inline-block;
+  @include param-box-shadow(shd, $shd);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+}
+
+b.ctr {
+  @include abs-distance(0);
+  margin: 0 50px 20px 50px;
+}
+
+b.ctr:after {
+  left: 0;
+  border-width: 0 20px 14px 0;
+  border-color: transparent param-border-color-alpha(rb3, $rb3) transparent transparent;
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  bottom: -20px;
+  border-style: solid;
+}
+
+b.ctr:before {
+  right: 0;
+  border-width: 0 0 14px 20px;
+  border-color: transparent transparent transparent param-border-color-alpha(rb4, $rb4);
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  bottom: -20px;
+  border-style: solid;
+}
+
+b.top {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 14px;
+  bottom: 50%;
+  margin-bottom: -7px;
+}
+
+b.bot {
+  overflow: hidden;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  bottom: 0;
+  margin-top: 7px;
+}
+
+b.top:after {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  width: 10px;
+  top: 0;
+  left: 0;
+  border-top: 100px solid param-border-color-alpha(rb1, $rb1);
+  border-left: 60px solid transparent;
+  border-right: 0;
+}
+
+b.top:before {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  width: 10px;
+  top: 0;
+  right: 0;
+  border-top: 100px solid param-border-color-alpha(rb2, $rb2);
+  border-right: 60px solid transparent;
+  border-left: 0;
+}
+
+b.bot:after {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  width: 10px;
+  bottom: 0;
+  left: 0;
+  border-bottom: 100px solid param-border-color-alpha(rb1, $rb1);
+  border-left: 60px solid transparent;
+  border-right: 0;
+}
+
+b.bot:before {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  width: 10px;
+  bottom: 0;
+  right: 0;
+  border-bottom: 100px solid param-border-color-alpha(rb2, $rb2);
+  border-right: 60px solid transparent;
+  border-left: 0;
+}
+
+#dropWrapper {
+  position: absolute;
+  top: 100%;
+  margin-top: -14px;
+}
+
+#dropWrapper:after {
+  content: "⬆";
+  position: absolute;
+  font-size: 24px;
+  top: -14px;
+  left: 50%;
+  margin-left: -6px;
+  color: param-text-color(bgDrop, $bgDrop);
+  overflow: hidden;
+  height: 14px;
+}
+
+#moreContainer {
+  background-color: param-text-color(bgDrop, $bgDrop);
+}
+

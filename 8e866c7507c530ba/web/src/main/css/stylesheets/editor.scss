@@ -1,0 +1,22 @@
+@import "base";
+/* Elements */
+@import "../../javascript/angular/wixelements/wixbutton/WixButton";
+@import "../../javascript/angular/wixelements/wixcheckbox/WixCheckbox";
+@import "../../javascript/angular/wixelements/wixcolorselector/WixColorSelector";
+@import "../../javascript/angular/wixelements/wixcolorselectorfield/WixColorSelectorField";
+//@import "../../javascript/angular/wixelements/wixhelpbutton/WixHelpButton";
+@import "../../javascript/angular/wixelements/wiximagepicker/WixImagePicker";
+@import "../../javascript/angular/wixelements/wixinput/WixInput";
+@import "../../javascript/angular/wixelements/wixopacityselector/WixOpacitySelector";
+@import "../../javascript/angular/wixelements/wixradioimagebutton/WixRadioImageButton";
+@import "../../javascript/angular/wixelements/wixradioimagebuttongroup/WixRadioImageButtonGroup";
+@import "../../javascript/angular/wixelements/wixselect/WixSelect";
+@import "../../javascript/angular/wixelements/wixslider/WixSlider";
+@import "../../javascript/angular/wixelements/wixSwitchButton/WixSwitchButton";
+@import "../../javascript/angular/wixelements/wixtickerinput/WixTickerInput";
+/* Dialogs */
+@import "../../javascript/angular/dialogs/DialogStyle";
+@import "../../javascript/angular/dialogs/colors/ColorSelectorDialog";
+@import "../../javascript/angular/dialogs/savepublish/PromoteSiteDialog";
+/* Panels */
+@import "../../javascript/angular/propertypanel/PropertyPanelStyle";

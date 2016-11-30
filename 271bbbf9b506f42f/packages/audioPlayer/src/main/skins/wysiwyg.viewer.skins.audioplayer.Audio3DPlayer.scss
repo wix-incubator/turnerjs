@@ -1,0 +1,154 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$trans: background-color .3s ease 0s, color .3s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+$bg: color_17;
+$bg2: bg;
+$bgh2: bgh;
+$bgh: color_18;
+$icon: color_15;
+$iconh: color_15;
+$rd: 3px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$shd1: inset 0 1px 4px 2px rgba(0, 0, 0, .2);
+$shd2: inset 0 1px 15px -3px rgba(255, 255, 255, .6), inset 0 3px 2px -2px rgba(255, 255, 255, .7);
+$themeDir: THEME_DIRECTORY;
+
+:host {
+  box-sizing: border-box;
+  user-select: none;
+  text-align: center;
+  cursor: pointer !important;
+  @include param-transition(trans, $trans);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+
+  &:hover {
+    color: param-text-color(iconh, $iconh);
+    background-color: param-bg-color(bgh, $bgh);
+
+    span {
+      color: param-text-color(iconh, $iconh);
+    }
+
+    .gradient {
+      background-color: mutate-bg-color-param(bgh2, alpha, .75, bgh);
+    }
+  }
+
+  &:active {
+    background-image: none;
+    background-color: param-bg-color(bgh, $bgh);
+    @include param-box-shadow(shd1, $shd1);
+
+    .gradient {
+      @include opacity(0);
+    }
+  }
+}
+
+.first,
+.second {
+  background: transparent param-url(tdr, $tdr, "indented_bg_inverted2.png") repeat-x;
+  @include param-border-radius(rd, $rd);
+  @include abs-distance(0);
+}
+
+.first {
+  background-position: center top;
+}
+
+.second {
+  background-position: center bottom;
+}
+
+div {
+  min-width: 15px;
+  min-height: 15px;
+}
+
+span {
+  box-sizing: border-box;
+  display: block;
+  line-height: 18px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  @include param-transition(trans, $trans);
+}
+
+#playButton,
+#pauseButton {
+  .gradient {
+    @include param-transition(trans, $trans);
+    background-color: mutate-bg-color-param(bg2, alpha, .75, bg);
+    @include param-border-radius(rd, $rd);
+    @include param-box-shadow(shd2, $shd2);
+    @include abs-distance(3px);
+  }
+}
+
+#playButton {
+  span {
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-left: 13px solid param-border-color(icon, $icon);
+    margin-top: -5px;
+    margin-left: -5px;
+  }
+
+  [data-state~="playing"] &,
+  [data-state~="loading"] & {
+    display: none;
+  }
+
+  [data-state~="stopped"] & {
+    display: block;
+  }
+}
+
+#pauseButton,
+#stopButton,
+#loadingAnimation {
+  display: none;
+}
+
+#pauseButton {
+  span {
+    border: 4px solid param-border-color(icon, $icon);
+    border-top: 0;
+    border-bottom: 0;
+    width: 11px;
+    margin-left: -6px;
+    margin-top: -6px;
+  }
+
+  [data-state~="playing"] & {
+    display: block;
+  }
+}
+
+#loadingAnimation {
+  width: 100%;
+  height: 100%;
+  //  background: transparent param-url(themeDir, $themeDir, "gif_preloader.gif") center no-repeat;
+
+  [data-state~="loading"] & {
+    display: block;
+  }
+}
+
+

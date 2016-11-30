@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wixpress.mobile</groupId>
+    <artifactId>wix-mobile-media-manager</artifactId>
+    <version>1.46.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>Wix Mobile Media Manager</name>
+    <description>Wix Mobile Media Manager</description>
+
+    <parent>
+        <groupId>com.wixpress.common</groupId>
+        <artifactId>wix-master-parent</artifactId>
+        <version>100.0.0-SNAPSHOT</version>
+    </parent>
+
+    <developers>
+        <developer>
+          <name>Ran Greenberg</name>
+          <email>rang@wix.com</email>
+          <roles>
+            <role>owner</role>
+          </roles>
+        </developer>
+        <developer>
+          <name>Rotem Mizrachi-Meidan</name>
+          <email>rotemm@wix.com</email>
+          <roles>
+            <role>developer</role>
+          </roles>
+        </developer>
+        <developer>
+          <name>Daniel Zlotin</name>
+          <email>danielzl@wix.com</email>
+          <roles>
+            <role>developer</role>
+          </roles>
+        </developer>
+        <developer>
+          <name>Yedidya Kennard</name>
+          <email>yedidyak@wix.com</email>
+          <roles>
+            <role>developer</role>
+          </roles>
+        </developer>
+    </developers>
+</project>

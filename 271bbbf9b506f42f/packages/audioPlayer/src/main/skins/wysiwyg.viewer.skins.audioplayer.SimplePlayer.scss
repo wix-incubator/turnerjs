@@ -1,0 +1,108 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$trans: border-color .4s ease 0s, background-color .4s ease 0s, color .4s ease 0s;
+$bg: color_17;
+$bgh: color_18;
+$brd: color_15;
+$brdh: color_15;
+$icon: color_15;
+$iconh: color_15;
+$rd: 0;
+$brw: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$themeDir: THEME_DIRECTORY;
+
+:host {
+  box-sizing: border-box;
+  user-select: none;
+  text-align: center;
+  cursor: pointer !important;
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  @include param-transition(trans, $trans);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+
+  &:hover {
+    border-color: param-border-color-alpha(brdh, $brdh);
+    background-color: param-bg-color(bgh, $bgh);
+
+    span {
+      color: param-text-color(iconh, $iconh);
+    }
+  }
+}
+
+div {
+  @include abs-distance(0);
+}
+
+span {
+  box-sizing: border-box;
+  display: block;
+  line-height: 18px;
+  height: 14px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align: center;
+  font-size: 16px;
+  font-weight: bold;
+  @include param-transition(trans, $trans);
+}
+
+#playButton {
+  span {
+    width: 0;
+    height: 0;
+    border: 11px solid transparent;
+    border-left: 13px solid param-border-color(icon, $icon);
+    margin-top: -11px;
+    margin-left: -5px;
+  }
+
+  [data-state~="playing"] &,
+  [data-state~="loading"] & {
+    display: none;
+  }
+
+  [data-state~="stopped"] & {
+    display: block;
+  }
+}
+
+#pauseButton {
+  span {
+    border: solid param-border-color(icon, $icon);
+    border-width: 0 4px;
+    width: 11px;
+    margin-left: -6px;
+    margin-top: -6px;
+  }
+
+  [data-state~="playing"] & {
+    display: block;
+  }
+}
+
+#stopButton,
+#pauseButton {
+  display: none;
+}
+
+#loadingAnimation {
+  display: none;
+  width: 100%;
+  height: 100%;
+
+  [data-state~="loading"] & {
+    display: block;
+  }
+}

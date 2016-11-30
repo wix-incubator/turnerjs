@@ -1,0 +1,39 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$imgHeightDiff: 80px;
+$showMoreColor: color_13;
+$fntds: font_8;
+$paddingSize: 0;
+
+@include exports("heightDiff", 25);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.gallerymatrix.TextBottomDisplayerCustomHeightSkin");
+@include exports("imageItem:styleGroup", "inherit");
+
+#itemsContainer {
+  @include abs-distances(0, 0, 25px, 0);
+}
+
+#showMore {
+  color: param-text-color(showMoreColor, $showMoreColor);
+  @include param-font(fntds, $fntds);
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  text-decoration: underline !important;
+  cursor: pointer !important;
+}
+
+[data-state~="fullView"] #showMore {
+  display: none;
+}

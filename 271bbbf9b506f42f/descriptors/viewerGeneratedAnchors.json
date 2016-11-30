@@ -1,0 +1,8 @@
+{
+    "owner": "guyr",
+    "description": "generate layout anchors as part of relayout in viewer instead of in DS",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

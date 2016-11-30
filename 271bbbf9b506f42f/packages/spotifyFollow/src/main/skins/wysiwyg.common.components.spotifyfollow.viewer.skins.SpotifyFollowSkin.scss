@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$webThemeDir: WEB_THEME_DIRECTORY;
+
+#iframe {
+  overflow: hidden;
+  border: 0;
+}
+
+@function get-width($type) {
+  @return if($type==basic_all, 156px, 225px);
+}
+
+@function get-height($type) {
+  @return if($type==basic_all, 25px, 56px);
+}
+
+@each $type in (detailed_dark, detailed_light, basic_all) {
+  @each $mode in (show, hide) {
+    [data-state~="#{$type}_#{$mode}"] #placeholder {
+      width: get-width($type);
+      height: get-height($type);
+      background: transparent param-url(webThemeDir, $webThemeDir, "spotify/spotify_follow_placeholder_#{$type}_#{$mode}.png") 0 0 no-repeat;
+    }
+  }
+}

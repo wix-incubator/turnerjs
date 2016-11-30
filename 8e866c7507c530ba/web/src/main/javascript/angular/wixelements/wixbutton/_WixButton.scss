@@ -1,0 +1,168 @@
+@import "../../../../css/stylesheets/base";
+
+/**
+ * wix-button
+ */
+
+.wix-button {
+  margin: 5px 0;
+  display: block;
+  position: relative;
+  padding: 0 10px;
+  border: 1px solid;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  /** TODO - where do we get graphics from? */
+  background: url(http://static.parastorage.com/services/skins/2.913.0/images/wysiwyg/core/themes/editor_web/button/button-gradient.png) 0 50% repeat-x;
+
+  &:active {
+    box-shadow: rgba(0, 0, 0, 0.701961) 0 1px 3px 0 inset;
+    border-color: transparent;
+  }
+
+  .wix-button-label {
+    height: 30px;
+    line-height: 30px;
+    font-size: 13px;
+    pointer-events: none;
+  }
+
+  .wix-button-icon {
+    position: absolute;
+    left: 5px;
+    top: 50%;
+    width: 24px;
+    height: 24px;
+    margin-top: -12px;
+  }
+
+}
+
+.wix-button-inline {
+  .wix-button {
+    display: inline-block !important;
+    margin: 0;
+  }
+}
+
+.wix-button-small {
+  .wix-button-label {
+    font-size: 14px;
+    height: 27px;
+    line-height: 27px;
+  }
+}
+
+/* not a mistake.  The inner class describes the arrow.  The outer class decides whether it shows up or not */
+.wix-button-arrow {
+  .wix-button-arrow {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    top: 50%;
+    right: 0;
+    margin-top: -10px;
+    /** TODO - where do we get graphics from? */
+    background: url(http://static.parastorage.com/services/skins/2.913.0/images/wysiwyg/core/themes/editor_web/icons/arrows_for_btns.png) no-repeat;
+  }
+}
+
+.wix-button-primary {
+  .wix-button {
+    border-color: $color-button-blue-border;
+    /** TODO - where do we get graphics from? */
+    background-color: $color-button-blue-background;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.2) 0 2px 3px 0, rgba(68, 175, 233, 0.701961) 0 1px 2px 0 inset;
+      border-color: $color-button-blue-border-hover;
+      background: none $color-button-blue-background-hover;
+    }
+    &:active {
+      background: none $color-button-blue-background;
+    }
+  }
+  .wix-button-label {
+    color: $color-white;
+  }
+
+  .wix-button-arrow {
+    background-position: 0 -20px;
+  }
+
+}
+
+.wix-button-default {
+  .wix-button {
+    border-color: $color-button-gray-border;
+    background-color: $color-button-gray-background;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px, rgba(255, 255, 255, 0.701961) 0px 1px 2px 0px inset;
+      border-color: $color-button-gray-border-hover;
+      background: none $color-button-gray-background-hover;
+    }
+
+    &:active {
+      background: none $color-button-gray-background;
+    }
+  }
+
+  .wix-button-label {
+    color: $color-blue;
+  }
+
+  .wix-button-arrow {
+    background-position: 0 0;
+  }
+
+}
+
+.wix-button-danger {
+  .wix-button {
+    border-color: $color-button-red-border;
+    background-color: $color-button-red-background;
+
+    &:hover {
+      box-shadow: rgba(0, 0, 0, 0.2) 0px 2px 3px 0px, rgba(230, 160, 140, 0.6) 0px 1px 2px 0px inset;
+      border-color: $color-button-red-border-hover;
+      background: none $color-button-red-background-hover;
+    }
+
+    &:active {
+      background: none $color-button-red-background;
+    }
+  }
+
+  .wix-button-label {
+    color: #ffffff;
+  }
+
+  .wix-button-arrow {
+    background-position: 0 -20px;
+  }
+}
+
+.wix-button-text-only {
+  .wix-button {
+    margin: 0;
+    border: none;
+    background: none;
+    display: inline-block;
+    padding: 0;
+
+    &:active {
+      box-shadow: none !important;
+      background: none;
+    }
+  }
+
+  .wix-button-label {
+    color: $color-blue;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

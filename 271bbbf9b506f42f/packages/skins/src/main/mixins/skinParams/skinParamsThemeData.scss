@@ -1,0 +1,106 @@
+@charset "UTF-8";
+@import "skinParamsUtils";
+
+@function theme-color-map($theme-color) {
+  $mapped-color: map-get((
+          color_0: rgba(140, 139, 139, 1),
+          color_1: #000,
+          color_2: #fff,
+          color_3: rgba(255, 203, 5, 1),
+          color_4: rgba(0, 136, 203, 1),
+          color_5: rgba(237, 28, 36, 1),
+          color_6: rgba(0, 0, 0, 1),
+          color_7: rgba(0, 0, 0, 1),
+          color_8: rgba(255, 255, 255, 1),
+          color_9: rgba(251, 251, 0, 1),
+          color_10: rgba(0, 0, 0, 1),
+          color_11: #fff,
+          color_12: #999,
+          color_13: #666,
+          color_14: #333,
+          color_15: #000,
+          color_16: #fffaaa,
+          color_17: #fff87f,
+          color_18: #fff200,
+          color_19: #a9a100,
+          color_20: #545000,
+          color_21: #abe1e2,
+          color_22: #7ec4c6,
+          color_23: #2ea6aa,
+          color_24: #1e6f71,
+          color_25: #0f3738,
+          color_26: #aaffeb,
+          color_27: #7fffe1,
+          color_28: #00ffc3,
+          color_29: #00a982,
+          color_30: #005441,
+          color_31: #c1aed1,
+          color_32: #937fa4,
+          color_33: #644e77,
+          color_34: #321749,
+          color_35: #190b24
+  ), $theme-color);
+
+  @return if($mapped-color==null, safe-unquote($theme-color), $mapped-color);
+}
+
+@function theme-font-map($theme-font) {
+  @return map-get((
+          font_0: unquote("normal normal bold 28px/1.1em Overlock #{theme-color-map(color_11)}"),
+          font_1: unquote("normal normal normal 16px/1.1em Arial #{theme-color-map(color_15)}"),
+          font_2: unquote("normal normal normal 25px/1.1em Open+Sans #{theme-color-map(color_15)}"),
+          font_3: unquote("normal normal normal 70px/1.1em Open+Sans #{theme-color-map(color_15)}"),
+          font_4: unquote("normal normal normal 40px/1.3em Open+Sans #{theme-color-map(color_15)}"),
+          font_5: unquote("normal normal normal 22px/1.2em Open+Sans #{theme-color-map(color_15)}"),
+          font_6: unquote("normal normal normal 20px/1.3em Open+Sans #{theme-color-map(color_15)}"),
+          font_7: unquote("normal normal normal 16px/1.3em Arial #{theme-color-map(color_15)}"),
+          font_8: unquote("normal normal normal 13px/1.3em Arial #{theme-color-map(color_15)}"),
+          font_9: unquote("normal normal normal 12px/1.3em Open+Sans #{theme-color-map(color_15)}"),
+          font_10: unquote("normal normal normal 10px/1.3em Open+Sans #{theme-color-map(color_15)}")
+  ), $theme-font)
+}
+
+@function theme-border-map($theme-border) {
+  @return map-get((
+          border_0: .15em solid theme-color-map(color_1),
+          border_1: .25em solid theme-color-map(color_2),
+          border_2: .35em solid theme-color-map(color_3)
+  ), $theme-border)
+}
+
+@function theme-data-map($theme-param-name) {
+  $mapped-data: map-get((
+          BASE_THEME_DIRECTORY: "base",
+          BG_DIRECTORY: "photography",
+          CONTACT_DIRECTORY: "photography/contact",
+          EXTERNAL_LINKS_DIRECTORY: "photography/external",
+          NETWORKS_DIRECTORY: "photography/network",
+          PAGES_DIRECTORY: "photography/pages",
+          THEME_DIRECTORY: "photography",
+          WEB_THEME_DIRECTORY: "viewer",
+          bulletSize: 1.5em,
+          componentSpacing: .45em,
+          headerSpacing: 2.25em,
+          iconSize: 3.2em,
+          iconSpacing: .75em,
+          itemSpacing: .75em,
+          padding1: 0 0 0 0,
+          padding2: .0em .5em .0em .5em,
+          padding3: 1em .0em 1em .0em,
+          thumbSpacing: .23em
+  ), $theme-param-name);
+
+  @return if($mapped-data==null, $theme-param-name, $mapped-data);
+}
+
+@function html-client-version() {
+  @return '2.1113.24';
+}
+
+@function base-url() {
+  @return '//static.parastorage.com/services/skins/' + html-client-version() + '/images/wysiwyg/core/themes'
+}
+
+@function base-viewer-url() {
+  @return '//static.parastorage.com/services/web/' + html-client-version() + '/images/wysiwyg/viewer'
+}

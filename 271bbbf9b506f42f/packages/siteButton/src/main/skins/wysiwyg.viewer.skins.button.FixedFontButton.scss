@@ -1,0 +1,82 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: #ffffff;
+$bgh: #ffffff;
+$brd: #000000;
+$brdh: #000000;
+$txt: #000000;
+$txth: #000000;
+$brw: 0;
+$rd: 0;
+$trans: color .4s ease 0s, border-color .4s ease 0s, background-color .4s ease 0s;
+
+
+
+#link {
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  color: param-text-color(txt, $txt);
+  border: solid param-border-color(brd, $brd) param-border-size(brw, $brw);
+  cursor: pointer !important;
+}
+
+#label {
+  display: block;
+  margin: -10px 0 0 -10px;
+  text-align: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  white-space: nowrap;
+  font-size: 12px !important;
+  font-family: Arial;
+}
+
+:host {
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #link {
+      color: param-text-color(txth, $txth);
+      border-color: param-border-color(brdh, $brdh);
+      background-color: param-bg-color(bgh, $bgh);
+      @include param-transition(trans, $trans);
+    }
+
+    #label {
+      color: param-text-color(txth, $txth);
+      @include param-transition(trans, $trans);
+    }
+  }
+}
+
+.justx {
+  width: 20px;
+  height: 20px;
+}
+
+.justx #link {
+  font-size: 16px !important;
+}
+
+.circle {
+  width: 20px;
+  height: 20px;
+}
+
+.circle #link {
+  border-radius: 50% !important;
+}
+

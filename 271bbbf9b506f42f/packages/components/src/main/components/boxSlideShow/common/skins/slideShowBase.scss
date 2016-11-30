@@ -1,0 +1,56 @@
+@import '../../../../mixins/components-base';
+
+:host {
+  background-color: transparent;
+  box-sizing: border-box !important;
+  position: relative;
+  min-height: 50px;
+}
+
+[data-shouldhideoverflowcontent="true"] {
+  #inlineContent {
+    overflow: hidden;
+  }
+}
+
+#navigationArrows[data-show-navigation-arrows="false"] {
+  display: none;
+}
+
+#dotsMenuWrapper[data-show-navigation-dots="false"] {
+  display: none;
+}
+
+#bg {
+  @include abs-distance(0);
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+#inlineContentParent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+#dotsMenuWrapper {
+  display: flex;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  pointer-events: none;
+}
+
+.navigation-arrows {
+  position: absolute;
+  width: 100%;
+}
+
+.navigation-dot-wrapper {
+  pointer-events: auto;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}

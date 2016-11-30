@@ -1,0 +1,41 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$lnk-h: color_6;
+$lnk: lnk-h;
+$rd: 0;
+
+@include define-mapped-param(lnk, lnk-h, COLOR_ALPHA);
+
+@include exports("heightDiff", 25);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.MinimalDisplayer");
+
+#showMore {
+  position: absolute;
+  cursor: pointer;
+  bottom: 0;
+  color: mutate-color-alpha-param(lnk, alpha, .6, lnk-h);
+  border: solid 1px mutate-color-alpha-param(lnk, alpha, .6, lnk-h);
+  padding: 3px 10px;
+  @include param-border-radius(rd, $rd);
+
+  &:hover {
+    color: param-border-color(lnk-h, $lnk-h);
+    border-color: param-border-color(lnk-h, $lnk-h);
+  }
+}
+
+[data-state~="fullView"] #showMore {
+  display: none;
+}
+
+#itemsContainer {
+  @include abs-distance(0);
+}
+

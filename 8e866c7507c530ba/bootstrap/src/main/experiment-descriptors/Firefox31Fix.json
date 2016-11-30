@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-08-10T12:32:31.026",
+    "owner": "galiak",
+    "description": "Fixing menu view on ff31 with cleared cache: http://jira.wixpress.com/browse/WOH-9794",
+    "tags": [
+        "viewer",
+        "editor"
+    ],
+    "constraints": {}
+}

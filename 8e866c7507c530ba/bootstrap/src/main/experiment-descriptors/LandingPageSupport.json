@@ -1,0 +1,13 @@
+{
+    "createTime": "2014-05-08T09:22:13",
+    "owner": "etai@wix.com",
+    "description": "Enables the creation of landing pages, which are pages that do not have elements which are 'show on all pages'",
+    "tags": [
+        "editor",
+        "viewer"
+    ],
+    "constraints": {
+        "pagenavigationfix" : "optional-before",
+        "nbc_renderonlydisplayed" : "optional-before"
+    }
+}

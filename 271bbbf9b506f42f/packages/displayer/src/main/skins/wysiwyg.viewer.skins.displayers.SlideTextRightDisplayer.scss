@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+@include displayer-text-overflow;
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bgc: color_11;
+$txt: color_15;
+$rd: 0;
+$brw: 0;
+$s: brw;
+$fntt: font_6;
+$fntds: font_8;
+
+@include define-mapped-param(s, brw);
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+
+@include exports("widthDiff", 240);
+@include exports("m_widthDiff", 0);
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper {
+  position: absolute;
+}
+
+#zoom {
+  @include abs-distance(param-size(brw, $brw));
+}
+
+[data-state~="mobileView"] #zoom {
+  right: param-margin-size(brw, $brw);
+}
+
+#image {
+  @include param-border-radius(rd, $rd);
+  border-top-right-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+#panel {
+  position: absolute;
+  right: param-margin-size(brw, $brw);
+  bottom: param-margin-size(brw, $brw);
+  top: param-margin-size(brw, $brw);
+  background-color: param-bg-color(bgc, $bgc);
+  width: 220px;
+  padding: 10px;
+  @include param-border-radius(rd, $rd);
+  border-top-left-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+[data-state~="mobileView"] #panel {
+  display: none;
+}
+
+#title {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(txt, $txt);
+}
+
+#description {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+}
+
+#link {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[data-state~="link"]   #link {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+[data-state~="noLink"] #link {
+  display: none;
+}

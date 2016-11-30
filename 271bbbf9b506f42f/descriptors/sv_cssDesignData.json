@@ -1,0 +1,8 @@
+{
+    "owner": "alexanderg",
+    "description": "CSS data item support for styling components",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

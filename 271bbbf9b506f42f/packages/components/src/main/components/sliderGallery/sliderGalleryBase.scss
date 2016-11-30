@@ -1,0 +1,11 @@
+@import '../../mixins/components-base';
+
+#itemsContainer {
+  @include abs-distance(0);
+  border: 0;
+  overflow: hidden;
+}
+#images{
+  position: absolute;
+  white-space: nowrap;
+}

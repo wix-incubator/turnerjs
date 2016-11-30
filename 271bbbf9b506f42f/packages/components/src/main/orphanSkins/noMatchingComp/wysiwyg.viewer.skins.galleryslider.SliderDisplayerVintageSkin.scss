@@ -1,0 +1,120 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$brw: 5px;
+$rd: 5px;
+$shd: 0 1px 5px rgba(0, 0, 0, .10);
+$tdr: BASE_THEME_DIRECTORY;
+$fntds: font_8;
+$txt: color_15;
+$trans: opacity .4s ease 0s;
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+.bg {
+  @include abs-distance(0);
+  @include param-box-shadow(shd, $shd);
+  background: param-border-color-alpha(bg, $bg);
+}
+
+#imageWrapper {
+  position: relative;
+  width: 93% !important;
+  height: 93% !important;
+  margin-left: 10px !important;
+  margin-top: 4px !important;
+  @include param-box-shadow(shd, $shd);
+}
+
+.imgBorder {
+  @include abs-distance(0);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(bg, $bg);
+  background: param-border-color-alpha(bg, $bg);
+  padding: 0 0 50px 0;
+}
+
+#image {
+  
+}
+
+#zoom {
+  @include abs-distance(0);
+  padding: 10px;
+  background: param-border-color-alpha(bg, $bg);
+  @include opacity(0);
+  @include param-transition(trans, $trans);
+}
+
+#title {
+  display: none;
+}
+
+#description {
+  display: none;
+}
+
+#link {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  cursor: posinter !important;
+}
+
+[data-state~="noLink"] #link {
+  display: none !important;
+}
+
+.bgShadow {
+  background-image: param-url(tdr, $tdr, "shadow_photo.png");
+  background-repeat: no-repeat;
+  width: 168px;
+  height: 154px;
+}
+
+.shadowImgTL {
+  background-position: 0 0;
+  position: absolute;
+  left: -15px;
+  top: -18px;
+}
+
+.shadowImgTR {
+  background-position: 100% 0;
+  position: absolute;
+  right: -17px;
+  top: -20px;
+}
+
+.shadowImgBL {
+  background-position: 0 100%;
+  position: absolute;
+  left: -16px;
+  bottom: -16px;
+}
+
+.shadowImgBR {
+  background-position: 100% 100%;
+  position: absolute;
+  right: -19px;
+  bottom: -16px;
+}
+
+#zoom:hover {
+  @include opacity(1);
+}
+
+[data-state~="noLink"]   #link {
+  display: none;
+}
+

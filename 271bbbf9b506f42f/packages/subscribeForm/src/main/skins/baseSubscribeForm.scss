@@ -1,0 +1,19 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+#wrapper {
+
+  .hidden {
+    display: none !important;
+  }
+
+}
+
+input {
+  @include appearance(none);
+}
+
+.message {
+  display: none;
+}

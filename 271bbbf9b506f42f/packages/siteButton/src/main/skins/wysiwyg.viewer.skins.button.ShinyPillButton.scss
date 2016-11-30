@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_1;
+$bgh: color_2;
+$txt: color_5;
+$txth: color_6;
+$rd: 80px;
+$fnt: font_5;
+$tdr: BASE_THEME_DIRECTORY;
+$xxx: color_1;
+
+
+
+#link {
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  background-image: param-url(tdr, $tdr, "apple_menu.png");
+  background-position: 0 50%;
+  background-repeat: repeat-x;
+  background: param-bg-color(xxx, $xxx) param-url(tdr, $tdr, "net.png") center center repeat;
+}
+
+#label {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  padding: 0 10px;
+  display: inline-block;
+}
+
+:host {
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #link {
+      background-color: param-bg-color(bgh, $bgh);
+    }
+
+    #label {
+      color: param-text-color(txth, $txth);
+    }
+  }
+}

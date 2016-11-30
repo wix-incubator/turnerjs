@@ -1,0 +1,8 @@
+{
+    "owner": "bogdanl",
+    "description": "Related posts component on single post page",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

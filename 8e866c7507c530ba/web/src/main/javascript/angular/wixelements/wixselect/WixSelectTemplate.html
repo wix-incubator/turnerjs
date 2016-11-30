@@ -1,0 +1,6 @@
+<div class="clearfix">
+    <label class="wix-select-label" ng-show="label" wix-translate="label"></label>
+    <span ng-show="tooltip" wix-tooltip="tooltip" class="wix-tooltip-icon">&nbsp;</span>
+    <select class="wix-select-input" ng-model="wixData"
+            ng-options="option.value as translate(option.label) for option in options"></select>
+</div>

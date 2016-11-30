@@ -1,0 +1,8 @@
+{
+    "owner": "ohadl",
+    "description": "improve blog feed performance on mobile",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

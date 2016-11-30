@@ -1,0 +1,45 @@
+function getPloaderSantaConfig(serviceTopology, baseVersion, PackagesUtil) {
+
+    var isSemver = RegExp.prototype.test.bind(/^(\d*\.\d*\.\d*)$/);
+    var isCommitSha = RegExp.prototype.test.bind(/^([a-f]|\d){40}$/);
+
+    function isRC(str) {
+      if (!str) {
+        return false;
+      }
+      var santaArtifact = joinURL(serviceTopology.scriptsDomainUrl, 'services', 'santa') + '/';
+      if (str.indexOf(santaArtifact) === 0) {
+          var version = str.slice(santaArtifact.length);
+          return isSemver(version) || isCommitSha(version);
+      }
+    }
+
+    function isValidBaseVersion(str) {
+        if (!str) return false;
+        var baseVersionWhiteList = ['http://localhost', 'http://s3.amazonaws.com/integration-tests-statics/'];
+        function isInWhiteList(paramValue) {
+            return baseVersionWhiteList.some(function(address) {
+                return str.indexOf(address) === 0;
+            });
+        }
+        return isInWhiteList(str) || isRC(str);
+    }
+
+    var packages = <%= packages %>;
+    <%= rjsConfig %>
+
+    if (!isValidBaseVersion(baseVersion)) {
+        baseVersion = serviceTopology.scriptsLocationMap.santa || location.origin;
+    }
+    var config = getViewerRjsConfig.default(serviceTopology);
+
+    config.injects = {
+        //react: 'react',
+        lodash: 'lodash'
+    };
+    var packagesUtil = new PackagesUtil(packages, window.location.search);
+    config = packagesUtil.buildConfig(config);
+    config.baseUrl = baseVersion;
+    config.versions = {};
+    return config;
+}

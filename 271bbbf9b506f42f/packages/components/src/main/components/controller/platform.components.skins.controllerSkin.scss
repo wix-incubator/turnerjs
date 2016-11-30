@@ -1,0 +1,6 @@
+@import '../../mixins/components-base';
+
+:host {
+  z-index: $zindex-app-controller;
+}
+

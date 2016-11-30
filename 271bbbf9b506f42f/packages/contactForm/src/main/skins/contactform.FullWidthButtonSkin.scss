@@ -1,0 +1,171 @@
+@import 'baseContactForm';
+
+$margin-right: 17px;
+$message-field-height: 150px;
+$field-height: 36px;
+$submit-button-height: 45px;
+$shadowColor: 0,0,0,0;
+$shd: 0 0px 0px rgba(0, 0, 0, 0);
+$fnt: font_7;
+$fnt2: font_7;
+$txt-error: #8b0000;
+$txt-success: rgba(186, 218, 85, 1);
+$txt1: color_15;
+$txt2: color_15;
+$txt3: color_15;;
+$bg1: color_11;
+$bg2: color_18;
+$brw: 1;
+$brd: color_18;
+
+
+
+
+#wrapper {
+    position: absolute;
+    width: 100%;
+    text-align: center;
+}
+
+#flex-wrapper {
+    display:flex;
+    input {
+        flex:1;
+        min-width: 0;
+        &:first-child {
+            margin-right: $margin-right;
+        }
+    }
+}
+
+input,
+textarea {
+    @include param-box-shadow(shd, $shd);
+    @include appearance(none);
+    padding: 5px;
+    @include param-font(fnt, $fnt);
+    background-color: param-bg-color(bg1, $bg1);
+    @include appearance(none);
+    border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+    color: param-text-color(txt1, $txt1);
+    margin: 0 0 5px;
+    width: 100%;
+    min-height: $field-height;
+    box-sizing: border-box;
+    border-radius: 0;
+
+    &.error {
+        @include param-font(fnt, $fnt);
+        border: mutate-size-param(maxbrw, max, 1, brw) solid param-border-color(txtError, $txt-error);
+        color: param-border-color(txtError, $txt-error);
+    }
+
+    &::placeholder {
+        color: param-text-color(txt3, $txt3);
+    }
+}
+
+input {
+    margin-bottom: 12px;
+
+}
+
+textarea {
+    resize: none;
+    overflow: hidden;
+    margin: 0 0 10px;
+    min-height: $message-field-height;
+    overflow-y: auto;
+}
+
+#submit {
+    border: none;
+    cursor: pointer;
+    background-color: param-bg-color(bg2, $bg2);
+    color: param-text-color(txt2, $txt2);
+    width: 100%;
+    min-height: $submit-button-height;
+    display: block;
+    margin-bottom: 15px;
+    @include param-font(fnt2, $fnt2);
+    padding: 5px;
+
+
+}
+
+#notifications {
+    font: normal 14px 'Helvetica Neue', Helvetica, sans-serif;
+    max-width: 60%;
+    margin: 0 auto;
+    height: 14px;
+
+    &.success {
+        color: param-text-color(txtSuccess, $txt-success);
+    }
+
+    &.error {
+        color: param-border-color(txtError, $txt-error);
+    }
+}
+
+
+[data-state~="mobile"] {
+
+    #flex-wrapper {
+        flex-direction: column;
+        min-width: 0;
+        input {
+            &:first-child {
+                margin-right: 0;
+            }
+        }
+    }
+    input,
+    textarea {
+        font-size: 14px;
+        margin-bottom: 15px;
+
+        &::placeholder {
+            font-size: 14px;
+        }
+    }
+
+    input {
+        min-height: 35px;
+        line-height: 35px;
+    }
+
+    textarea {
+        min-height: 150px;
+    }
+
+}
+[data-state~="right"] {
+    direction: rtl;
+    text-align: right;
+
+    #flex-wrapper {
+        input {
+            min-width: 0;
+            &:first-child {
+                margin-left: $margin-right;
+                margin-right: 0;
+            }
+        }
+    }
+}
+
+[data-state~="left"] {
+    direction: ltr;
+    text-align: left;
+}
+
+$fields: (name, email, subject, phone, address, message);
+$selector: ();
+@each $field in $fields {
+    $selector: append($selector, unquote('[data-state~="#{$field}Hidden"] ##{$field}Field'), comma)
+}
+
+#{$selector} {
+    display: none !important;
+}

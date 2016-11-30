@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Experiments Manifest</title>
+    <meta charset="utf-8">
+    <meta http-equiv="Cache-Control" content="no-cache">
+
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Tangerine">
+    <style>
+        .title {
+            font-family: 'Tangerine', serif;
+            font-size:150px;
+            text-align:center;
+            text-shadow: 8px 8px 8px #aaa;
+            margin-top:40px;
+            margin-bottom:30px;
+        }
+    </style>
+
+    <script type="text/javascript">
+        var editorModel = {
+            'mode': 'unit_test'
+        };
+        var serviceTopology = {
+            biServerUrl: "http://frog.wixpress.com/",
+            scriptsRoot: '../../main',
+            staticSkinUrl : '../mock/javascript/skins',
+            staticMediaUrl: "/",
+            staticThemeUrl: "/",
+            emailServer: "/",
+            htmlComponentEchoUrl: "/",
+            editorServerRoot:'http://editorSrv.url',
+            mediaServerRoot:'http://mediaSrv.url',
+            'resourcesRoot' : '../../main/resources/wysiwyg/bundles/'
+        };
+
+         // Set view mode
+        var viewMode = 'editor';
+
+        // Mock configUrls global
+        configUrls = serviceTopology;
+    </script>
+
+    $parser.setItemTemplate('   <script type="text/javascript" src="$relativePath"></script>')
+    $parser.setSeparator("
+    ")
+    <!-- libs -->
+    $parser.itemsIn("html-bootstrap", "libs.js")
+    <!-- BI -->
+    $parser.itemsIn("html-bootstrap", "bi.js")
+    <!-- bootstrap -->
+    $parser.itemsIn("html-bootstrap", "bootstrap.js")
+
+##    <script>
+##        W.Experiments.markExperimentFromURL();
+##    </script>
+
+    <!-- Experiments -->
+    $parser.itemsIn("html-client-core","mobile-core-experiments.js")
+    $parser.itemsIn("html-client-core","mobile-editor-experiments.js")
+    $parser.itemsIn("wysiwyg","viewer-experiments.js")
+    $parser.itemsIn("wysiwyg","editor-experiments.js")
+
+    <!--html-client-core-core-managers-->
+    $parser.itemsIn("html-client-core","mobile-core-managers.js")
+    <!--html-client-core-editor-managers-->
+    $parser.itemsIn("html-client-core","mobile-editor-managers.js")
+
+    <!--core-->
+    $parser.itemsIn("wysiwyg","core.js")
+    <!--web-core-->
+    $parser.itemsIn("wysiwyg","web-core.js")
+    <!--web-editor-->
+    $parser.itemsIn("wysiwyg","web-editor.js")
+    <!--skins-experiments-->
+    $parser.itemsIn("skins","skins-experiments.js")
+
+</head>
+
+<body style="background:url('../resources/grid.gif') !important">
+    <h1 class="title">Experiments Manifest</h1>
+
+    <iframe id="box" width="100%" height="100%" seamless="seamless" frameBorder="0" scrolling="no"></iframe>
+
+    <script>
+
+        function renderCategory(categoryName, CategoryObj, type) {
+            var size = Object.getLength(CategoryObj);
+
+            var category = '<td rowspan=' + size + '>' + categoryName + '</td>';
+            var index = 0;
+
+            Object.each(CategoryObj, function (ItemObj, itemName) {
+                var inConflict = conflicts[itemName] && conflicts[itemName].propsInConflict.length > 0;
+                var color = inConflict ? "inConflict" : "";
+
+                if (index == 0) {
+                    category += '<td class=\"item ' + color + '\">' + itemName + '</td></tr>';
+                } else {
+                    category += '<tr class=' + currentType + '><td></td><td></td><td class=\"item ' + color + '\">' + itemName + '</td></tr>';
+                }
+                index++;
+            });
+
+            return category;
+        }
+
+        function renderExperimentGroup(experimentName, groupName, groupObj) {
+            var group = '';
+            var index = 0;
+
+            Object.each(groupObj, function (CategoryObj, categoryName) {
+                if (index == 0) {
+                    group += '<tr class=\"title ' + currentType + '\"><td>' + experimentName + '</td><td>' + groupName + '</td>';
+                } else {
+                    group += '<tr class=' + currentType + '><td></td><td></td>';
+                }
+
+                group += renderCategory(categoryName, CategoryObj);
+                index++;
+            });
+
+            return group;
+        }
+
+        function renderExperiment(experimentName, experimentObj) {
+            var experiment = '';
+
+            Object.each(experimentObj, function (groupObj, groupName) {
+                experiment += renderExperimentGroup(experimentName, groupName, groupObj);
+            });
+
+            return experiment;
+        }
+
+        function renderTable(experiments) {
+            var table = '<table>' + renderTableHead();
+            var index = 0;
+
+            Object.each(experiments, function (experimentObj, experimentName) {
+                currentType = index%2 ? 'odd' : 'even';
+                table += renderExperiment(experimentName, experimentObj);
+                index++;
+            });
+
+            table += '</table>';
+            return table;
+        }
+
+        function renderTableHead() {
+            return '<thead><tr><td>Experiment Name</td><td>Group Name</td><td>Categories</td><td>Items</td></tr></thead>';
+        }
+
+        function renderExperiments() {
+            document.getElementById('box').style.height = countRegisteredExperiments() * 30 + "px";
+
+            var style = "<style> td.inConflict{color: #ff0000;} tr.title td{border-top:2px solid blue;} .item{padding-left: 50px; text-align: left} .odd{background-color: #DDD} .even{background-color: #999} table {border:1px solid blue;border-radius:5px;padding:5px;background-color: #f5f5f5;box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);width:80%;margin:auto;}td {padding-right:4px;padding-left:4px;text-align:center;}thead > tr {background-color: #2B404E;color: #f5f5f5;}thead > tr > td {color: white;font-size: 17px;text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.5);background-color: transparent;border-bottom: 2px solid blue;padding: 10px 8px;}h1 {text-align: center;} </style>";
+            document.getElementById('box').contentDocument.head.innerHTML = style;
+            document.getElementById('box').contentDocument.body.innerHTML = renderTable(W.Experiments._registeredExperiments);
+        }
+
+        function countRegisteredExperiments() {
+            var experiments = W.Experiments._registeredExperiments;
+            var size = 0;
+
+            for (var experimentId in experiments) {
+                var groups = experiments[experimentId];
+                for (var groupId in groups) {
+                    var items = groups[groupId];
+                    for (var itemId in items) {
+                        var count = Object.keys(items[itemId]).length;
+                        size += count;
+                    }
+                }
+            }
+            return size;
+        }
+
+        conflicts = {};
+
+        function analyzeConflicts() {
+            var experiments = W.Experiments._registeredExperiments;
+
+            for (var experimentId in experiments) {
+                var groups = experiments[experimentId];
+                for (var groupId in groups) {
+                    var categories = groups[groupId];
+                    for (var categoryId in categories) {
+                        if (categoryId.indexOf("new_") == 0) {
+                            continue;
+                        }
+                        var files = categories[categoryId];
+                        for (var fileId in files) {
+                            var fileDesc = conflicts[fileId] = conflicts[fileId] || {propsAll:[], propsInConflict:[], expsAll:[]};
+
+                            var experimentName = experimentId + " " + groupId;
+                            fileDesc.expsAll.combine([experimentName]);
+
+                            if (categoryId!= "schema_prop" && categoryId.indexOf("data") != 0) {
+                                var data = typeof files[fileId] == "function" ? files[fileId]() : files[fileId];
+                                var newProps = Object.keys(data.Class || data.trait || data);
+                                var propsInConflict = [];
+
+                                for (var i= 0; i<newProps.length; i++) {
+                                    var prop = newProps[i];
+                                    if (prop != "Extends" && fileDesc.propsAll.contains(prop)) {
+                                        propsInConflict.push(prop);
+                                    }
+                                }
+                                fileDesc.propsInConflict.combine(propsInConflict);
+                                fileDesc.propsAll.combine(newProps);
+                            } else {
+                                // TODO: handle data conflicts
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        analyzeConflicts();
+        renderExperiments();
+
+    </script>
+
+</body>
+</html>

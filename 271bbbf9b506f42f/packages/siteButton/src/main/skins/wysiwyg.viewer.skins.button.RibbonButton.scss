@@ -1,0 +1,85 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_17;
+$bgh: color_18;
+$txth: color_15;
+$txt: color_15;
+$fnt: font_5;
+$clr: bg;
+$clrh: bgh;
+$clrd: bgd;
+
+@include define-mapped-param(clr, bg, COLOR_ALPHA);
+@include define-mapped-param(clrh, bgh, COLOR_ALPHA);
+@include define-mapped-param(clrd, bgd, COLOR_ALPHA);
+@include exports(maxH, 170);
+
+#link {
+  background-color: param-bg-color(bg, $bg);
+  @include abs-distances(0, 5px, 0, 0);
+}
+
+[data-disabled="false"] {
+  cursor: pointer !important;
+  max-height: 170px !important;
+
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #link {
+      background-color: param-bg-color(bgh, $bgh);
+    }
+
+    #label {
+      color: param-text-color(txth, $txth);
+    }
+
+    .tri {
+      border-left-color: param-color-alpha(clrh, $clrh);
+    }
+  }
+}
+
+#label {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  display: inline-block;
+  max-height: 170px !important;
+  padding: 5px 10px;
+  white-space: nowrap;
+}
+
+.tail {
+  overflow: hidden;
+  width: 5px;
+  @include abs-distances(0, 0, 0, auto);
+}
+
+.tri {
+  border: solid 5px transparent;
+  border-left-color: param-color-alpha(clr, $clr);
+  &:first-child {
+    margin-top: -5px;
+  }
+}
+
+[data-disabled="true"] {
+  #link {
+    @include disabled-bg-color(bgd);
+  }
+
+  #label {
+    @include disabled-text-color(txtd);
+  }
+
+  .tri {
+    border-left-color: param-color-alpha(clrd, $clrd);
+  }
+}

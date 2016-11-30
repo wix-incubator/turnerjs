@@ -1,0 +1,128 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$img-height-diff: 80px;
+$image-padding: 0;
+$padding-size: 10px;
+$rd: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$bg: color_11;
+$bgh: color_11;
+$ttl: color_15;
+$lnk: color_15;
+$txt: color_15;
+$fntt: font_6;
+$fntds: font_8;
+$trans: opacity .4s ease 0s;
+
+@include define-mapped-param(imageWrapperTop, imagePadding);
+@include define-mapped-param(imageWrapperRight, imagePadding);
+@include define-mapped-param(imageWrapperLeft, imagePadding);
+
+@include exports("customDiff", "panel");
+@include exports("heightDiff", 80);
+@include exports("m_heightDiff", 40);
+@include exports("image:skin", "skins.core.ImageSkin");
+
+:host {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  background: param-bg-color(bg, $bg);
+  overflow: hidden;
+}
+
+#imageWrapper {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+}
+
+#image,
+#zoom,
+.imgBorder {
+  @include param-border-radius(rd, $rd);
+  border-bottom-left-radius: 0 !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.imgBorder {
+  @include abs-distance(0);
+  padding: param-padding-size(imagePadding, $image-padding) param-padding-size(imagePadding, $image-padding) 0;
+}
+
+#zoom {
+  @include abs-distance(param-size(imagePadding, $image-padding));
+  background: param-bg-color(bgh, $bgh);
+  @include opacity(0);
+  @include param-transition(trans, $trans);
+}
+
+.panel {
+  height: param-height(imgHeightDiff, $img-height-diff);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.panelWrap {
+  position: absolute;
+  left: param-margin-size(paddingSize, $padding-size);
+  right: param-margin-size(paddingSize, $padding-size);
+  top: mutate-size-param(paddingTop, decrease, 5, paddingSize);
+  bottom: mutate-size-param(paddingBottom, increase, 20, paddingSize);
+  overflow: hidden;
+}
+
+a {
+  position: absolute;
+  left: param-margin-size(paddingSize, $padding-size);
+  right: param-margin-size(paddingSize, $padding-size);
+  bottom: param-margin-size(paddingSize, $padding-size);
+  overflow: hidden;
+  text-decoration: underline !important;
+  color: param-text-color(lnk, $lnk);
+  @include param-font(fntds, $fntds);
+  background: param-bg-color(bg, $bg);
+  display: block;
+}
+
+h6 {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(ttl, $ttl);
+  display: block;
+  white-space: nowrap;
+}
+
+span {
+  color: param-text-color(txt, $txt);
+  @include param-font(fntds, $fntds);
+  display: inline-block;
+  width: 100%;
+}
+
+@include align-states();
+
+[data-state~="noLink"] {
+  #link {
+    display: none;
+  }
+
+  .panelWrap {
+    bottom: param-margin-size(paddingSize, $padding-size);
+  }
+}
+
+:host:hover #zoom {
+  @include opacity(1);
+  @include param-transition(trans, $trans);
+}

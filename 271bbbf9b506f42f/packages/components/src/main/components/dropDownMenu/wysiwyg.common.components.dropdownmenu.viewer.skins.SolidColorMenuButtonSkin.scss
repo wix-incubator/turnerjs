@@ -1,0 +1,52 @@
+@charset "UTF-8";
+
+@import "dropDownMenuBase";
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$rd: 10px;
+$rd-drop: 10px;
+$bg-drop: color_11;
+$bg: color_11;
+$brw: 0;
+$brd: color_15;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.SolidColorMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+@include sum-params(menuTotalBordersY, brw, brw);
+@include sum-params(menuTotalBordersX, brw, brw);
+
+#itemsContainer {
+  width: calc(100% - #{param-width(menuTotalBordersX, 0)});
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  position: relative;
+  overflow: hidden;
+}
+
+#dropWrapper {
+  margin-top: 7px;
+  visibility: hidden;
+  position: absolute;
+  box-sizing: border-box;
+}
+
+[data-dropmode="dropUp"] #dropWrapper {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#moreContainer {
+  background-color: param-bg-color(bgDrop, $bg-drop);
+  @include param-border-radius(rdDrop, $rd-drop);
+  @include param-box-shadow(shd, $shd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+}
+

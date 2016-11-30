@@ -1,0 +1,12 @@
+{
+    "createTime": "2000-01-01T02:54:00",
+    "owner": "shaharz",
+    "description": "ability to change image quality parameters from the url",
+    "constraints": {
+        "GalleryServerCrop": "optional-before"
+    },
+    "tags": [
+        "viewer",
+        "editor"
+    ]
+}

@@ -1,0 +1,21 @@
+@charset "UTF-8";
+
+@mixin align-states {
+
+  #title,
+  #description
+  {
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin displayer-text-overflow {
+  #title,
+  #description
+  {
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: pre-line;
+  }
+}

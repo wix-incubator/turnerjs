@@ -1,0 +1,10 @@
+{
+  "createTime": "2015-03-02T13:00:00",
+  "owner": "elip",
+  "description": "removes custom site menu if its data is corrupt",
+  "tags": [
+    "editor"
+  ],
+  "constraints": {
+  }
+}

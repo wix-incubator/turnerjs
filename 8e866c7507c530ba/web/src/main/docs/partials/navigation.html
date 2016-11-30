@@ -1,0 +1,23 @@
+<nav class="navbar navbar-inverse navbar-fixed-top main-nav" style="min-height: 0">
+    <div class="container">
+        <div class="navbar-header">
+            <!-- logo -->
+            <a class="navbar-brand" href="#/" style="padding-top:6px; padding-bottom:6px;height:auto">
+                <img class="docular-small" src="resources/img/docular-small.png">
+            </a>
+        </div>
+        <!-- Navigation for code groups -->
+        <ul class="nav navbar-nav" style="margin-bottom:0;">
+            <li ng-repeat="group in docGroups" class="dropdown" ng-show="group.visible">
+                <a href="{{group.url}}" class="dropdown-toggle" data-toggle="dropdown" tabindex="2">
+                    <i class="{{group.groupIcon}} icon-white"></i> {{group.title}} <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu">
+                    <li ng-repeat="section in group.sections"><a href="{{section.url}}">{{section.title}}</a></li>
+                </ul>
+            </li>
+        </ul>
+        <!-- Other Links -->
+        <ul class="nav pull-right"></ul>
+    </div>
+</nav>

@@ -1,0 +1,49 @@
+@charset "UTF-8";
+
+@import 'sliderGalleryBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+@include exports("widthDiff", 0);
+@include exports("heightDiff", 0);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.galleryslider.SliderDisplayerNoArrows");
+@include exports("imageItem:styleGroup", "inherit");
+
+#itemsContainer {
+  @include abs-distance(0);
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.arr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50px;
+  cursor: pointer;
+}
+
+#autoplay {
+  display: none;
+}
+
+#swipeLeftHitArea {
+  left: 0;
+}
+
+#swipeRightHitArea {
+  right: 0;
+}
+
+#swipeLeftHitArea:hover {
+
+}
+
+#swipeRightHitArea:hover {
+
+}
+

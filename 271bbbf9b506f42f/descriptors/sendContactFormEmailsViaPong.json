@@ -1,0 +1,8 @@
+{
+    "owner": "lidanh",
+    "description": "send contact form emails via pong service",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

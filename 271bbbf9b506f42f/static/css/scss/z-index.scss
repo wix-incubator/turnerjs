@@ -1,0 +1,129 @@
+//All z-index for all viewer components
+
+$zindex-eplayer-framed-play-player-after: -1;
+$zindex-eplayer-framed-play-slider-after: -1;
+$zindex-eplayer-large-play-player-after: -1;
+$zindex-eplayer-large-play-slider-after: -1;
+$zindex-eplayer-round-play-player-after: -1;
+$zindex-eplayer-round-play-slider-after: -1;
+$zindex-single-audio-player-skin-player-after: -1;
+$zindex-single-audio-player-skin-slider-after: -1;
+$zindex-tiny-menu-skin-menuContainer-hidden: -1;
+
+$zindex-blogs-slider-show-span-after-autoplay: 0;
+$zindex-slide-show-clean-and-simple-span-after-autoplay: 0;
+$zindex-slide-show-clean-and-simple-2-span-after-autoplay: 0;
+$zindex-slide-show-iron-span-after-autoplay: 0;
+$zindex-slide-show-scotch-tape-span-after-autoplay: 0;
+$zindex-slide-show-gallery-lifted-shadow-skin-span-after-autoplay: 0;
+$zindex-slide-show-text-floating-autoplayOff-span-after-autoplay: 0;
+$zindex-slide-show-text-floating-autoplayOn-span-after-autoplay: 0;
+$zindex-slide-show-text-overlay-span-after-autoplay: 0;
+$zindex-slide-show-text-text-right-span-after-autoplay: 0;
+$zindex-image-button-skin-link: 0;
+$zindex-rssbutton-skin-link: 0;
+$zindex-youtube-subscribe-button-skin-youtube-iframe: 0;
+$zindex-sloopy-matrix-gallery-skin-base: 0;
+
+$zindex-subscribe-from-box-layout-shiny-span-in-li: 1;
+$zindex-image-button-skin-transition-fade: 1;
+$zindex-gallery-matrix-displayer-sloppy-host-before: 1;
+$zindex-gallery-matrix-displayer-sloppy-host-after: 1;
+$zindex-rssbutton-skin-transition-fade-image: 1;
+$zindex-youtube-subscribe-button-skin-hover-mode: 1;
+$zindex-multi-selection-skin-dropdown: 1;
+$zindex-menu-button-skin-button-icon-after-host: 1;
+$zindex-menu-button-skin-button-bult-after-host: 1;
+$zindex-service-item-skin-button-icon-after-host: 1;
+$zindex-domain-search-bar-skin-suffix-dropdown: 1;
+
+$zindex-gallery-matrix-displayer-sloppy-zoom: 2;
+$zindex-rssbutton-skin-prepare-adh-active-image: 2;
+$zindex-tiny-menu-skin: 2;
+$zindex-tiny-menu-skin-menuContainer: 2;
+$zindex-image-button-skin-prepare-adh-active: 2;
+
+$zindex-gallery-matrix-displayer-sloppy-link: 3;
+$zindex-rssbutton-skin-prepare-adh-hover-image: 3;
+$zindex-image-button-skin-prepare-adh-hover: 3;
+
+$zindex-image-button-skin-link-after: 5;
+$zindex-rssbutton-skin-link-after: 5;
+
+$zindex-back-to-top-button-host: 10;
+$zindex-box-slide-show-skin: 10;
+$zindex-youtube-subscribe-button-skin-hit-out-vertical: 10;
+$zindex-youtube-subscribe-button-skin-hit-out-horizontal: 10;
+
+$zindex-link-bar-items-skin-image: 10;
+$zindex-admin-login-skin-host: 10;
+
+//RESERVED: z-index 49 (fixed comps rendered in absolute in editor)
+$zindex-screen-width-base-fixedPosition: 50;
+//RESERVED: z-index 50 for fixed position components, not through skins - but through fixedPositionRenderPlugin
+
+$zindex-app-controller: 70;
+
+$zindex-mobile-actions-menu-skin-wrapper: 98;
+$zindex-mobile-actions-menu-skin-lists: 98;
+
+$zindex-message-viewer-skin-host: 99;
+$zindex-mobile-message-viewer-skin-host: 99;
+$zindex-ecoms-checkout-message-dialog-skin-host: 99;
+$zindex-mobile-try-again-message-view-skin-host: 99;
+$zindex-password-login-skin-host: 99;
+$zindex-password-login-skin-mobile: 99;
+$zindex-smc-container-skin-host: 99;
+$zindex-smc-container-skin-mobile: 99;
+$zindex-try-again-message-viewer-skin-host: 99;
+
+$zindex-aspect-container-mobile-media-zoom: 100;
+
+
+$zindex-media-zoom-skin-xbutton: 500;
+$zindex-mobile-media-zoom-skin-host: 500;
+$zindex-non-optimized-media-zoom-skin-host: 500;
+
+$zindex-mobile-media-zoom-skin-dialogBox: 1000;
+
+$zindex-dialogs-host: 100001;
+$zindex-dialogs-mobile: 100001;
+
+$zindex-vertical-menu-arrow-skin-sub-menu: 999;
+$zindex-vertical-menu-ribbon-skin-sub-menu: 999;
+$zindex-vertical-menu-separated-button-fixed-width-skin-sub-menu: 999;
+$zindex-vertical-menu-separated-button-skin-sub-menu: 999;
+$zindex-vertical-menu-solid-color-skin-sub-menu: 999;
+$zindex-vertical-menu-solid-color-skin-sub-menu-before: 999;
+$zindex-vertical-menu-text-skin-sub-menu: 999;
+$zindex-vertical-menu-text-with-separators-skin-sub-menu: 999;
+$zindex-wix-ads-site-preview-skin-mobile-footerLabel: 999;
+$zindex-wix-ads-web-skin-mobile-Ad: 999;
+$zindex-wix-ads-web-skin-desktop-WAD-bottom: 999;
+$zindex-wix-ads-web-skin-desktop-WAD-top: 999;
+$zindex-area-tooltip-skin-tooltip: 999;
+
+$zindex-vertical-menu-arrow-skin-arrow-wrapper: 1000;
+$zindex-mobile-actions-menu-wrapper: 1000;
+
+$zindex-date-picker-calendar: 1002;
+
+$zindex-full-screen-overlay: 1005;
+
+$zindex-drop-down-menu-base-dropWrapper: 99999;
+$zindex-lines-menu-button-skin-moreContainer: 99999;
+$zindex-arrows-menu-nskin-more-container: 99999;
+$zindex-separate-arrows-down-menu-nskin-more-container: 99999;
+$zindex-separate-arrows-menu-nskin-more-container: 99999;
+$zindex-arrows-menu-skin-more-container: 99999;
+$zindex-circle-menu-skin-more-container: 99999;
+$zindex-separate-arrows-down-menu-skin-more-container: 99999;
+$zindex-separate-arrows-menu-skin-more-container: 99999;
+$zindex-package-picker-skin-tooltip: 99999;
+$zindex-media-zoom-skin-host: 99999;
+
+$zindex-tpa-modal-skin-host: 100000;
+$zindex-tpa-popup-skin-host: 100000;
+
+// NOTE: z-index 2147483646 is for the blocking layer (when pined component is edited)
+// NOTE: z-index 2147483647 is for the current component in showCompOnTopRenderPlugin - and this is the MAX SUPPORTED Z-INDEX

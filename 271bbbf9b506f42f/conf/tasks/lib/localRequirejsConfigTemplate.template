@@ -1,0 +1,30 @@
+
+var window = {
+  location: {
+    href: '',
+    search: ''
+  }
+}
+
+<%= rjsConfig %>
+
+const domain = 'https://static.parastorage.com/'
+const rjsConfig = getViewerRjsConfig.default({scriptsDomainUrl: domain})
+
+const isObj = o => Object(o) === o
+const isStr = s => typeof s === 'string'
+
+const fixPath = (obj, key) => {
+  obj[key] = obj[key].replace(domain + 'services/third-party/', 'js/vendor/')
+}
+
+const fixPaths = obj => {
+  Object.keys(obj).forEach(key => {
+    if (isStr(obj[key])) fixPath(obj, key)
+    if (isObj(obj[key])) fixPaths(obj[key])
+  })
+}
+
+fixPaths(rjsConfig)
+
+rjsConfig

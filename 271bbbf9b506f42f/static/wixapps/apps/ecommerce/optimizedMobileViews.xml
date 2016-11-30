@@ -1,0 +1,829 @@
+<views descriptor="descriptor.json" xmlns="views-schema.xsd">
+    <view for-type="ItemsList" name="Default" format="Mobile" vars="innerItemHeight:128;itemMargin:20;itemMarginDifference:10;rows:5;actualRows:{if(lt($rows, Array.length(items)), $rows, Array.length(items))}">
+        <vbox>
+            <gallery data="items" columns="1" gap="{$itemMargin}" rows="{$actualRows}" showNavigation="false" showCounter="false" styleNS="productGallery" layout="height:{sub(mult($actualRows, add($innerItemHeight, $itemMargin)), $itemMargin)}">
+                <templates>
+                    <item>
+                        <use view="Default" />
+                    </item>
+                </templates>
+            </gallery>
+            <button2 id="showMoreText" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT@" hidden="{lte(Array.length(items), $rows)}" layout="margin-top:{$itemMarginDifference};">
+                <events>
+                    <event original="click">load-more</event>
+                </events>
+            </button2>
+        </vbox>
+        <customizations>
+            <textfield format="Mobile" priority="200" fieldId="showMoreText" key="label" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT_PANEL@" />
+            <slider format="Mobile" fieldId="vars" key="itemMargin" label="@ECOM_GALLERY_ITEM_SPACING_PANEL@" minVal="0" maxVal="100"/>
+            <slider format="Mobile" fieldId="vars" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <!--<slider format="Mobile" fieldId="vars" key="innerItemHeight" label="@ECOM_GALLERY_ITEM_HEIGHT_PANEL@" minVal="120" maxVal="200" />-->
+        </customizations>
+    </view>
+
+    <view for-type="ItemsList" name="SimpleClean" format="Mobile" vars="innerItemHeight:128;itemMargin:20;itemMarginDifference:10;rows:5;actualRows:{if(lt($rows, Array.length(items)), $rows, Array.length(items))}">
+        <vbox>
+            <gallery data="items" columns="1" gap="{$itemMargin}" rows="{$actualRows}" showNavigation="false" showCounter="false" styleNS="productGallery" layout="height:{sub(mult($actualRows, add($innerItemHeight, $itemMargin)), $itemMargin)}">
+                <templates>
+                    <item>
+                        <use view="SimpleClean" />
+                    </item>
+                </templates>
+            </gallery>
+            <button2 id="showMoreText" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT@" hidden="{lte(Array.length(items), $rows)}" layout="margin-top:{$itemMarginDifference}">
+                <events>
+                    <event original="click">load-more</event>
+                </events>
+            </button2>
+        </vbox>
+        <customizations>
+            <textfield format="Mobile" priority="200" fieldId="showMoreText" key="label" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT_PANEL@" />
+            <slider format="Mobile" fieldId="vars" key="itemMargin" label="@ECOM_GALLERY_ITEM_SPACING_PANEL@" minVal="0" maxVal="100"/>
+            <slider format="Mobile" fieldId="vars" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <!--<slider format="Mobile" fieldId="vars" key="innerItemHeight" label="@ECOM_GALLERY_ITEM_HEIGHT_PANEL@" minVal="120" maxVal="200" />-->
+        </customizations>
+    </view>
+
+    <view for-type="ItemsList" name="Polaroid" format="Mobile" vars="innerItemHeight:128;itemMargin:20;itemMarginDifference:10;rows:5;actualRows:{if(lt($rows, Array.length(items)), $rows, Array.length(items))}">
+        <vbox>
+            <gallery data="items" columns="1" gap="{$itemMargin}" rows="{$actualRows}" showNavigation="false" showCounter="false" styleNS="productGallery" layout="height:{sub(mult($actualRows, add($innerItemHeight, $itemMargin)), $itemMargin)}">
+                <templates>
+                    <item>
+                        <use view="Polaroid" />
+                    </item>
+                </templates>
+            </gallery>
+            <button2 id="showMoreText" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT@" hidden="{lte(Array.length(items), $rows)}" layout="margin-top:{$itemMarginDifference}">
+                <events>
+                    <event original="click">load-more</event>
+                </events>
+            </button2>
+        </vbox>
+        <customizations>
+            <textfield format="Mobile" priority="200" fieldId="showMoreText" key="label" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT_PANEL@" />
+            <slider format="Mobile" fieldId="vars" key="itemMargin" label="@ECOM_GALLERY_ITEM_SPACING_PANEL@" minVal="0" maxVal="100"/>
+            <slider format="Mobile" fieldId="vars" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <!--<slider format="Mobile" fieldId="vars" key="innerItemHeight" label="@ECOM_GALLERY_ITEM_HEIGHT_PANEL@" minVal="120" maxVal="200" />-->
+        </customizations>
+    </view>
+
+    <view for-type="ItemsList" name="PicsOnly" format="Mobile" vars="innerItemHeight:128;itemMargin:20;itemMarginDifference:10;rows:5;actualRows:{if(lt($rows, Array.length(items)), $rows, Array.length(items))}">
+        <vbox>
+            <gallery data="items" columns="1" gap="{$itemMargin}" rows="{$actualRows}" showNavigation="false" showCounter="false" styleNS="productGallery" layout="height:{sub(mult($actualRows, add($innerItemHeight, $itemMargin)), $itemMargin)}">
+                <templates>
+                    <item>
+                        <use view="PicsOnly" />
+                    </item>
+                </templates>
+            </gallery>
+            <button2 id="showMoreText" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT@" hidden="{lte(Array.length(items), $rows)}" layout="margin-top:{$itemMarginDifference}">
+                <events>
+                    <event original="click">load-more</event>
+                </events>
+            </button2>
+        </vbox>
+        <customizations>
+            <textfield format="Mobile" priority="200" fieldId="showMoreText" key="label" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT_PANEL@" />
+            <slider format="Mobile" fieldId="vars" key="itemMargin" label="@ECOM_GALLERY_ITEM_SPACING_PANEL@" minVal="0" maxVal="100"/>
+            <slider format="Mobile" fieldId="vars" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <!--<slider format="Mobile" fieldId="vars" key="innerItemHeight" label="@ECOM_GALLERY_ITEM_HEIGHT_PANEL@" minVal="120" maxVal="200" />-->
+        </customizations>
+    </view>
+
+    <view for-type="ItemsList" name="Gallery" format="Mobile" vars="innerItemHeight:128;itemMargin:20;itemMarginDifference:10;rows:5;actualRows:{if(lt($rows, Array.length(items)), $rows, Array.length(items))}">
+        <vbox>
+            <gallery data="items" columns="1" gap="{$itemMargin}" rows="{$actualRows}" showNavigation="false" showCounter="false" styleNS="contentGallery" layout="height:{sub(mult($actualRows, add($innerItemHeight, $itemMargin)), $itemMargin)}">
+                <templates>
+                    <item>
+                        <use view="Gallery" />
+                    </item>
+                </templates>
+            </gallery>
+            <button2 id="showMoreText" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT@" hidden="{lte(Array.length(items), $rows)}" layout="margin-top:{$itemMarginDifference}">
+                <events>
+                    <event original="click">load-more</event>
+                </events>
+            </button2>
+        </vbox>
+        <customizations>
+            <textfield format="Mobile" priority="200" fieldId="showMoreText" key="label" label="@ECOM_GALLERY_SHOW_MORE_BUTTON_TEXT_PANEL@" />
+            <slider format="Mobile" fieldId="vars" key="itemMargin" label="@ECOM_GALLERY_ITEM_SPACING_PANEL@" minVal="0" maxVal="100"/>
+            <slider format="Mobile" fieldId="vars" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <!--<slider format="Mobile" fieldId="vars" key="innerItemHeight" label="@ECOM_GALLERY_ITEM_HEIGHT_PANEL@" minVal="120" maxVal="200" />-->
+        </customizations>
+    </view>
+
+    <view for-type="ProductBundle" name="Default|SimpleClean|Polaroid|PicsOnly" format="Mobile">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.items" css="border-width:0;">
+            <vbox>
+                <spacer size="10"/>
+                <hbox>
+                    <spacer size="10"/>
+                    <box layout="width:100;height:100;position:relative;">
+                        <image data="currentImage" imageMode="fill" layout="position:absolute;top:0;left:0;right:0;bottom:0;width:100;height:100" cssClass="pic"/>
+                        <box id="ribbonContainer" cssClass="ribbon" hidden="{eq(ribbon,'')}" layout="width:auto;position:absolute;top:20;padding:10;left:0;right:0;">
+                            <label data="ribbon" layout="text-align:center" singleLine="true" />
+                        </box>
+                    </box>
+                    <spacer size="10"/>
+                    <switchbox data="$viewName" layout="box-flex:1" >
+                        <case name="Polaroid">
+                            <clippedparagraph2 max-chars="150" data="title" id="title" layout="box-flex:1;spacerAfter:5" cssClass="txtHoverColor"/>
+                            <clippedparagraph2 max-chars="150" id="outOfStockTitle" value="@ECOM_GALLERY_OUT_OF_STOCK_TEXT@"
+                                              layout="box-flex:1;spacerAfter:5" hidden="{not(and(outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStockMobile"/>
+                            <label hidden="{String.isEmpty(retailPrice)}" data="retailPrice" lineThrough="true" cssClass="txtHoverColor"/>
+                            <label data="price" cssClass="txtHoverColor"/>
+                        </case>
+                        <default>
+                            <clippedparagraph2 max-chars="150" data="title" id="title" layout="box-flex:1;spacerAfter:5" cssClass="txtHoverColor"/>
+                            <clippedparagraph2 max-chars="150" id="outOfStockTitle" value="@ECOM_GALLERY_OUT_OF_STOCK_TEXT@"
+                                              layout="box-flex:1;spacerAfter:5" hidden="{not(and(outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStockMobile"/>
+                            <label hidden="{String.isEmpty(retailPrice)}" data="retailPrice" lineThrough="true" cssClass="txtHoverColor"/>
+                            <label data="price" cssClass="txtHoverColor"/>
+                        </default>
+                    </switchbox>
+                    <spacer size="10"/>
+                </hbox>
+                <spacer size="10"/>
+            </vbox>
+        </zoomlink>
+        <customizations>
+            <combobox format="Mobile" fieldId="currentImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" priority="40">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+            <!--<slider format="Mobile" fieldId="ribbonSpacer" key="size" label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" minVal="5" maxVal="40"/>
+            <slider format="Mobile" fieldId="ribbonMarginTop" key="layout.top" label="@ECOM_GALLERY_RIBBON_POSITION_PANEL@" minVal="0" maxVal="75"/>-->
+
+
+            <slider label="@ECOM_GALLERY_RIBBON_VERTICAL_POSITION_PANEL@" format="Mobile" fieldId="ribbonContainer" key="layout.top" minVal="0" maxVal="75"/>
+            <slider label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" format="Mobile" fieldId="ribbonContainer" key="layout.padding" minVal="0" maxVal="30" />
+        </customizations>
+    </view>
+
+
+
+
+    <view for-type="ProductBundle" name="Gallery" format="Mobile">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.items" css="border-width:0;">
+            <vbox>
+                <spacer size="10"/>
+                <hbox>
+                    <spacer size="10"/>
+                    <box layout="width:100">
+                        <stack stackType="layout" layout="height:100px;width:100px;">
+                            <use view="ImageWithRibbonFill" />
+                            <use view="ProductGalleryRibbon" data="ribbon" layout="width:100%" />
+                        </stack>
+                    </box>
+                    <spacer size="10"/>
+                    <vbox layout="box-flex:1">
+                        <clippedparagraph2 max-chars="150" data="title" layout="box-flex:1;spacerAfter:5"/>
+                        <clippedparagraph2 max-chars="150" id="outOfStockTitle" value="@ECOM_GALLERY_OUT_OF_STOCK_TEXT@"
+                                          layout="box-flex:1;spacerAfter:5" hidden="{not(and(outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStockMobile"/>
+                        <label data="price" />
+                        <label hidden="{String.isEmpty(retailPrice)}" data="retailPrice" lineThrough="true" />
+                    </vbox>
+                    <spacer size="10"/>
+                </hbox>
+                <spacer size="10"/>
+            </vbox>
+        </zoomlink>
+    </view>
+
+
+    <view for-type="ProductBundle" name="ImageWithRibbonFill" format="Mobile">
+        <vbox>
+            <image data="currentImage" imageMode="fill" layout="width:100;height:100" style="wp2" />
+        </vbox>
+        <customizations>
+            <combobox format="Mobile" fieldId="currentImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" priority="40">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="String" name="ProductGalleryRibbon" format="Mobile">
+        <vbox hidden="{String.isEmpty(this)}" css="width:100%">
+            <spacer id="ribbonMarginTop" size="65"/>
+            <area id="ribbonContainer">
+                <vbox id="ribbon" cssClass="ribbon">
+                    <spacer id="ribbonSpacer" size="10"/>
+                    <label layout="text-align:center" singleLine="true" />
+                    <spacer id="ribbonSpacer" size="10"/>
+                </vbox>
+            </area>
+        </vbox>
+    <customizations>
+        <slider format="Mobile" fieldId="ribbonSpacer" key="size" label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" minVal="5" maxVal="40"/>
+        <slider format="Mobile" fieldId="ribbonMarginTop" key="size" label="@ECOM_GALLERY_RIBBON_POSITION_PANEL@" minVal="0" maxVal="75"/>
+    </customizations>
+    </view>
+
+    <!-- ################ Mobile Expand ################ -->
+
+    <view for-type="ProductBundle" name="Zoom|ZoomImageCenterWide|ZoomImageCenter|ZoomImageLeft|ZoomGalleryLeft" format="Mobile">
+        <vbox css="text-align:left; background-color:white;width:100%;">
+            <hbox>
+                <vbox layout="box-flex:1;spacer:12">
+                    <spacer size="70" />
+
+                    <switchbox data="productMedia._type">
+                        <case name="wix:Image">
+                            <use view="ImageProductMediaWithRibbon" layout="height:250; width:100%" />
+                        </case>
+                        <case name="wix:Video"><use view="VideoProductMedia" data="productMedia" layout="height:250; width:100%"/></case>
+                        <default/>
+                    </switchbox>
+
+                    <switchbox value="{lt(imagesCount,2)}">
+                        <case name="false">
+                            <use view="InsideSliderGallery" layout="spacerBefore:20; overflow:hidden;width:100%;height:90;"/>
+                        </case>
+                        <default/>
+                    </switchbox>
+
+                    <spacer size="10"/>
+                    <hline style="hl4"/>
+                    <use view="ZoomDetails" layout="box-flex:1"/>
+                </vbox>
+            </hbox>
+            <use view="Header" data="title"/>
+            </vbox>
+    </view>
+
+    <view for-type="ProductBundle" name="ZoomDetails" format="Mobile">
+        <vbox>
+            <label data="overview" style="Body S" layout="spacer:7;" hidden="{String.isEmpty(overview)}"/>
+            <hline style="hl4" hidden="{String.isEmpty(overview)}"/>
+            <list2 data="options" hidden="{Array.isEmpty(options)}" isStyleEditable="false" styleNS="ecomOptionsList"/>
+            <hbox layout="spacerAfter:8;spacerBefore:8;" box-align="center">
+                <!--<spacer size="8" hidden="{and(eq(!Array.length(options), 0), !String.isEmpty(retailPrice)}"/>-->
+                <label data="price" layout="box-flex:1" style="Body L"/>
+                <label hidden="{String.isEmpty(retailPrice)}" data="retailPrice" lineThrough="true" style="Body S"/>
+            </hbox>
+            <hline style="hl4"/>
+            <use view="ProductZoomAddToCartButton" layout="spacer:7"/>
+            <clippedparagraph2 max-chars="150" id="outOfStockTitle" value="@ECOM_GALLERY_OUT_OF_STOCK_TEXT@"
+                              layout="spacerBefore:10;height:40;width:100%;text-align:center" hidden="{not(and(outOfStock, $expOutOfStockOpen))}" color="#e4523f"/>
+            <label data="details" style="Body S" layout="spacer:7"/>
+            <switchbox value="{lt(String.length(details),200)}" layout="box-flex:1">
+                <case name="false">
+                    <use view="ProductZoomAddToCartButton" layout="spacer:7"/>
+                    <clippedparagraph2 max-chars="150" id="outOfStockTitle" value="@ECOM_GALLERY_OUT_OF_STOCK_TEXT@"
+                                      layout="spacerBefore:10;height:40;width:100%;text-align:center" hidden="{not(and(outOfStock, $expOutOfStockOpen))}" color="#e4523f"/>
+                </case>
+                <default/>
+            </switchbox>
+            <spacer size="5"/>
+            <use view="SocialButtons"/>
+        </vbox>
+    </view>
+
+    <view for-type="ProductBundle" name="ProductZoomAddToCartButton" format="Mobile">
+        <button2 id="addToCartTitle" label="@ECOM_PRODUCT_PAGE_ADD_TO_CART_BTN_TEXT@" styleNS="ecomAddProduct" height="40" hidden="{and(outOfStock, $expOutOfStockOpen)}">
+            <events>
+                <event original="click">buy-product</event>
+            </events>
+        </button2>
+    </view>
+
+    <view for-type="String" name="Header">
+        <stylesheet>
+            .oneLineText * span {width: 240px;display: inline-block;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+        </stylesheet>
+        <hbox css="height:43px;background-color:#777777; position:fixed; top:0; left:0; right:0;transform:translate3d(0, 0, 0)">
+            <hbox box-align="middle" layout="width:100%; height:100%; spacerAfter:43; background-color:#393939;">
+                <!--<clippedparagraph minLines="1" maxLines="1" layout="spacer:8;width:240" data="this" id="title" style="Body L" color="#ffffff" bold="true"/>-->
+                <label layout="spacer:8;width:240;height:21" cssClass="oneLineText" data="this" id="title" style="Body L" color="#ffffff" bold="true"/>
+            </hbox>
+        </hbox>
+    </view>
+
+    <view for-type="ProductBundle" name="ImageProductMediaWithRibbon" format="Mobile">
+        <stack stackType="layout">
+            <use view="ImageProductMedia" data="productMedia" layout="width:100%; height:250" />
+            <switchbox value="{String.isEmpty(ribbon)}" layout="width:100%">
+                <case name="true"/>
+                <default>
+                    <use view="GalleryRibbon" data="ribbon" vars="isProductGallery:false;" layout="box-flex:1;height:250"/>
+                </default>
+            </switchbox>
+        </stack>
+    </view>
+
+    <view name="InnerRibbon" for-type="String" format="Mobile">
+        <vbox>
+            <hbox css="width:100%;">
+                <area layout="box-flex:1">
+                    <spacer id="ribbonInnerPadding" size="10"/>
+                    <label data="this" layout="text-align:center;margin:0 10px"/>
+                    <spacer id="ribbonInnerPadding" size="10"/>
+                </area>
+            </hbox>
+        </vbox>
+        <customizations>
+            <slider fieldId="ribbonInnerPadding" key="size" format="Mobile" label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" minVal="5" maxVal="60"/>
+        </customizations>
+    </view>
+
+    <view name="GalleryRibbon" for-type="String" format="Mobile" vars="alignment:center;">
+        <vbox>
+            <spacer size="200" id="ribbonSpacerTop"/>
+            <switchbox data="$alignment">
+                <case name="left">
+                    <hbox layout="width:100%;" css="min-width:150px;">
+                        <use view="InnerRibbon" layout="spacerAfter:*"/>
+                    </hbox>
+                </case>
+                <case name="right">
+                    <hbox layout="width:100%;" css="min-width:150px;">
+                        <use view="InnerRibbon" layout="spacerBefore:*"/>
+                    </hbox>
+                </case>
+                <default>
+                    <hbox layout="width:100%;">
+                        <use view="InnerRibbon" layout="box-flex:1"/>
+                    </hbox>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="alignment">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <slider fieldId="ribbonSpacerTop" key="size" format="Mobile" label="@ECOM_GALLERY_RIBBON_POSITION_PANEL@" minVal="0" maxVal="220"/>
+        </customizations>
+    </view>
+
+    <view for-type="wix:Video" name="VideoProductMedia" format="Mobile">
+        <vbox>
+            <fixedratio aspectRatio="1">
+                <video id="productVideo" data="this" layout="width:100%;height:250" showControls="show" autoplay="false" loop="false" showinfo="false" lightTheme="false"/>
+            </fixedratio>
+        </vbox>
+        <customizations>
+            <combobox label="@ECOM_PRODUCT_VIDEO_CONTROL_BAR_PANEL@" fieldId="productVideo" key="showControls" priority="58" spaceAfter="10">
+                <option label="@ECOM_PRODUCT_VIDEO_SHOW_CONTROL_BAR_OPT_PANEL@" value="show"/>
+                <option label="@ECOM_PRODUCT_VIDEO_HIDE_CONTROL_BAR_OPT_PANEL@" value="hide"/>
+                <option label="@ECOM_PRODUCT_VIDEO_AUTO_HIDE_CONTROL_BAR_OPT_PANEL@" value="autohide"/>
+            </combobox>
+            <checkbox label="@ECOM_PRODUCT_VIDEO_AUTOPLAY_PANEL@" fieldId="productVideo" key="autoplay" trueVal="true" falseVal="false" defaultVal="false" priority="56" spaceAfter="10"/>
+            <checkbox label="@ECOM_PRODUCT_VIDEO_LOOP_PANEL@" fieldId="productVideo" key="loop" trueVal="true" falseVal="false" defaultVal="false" priority="54" spaceAfter="10"/>
+            <checkbox label="@ECOM_PRODUCT_VIDEO_SHOW_INFO_PANEL@" fieldId="productVideo" key="showinfo" trueVal="true" falseVal="false" defaultVal="false" priority="53" spaceAfter="10"/>
+            <checkbox label="@ECOM_PRODUCT_VIDEO_LIGHT_THEME_PANEL@" fieldId="productVideo" key="lightTheme" trueVal="true" falseVal="false" defaultVal="false" priority="52" spaceAfter="10"/>
+        </customizations>
+    </view>
+
+    <view for-type="wix:Image" name="ImageProductMedia" format="Mobile">
+        <vbox>
+            <image id="productZoomImage" data="this" imageMode="full" layout="height:250; width:100%" style="wp2"/>
+        </vbox>
+        <customizations>
+            <combobox fieldId="productZoomImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" format="Mobile" priority="40">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+        </customizations>
+    </view>
+
+
+    <view for-type="OptionItem" name="ZoomDetails" format="Mobile" vars="optionSelected:true">
+        <vbox pack="start" cssClass="{if($optionSelected, 'selectionClass', 'noSelectionClass')}">
+            <hbox layout="spacerBefore:15" box-align="baseline">
+                <label hidden="{$optionSelected}" value="!" bold="true" color="#ffffff" layout="width:20; height:20; text-align:center; border-radius:50%; background:red" />
+                <spacer size="5" hidden="{$optionSelected}" />
+                <label id="optionsLabel" data="title" style="Body L" bold="true"/>
+            </hbox>
+            <spacer id="optionSpacerBottom" size="7"/>
+            <use view="ProductOption" layout="width:100%"/>
+            <!--
+                ok, the next line goes like this:
+                - if this option is not the last - hide the line
+                - if this option is the last - show the line. BUT! if the optionSelected is false (means not valid), hide the line
+             -->
+            <hline style="hl4" hidden="{or(ne(Array.length(parent.parent.options), add($indexInParent, 1)), not($optionSelected))}"/>
+        </vbox>
+        <stylesheet>
+            .selectionClass {}
+            .noSelectionClass {background-color:#fce4e5; margin: 0px -10px; padding:0 2px 0 10px;  Box-sizing:Border-box}
+        </stylesheet>
+    </view>
+
+    <!--<view for-type="wix:Image" name="Zoom" format="Mobile">-->
+        <!--<vbox>-->
+            <!--<image data="this" layout="box-flex:1" imageMode="fill"/>-->
+        <!--</vbox>-->
+    <!--</view>-->
+
+    <view for-type="OptionsList" name="ProductOption" format="Mobile">
+        <vbox>
+            <selectoptions skin="ecommerce.skins.mcom.MobileSelectOptionsListSkin" validationVar="optionSelected" isStyleEditable="false" optionSkin="{if(eq(optionType,'text'),'ecommerce.skins.mcom.MobileTextOptionSkin','ecommerce.skins.mcom.MobileColorOptionSkin')}" optionComp="{if(eq(optionType,'text'),'ecommerce.integration.components.MobileTextOption','ecommerce.integration.components.MobileColorOption')}">
+                <events>
+                    <event original="selectionChanged">productOptionChanged</event>
+                </events>
+            </selectoptions>
+        </vbox>
+    </view>
+
+    <view for-type="EcomTextOption" name="ProductOption" format="Mobile">
+        <vbox pack="start">
+            <textarea validationVar="optionSelected" data="text" maxLength="300" css="width:100%" styleNS="ecomTextArea" isStyleEditable="false" skin="ecommerce.skins.mcom.MobileTextAreaInputSkin" layout="spacerAfter:15" >
+                <events>
+                    <event original="inputChanged">textAreaOptionChanged</event>
+                </events>
+            </textarea>
+        </vbox>
+    </view>
+
+    <view for-type="ComboOptionsList" name="ProductOption" format="Mobile">
+        <vbox pack="start">
+            <combobox validationVar="optionSelected" hasPrompt="true" styleNS="ecomComboBox" isStyleEditable="false" skin="ecommerce.skins.mcom.MobileDropDownInputSkin2" layout="height:25;spacerBefore:5;spacerAfter:15">
+                <events>
+                    <event original="selectionChanged">productOptionChanged</event>
+                </events>
+            </combobox>
+        </vbox>
+    </view>
+
+
+    <view for-type="JoinedCart" name="Joined" format="Mobile">
+        <vbox>
+            <switchbox data="cart.itemsCount">
+                <case name="0">
+                    <use view="Empty" data="cart"/>
+                </case>
+                <default>
+                    <use view="Populated"/>
+                </default>
+            </switchbox>
+        </vbox>
+    </view>
+
+    <view for-type="Cart" name="Empty" format="Mobile">
+        <area styleNS="ecomEmptyCartBG">
+            <vbox layout="height:150" id="emptyCartBGBox" box-align="center">
+                <label id="emptyCartLbl" value="@ECOM_YOUR_SHOPPING_CART_IS_EMPTY_TEXT@" layout="text-align:center;spacerBefore:*"/>
+                <image layout="margin:10px auto; height:60px; width:70px;spacerAfter:*" data="emptyCartImage"/>
+            </vbox>
+        </area>
+    </view>
+
+    <view for-type="JoinedCart" name="Populated" format="Mobile">
+        <vbox css="text-align:left;">
+            <use view="Joined" data="cart"/>
+            <spacer id="cartCouponSpacer" size="0"/>
+            <use view="Summary" data="cart"/>
+            <spacer id="couponCheckoutSpacer" size="0"/>
+            <use view="CompactJoined" data="checkout"/>
+        </vbox>
+        <customizations>
+            <slider priority="53" fieldId="cartCouponSpacer" format="Mobile" label="@ECOM_CART_AND_TOTAL_SPACING_PANEL@" key="size" minVal="0" maxVal="20"/>
+            <slider priority="52" fieldId="couponCheckoutSpacer" format="Mobile" label="@ECOM_TOTAL_AND_CHECKOUT_SPACING_PANEL@" key="size" minVal="0" maxVal="20"/>
+        </customizations>
+    </view>
+
+    <view for-type="Cart" name="Joined" format="Mobile">
+        <vbox>
+            <list2 data="items" skin="ecommerce.skins.mcom.MobileVerticalRepeaterSkin">
+                <templates>
+                    <item>
+                        <vbox css="spacer:7;box-flex:1;">
+                            <use view="CartItem"/>
+                        </vbox>
+                    </item>
+                </templates>
+            </list2>
+        </vbox>
+    </view>
+
+    <view for-type="ProductItem" name="CartItem" format="Mobile">
+        <stylesheet>
+            .mobileQty input { font-weight:bold; -webkit-appearance: none; border-radius: 0;}
+            .mobileQty input::-webkit-outer-spin-button {}
+            .mobileQty input::-webkit-inner-spin-button {-webkit-appearance: none;margin: 0;}
+        </stylesheet>
+        <hbox css="padding-left:10">
+            <vbox layout="spacerAfter:10">
+                    <image data="image" id="cartProductImage" imageMode="fill" layout="height:115;width:115"/>
+                    <numericstepper data="quantityRange" cssClass="mobileQty" layout="width:115;spacerBefore:10" style="nums2">
+                        <events>
+                            <event original="inputChanged">qty-input-changed</event>
+                            <event original="blur">qty-input-blur</event>
+                            <event original="validationFailed">qty-invalid-value</event>
+                        </events>
+                    </numericstepper>
+            </vbox>
+            <vbox layout="box-flex:1;width:133;spacerAfter:10">
+                <hbox box-align="top">
+                    <label style="Body S" bold="true" data="title" layout="box-flex:1"/>
+                    <button2 layout="width:30;height:30;spacerBefore:10" label="✖" >
+                        <events>
+                            <event original="mousedown">button-down</event>
+                        </events>
+                    </button2>
+                </hbox>
+                <list2 data="optionsDescription" styleNS="ecomOptionsList" isStyleEditable="false" layout="spacerBefore:10">
+                    <templates>
+                        <item>
+                            <vbox hidden="{String.isEmpty(description)}">
+                                <label value="{String.concat(title, ':')}" hidden="{String.isEmpty(title)}" style="Body S"/>
+                                <label data="description" showTooltip="true" style="Body S"/>
+                                <spacer size="5"/>
+                            </vbox>
+                        </item>
+                    </templates>
+                </list2>
+                <label bold="true" data="price" layout="text-align:right;spacerBefore:*;spacerAfter:0;"/>
+            </vbox>
+        </hbox>
+        <customizations>
+            <combobox fieldId="cartProductImage" key="imageMode" format="Mobile" label="@ECOM_IMAGE_MODE_PANEL@" priority="40">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+        </customizations>
+    </view>
+
+
+    <!--Checkout Button inside Joined Cart until expressions will be ready-->
+    <view for-type="CheckoutButton" name="CompactJoined" format="Mobile">
+        <hbox>
+            <button data="checkoutButtonLink" label="@ECOM_CHECKOUT_BTN_TEXT@" margin="1" align="center" layout="box-flex:1; height:50;" styleNS="ecomCheckout"/>
+            <events>
+                <event original="click">click-checkout</event>
+            </events>
+        </hbox>
+    </view>
+
+    <!--Coupon Box-->
+    <view  for-type="Cart" name="Summary" css="min-width:100%;" format="Mobile">
+        <area styleNS="ecomCouponBox">
+            <vbox>
+                <hbox hidden="{not(hasCoupon)}" layout="spacerBefore:7">
+                    <vbox layout="box-flex:1;">
+                        <hbox layout="background:#373737">
+                            <label style="Body L" color="#ffffff" layout="box-flex:1;spacer:7;" singleLine="true" id="subtotalLabel" value="@ECOM_CART_SUBTOTAL_TEXT@"/>
+                            <label style="Body L" color="#ffffff" data="subTotal" layout="spacer:7;"/>
+                        </hbox>
+                        <use view="Internal" data="coupon"/>
+                    </vbox>
+                </hbox>
+                <switchbox data="hasFees">
+                    <case name="true">
+                        <use view="CartFees" data="fees"/>
+                    </case>
+                    <default/>
+                </switchbox>
+                <hbox layout="spacer:20;box-flex:1">
+                    <label bold="true" layout="box-flex:1;spacerBefore:7;spacerAfter:3;" singleLine="true" id="totalLabel" value="@ECOM_CART_TOTAL_TEXT@"/>
+                    <label bold="true" data="totalPrice" layout="spacerAfter:7"/>
+                </hbox>
+            </vbox>
+        </area>
+    </view>
+
+    <!--Coupon-->
+    <view for-type="Coupon" name="Internal" vars="couponValid:true;toggleState:'off'" format="Mobile" css="min-width:100%; min-height:100%;">
+        <vbox css="min-width:100%; min-height:100%;">
+            <hbox>
+                <switchbox data="discountAmount" layout="box-flex:1; margin-top:-3px">
+                    <case name="">
+                        <toggle initialState="{$toggleState}">
+                            <off>
+                                <vbox css="margin-left:7;margin-right:7">
+                                    <hbox box-align="middle" layout="spacer:20; box-flex:1">
+                                        <button2 label="+" layout="width:30;height:30" skin="ecommerce.skins.mcom.MobileAddButton"/>
+                                        <label bold="true" layout="box-flex:1;spacer:10;" id="addCouponLabel" singleLine="true" value="@ECOM_CART_ADD_COUPON_TEXT@"/>
+                                        <events>
+                                            <event original="click">set:$toggleState='on'</event>
+                                        </events>
+                                    </hbox>
+                                </vbox>
+                            </off>
+                            <on>
+                                <vbox pack="start" cssClass="{if($couponValid, 'selectionClass', 'noSelectionClass')}">
+                                    <hbox box-align="center" layout="spacer:20;">
+                                        <spacer size="7"/>
+                                        <erasabletextinput layout="box-flex:1;spacerAfter:7;" data="couponCode" validationVar="couponValid" skin="ecommerce.skins.mcom.MobileErasableTextInputSkin">
+                                            <events>
+                                                <event original="inputChanged">clear-message</event>
+                                            </events>
+                                        </erasabletextinput>
+                                        <button2 id="applyCouponBtn" layout="spacerAfter:4;width:80;height:38" label="@ECOM_CART_APPLY_BUTTON_TEXT@" styleNS="ecomApplyCoupon">
+                                            <events>
+                                                <event original="click">set-coupon</event>
+                                            </events>
+                                        </button2>
+                                        <spacer size="7"/>
+                                    </hbox>
+                                    <switchbox pack="start" value="{$couponValid}">
+                                        <case name="false">
+                                            <hbox box-align="center"  layout="spacerAfter:20;">
+                                                <label value="!" bold="true" color="#ffffff" layout="width:20; height:20; text-align:center; border-radius:50%; background:red;spacerBefore:7;spacerAfter:7" />
+                                                <label data="validationMessage" color="#373737" layout="width:235;"/>
+                                            </hbox>
+                                        </case>
+                                        <default/>
+                                    </switchbox>
+                                </vbox>
+                            </on>
+                        </toggle>
+                    </case>
+                    <default>
+                        <vbox>
+                            <hbox box-align="center" layout="box-flex:1;spacer:20;">
+                                <spacer size="7"/>
+                                <label data="couponName" layout="box-flex:1;spacerAfter:5;" singleLine="true"/>
+                                <label data="discountAmount" bold="true" layout="spacerAfter:7;"/>
+                                <button2 label=" " layout="width:30;height:30" skin="ecommerce.skins.mcom.MobileRemoveButton">
+                                    <events>
+                                        <event original="click">clear-coupon</event>
+                                    </events>
+                                </button2>
+                                <spacer size="7"/>
+                            </hbox>
+                        </vbox>
+                    </default>
+                </switchbox>
+            </hbox>
+            <hline/>
+        </vbox>
+        <stylesheet>
+            .selectionClass {}
+            .noSelectionClass {background-color:#fce4e5; border:solid 2px #c61a16; margin-left:0px; margin-right:0px; padding:0;  Box-sizing:Border-box}
+        </stylesheet>
+    </view>
+
+    <view for-type="Fees" name="CartFees" format="Mobile">
+        <switchbox data="destination._type">
+            <case name="PredefinedDestination"><use view="PredefinedFeesDestination"/></case>
+            <case name="AdvancedDestination"><use view="AdvancedFeesDestination" data="destination"/></case>
+            <default><use view="UnsupportedFeesDestination" data="destination"/></default>
+        </switchbox>
+    </view>
+
+    <view for-type="Fees" name="PredefinedFeesDestination" format="Mobile">
+        <vbox>
+            <use view="FeesDestination" data="destination" layout="spacerBefore:15;spacerAfter:10"/>
+            <hbox hidden="{String.isEmpty(shippingFees)}" layout="box-flex:1;">
+                <label layout="box-flex:1;spacer:7;" singleLine="true" id="shippingFeesLabel" value="@ECOM_CART_SHIPPING_FEES_TITLE@"/>
+                <label data="shippingFees" layout="spacerAfter:7;"/>
+            </hbox>
+            <spacer size="10" hidden="{or(String.isEmpty(shippingFees),String.isEmpty(taxFees))}"/>
+            <hbox hidden="{String.isEmpty(taxFees)}" layout="box-flex:1;">
+                <label layout="box-flex:1;spacer:7;" singleLine="true" id="taxFeesLabel" value="@ECOM_CART_TAX_FEES_TEXT@"/>
+                <label data="taxFees" layout="spacerAfter:7;"/>
+            </hbox>
+            <hline layout="spacerBefore:15"/>
+        </vbox>
+    </view>
+
+    <view for-type="PredefinedDestination" name="FeesDestination" format="Mobile">
+        <hbox box-align="baseline">
+            <label layout="spacerBefore:7;" value="@ECOM_CART_FEES_FOR_TITLE@" id="feesToLabel"/>
+            <hbox layout="text-align:right; box-flex:1;spacerBefore:10px; spacerAfter:7;">
+                <inlinetext underline="true" layout="box-flex:1; text-align:right" data="name">
+                    <events>
+                        <event original="dom:mousedown">changeDestination</event>
+                    </events>
+                </inlinetext>
+            </hbox>
+        </hbox>
+    </view>
+
+    <view for-type="AdvancedDestination" name="AdvancedFeesDestination" format="Mobile" vars="optionSelected:true">
+        <vbox pack="start" cssClass="{if($optionSelected, 'selectionClass', 'noSelectionClass')}">
+            <use view="ShippingAndTaxTitle" layout="spacerBefore:15;spacerAfter:7"/>
+            <hbox layout="spacerAfter:20">
+                <use view="AdvancedDestinationCountries" layout="spacer:7;box-flex:1"/>
+            </hbox>
+            <hline hidden="{not($optionSelected)}" />
+        </vbox>
+        <stylesheet>
+            .selectionClass {}
+            .noSelectionClass {background-color:#fce4e5; border:solid 2px #c61a16; padding:0 7px; Box-sizing:Border-box}
+        </stylesheet>
+    </view>
+
+    <view for-type="AdvancedDestination" name="AdvancedDestinationCountries" format="Mobile">
+        <vbox>
+            <combobox id="countriesCombo" data="countries" layout="height:25" validationVar="optionSelected" hasPrompt="true" promptText="@ECOM_CART_SHIPPING_COMBO_SELECT_PROMPT@" styleNS="ecomShippingComboBox" isStyleEditable="false" skin="ecommerce.skins.mcom.MobileDropDownInputSkin2">
+                <events>
+                    <event original="selectionChanged">countrySelected</event>
+                </events>
+            </combobox>
+            <spacer hidden="{Array.isEmpty(regions.items)}" size="10"/>
+            <combobox hidden="{Array.isEmpty(regions.items)}" id="combo" data="regions" validationVar="optionSelected" layout="height:25" hasPrompt="true" promptText="@ECOM_CART_SHIPPING_COMBO_SELECT_PROMPT@" styleNS="ecomShippingComboBox" isStyleEditable="false" skin="ecommerce.skins.mcom.MobileDropDownInputSkin2">
+                <events>
+                    <event original="selectionChanged">regionSelected</event>
+                </events>
+            </combobox>
+        </vbox>
+    </view>
+
+    <view for-type="Destination" name="UnsupportedFees" format="Mobile">
+        <hbox>
+            <box layout="spacer:7">
+                <label style="Body L" color="#373737" value="Mobile Unsupported Fees"/>
+                <inlinetext value="@ECOM_CART_UNSUPPORTED_DESTINATION_MSG@" id="destinationUnsupportedMsg" css="margin-right:5px" color="#373737"/>
+                <inlinetext value="@ECOM_CART_CHANGE_DESTINATION_LINK_TEXT@" id="changeDestinationLink" underline="true" color="#373737">
+                    <events>
+                        <event original="dom:mousedown">changeDestination</event>
+                    </events>
+                </inlinetext>
+            </box>
+        </hbox>
+    </view>
+
+    <view for-type="AdvancedDestination" name="ShippingAndTaxTitle" format="Mobile">
+        <hbox box-align="center">
+            <label hidden="{$optionSelected}" value="!" bold="true" color="#ffffff" layout="width:20; height:20; text-align:center; border-radius:50%; background:red;spacerBefore:7;spacerAfter:7" />
+            <spacer size="3" hidden="{$optionSelected}" />
+            <label id="shippingAndTaxTitle" layout="spacer:7" value="@ECOM_CART_SHIPPING_AND_TAX_TITLE@" />
+        </hbox>
+    </view>
+
+
+    <view for-type="ProductBundle" name="SocialButtons" vars="iconSize:53" format="Mobile">
+        <vbox pack="start">
+            <hbox layout="spacer:10">
+                <hbox id="GoogleShare" hidden="true">
+                    <stack stackType="static">
+                        <image value="{_type:'wix:Image', src:'images/social/google_plus-new.png', width:42, height:42}"
+                            layout="width:{$iconSize};height:{$iconSize}" isStyleEditable="false" style="{}"/>
+                        <hbox css="width:100%;height:100%"/>
+                        <events>
+                            <event original="click" params="service:google">shareProductPage</event>
+                        </events>
+                    </stack>
+                    <spacer id="socialIconsSpacer" size="8"/>
+                </hbox>
+                <hbox id="FancyShare" hidden="true">
+                    <stack stackType="static">
+                        <image value="{_type:'wix:Image', src:'images/social/fancy-new.png', width:42, height:42}"
+                               layout="width:{$iconSize};height:{$iconSize}" isStyleEditable="false" style="{}"/>
+                        <hbox css="width:100%;height:100%"/>
+                        <events>
+                            <event original="click" params="service:fancy">shareProductPage</event>
+                        </events>
+                    </stack>
+                    <spacer id="socialIconsSpacer" size="8"/>
+                </hbox>
+                <hbox id="PinterestShare" hidden="true">
+                    <stack stackType="static">
+                        <image value="{_type:'wix:Image', src:'images/social/pinterest-new.png', width:42, height:42}"
+                               layout="width:{$iconSize};height:{$iconSize}" isStyleEditable="false" style="{}"/>
+                        <hbox css="width:100%;height:100%"/>
+                        <events>
+                            <event original="click" params="service:pinterest">shareProductPage</event>
+                        </events>
+                    </stack>
+                    <spacer id="socialIconsSpacer" size="8"/>
+                </hbox>
+                <hbox id="TwitterShare" hidden="true">
+                    <stack stackType="static">
+                        <image value="{_type:'wix:Image', src:'images/social/twitter-new.png', width:42, height:42}"
+                               layout="width:{$iconSize};height:{$iconSize}" isStyleEditable="false" style="{}"/>
+                        <hbox css="width:100%;height:100%"/>
+                        <events>
+                            <event original="click" params="service:twitter">shareProductPage</event>
+                        </events>
+                    </stack>
+                    <spacer id="socialIconsSpacer" size="8"/>
+                </hbox>
+                <hbox id="FacebookShare" hidden="true">
+                    <stack stackType="static">
+                        <image value="{_type:'wix:Image', src:'images/social/facebook-new.png', width:42, height:42}"
+                               layout="width:{$iconSize};height:{$iconSize}" isStyleEditable="false" style="{}"/>
+                        <hbox css="width:100%;height:100%"/>
+                        <events>
+                            <event original="click" params="service:facebook">shareProductPage</event>
+                        </events>
+                    </stack>
+                </hbox>
+            </hbox>
+        </vbox>
+    </view>
+
+    <!-- YOU CAN FIND THIS VIEWS IN THE DESCRIPTOR :) -->
+    <!--<view for-type="Cart" name="General" format="Mobile">
+        <vbox>
+            <button data="viewCartLink" id="viewCartLink" margin="1" align="center" styleNS="ecomViewCart" layout="width:100%;height:100%;" />
+        </vbox>
+    </view>
+    <view for-type="String" name="Simple" format="Mobile">
+        <vbox>
+            <button margin="1" id="addToCartButton" align="center" styleNS="ecomAddToCart" layout="width:100%;height:100%;">
+                <events>
+                    <event original="click">add-product-to-cart</event>
+                </events>
+            </button>
+        </vbox>
+    </view>-->
+
+</views>

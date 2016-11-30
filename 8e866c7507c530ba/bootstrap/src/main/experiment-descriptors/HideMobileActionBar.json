@@ -1,0 +1,9 @@
+{
+    "createTime": "2015-03-03T15:09:00",
+    "owner": "yotama",
+    "description": "hides mobile action bar in mobile editor's add panel.",
+    "constraints": { },
+    "tags": [
+        "editor"
+    ]
+}

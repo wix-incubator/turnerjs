@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$rdDrop: 10px;
+$bgDrop: color_11;
+$pad: 1;
+$padLeft: 70;
+
+@include exports("maxH", 210);
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.SlantedMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+#itemsContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+#dropWrapper {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 7px;
+  box-sizing: border-box;
+}
+
+#dropWrapper[data-dropMode="dropUp"] {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#moreContainer {
+  margin-right: calc(#{param-margin-right-size(pad, $pad)} - 70px);
+  background-color: param-bg-color(bgDrop, $bgDrop);
+  @include param-border-radius(rdDrop, $rdDrop);
+}
+
+#dropWrapper[data-dropHPosition="left"] #moreContainer {
+  margin-right: 0;
+  margin-left: 0;
+  left: 0;
+}
+
+#dropWrapper[data-dropAlign="left"][data-dropHPosition="center"] #moreContainer {
+  margin-right: 0;
+  margin-left: param-margin-left-size(padLeft, $padLeft);
+}
+
+#dropWrapper[data-dropAlign="left"][data-dropHPosition="left"] #moreContainer {
+  margin-right: 0;
+  margin-left: 0 !important;
+}
+
+#dropWrapper[data-dropAlign="right"] {
+  text-align: right;
+}
+
+#dropWrapper[data-dropAlign="right"] #moreContainer {
+  margin-right: 0;
+}
+

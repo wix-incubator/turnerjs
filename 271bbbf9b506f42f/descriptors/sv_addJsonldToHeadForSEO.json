@@ -1,0 +1,8 @@
+{
+    "owner": "javinor",
+    "description": "update jsonld in head according to page navigation",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

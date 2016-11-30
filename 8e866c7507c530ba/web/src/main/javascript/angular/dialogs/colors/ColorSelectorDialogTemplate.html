@@ -1,0 +1,26 @@
+<div ng-controller="ColorSelectorDialogController as colorSelectorDialogController">
+    <div class="color-selector-buttons-container clearfix">
+        <div ng-repeat="color in colorSelectorDialogController.paletteColors"
+             class="color-selector-button"
+             ng-click="colorSelectorDialogController.colorSelected(color.name)"
+             ng-class="{'color-selector-button-selected' : context.selectedColor === color.name}"
+             style="background: #f9fafc url({{topology.webThemeDir}}button/button-gradient.png) 0 50% repeat-x">
+            <div class="color-selector-button-bg" style="background:{{color.hex}}"></div>
+            <div class="color-selector-button-frame"
+                 style="background : url({{topology.webThemeDir}}button/drop_down_picker_frame.png) 0 0 no-repeat "></div>
+        </div>
+    </div>
+    <div class="color-selector-buttons-container color-selector-static-colors clearfix">
+        <div ng-repeat="color in colorSelectorDialogController.staticColors" class="color-selector-button"
+             style="background: #f9fafc url({{topology.webThemeDir}}button/button-gradient.png) 0 50% repeat-x"
+             ng-click="colorSelectorDialogController.colorSelected(color.name)"
+             ng-class="{'color-selector-button-selected' : context.selectedColor === color.name}">
+            <div class="color-selector-button-bg" style="background:{{color.hex}}"></div>
+            <div class="color-selector-button-frame"
+                 style="background : url({{topology.webThemeDir}}button/drop_down_picker_frame.png) 0 0 no-repeat "></div>
+        </div>
+    </div>
+    <wix-button label="SELECT_COLOR_DIALOG_CUSTOM"
+                class="color-selector-more-colors wix-button-text-only wix-button-small"
+                click-handler="colorSelectorDialogController.openLegacyColorPicker()"></wix-button>
+</div>

@@ -1,0 +1,53 @@
+@charset "UTF-8";
+
+@import 'dropDownMenuBase';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$rd: 10px;
+$rdDrop: 10px;
+$bg: color_11;
+$bgDrop: color_11;
+$tdr: BASE_THEME_DIRECTORY;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+@include exports("maxH", 430);
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.IndentedMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+.wrapper {
+  background: param-bg-color(bg, $bg) param-url(tdr, $tdr, "indented_bg_inverted.png") center top repeat-x;
+  position: relative;
+  overflow: hidden;
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+#itemsContainer {
+  background: transparent param-url(tdr, $tdr, "indented_bg_inverted.png") center bottom repeat-x;
+  @include param-border-radius(rd, $rd);
+}
+
+#dropWrapper {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 7px;
+  box-sizing: border-box;
+}
+
+[data-dropmode="dropUp"] #dropWrapper {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#moreContainer {
+  background-color: param-bg-color(bgDrop, $bgDrop);
+  @include param-border-radius(rdDrop, $rdDrop);
+  @include param-box-shadow(shd, $shd);
+}
+

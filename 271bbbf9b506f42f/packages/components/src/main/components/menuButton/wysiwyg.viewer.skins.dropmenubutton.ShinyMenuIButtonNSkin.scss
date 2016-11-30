@@ -1,0 +1,132 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$sep: color_15;
+$bg: color_11;
+$bgh: color_17;
+$bgs: color_18;
+$rd: 10px;
+$rdRight: rd;
+$rdLeft: rd;
+$rdDrop: 10px;
+$rdTop: rdDrop;
+$rdBottom: rdDrop;
+$tdr: BASE_THEME_DIRECTORY;
+$trans: background-color .4s ease 0s;
+$trans1: opacity .4s ease 0s;
+$trans2: color .4s ease 0s;
+
+
+
+:host {
+  display: inline-block;
+  cursor: pointer;
+  border-left: 1px solid param-color-alpha(sep, $sep);
+  background: param-bg-color(bg, $bg);
+  @include param-transition(trans, $trans);
+}
+
+.shade {
+  background: transparent param-url(tdr, $tdr, "shiny1button_bg.png") center center repeat-x;
+  @include abs-distance(0);
+}
+
+#label {
+  display: inline-block;
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  @include param-transition(trans2, $trans2);
+  padding: 0 calc(#{param-padding-size(pad, $pad)} + 10px);
+}
+
+[data-listposition="lonely"], [data-listposition="lonely"] .shade {
+  border: 0;
+  @include param-border-radius(rd, $rd);
+}
+
+:host:first-child {
+  border: 0;
+}
+
+[data-listposition="left"], [data-listposition="left"] .shade {
+  @include param-border-radius(rd, $rd);
+  border-bottom-right-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-listposition="right"], [data-listposition="right"] .shade {
+  @include param-border-radius(rd, $rd);
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}
+
+[data-state~="drop"] {
+  width: 100%;
+  display: block;
+  border: 0;
+  background-color: transparent;
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="drop"] .shade {
+  @include opacity(0);
+  @include param-transition(trans1, $trans1);
+}
+
+[data-listposition="dropLonely"], [data-listposition="dropLonely"] .shade {
+  @include param-border-radius(rdDrop, $rdDrop);
+}
+
+[data-listposition="top"], [data-listposition="top"] .shade {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-listposition="bottom"], [data-listposition="bottom"] .shade {
+  @include param-border-radius(rdDrop, $rdDrop);
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-state~="drop"][data-state~="over"] .shade, [data-state~="drop"][data-state~="selected"] .shade {
+  @include opacity(1);
+  @include param-transition(trans1, $trans1);
+}
+
+[data-state~="over"] {
+  background: param-bg-color(bgh, $bgh);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="over"] #label {
+  display: inline-block;
+  color: param-text-color(txth, $txth);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-state~="selected"] {
+  background: param-bg-color(bgs, $bgs);
+  @include param-transition(trans, $trans);
+}
+
+[data-state~="selected"] #label {
+  display: inline-block;
+  color: param-text-color(txts, $txts);
+  @include param-transition(trans2, $trans2);
+}
+

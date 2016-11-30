@@ -1,0 +1,172 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+$bg: color_15;
+$bgh: color_15;
+$bgf: color_15;
+$bge: color_15;
+$bg2: color_11;
+$bg2h: color_11;
+$bg2d: color_11;
+$bg3: color_14;
+$bg3h: color_14;
+$bg3f: color_14;
+$bg3d: color_14;
+$bg3e: color_14;
+$txt: color_15;
+$brw: 1px;
+$brwh: 1px;
+$brwf: 1px;
+$shd: 0 0px 0px rgba(0, 0, 0, 0);
+$fnt: font_8;
+$brdd: #CCCCCC;
+
+
+
+%base-circle {
+  border-radius: 50%;
+  display: inline-block;
+}
+
+input {
+  display: none;
+}
+
+#container{
+  display: flex;
+
+  &:hover,
+  &[data-preview~="hover"]{
+    #circle-shadow{
+      #circle {
+        background-color: param-bg-color(bgh, $bgh);
+        box-shadow: inset 0 0 0 param-border-size(brwh, $brwh) param-border-color-alpha(bg3h, $bg3h);
+      }
+    }
+
+    input:checked{
+      +#circle-shadow{
+        #circle {
+          background-color: param-bg-color(bg2h, $bg2h);
+          box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(brdd, $brdd);
+        }
+      }
+    }
+  }
+}
+
+#circle-shadow {
+  @extend %base-circle;
+  @include param-box-shadow(shd, $shd);
+
+  #circle {
+    @extend %base-circle;
+    background-color: param-bg-color(bg, $bg);
+    box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(bg3, $bg3);
+    box-sizing: border-box;
+
+    &:hover,
+    &[data-preview~="hover"]{
+      background-color: param-bg-color(bgh, $bgh);
+      box-shadow: inset 0 0 0 param-border-size(brwh, $brwh) param-border-color-alpha(bg3h, $bg3h);
+    }
+
+    &:focus,
+    &[data-preview~="focus"]{
+      background-color: param-bg-color(bgf, $bgf);
+      box-shadow: inset 0 0 0 param-border-size(brwf, $brwf) param-border-color-alpha(bg3f, $bg3f);
+    }
+
+    &[data-disabled="true"],
+    &[data-preview~="disabled"]{
+      @include disabled-bg-color(bgd);
+      box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(brdd, $brdd);
+    }
+
+    &[data-preview~="error"]{
+      background-color: param-bg-color(bge, $bge);
+      box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(bg3e, $bg3e);
+    }
+  }
+}
+
+input:checked{
+  +#circle-shadow{
+    #circle {
+      background-color: param-bg-color(bg2, $bg2);
+      box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(bg3, $bg3), inset 0 0 0 4px param-border-color-alpha(bg, $bg);
+
+      &:hover,
+      &[data-preview~="hover"]{
+        background-color: param-bg-color(bg2h, $bg2h);
+      }
+
+      &[data-disabled="true"],
+      &[data-preview~="disabled"]{
+        background-color: param-bg-color(bg2d, $bg2d);
+        box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(brdd, $brdd);
+      }
+    }
+  }
+}
+
+:focus,
+[data-preview~="focus"]{
+  #circle {
+    background-color: param-bg-color(bgf, $bgf);
+    box-shadow: inset 0 0 0 param-border-size(brwf, $brwf) param-border-color-alpha(bg3f, $bg3f);
+  }
+}
+
+[data-disabled="true"],
+[data-preview~="disabled"]{
+  #circle {
+    @include disabled-bg-color(bgd);
+    box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(brdd, $brdd);
+  }
+}
+
+[data-error="true"],
+[data-preview~="error"]{
+  #circle {
+    background-color: param-bg-color(bge, $bge);
+    box-shadow: inset 0 0 0 param-border-size(brw, $brw) param-border-color-alpha(bg3e, $bg3e);
+
+  }
+}
+
+.right-direction {
+  display: flex;
+  flex-direction: row-reverse;
+  #text,
+  #container{
+    direction: rtl;
+  }
+}
+
+.left-direction {
+  display: flex;
+  flex-direction: reverse;
+  #text,
+  #container{
+    direction: ltr;
+  }
+}
+
+#text {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  word-break: break-word;
+  display: inline-block;
+  flex: 1;
+}
+

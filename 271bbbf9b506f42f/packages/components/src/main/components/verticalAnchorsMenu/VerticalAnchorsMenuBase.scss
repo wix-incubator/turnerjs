@@ -1,0 +1,122 @@
+@charset "UTF-8";
+@import "../../mixins/components-base";
+
+#menuContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
+  user-select: none;
+
+  .item {
+    position: relative;
+
+    .link {
+      display: flex;
+      text-decoration: none;
+      width: 100%;
+      cursor: default;
+      align-items: center;
+
+      .text-wrapper {
+        position: relative;
+        white-space: nowrap;
+        text-align: right;
+        line-height: 100%;
+
+        .label {
+          cursor: pointer;
+        }
+      }
+
+      .symbol {
+        cursor: pointer;
+        flex: 0 0 auto;
+        transition: all 0.2s ease-in-out;
+      }
+    }
+  }
+
+  &.orientation-left {
+    .item {
+      .link {
+        flex-direction: row;
+      }
+    }
+  }
+
+  &.orientation-right {
+    .item {
+      .link {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &.text-align-left {
+    .item {
+      .link {
+        .text-wrapper {
+          text-align: left;
+        }
+      }
+    }
+  }
+
+  &.text-align-center {
+    .item {
+      .link {
+        .text-wrapper {
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  &.text-align-right {
+    .item {
+      .link {
+        .text-wrapper {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+@mixin auto-color() {
+  #menuContainer {
+    .item.light, .active.item.light {
+      .link {
+        .text-wrapper {
+          color: #fff;
+        }
+
+        .symbol {
+          stroke: #fff;
+        }
+      }
+    }
+
+    .active.item.light .link .symbol{
+      fill: #fff;
+    }
+
+    .item.dark, .active.item.dark {
+      .link {
+        .text-wrapper {
+          color: #000;
+        }
+
+        .symbol {
+          stroke: #000;
+        }
+      }
+    }
+
+    .active.item.dark .link .symbol{
+      fill: #000;
+    }
+  }
+}

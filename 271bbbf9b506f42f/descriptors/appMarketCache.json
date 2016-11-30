@@ -1,0 +1,7 @@
+{
+    "owner": "naamaa",
+    "description": "fix wrong data in cache causing editor to get stuck with premium apps",
+    "scopes": [
+        "santa-viewer"
+    ]
+}

@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$bgh: color_17;
+$ttl: color_15;
+$txt: color_15;
+$brw: 8px;
+$rd: 0;
+$shd: 0 1px 3px rgba(0, 0, 0, .15);
+$fntt: font_6;
+$fntds: font_8;
+$trans: opacity .4s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper {
+  @include abs-distance(0);
+  @include param-box-shadow(shd, $shd);
+  @include param-border-radius(rd, $rd);
+}
+
+.imgBorder {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  background: param-border-color-alpha(brd, $brd);
+}
+
+.Scotch {
+  position: absolute;
+  display: inline-block;
+  background: param-url(tdr, $tdr, "scotcht.png") no-repeat;
+  width: 75px;
+  height: 38px;
+  top: -20px;
+  left: 50%;
+  margin-left: -37.5px;
+}
+
+#image {
+  @include param-border-radius(rd, $rd);
+}
+
+#zoom {
+  @include abs-distance(0);
+  background: param-bg-color(bgh, $bgh);
+  @include param-border-radius(rd, $rd);
+  padding: 15px;
+  @include opacity(0);
+  @include param-transition(trans, $trans);
+  overflow: hidden;
+}
+
+#title {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(ttl, $ttl);
+  white-space: nowrap;
+}
+
+#description {
+  color: param-text-color(txt, $txt);
+  @include param-font(fntds, $fntds);
+}
+
+#link {
+  color: param-text-color(txt, $txt);
+  @include param-font(fntds, $fntds);
+  position: absolute;
+  bottom: 10px;
+  text-decoration: underline !important;
+  white-space: nowrap;
+}
+
+@include align-states();
+
+[data-state~="noLink"] #link {
+  display: none;
+}
+
+:host:hover #zoom {
+  @include opacity(1);
+  @include param-transition(trans, $trans);
+}

@@ -1,0 +1,14 @@
+{
+  "env": {
+    "development": {
+      "plugins": ["transform-react-jsx", "transform-react-jsx-self", "transform-react-jsx-source"]
+    },
+    "production": {
+      "plugins": ["transform-react-jsx"],
+      "presets": ["es2015"]
+    },
+    "test": {
+      "plugins": ["transform-react-jsx", "transform-react-jsx-self", "transform-react-jsx-source", [ "__coverage__", { "only": "src/" } ]]
+    }
+  }
+}

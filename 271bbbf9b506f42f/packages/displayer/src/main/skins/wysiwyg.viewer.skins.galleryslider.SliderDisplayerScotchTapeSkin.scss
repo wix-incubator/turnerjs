@@ -1,0 +1,73 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$brw: 0;
+$rd: 0;
+$bg: color_11;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$fntds: font_8;
+$txt: color_15;
+$trans: opacity .4s ease 0s;
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper {
+  position: relative;
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+.imgBorder {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  background: param-border-color-alpha(brd, $brd);
+}
+
+#image {
+  @include param-border-radius(rd, $rd);
+  overflow: hidden;
+}
+
+#zoom {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  padding: 10px;
+  background: param-bg-color(bg, $bg);
+  @include opacity(0);
+  @include param-transition(trans, $trans);
+}
+
+#title,
+#description {
+  display: none;
+}
+
+#link {
+  @include param-font(fntds, $fntds);
+  color: param-text-color(txt, $txt);
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  cursor: posinter !important;
+}
+
+[data-state~="noLink"] #link {
+  display: none;
+}
+
+#zoom:hover {
+  @include opacity(1);
+}

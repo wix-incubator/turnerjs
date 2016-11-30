@@ -1,0 +1,15 @@
+<!doctype html>
+<head>
+  <title>Awesome Title</title>
+  <%- newrelic %>
+  <link rel="stylesheet" href="<%= baseStaticUrl %>app.css">
+</head>
+<body>
+  <div id="root"><%- html %></div>
+  <script>
+    window.__BASENAME__ = '<%= basename %>';
+    window.__INITIAL_STATE__ = <%- JSON.stringify(initialState) %>
+  </script>
+  <script src="<%= baseStaticUrl %>app.bundle.js"></script>
+</body>
+</html>

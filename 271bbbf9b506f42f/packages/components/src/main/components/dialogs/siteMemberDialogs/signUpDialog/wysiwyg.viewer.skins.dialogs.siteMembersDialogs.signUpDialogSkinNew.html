@@ -1,0 +1,42 @@
+<template>
+    <div id="blockingLayer">
+    </div>
+    <div id="xButton">
+        <svg viewBox="0 0 180 180">
+            <path d="M5 5 L175 175 M175 5 L5 175"/>
+        </svg>
+    </div>
+    <div id="dialog" class="responsive">
+        <h3 id="title" class="single"></h3>
+        <div id="contentWrapper" class="wrapper">
+
+            <div class="customLogin">
+                <div id="content">
+                    <div id="email"></div>
+                    <div id="password"></div>
+                    <div id="retypePassword"></div>
+                </div>
+                <div class="footer">
+                    <p id="errMsg"></p>
+                    <div id="okButton"></div>
+                </div>
+                <div class="switchLinkContainer">
+                    <p id="note"></p>
+                    <a id="switchDialogLink"></a>
+                </div>
+            </div>
+
+            <div id="divider"></div>
+
+            <div id="socialLoginWrapper">
+                <iframe id="socialHolder"></iframe>
+                <div id="dummySocialButtons">
+                    <div id="facebookButton"></div>
+                    <div id="googleButton"></div>
+                </div>
+                <p id="socialLoginErrorMsg"></p>
+            </div>
+
+        </div>
+    </div>
+</template>

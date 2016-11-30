@@ -1,0 +1,13 @@
+{
+    "createTime": "2013-10-07T00:00:00",
+    "owner": "sagic@wix.com",
+    "description": "Exit mobile mode button - Editor toggle",
+    "tags": [
+        "editor"
+    ],
+    "constraints": {
+        "ExitMobileMode": "required-before",
+        "MobileAlgoRefactor": "optional-before",
+        "MobileComponentProperties": "optional-before"
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "owner": "omerga",
+    "description": "Send BI for TPA SDK methods in DS/Renderer",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

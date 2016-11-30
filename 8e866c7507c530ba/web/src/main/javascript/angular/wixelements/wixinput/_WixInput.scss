@@ -1,0 +1,36 @@
+.wix-input-label {
+  padding-bottom: 5px;
+  width: auto;
+  display: inline-block;
+}
+
+.wix-input-text {
+  width: 100%;
+  margin: 0 0 5px 0;
+  padding: 0 3px;
+  line-height: 1.1em;
+  height: 1.8em;
+  font-size: 1em;
+  border-radius: 3px;
+  border: 1px solid rgb(180, 180, 180);
+  box-shadow: rgba(0, 0, 0, 0.0980392) 0 1px 1px 0 inset;
+  box-sizing: border-box;
+
+  &:hover {
+    border-color: #a3d9f6;
+  }
+
+  &:focus {
+    border-color: #19a0e9;
+  }
+}
+
+.wix-input-text.ng-invalid {
+  background: #f6e0dd;
+  border-color: #de4c3a
+}
+
+.wix-input-message {
+  color: #de4c3a;
+  font-size: .916em;
+}

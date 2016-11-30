@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Wysiwyg Specs Runner</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=9,chrome=1">
+    <meta http-equiv="Pragma" content="no-cache">
+    <!--<link href="../framework/jasmine-min.css" rel="stylesheet">-->
+    <script type="text/javascript">
+        window.setImmediate = setTimeout;
+    </script>
+</head>
+<body class="selectableChildren">
+<link/><!--for some reason, there was no link tag that is needed to run the tests. temporary fix by UriD-->
+<div id="editor_preloader" style="visibility: hidden;"></div>
+<div id="testPlayGround" style="width:1px; height:1px; overflow:hidden; position:relative;"></div>
+
+<script type="text/javascript">
+
+    function getTestManifestFromTheSpecRunner(){
+//        return '../../../src/test/wysiwyg.specs.debug.json';
+        return '../web.test.debug.json';
+    }
+
+    if(window.top.HB){
+        window.__loadTesticleReporter = function(){
+            if(window.jasmine){
+                var scriptElement = document.createElement("script");
+                scriptElement.setAttribute("type", "text/javascript");
+                scriptElement.setAttribute("src", "/files/js/TesticleReporter.js");
+                document.getElementsByTagName("head")[0].appendChild(scriptElement);
+            } else {
+                window.setTimeout(window.__loadTesticleReporter, 10);
+            }
+        };
+
+        window.__loadTesticleReporter();
+    }
+
+    window.wixData = {document_data:{}};
+    var viewMode = 'editor';
+
+    var editorModel = {
+        metaSiteId:     'mockMetaSiteId',
+        editorSessionId:'mockSessionId',
+        publicUrl: 'http://mocked.wix.com/mockedsite',
+        runningExperiments: {},
+        siteHeader: {"version":0},
+        'mode':'unit_test'
+    };
+
+
+    var rendererModel = {
+        runningExperiments: {}
+    };
+    var publicModel = {
+        externalBaseUrl: ""
+    };
+    //if running in testicle
+        if (window.top.HB) {
+            window.editorModel.runningExperiments = window.top.HB.runningExperiments;
+        } else{
+            //this functionality is done in the server when not in tests
+            setExperimentsFromQuery();
+        }
+    function setExperimentsFromQuery(){
+        var query = window.location.search.replace('?', '');
+        var params = query.split('&');
+        for(var i =0; i< params.length; i++){
+            var paramKeyValue = params[i].split('=');
+            if(paramKeyValue[0].toLowerCase() == 'experiment'){
+                var expNameGroup = paramKeyValue[1].split(':');
+                window.editorModel.runningExperiments[expNameGroup[0]]  = expNameGroup[1] || 'New';
+            }
+        }
+    }
+    // Mock serviceTopology global
+    serviceTopology = {
+        biServerUrl:       "http://frog.wixpress.com/",
+        staticServerUrl : "//static.wixstatic.com/",
+        "appStoreUrl" : "../mock",
+        scriptsLocationMap:{
+            "bootstrap":       window.top.HB ? "../../../../bootstrap/src/main" :  "/bootstrap",
+            "web":                  window.top.HB ? "../../../../web/src/main" : "/web",
+            "skins":                window.top.HB ? "../../../../skins/src/main" : "/skins",
+            "core":                 window.top.HB ? "../../../../core/src/main" : "/core",
+            "langs":                window.top.HB ? "../../../../langs/src/main" : "/langs",
+            "tpa":                window.top.HB ? "../../../../../tpa-client/src/main" : "/tpa",
+            "html-test-framework": window.top.HB ?  "../../../../html-test-framework/src/main" : "/html-test-framework",
+            //"wixapps": window.top.HB ?  "../../../../wixapps/src/main" : "/wixapps",
+            "mock":                 '../mock'
+        },
+        "editorServerRoot": "http://editor.mock.com/html/editor/web",
+        publicStaticsUrl: "../mock"
+    };
+
+    function clearPlayGround() {
+        $('testPlayGround').empty();
+    }
+
+    function getPlayGround() {
+        return $('testPlayGround');
+    }
+
+    function initDisableCSSInjectionFromLinkTags(){
+        var _appendChild_ = Node.prototype.appendChild;
+        _appendChild_.Elements = [];
+        Node.prototype.appendChild = function(el){
+            if(/link/i.test(el.tagName) && !/jasmine/.test(el.href)){
+                console.log(el, el.href);
+                el.href="#";
+            }
+            _appendChild_.Elements.push(el);
+            _appendChild_.apply(this, arguments);
+        }
+    }
+
+    initDisableCSSInjectionFromLinkTags();
+
+    function loadScript(url, callback) {
+
+        var script = document.createElement("script")
+        script.type = "text/javascript";
+
+        if (script.readyState) { //IE
+            script.onreadystatechange = function () {
+                if (script.readyState == "loaded" ||
+                        script.readyState == "complete") {
+                    script.onreadystatechange = null;
+                    callback();
+                }
+            };
+        } else { //Others
+            script.onload = function () {
+                callback();
+            };
+        }
+
+        script.src = url;
+        document.getElementsByTagName("head")[0].appendChild(script);
+    }
+
+    function loadScriptsOrder(base, urls, callback) {
+        function next() {
+            if(urls.length === 0){
+                return callback();
+            }
+            loadScript(base+urls.shift(), next);
+
+        }
+        next();
+    }
+
+</script>
+
+<script type="text/javascript">
+    var scripts = [
+        "es5-shim-sham.js",
+        "classList.js",
+        "isExperimentOpen.js",
+        "utils/ProfilingUtil.js",
+        "utils/JsExtentions.js",
+        "utils/NsUtil.js",
+
+        "isExperimentOpen.js",
+
+        "define/Define.js",
+        "define/DeployDefine.js",
+        "define/Namespaces.js",
+
+        "bi/Analytics.js",
+        "bi/LogMessages.js",
+        "bi/WixBI.js",
+        "bi/Logger.js",
+        "bi/biBootstrap.js",
+
+        "resource/ResourceWrapper.js",
+        "resource/Resource.js",
+        "resource/DeployResource.js",
+
+        "deploy/const.Phases.js",
+        "deploy/DeploymentDefinition.js",
+        "deploy/DeploymentPhaseExecutor.js",
+        "deploy/Deploy.js",
+
+        "scriptloader/ManifestContext.js",
+        "scriptloader/ScriptLoaderPlugin.js",
+        "utils/fnvHash.js",
+        "scriptloader/WixBlob.js",
+
+        "scriptloader/ScriptLoader.js",
+        "scriptloader/DeployScriptLoader.js",
+        "scriptloader/Plugins.js",
+
+        "utils/BrowserUtils.js",
+        "utils/ExperimentsList.js",
+        "utils/ArtifactLocationMap.js"
+    ];
+
+    var base = window.top.HB ? "../../../../bootstrap/src/main/javascript/bootstrap/bootstrap/" : "../../../bootstrap/javascript/bootstrap/bootstrap/";
+
+    function startScriptLoading (){
+        loadScriptsOrder(base, scripts, function(){
+            var deploymentScripts = [
+                    "PageLoadUtility.js",                    
+                    "ViewerDeploymentLogs.js",
+                    "BootstrapViewer.js",
+                    "BootstrapEditor.js",
+                    "TestTags.js",
+                    "DeployCommon.js"
+            ];
+
+            var deploymentBase = window.top.HB ? "../../../src/main/deployment/" : "/web/deployment/";
+            var startMocks = function(){
+                define.resource("experimentDescriptors.fixsaveerror10104",
+                        {
+                            "createTime": "2013-12-29T03:04:00",
+                            "owner": "Etai",
+                            "description": "Fixing bugs causing the 10104 server response on save",
+                            "tags": [
+                                "editor"
+                            ]
+                        }
+                );
+
+
+                define.resource('W.AppsEditor', {});
+                define.resource('W.AppsEditor2', {});
+                define.Class('wixapps.core.utils.WixAppsLogger', function(classDefinition) {
+                    var def = classDefinition;
+                    def.methods({initialize: function () {
+                    }});
+                });
+                define.Class('wixapps.integration.managers.undoredomanager.AppBuilderChange', function (classDefinition) {
+                    var def = classDefinition;
+                    def.inherits('wysiwyg.editor.managers.undoredomanager.BaseChange');
+                    def.methods({
+
+                        initialize: function () {
+                        }
+                    });
+                });
+            };
+
+            loadScriptsOrder(deploymentBase, deploymentScripts, function() {
+                startMocks();
+
+                //explicitly deploy PageManager because it is not deployed in other deployers in the tests
+                //the DeployViewer is not deployed under tests...
+    //            define.deployment('core.deployment.TestDeployViewer', function (deploymentDef) {
+    //                deploymentDef.atPhase(PHASES.MANAGERS, function (deploy) {
+    //                    deploy.createClassInstance('W.Pages', 'wysiwyg.viewer.managers.PageManager');
+    //                });
+    //            });
+            });
+
+
+
+            define.deployment('deployment.TestResources', function (deploymentDef) {
+
+                deploymentDef.atPhase(PHASES.TEST, function (deploy) {
+
+                    var done = deploy.async(1500, 'Waiting for EDITOR_LANGUAGE');
+
+                    resource.getResourceValue('W.Resources', function(resourceManager){
+                        resourceManager.loadLanguageBundle('EDITOR_LANGUAGE', function(){
+                            done();
+                        });
+                    });
+
+                });
+
+
+
+            });
+
+
+        });
+    }
+
+    function getStateMap(callback){
+        sendGetRequestWithXmlHttp("http://deadcat.wixpress.com/statemaps/140122.1919.09.json", function(stateMapResTest){
+            var stateMapObj = JSON.parse(stateMapResTest);
+            callback(stateMapObj.result || stateMapObj);
+        });
+    }
+
+    function sendGetRequestWithXmlHttp(url, callback, failCallback) {
+        var req;
+
+        try {
+            req = new XMLHttpRequest();
+        } catch(e) {}
+
+        if (!req) {
+            failCallback();
+        }
+
+        req.open('GET',url,true);
+        req.onreadystatechange = function () {
+            if (req.readyState != 4) return;
+            if (req.status != 200 && req.status != 304) {
+                throw new Error('Error while loading "' + url + '"; HTTP error ' + req.status);
+            }
+            callback(req.responseText);
+        }
+        if (req.readyState == 4) return;
+        req.send();
+    }
+
+//    getStateMap(function(statemap){
+//        Object.keys(statemap.topology)
+//            .filter(function(artifact) { return !serviceTopology.scriptsLocationMap[artifact]; })
+//            .filter(function(artifact) { return  artifact !== "wixapps"; })
+//            .forEach(function(artifact) { serviceTopology.scriptsLocationMap[artifact] = statemap.topology[artifact]; });
+//        startScriptLoading();
+//    }, startScriptLoading);
+
+
+    startScriptLoading()
+
+
+
+</script>
+
+</body>
+</html>

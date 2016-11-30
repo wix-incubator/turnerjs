@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+
+
+
+:host {
+  word-wrap: break-word;
+}
+
+ul {
+  list-style-type: disc;
+  padding-left: 1.3em;
+  margin-left: .5em;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+ol {
+  list-style-type: decimal;
+  padding-left: 1.3em;
+  margin-left: .5em;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+ul[data-dir="rtl"] {
+  padding-right: 1.3em;
+  margin-right: .5em;
+}
+
+ol[data-dir="rtl"] {
+  padding-right: 1.3em;
+  margin-right: .5em;
+}
+
+ul ul {
+  list-style-type: circle;
+  line-height: normal;
+}
+
+ol ul {
+  list-style-type: circle;
+  line-height: normal;
+}
+
+ol ol ul {
+  list-style-type: square;
+  line-height: normal;
+}
+
+ol ul ul {
+  list-style-type: square;
+  line-height: normal;
+}
+
+ul ol ul {
+  list-style-type: square;
+  line-height: normal;
+}
+
+ul ul ul {
+  list-style-type: square;
+  line-height: normal;
+}
+
+li {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  font-style: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: normal;
+}
+
+p {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h1 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h2 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h3 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h4 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h5 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+h6 {
+  margin: 0;
+  line-height: normal;
+  letter-spacing: normal;
+}
+
+a {
+  color: inherit;
+}
+

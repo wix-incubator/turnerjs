@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+:host {
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  font: 12px "Helvetica Neue","HelveticaNeueW01-55Roma","HelveticaNeueW02-55Roma","HelveticaNeueW10-55Roma",Helvetica, Arial, sans-serif;
+}
+
+#panel {
+  position: absolute;
+  text-align: center;
+  color: #fff;
+  font-family: Helvetica;
+  font-weight: 100;
+  letter-spacing: 0.2px;
+}
+
+
+#title {
+  font-size: 16px;
+  margin: 20px auto;
+  max-width: 100%;
+  font-weight: 100;
+}
+
+#description {
+  width: 465px;
+  margin: 20px auto;
+  white-space: pre-line;
+  font-size: 12px;
+  line-height: 17px;
+  letter-spacing: 0.3px;
+  max-width: 100%;
+}
+
+#link {
+  font-family: 'Times New Roman';
+  color:  #ffffff;
+  font-size: 13px;
+  font-style: italic;
+  text-decoration: underline;
+}
+
+[data-state~='mobile'] {
+  #panel {
+    font-size: 2em;
+  }
+  @media (orientation: landscape) {
+    #panel {
+      font-size: 1.5em;
+    }
+  }
+}
+
+[data-state~='tablet'] {
+  #panel {
+    font-size: 1.1em;
+  }
+  @media (orientation: landscape) {
+    #panel {
+      font-size: 1em;
+    }
+  }
+}
+
+[data-state~='mobile'], [data-state~='tablet'] {
+  #panel {
+    padding: 30px 85px;
+    box-sizing: border-box;
+  }
+  #image {
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  #title {
+    font-size: 1.6em;
+    margin-top: 0;
+  }
+  #description {
+    font-size: 1.2em;
+    line-height: 1.7em;
+    width: 100%;
+  }
+  #link {
+    font-size: 1.3em;
+  }
+}

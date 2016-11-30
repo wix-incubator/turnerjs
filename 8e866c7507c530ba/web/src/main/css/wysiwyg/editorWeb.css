@@ -1,0 +1,560 @@
+/*New Deploy*/
+/* Helvetica fonts are loaded in fontFace.css from public */
+
+/* Reset */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td{
+    margin         : 0;
+    padding        : 0;
+    border         : 0;
+    outline        : 0;
+    vertical-align : baseline;
+    background     : transparent;
+}
+
+ol, ul{
+    list-style : none;
+}
+
+blockquote, q{
+    quotes : none;
+}
+
+:focus{
+    outline : 0;
+}
+
+ins{
+    text-decoration : none;
+}
+
+del{
+    text-decoration : line-through;
+}
+
+table{
+    border-collapse : collapse;
+    border-spacing  : 0;
+}
+
+a{
+    color           : #379ACF;
+    text-decoration : none;
+    cursor          : pointer;
+}
+
+/* Contain floats: h5bp.com/q */
+.clearfix:before, .clearfix:after{ content : ""; display : table; }
+
+.clearfix:after{ clear : both; }
+
+.clearfix{ zoom : 1; }
+
+/* Webkit ScrollBar appearance for editor panels
+ * Also forces the scroll bars on MacOSX to stay visible*/
+.prettyScroll ::-webkit-scrollbar {
+    -webkit-appearance: none;
+    width: 10px;
+    height: 10px;
+    border: 1px solid #d7d7d7;
+}
+
+.prettyScroll ::-webkit-scrollbar-track {
+    background-color: #eeeeee;
+}
+
+.prettyScroll ::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: #81cdff;
+    border: 1px solid #eeeeee;
+    box-shadow: inset 0 0 0 1px #75c7fe;
+    border-color: #eeeeee, #d7d7d7, #eeeeee, #d7d7d7
+}
+
+.prettyScroll ::-webkit-scrollbar-thumb:horizontal {
+    border-color: #d7d7d7, #eeeeee, #d7d7d7, #eeeeee
+}
+
+.prettyScroll ::-webkit-scrollbar-thumb:hover {
+    background-color: #35aeff;
+    box-shadow: inset 0 0 0 1px #24a7ff;
+}
+
+/*************************************
+ * Body overflow settings, BE CAREFUL WHEN CHANGING THIS
+ */
+
+/* In Edit Mode */
+body{
+    overflow-x : hidden;
+    overflow-y : scroll;
+}
+
+/* When in Preview mode */
+body[preview="view"]{
+    overflow-x : hidden;
+    overflow-y : hidden;
+}
+
+/* When in full screen mode */
+body.fullScreenMode{
+    overflow-x : hidden !important;
+    overflow-y : hidden !important;
+}
+
+/* Dark Dotted Background for Mobile Edit (EditorUIRefactorPhase1) */
+body[device="mobile"]{
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyRpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIE1hY2ludG9zaCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NjBBQkE2RjNBNUExMUUzQThFNkM2RjYwMzQ5QkI1OSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NjBBQkE3MDNBNUExMUUzQThFNkM2RjYwMzQ5QkI1OSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk2MEFCQTZEM0E1QTExRTNBOEU2QzZGNjAzNDlCQjU5IiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk2MEFCQTZFM0E1QTExRTNBOEU2QzZGNjAzNDlCQjU5Ii8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Bn+gIwAAAERJREFUeNpi2Ldv338gYKAGBpnFCGJQEzAxUBmMGjhqIBJgZGSknoHEGkYTL7MQo4iU7DmabEaEgfv376dakQ0yCyDAAHtVSNwwVezQAAAAAElFTkSuQmCC');
+    background-attachment: fixed;
+}
+/* Light Dotted Background for Mobile Preview (EditorUIRefactorPhase1) */
+body[preview="view"][device="mobile"]{
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QTlGNTQ4M0FGQUExMTFFMkI2MERERjRDRkY4RDNEQkIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QTlGNTQ4M0JGQUExMTFFMkI2MERERjRDRkY4RDNEQkIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpBOUY1NDgzOEZBQTExMUUyQjYwRERGNENGRjhEM0RCQiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpBOUY1NDgzOUZBQTExMUUyQjYwRERGNENGRjhEM0RCQiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pp8QJigAAAAySURBVHja7NUxAQAwEMLAxwP+DYIHaoJuRMCtgaSQxBWyHSS5ZgMHDhw48BfYXsATYAC4LEVf+JCbmgAAAABJRU5ErkJggg==');
+}
+
+
+/**
+ * End Body overflow settings
+ *************************************/
+
+/***** Typography ********/
+
+/* Regular */
+body{
+    font-family : "Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+    color       : #404040;
+}
+
+.helvetica-neue-font-family{
+    font-family : "Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;
+}
+
+/* This use to be *Italic*, but we are not using Italic anymore, so it is now Thin  */
+
+em, i{
+    font-family : "Helvetica Neue Thin", "HelveticaNeueW01-Thin", "HelveticaNeueW02-Thin", "HelveticaNeueW10-35Thin", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+.isPlaceholder{
+    font-family : "Helvetica Neue Thin", "HelveticaNeueW01-Thin", "HelveticaNeueW02-Thin", "HelveticaNeueW10-35Thin", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+::-webkit-input-placeholder{
+    font-family : "Helvetica Neue Thin", "HelveticaNeueW01-Thin", "HelveticaNeueW02-Thin", "HelveticaNeueW10-35Thin", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+:-moz-placeholder{
+    font-family : "Helvetica Neue Thin", "HelveticaNeueW01-Thin", "HelveticaNeueW02-Thin", "HelveticaNeueW10-35Thin", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+/* Bold (Medium) */
+b, strong, .bold, .tbLabel{
+    font-family : "Helvetica Neue Medium", "HelveticaNeueW01-65Medi", "HelveticaNeueW02-65Medi", "HelveticaNeueW10-65Medi", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+/* thin */
+.thin{
+    font-family : "Helvetica Neue Thin", "HelveticaNeueW01-Thin", "HelveticaNeueW02-Thin", "HelveticaNeueW10-35Thin", Helvetica, Arial, sans-serif;
+    font-size   : 14px;
+}
+
+/* For CKE */
+ul.font_100, ol.font_100{
+    color : rgb(8, 8, 8); font-family : 'Arial, Helvetica, sans-serif', serif; font-size : 10px; font-style : normal; font-variant : normal; line-height : 1.1em; font-weight : normal; margin : 0; text-decoration : none; line-height : normal; letter-spacing : normal;
+}
+
+/* Typography END */
+
+/* Default position of preview iFrame (EditorUIRefactorPhase1)*/
+#live-preview-iframe-wrapper{
+    position:fixed;
+
+    /* Defaults, WPreviewManager overrides these */
+    width:100%;
+    height:100%;
+    top:0;
+    left:0;
+    bottom:0;
+    right:0;
+}
+
+
+#EDITOR_STRUCTURE{
+    width      : 960px;
+    margin     : 0 auto;
+    text-align : left;
+}
+
+/* Editor Container */
+
+.editorContainer{
+    overflow : hidden;
+}
+
+/* Site Pages */
+
+#SITE_PAGES{
+    float : left;
+    width : 700px;
+}
+
+#SITE_PAGES .right{
+    float : right;
+}
+
+#SITE_PAGES .left{
+    float : left;
+}
+
+.sitePage{
+    overflow : hidden;
+}
+
+/* Graphic Buttons */
+.topBarBTN{
+    height       : 20px;
+    margin-left  : 15px;
+    padding-left : 25px;
+    padding-top  : 9px;
+    margin-top   : 5px;
+    display      : inline-block;
+    cursor       : pointer;
+    font-weight  : bold;
+}
+
+#pageMenuContainer{
+    display          : inline-block;
+    background-color : #dddddd;
+    margin-left      : 100px;
+    margin-top       : -20px;
+}
+
+*:not(input):not(textarea){
+    -webkit-user-select : none;
+    -moz-user-select    : -moz-none;
+    -ms-user-select     : none;
+    -o-user-select      : none;
+    user-select         : none;
+}
+
+input,
+textarea,
+.selectable,
+.selectableChildren *{
+    -webkit-user-select : text;
+    -moz-user-select    : text;
+    -ms-user-select     : text;
+    -o-user-select      : text;
+    user-select         : text;
+}
+
+.dragging{
+    cursor              : default !important;
+    -webkit-user-select : none;
+    -moz-user-select    : -moz-none;
+    -ms-user-select     : none;
+    -o-user-select      : none;
+    user-select         : none;
+}
+
+/* Reset fonts and box size on all inputs */
+textarea, input, select{
+    font-family        : "Helvetica Neue", "HelveticaNeueW01-55Roma", "HelveticaNeueW02-55Roma", "HelveticaNeueW10-55Roma", Helvetica, Arial, sans-serif;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+}
+
+.hidden{
+    display : none !important;
+}
+
+.visible{
+    display : block;
+}
+
+/* Preview fixed scrolling */
+#previewContainer.fixed{
+    position : fixed;
+    top      : 45px;
+}
+
+#progressBar.fixed{
+    position    : fixed;
+    top         : 538px;
+    margin-left : 33px;
+}
+
+/* Preloader */
+#editor_preloader{
+    position         : fixed;
+    top              : 0;
+    left             : 0;
+    right            : 0;
+    bottom           : 0;
+    z-index          : 1000;
+    background-color : #FFFFFF;
+    -webkit-transition: opacity 0.3s ease-out;
+    transition: opacity 0.3s ease-out;
+}
+
+/**
+ * These are the states to show the loading layer
+ */
+
+#editor_preloader.siteLoading {
+    display: block;
+}
+
+#editor_preloader.secondarySiteLoading{
+    display : block;
+    background-color : rgba(255, 255, 255, 0.5);
+}
+
+/**
+ * "secondary" means just block the editor, don't show the loading image
+ */
+#editor_preloader.secondarySiteLoading img{
+    display : none;
+}
+
+#editor_preloader.invisibleLockEditor{
+    display          : block;
+    background-color : transparent;
+    background-color : rgba(255, 255, 255, 0);
+}
+
+#editor_preloader.invisibleLockEditor img{
+    display : none;
+}
+
+#editor_preloader.ready{
+    display: none;
+}
+
+#editor_preloader.fade-out{
+    opacity: 0;
+}
+
+/*See AutoPanel.js*/
+.inline-component{ display : inline-block; vertical-align : top }
+
+/*CK-Editor style*/
+span.cke_skin_kama{
+    padding       : 0 !important;
+    background    : none transparent !important;
+    display       : block;
+    border        : 0 !important;
+    border-radius : 0 !important;
+    visibility    : hidden;
+    margin        : 0 !important;
+    /*outline: 0 !important;*/
+}
+
+/* Fix extra px at the top of the ckeditor toolbar in ie */
+.cke_skin_kama>.cke_browser_ie,
+.cke_shared{ display : block; }
+
+.cke_focus{
+    outline : none !important;
+}
+
+.cke_wrapper{
+    padding    : 0 !important;
+    background : none transparent !important;
+    /*outline: 0 !important;*/
+    /*display: block;*/
+}
+
+.cke_contents iframe{
+    padding    : 0 !important;
+    background : none transparent !important;
+    display    : block;
+    margin     : 0 !important;
+}
+
+.cke_rcombopanel{ width : 170px !important }
+
+.z-topLayer{ z-index : 1000000 }
+
+/*for drag and drop in pages panel*/
+
+.tooltipIcon{
+    float             : right;
+    margin-top:         2px;
+    padding           : 0px 0px 2px;
+    width             : 8px;
+    height            : 10px;
+    font-weight       : bold;
+    color             : #379ACF;
+    cursor            : pointer;
+    background-repeat : no-repeat;
+}
+
+.tooltipIcon:hover{
+    background-position : 0 -12px;
+}
+
+/* Style HTML5 uploader */
+
+#fileinput{
+    visibility : hidden;
+}
+
+#uploadClick{
+    font-family      : "Helvetica Neue", Helvetica, Arial, sans-serif;
+    width            : 141px;
+    height           : 30px;
+    cursor           : pointer;
+    border           : 0;
+    color            : #379ACF;
+    /*background-image:url(data:image/png;base64,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);*/
+    background-image : url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAI0AAAAeCAIAAACezgofAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNS4xIFdpbmRvd3MiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6RDZCMzU3Q0Q3OEZFMTFFMjlGM0RDNEQ5RDUxQTU1NTYiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6RDZCMzU3Q0U3OEZFMTFFMjlGM0RDNEQ5RDUxQTU1NTYiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpENkIzNTdDQjc4RkUxMUUyOUYzREM0RDlENTFBNTU1NiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpENkIzNTdDQzc4RkUxMUUyOUYzREM0RDlENTFBNTU1NiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvYXqi0AAAN5SURBVHja7Jq9b9NAGMbj+Ow4Sat+RIoqFIkOIFSViH8B6ICEWNjYYGBgZQcG2JlZ2BFMCNQJ2n+ADlUUVbSCFoYKNamopTr+tnnsS62rE1CR6tzyPqqau7OT4f3pfd737FP8KCorypeNDcdxKpWK7/uMMYzL5XKJJE+GboCFYRjtdhssFC8M9/f3G41GrVod2Lau65Zl4bKqqhQsifJdH3iAyjTNVusC29raAiRN0+JSCf+ZqlarVV3TwiiiYElOKUPnadPpdFm/37+6vOx63vHxMRzP8zzQssn3ZEtRFMfxQGRhodnpdFi9XrcGg1qtVtH1IAzjOMY1mB7uo2BJlKorQRCFYei6brPZZAADE0QaIcUwxh1xKixSsCRKZ3qYpo1t20EQsCiKZmdm4Hvo8eB4mCKTcBnYKFgS5doucMDY5ufnu91ukk/wPVDJjA7AYH1gSMGSKOyRQASuBkDo7Bj6Bd6C8zRKnPFkSsGSqCjtt0GHu1856y64svHfvr/2/ehdt+cEIYWy6H5PBMHESY7W2O+v7x59PbRvXZqrapRwRSo+Nfu/TdKTT7sftn9vHzoP3++YDjWEE+GVivEPcUmsVaKeft4DJD4Gqser317fvUJxnEw+DTnxqpXhGQvp486RuLLxa4D0erGySCEtlBNnkeyfIP6UiAMb7SOerf3IQeJKF/ee37xIUT1/TFEsdgnDfBKtLzeA7lyexd+j1b3cb726vZh1kKRz7vdi5VQ+QdhM8SY96dNT5XzvWtMY+1t8nZ4wFcSJlyGgwYBlXpclFqaj9ekfezFSofnEceQ5Zd3EWVABNQV0QpzEtBht0G+8SWrS+r2kDr283hzLSbyHVFR9Etu8jFkun/jiaJUSfY88sCBOw34vI5a1gKOmt/L2JwVu0pxOqg/nkjwvz+2WssYP4/vLM2f/XQrueXIqKWJs2ShDMe4P2nMUMomcMhzJUQj+0p2D4ZsnTLFIwZKoIAimpqZQ9S3LApTkgNH09DRWMcCeFxdAznEcOr8nV5qmmaYJLoZh2LbN0FvzkxHZayeeUnQuTDInVeO0uL0xJNPBwUGj0UACgRnwgCFo0R5WrpyBAzyg0O/36/W64kdRr9eD3fFzYcPdb2qAFCyJitMHrihGANFqtZL37sC1ubnJW3VcQGKR6UkXKzNub0tLS+DyR4ABALnnVi3ASOGjAAAAAElFTkSuQmCC);
+}
+
+#uploadClick:hover{
+    border-radius : 4px;
+    box-shadow    : 0 0 5px black inset;
+}
+
+/****************** Start Aviary CSS Overrides ********************/
+
+.avpw_is_embed #avpw_controls{
+    z-index : 0;
+}
+
+/* tool icons */
+/* normal */
+.avpw .avpw_tool_icon_image{
+    background-color : #f4f4f4; border-radius : 4px;
+}
+
+/* hover */
+.avpw .avpw_tool_icon:hover .avpw_tool_icon_image{
+    background-color : #eeeeee; border : 1px solid #999999; box-sizing: border-box;
+}
+
+/* background */
+body .avpw{
+    background : #fdfdfd; border : none;
+}
+
+/* default buttons */
+body .avpw .avpw_button{
+    background-color : #f4f4f4; border-radius : 4px;
+}
+
+body .avpw .avpw_button:hover{
+    background-color : #eeeeee;
+}
+
+/* primary button
+ * (overriding color on these links so
+ * we have to be explicit)
+ */
+body .avpw .avpw_primary_button,
+body .avpw .avpw_primary_button:link,
+body .avpw .avpw_primary_button:visited,
+body .avpw .avpw_primary_button:active{
+    background-color : #2aa7ea;
+    border           : 1px solid #5b8fa7;
+    border-radius    : 4px;
+    color            : #ffffff;
+}
+
+body .avpw .avpw_primary_button:hover,
+body .avpw .avpw_primary_button:focus{
+    background-color : #179ce1;
+    border           : 1px solid #237aa7;
+}
+
+/* small icon inside an open tool */
+.avpw .avpw_current_tool_icon{
+    background : #fdfdfd;
+    box-shadow : inset 0 -1px 2px 0 rgba(0, 0, 0, .1), inset 0 -3px 5px 0 rgba(0, 0, 0, .1);
+}
+
+/*override canvas wrapper size*/
+/*div #avpw_canvas_embed{
+    left:0; right:0;
+}*/
+
+/****************** End Aviary CSS Overrides ********************/
+
+/* performance improvement in wixapps - prevents reflows from occurring caused by components being wixified while connected to the dom */
+.wixAppsInRenderPreventReflow{
+    position : absolute;
+    overflow : hidden;
+}
+
+.wixAppsInRenderPreventOnlyOverflow{
+    overflow : hidden;
+}
+
+/* Global classes used by the wixapps.integration.utils.flex.ComputedFlex polyfill */
+.flex_hbox{
+    white-space : nowrap;
+    box-sizing  : border-box;
+}
+
+/*  padding-top - muhahahaha, check out w3 spec http://www.w3.org/TR/CSS2/box.html#collapsing-margins
+    Incredible! in display:block margin-top collapses!
+*/
+.flex_vbox{
+    box-sizing : border-box;
+    padding-top: 0.01em;
+    padding-bottom: 0.01em;
+}
+
+.hideWithOpacity{
+    opacity: 0 !important;
+}
+
+/* For SplitHtmlText */
+letter{position:relative;display:inline-block}
+letter.space{display:inline}
+word{display:inline-block;white-space:nowrap}
+
+/* Organize Images dialog */
+#organizeImagesDialog{
+    display: none;
+    height: 100%;
+    left: 0;
+    overflow: hidden;
+    position: fixed;
+    right: 0;
+    width: 100%;
+}
+#organizeImagesDialog.visible{
+    display: block;
+}
+
+/* preloaders */
+
+.preloader{
+    display: none;
+}
+.preloader.visible{
+    display: block;
+}
+.preloader.animation{
+    opacity: 0;
+    transition: opacity 200ms;
+    -webkit-transition: opacity 200ms;
+}
+.preloader.show{
+    opacity: 1;
+}

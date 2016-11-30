@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+@import "AgadirPull";
+
+$separatorWidth: 140px;
+$bgOpen: color_15;
+$borderWidthSelected: 1px;
+
+:host {
+  text-alignment: param-text-alignment(textAlignment, 'right');
+}
+
+#menuButton {
+  &.menuOpen {
+    background-color: param-bg-color(bgOpen, $bgOpen);
+    border-width: param-border-size(borderWidthSelected, $borderWidthSelected);
+  }
+}
+
+#menuBackground {
+  transform: translateX(134%);
+  &.menuOpen {
+    transform: translateX(67%);
+  }
+
+  width: 60%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+}
+
+#menuContainer {
+  .top-menu {
+
+    .link {
+      text-align: param-text-alignment(textAlignment, 'right');
+    }
+
+    > .separator {
+      width: param-border-size(separatorWidth, $separatorWidth);
+    }
+
+    > .item {
+      + .item > .link:before {
+        width: param-border-size(separatorWidth, $separatorWidth);
+        left: calc(100% - #{param-border-size(separatorWidth, $separatorWidth)});
+      }
+    }
+
+  }
+}

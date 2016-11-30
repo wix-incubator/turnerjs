@@ -1,0 +1,7 @@
+{
+    "owner": "yanivz",
+    "description": "allow to serve JPG images as webp ones (if supported by browser)",
+    "scopes": [
+        "santa-viewer"
+    ]
+}

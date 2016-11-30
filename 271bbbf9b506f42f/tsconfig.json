@@ -1,0 +1,12 @@
+{
+  "src": ["packages/documentServices/**/*.ts", "ts/refs.d.ts"],
+  "compilerOptions": {
+    "module": "amd",
+    "target": "es5",
+    "baseUrl": "./",
+    "declaration": false,
+    "paths": {
+      "documentServices/*": ["packages/documentServices/src/main/*"]
+    }
+  }
+}

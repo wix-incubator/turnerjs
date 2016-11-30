@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$border-width: 0;
+$border-color: color_15;
+$hover-border-color: color_15;
+$background-color: color_17;
+$hover-background-color: color_18;
+$hover-text-color: color_15;
+$text-color: color_15;
+$border-radius: 5px;
+$font: font_5;
+$shc: bg;
+$transition: all .12s ease 0s;
+
+@include define-mapped-param(shc, bg, COLOR);
+
+#link {
+  @include param-border-radius(rd, $border-radius);
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $background-color);
+  border: solid param-border-color-alpha(brd, $border-color) param-border-size(brw, $border-width);
+  box-shadow: 1px 1px mutate-color-param(shc, brightness, .5, bg),
+              3px 3px mutate-color-param(shc, brightness, .5, bg),
+              5px 5px mutate-color-param(shc, brightness, .5, bg),
+              7px 7px mutate-color-param(shc, brightness, .5, bg),
+              9px 9px mutate-color-param(shc, brightness, .5, bg);
+  @include param-transition(trans, $transition);
+}
+
+#label {
+  @include param-font(fnt, $font);
+  @include param-transition(trans, $transition);
+  color: param-text-color(txt, $text-color);
+  display: inline-block;
+  margin-top: calc(-1 * #{param-border-size(brw, $border-width)});
+  position: relative;
+  white-space: nowrap;
+}
+
+[data-state~="shouldUseFlex"] #label {
+  margin-top: 0;
+}
+
+[data-disabled="false"] {
+  cursor: pointer !important;
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #link {
+      background-color: param-bg-color(bgh, $hover-background-color);
+      border-color: param-border-color-alpha(brdh, $hover-border-color);
+      bottom: -9px;
+      box-shadow: 0 0 mutate-color-param(shc, brightness, .5, bg);
+      left: 9px;
+      right: -9px;
+      top: 9px;
+    }
+
+    #label {
+      color: param-text-color(txth, $hover-text-color);
+    }
+  }
+}
+
+[data-disabled="true"] {
+  #link {
+    @include disabled-bg-color(bgd);
+    @include disabled-border-color(brdd);
+  }
+
+  #label {
+    @include disabled-text-color(txtd);
+  }
+}

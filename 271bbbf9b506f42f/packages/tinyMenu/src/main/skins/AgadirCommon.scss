@@ -1,0 +1,274 @@
+@import "TinyMenuCommon";
+
+$separatorHeight: 1px;
+$fnt: font_1;
+$txt: color_11;
+$txts: color_18;
+$bgDrop: $bg;
+$separatorColor: $txt;
+$borderColorSelected: color_11;
+$openAnimationDuration: .3s;
+
+#fullScreenOverlay {
+  pointer-events: none;
+  position: fixed;
+  transform: translateX(100%);
+  transition: $openAnimationDuration transform step-end;
+
+  &.menuOpen {
+    pointer-events: inherit;
+    transform: translateX(0);
+    transition: transform 0s;
+  }
+}
+
+#menuBackground {
+    &.menuOpen {
+      pointer-events: auto;
+    }
+
+    justify-content: flex-start;
+    flex-direction: column;
+    box-sizing: border-box;
+    padding-top: 100px;
+    background-color: param-bg-color(bgDrop, $bgDrop);
+}
+
+@keyframes tiny-menu-open-squeeze-1 {
+  0% { transform: translateY(.5px); }
+  50% { transform: translateY(8.5px); }
+  100% { transform: translateY(8.5px) rotate(45deg); }
+}
+
+@keyframes tiny-menu-open-squeeze-1-reverse {
+  100% { transform: translateY(.5px); }
+  50% { transform: translateY(8.5px); }
+  0% { transform: translateY(8.5px) rotate(45deg); }
+}
+
+@keyframes tiny-menu-open-squeeze-2 {
+  0% { transform: translateY(16.5px); }
+  50% { transform: translateY(8.5px); }
+  100% { transform: translateY(8.5px) rotate(-45deg); }
+}
+
+@keyframes tiny-menu-open-squeeze-2-reverse {
+  100% { transform: translateY(16.5px); }
+  50% { transform: translateY(8.5px); }
+  0% { transform: translateY(8.5px) rotate(-45deg); }
+}
+
+@keyframes tiny-menu-open-squeeze-3 {
+  0% { transform: translateY(8.5px); }
+  100% { transform: translateY(8.5px) rotateX(90deg); }
+}
+
+@keyframes tiny-menu-open-squeeze-3-reverse {
+  100% { transform: translateY(8.5px); }
+  0% { transform: translateY(8.5px) rotateX(90deg); }
+}
+
+$animationDuration: 150ms;
+
+#menuButton {
+  > .icon {
+    stroke-linecap: flat;
+    stroke: param-bg-color(iconcolor, $iconcolor);
+    transition-duration: $animationDuration;
+    transition-property: stroke;
+
+    .animating-line {
+      animation-fill-mode: both;
+      animation-duration: $animationDuration;
+      animation-timing-function: ease-in;
+      transform-origin: 8.5px 0;
+    }
+  }
+
+  &.menuOpen {
+    border-style: solid;
+    border-color: param-border-color-alpha(borderColorSelected, $borderColorSelected);
+    z-index: $zindex-full-screen-overlay;
+    > .icon {
+      stroke: param-bg-color(iconcolorSelected, $iconcolorSelected);
+
+      .line1 {
+        animation-name: tiny-menu-open-squeeze-1;
+      }
+      .line2 {
+        animation-name: tiny-menu-open-squeeze-2;
+      }
+      .line3 {
+        animation-name: tiny-menu-open-squeeze-3;
+      }
+    }
+
+    &.force-open, &.no-animation {
+      .animating-line {
+        animation-duration: 0s;
+      }
+
+      .line1 {
+        transform: translateY(8.5px) rotate(45deg);
+      }
+      .line2 {
+        transform: translateY(8.5px) rotate(-45deg);
+      }
+      .line3 {
+        transform: translateY(8.5px) rotateX(90deg);
+      }
+    }
+  }
+
+  &.menuClosed {
+    .line1 {
+      animation-name: tiny-menu-open-squeeze-1-reverse;
+    }
+    .line2 {
+      animation-name: tiny-menu-open-squeeze-2-reverse;
+    }
+    .line3 {
+      animation-name: tiny-menu-open-squeeze-3-reverse;
+    }
+  }
+
+  &.menuInitial {
+    .line1 {
+      transform: translateY(.5px);
+    }
+    .line2 {
+      transform: translateY(8.5px);
+    }
+    .line3 {
+      transform: translateY(16.5px);
+    }
+  }
+
+}
+
+@mixin align-by-prop {
+  flex-direction: column;
+  @include when-root-has-all-classes(dir-right) {
+    align-items: flex-end;
+  }
+
+  @include when-root-has-all-classes(dir-left) {
+    align-items: flex-start;
+  }
+
+  @include when-root-has-all-classes(dir-center) {
+    align-items: center;
+  }
+}
+
+#menuContainer {
+  @include param-font(fnt, $fnt);
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+
+  .link {
+    color: param-text-color(txt, $txt);
+    display: flex;
+    align-items: center;
+    flex: 1;
+
+    &.current {
+      color: param-text-color(txts, $txts)
+    }
+  }
+
+  .top-menu {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    .force-scroll {
+      height: calc(100% + 1px);
+    }
+
+    letter-spacing: 2px;
+    display: flex;
+    @include align-by-prop;
+
+    > .separator {
+      border-top: solid param-border-size(separatorHeight, $separatorHeight) param-border-color-alpha(separatorColor, $separatorColor);
+      display: block;
+      margin: 0 20px 0 20px;
+    }
+
+    .header {
+      display: flex;
+      flex-direction: row-reverse;
+
+      $togglerWidth: 22px;
+      $togglerPadding: 2px;
+      $togglerPaddingBefore: 7px;
+
+      @include when-root-has-all-classes(dir-center) {
+        justify-content: center;
+        padding: 0 $togglerWidth 0 $togglerWidth;
+      }
+
+      .toggler {
+        @include when-root-has-all-classes(dir-center) {
+          :after {
+            margin-left: -$togglerWidth;
+            width: $togglerWidth;
+            text-align: right;
+          }
+        }
+          :after {
+          content: '\ff0b';
+          color: param-text-color(txt, $txt);
+          padding: $togglerPadding $togglerPaddingBefore $togglerPadding $togglerPadding;
+          position: relative;
+          display: inline-block;
+        }
+
+        &.current :after {
+          color: param-text-color(txts, $txts);
+        }
+      }
+    }
+
+    > .item {
+      padding: 10px 20px 10px 20px;
+    }
+
+
+    .item.has-children {
+      display: flex;
+      @include align-by-prop;
+
+      &.open {
+        > .link {
+          font-weight: bold;
+        }
+
+        > .header > .toggler {
+          :after {
+            content: "\ff0d";
+          }
+        }
+
+        & > .submenu {
+          display: flex;
+        }
+      }
+
+      .submenu {
+        display: none;
+        font-size: 90%;
+        padding-top: 6px;
+        @include align-by-prop;
+
+        .link {
+          padding: 12px 0 12px 0;
+        }
+      }
+    }
+  }
+}

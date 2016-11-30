@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@import 'dropDownMenuBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$bgDrop: color_11;
+$els: 10px;
+$shd: 0 2px 3px rgba(0, 0, 0, .7);
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.VerticalRibbonsMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+.bar {
+  @include abs-distances(param-size(els, $els) ,0, param-size(els, $els), 0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+}
+
+#itemsContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+#dropWrapper {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 7px;
+  box-sizing: border-box;
+}
+
+[data-dropmode="dropUp"] #dropWrapper {
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#moreContainer {
+  background-color: param-bg-color(bgDrop, $bgDrop);
+  @include param-box-shadow(shd, $shd);
+}
+

@@ -1,0 +1,47 @@
+@charset "UTF-8";
+@import 'VerticalAnchorsMenuBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+$textFont: font_1;
+$symbolColor: color_15;
+$symbolColorSelected: color_2;
+$symbolHeight: 15px;
+
+@include exports(hoverElementClass, 'link');
+@include define-mapped-param(symbolAndTextColor, symbolColor);
+@include define-mapped-param(selectedColor, symbolColorSelected);
+
+#menuContainer {
+
+  .item {
+
+    .link {
+
+      .text-wrapper {
+        @include param-font(textFont, $textFont);
+        color: param-text-color(symbolColor, $symbolColor);
+        width: 100%;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .symbol {
+        display: none;
+      }
+    }
+
+    &.active, &.hover {
+      .link {
+        .text-wrapper {
+          color: param-text-color(symbolColorSelected, $symbolColorSelected);
+        }
+      }
+    }
+  }
+}
+
+@include auto-color();

@@ -1,0 +1,10 @@
+<div class="clearfix">
+    <label ng-show="label" class="wix-input-label" wix-translate="label"></label>
+    <span ng-show="tooltip" wix-tooltip="tooltip" class="wix-tooltip-icon">&nbsp;</span>
+
+    <form name="wixInputForm">
+        <input wix-validate="validator" ng-model="wixData" type="text" wix-translate="placeholder"
+               translateTarget="placeholder" maxlength="100" class="wix-input-text" ng-click="onClick({e:$event})"/>
+    </form>
+    <div class="wix-input-message" ng-show="wixInputForm.$invalid">{{errorMessage}}</div>
+</div>

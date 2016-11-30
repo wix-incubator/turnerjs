@@ -1,0 +1,61 @@
+#main {
+    position: absolute;
+    height: 980px;
+    width: 1000px;
+    background-color: #777777
+}
+#div1 {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    height: 200px;
+    width: 200px;
+    background-color: red
+}
+#div2 {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-color: blue
+}
+#div3 {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    background-color: green
+}
+.main_border {
+    position: absolute;
+    top: 0px;
+    height: 100%;
+    width: 5px;
+    background-color: yellow
+}
+.button {
+    position: absolute;
+    top: 300px;
+    height: 50px;
+    width: 50px;
+    background-color: orange
+}
+#right_border {
+    right: 0px
+}
+#left_border {
+    left: 0px
+}
+#text_div {
+}
+
+#button1 {
+    left: 10px
+}
+#button2 {
+    left: 70px
+}
+#button3 {
+    left: 130px
+}
+#button4 {
+    left: 190px
+}

@@ -1,0 +1,12 @@
+@import '../common/skins/slideShowBase';
+
+$shd: 0 0 0 rgba(0, 0, 0, .6);
+$brd: color_11;
+$brw: 0;
+
+@include exports("slide:skin", "wysiwyg.common.components.boxSlideShowSlide.viewer.skins.boxSlideShowSlideSkin");
+@include exports("slide:styleGroup", "inherit");
+
+#bg {
+  @include param-box-shadow(shd, $shd);
+}

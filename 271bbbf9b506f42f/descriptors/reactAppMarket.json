@@ -1,0 +1,9 @@
+{
+    "owner": "mayah",
+    "description": "open app market new url - react version",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "onlyForLoggedInUsers": "true",
+    "constraints": {}
+}

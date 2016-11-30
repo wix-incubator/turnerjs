@@ -1,0 +1,32 @@
+.wix-ticker-input-label {
+  display: block;
+}
+
+.wix-ticker-input-label-disabled {
+  opacity: 0.5;
+}
+
+.wix-ticker-input-input {
+  width: 5em;
+  margin: 0 0 5px 0;
+  padding: 0 3px;
+  line-height: 1.1em;
+  height: 1.8em;
+  border-radius: 3px;
+  border: 1px solid #b4b4b4;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, .1) inset;
+  font-size: .916em;
+
+  &:hover {
+    border-color: #a3d9f6;
+  }
+
+  &:focus {
+    border-color: #19a0e9;
+  }
+}
+
+.wix-ticker-input-units {
+  font-size: .916em;
+  margin-left: 3px;
+}

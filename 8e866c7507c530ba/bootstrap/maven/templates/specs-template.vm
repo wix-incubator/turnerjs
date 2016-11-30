@@ -1,0 +1,32 @@
+####################################################################################
+## Sample template for list auto-generation
+## the following macros and variable will be added to the template -
+## there is no need to uncomment them
+####################################################################################
+## Usage:
+##      writing a single item: $parser.item("my item")
+##      writing all items: $parser.allItems()
+####################################################################################
+## when rendering a list, the following variables are available:
+## $itemParser : item parser instance
+## $files : list of included files
+## $filesCount : total files number
+## $root : root directory
+## $separator : item separator
+## $parser : items parser object, includes the methods:
+##                  item(fileName) - parse a single filename
+##                  allItems() - parse all the files
+##                  items(itemsStringsArray) - parse a bunch of strings (file names are assumed but not enforced)
+##                  itemsIn(aggregation) - parse all files in aggregation index json entry ("aggregation" is the minified filename)
+##                  setItemTemplate(template) - set the velocity template for a single item (see item-template.vm)
+##                  setSeparator(separator) - sets an item separator
+##                  getRandom(min, max) - a random number in range
+$parser.setItemTemplate('"../javascript/$relativePath"')
+$parser.setSeparator(",
+    ")
+Test.addSpecs([
+    $parser.allItems()
+]);
+
+window.stopLoaderAntiCache = false;
+Test.start();

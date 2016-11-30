@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<title>Video Search</title>
+
+	<!-- build:css css/style.min.css -->
+	<link rel="stylesheet" href="styles/main.css">
+	<!-- /build -->
+</head>
+
+<body ng-app="VideoSearchApp" ng-cloak class="ng-cloak">
+<div id="wrapper" ng-controller="MainCtrl" ng-cloak class="ng-cloak">
+	<form ng-submit="doSearch()">
+		<input id="searchInput" ng-model="searchTerm" type="text" translate
+			   placeholder="VIDEOSEARCH_SEARCH_PLACEHOLDER"/>
+		<a id="searchBtn" class="button regularBtn ng-class:{true: 'disabled'}[searchTerm.length == 0]"
+		   ng-click="doSearch()" translate>VIDEOSEARCH_SEARCH_BUTTON</a>
+	</form>
+	<div id="searchSubText" translate>VIDEOSEARCH_SUB_SEARCH_TEXT</div>
+
+	<!--<ul class="tabsUL">-->
+	<!--<li ng-repeat="tab in tabs"-->
+	<!--class="tab ng-class:{true: 'selectedTab'}[selectedTab == tab.name]"-->
+	<!--ng-click="switchTab(tab.name)">-->
+	<!--<span>{{ tab.alias | translate }}</span>-->
+	<!--<span ng-show="!showWelcome">({{ searchResults[tab.name+'_total'] }})</span>-->
+	<!--</li>-->
+	<!--</ul>-->
+
+	<div class="tabContent" ng-view=""></div>
+
+	<div id="welcome" ng-show="showWelcome">
+		<div id="welcomeImg"></div>
+		<div id="welcomeTxt" translate>VIDEOSEARCH_WELCOME_TEXT</div>
+	</div>
+
+
+	<div class="video-preview-popup" ng-show="videoPreview.visible">
+		<h2 class="title" ng-bind="videoPreview.title"></h2>
+
+		<a class="close-button" href="#" ng-click="hideVideoPreview()"></a>
+
+		<div class="video-preview-container" ng-bind-html-unsafe="videoPreview.embeddedCode"></div>
+	</div>
+
+	<div id="footer">
+		<a id="cancelBtn" class="button regularBtn" ng-click="closeDialog(false)" translate>VIDEOSEARCH_CANCEL</a>
+		<a id="okBtn"
+		   class="button colorBtn ng-class:{true: 'disabled'}[!selectedItemInfo || selectedItemInfo.index == -1]"
+		   ng-click="closeDialog(true)" translate>VIDEOSEARCH_OK</a>
+	</div>
+
+	<div class="shadow" ng-show="videoPreview.visible"></div>
+</div>
+
+
+<script src="scripts/libs/angular.min.js"></script>
+<!--<script src="scripts/libs/angular-translate.min.js"></script>-->
+<!--<script src="scripts/libs/angular-translate-loader-static-files.min.js"></script>-->
+
+<!--module translation-->
+<script src="scripts/modules/translation/translation.js"></script>
+<script src="scripts/modules/translation/services/translationService.js"></script>
+<script src="scripts/modules/translation/directives/translateDirective.js"></script>
+
+<script src="scripts/app.js"></script>
+<script src="scripts/controllers/main.js"></script>
+<script src="scripts/services/youtubeSearch.js"></script>
+<!--<script src="scripts/services/transportService.js"></script>-->
+
+<script src="scripts/directives/scrollTop.js"></script>
+
+
+
+<!--<script src="scripts/services/vimeoSearch.js"></script>-->
+
+</body>
+</html>

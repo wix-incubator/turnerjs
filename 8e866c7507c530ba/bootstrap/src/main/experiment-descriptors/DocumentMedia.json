@@ -1,0 +1,10 @@
+{
+    "createTime": "2000-01-01T02:52:00",
+    "owner": "galiak",
+    "description": "Shortcut for Link -> Document, with document icon upload and document title display",
+    "tags": [
+        "viewer",
+        "editor"
+    ],
+    "constraints": {}
+}

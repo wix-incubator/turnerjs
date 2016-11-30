@@ -1,0 +1,15 @@
+@doc overview
+@id fileStructure
+@name File Structure
+@description 
+
+In ngEditor the file structure reflects the logical structure of the application.
+Each angular module is encapsulated in a folder. 
+The first file in the root of the module is an ngdoc file with the same name of the module.  This file holds the general
+description of the module. 
+The root folder should also contain the module's root scss file if relevant.
+Other than that, we do whatever what makes sense.  For smaller modules there may be no need for further folder seperation. 
+If your module has clear logical parts (e.g. UI elements in wixElements) it might make sense to break those into folders.
+You should strive to avoid creating folders with many files in them.  
+Folders that have no logical separation (e.g. breaking to module to "directives", "services", etc) should be avoided as well.
+Each file should contain one component.  

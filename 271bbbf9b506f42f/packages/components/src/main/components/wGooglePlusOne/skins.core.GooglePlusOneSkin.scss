@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+
+
+[data-state~="small_bubble"] {
+  background: param-url(tdr, $tdr, "google-plus-small-bubble.png") no-repeat;
+}
+
+[data-state~="small_none"] {
+  background: param-url(tdr, $tdr, "google-plus-small-none.png") no-repeat;
+}
+
+[data-state~="small_inline"] {
+  background: param-url(tdr, $tdr, "google-plus-small-inline.png") no-repeat;
+}
+
+[data-state~="medium_bubble"] {
+  background: param-url(tdr, $tdr, "google-plus-medium-bubble.png") no-repeat;
+}
+
+[data-state~="medium_none"] {
+  background: param-url(tdr, $tdr, "google-plus-medium-none.png") no-repeat;
+}
+
+[data-state~="medium_inline"] {
+  background: param-url(tdr, $tdr, "google-plus-medium-inline.png") no-repeat;
+}
+
+[data-state~="standard_bubble"] {
+  background: param-url(tdr, $tdr, "google-plus-standard-bubble.png") no-repeat;
+}
+
+[data-state~="standard_none"] {
+  background: param-url(tdr, $tdr, "google-plus-standard-none.png") no-repeat;
+}
+
+[data-state~="standard_inline"] {
+  background: param-url(tdr, $tdr, "google-plus-standard-inline.png") no-repeat;
+}
+
+[data-state~="tall_bubble"] {
+  background: param-url(tdr, $tdr, "google-plus-tall-bubble.png") no-repeat;
+}
+
+[data-state~="tall_none"] {
+  background: param-url(tdr, $tdr, "google-plus-tall-none.png") no-repeat;
+}
+
+[data-state~="tall_inline"] {
+  background: param-url(tdr, $tdr, "google-plus-tall-inline.png") no-repeat;
+}
+

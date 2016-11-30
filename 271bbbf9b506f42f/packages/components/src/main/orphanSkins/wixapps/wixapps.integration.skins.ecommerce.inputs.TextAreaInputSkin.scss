@@ -1,0 +1,78 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: #ffffff;
+$brd: #e3e3e3;
+$brw: 1px;
+$brdh: #a3d9f6;
+$brdf: #19a0e9;
+$txt: #000000;
+$rd: 0;
+
+
+
+:host {
+  position: relative;
+}
+
+#textarea {
+  color: param-text-color(txt, $txt);
+  box-sizing: border-box;
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  resize: none;
+  width: 100%  !important;
+  min-height: 100px;
+  height: 100%;
+  overflow: auto;
+  font-size: 14px;
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  box-shadow: 0 1px 1px 0 rgba(0,0,0,.3) inset;
+}
+
+#textarea:hover {
+  border-color: param-border-color-alpha(brdh, $brdh);
+}
+
+#textarea:focus {
+  border-color: param-border-color-alpha(brdf, $brdf);
+}
+
+[data-state~="invalid"]:before {
+  content: "!";
+  position: absolute;
+  text-align: center;
+  bottom: 50%;
+  left: -20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px !important;
+  margin-bottom: -11px;
+  color: #fff;
+  background: #f00;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+[data-state~="invalid"]:after {
+  content: "►";
+  position: absolute;
+  bottom: 50%;
+  left: 3px;
+  margin: 0 0 -7px -2px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+  font-size: 10px;
+}
+

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:wix="http://www.wixpress.com/spring"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.wixpress.com/spring http://www.wixpress.com/spring/wix-spring.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-2.0.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <wix:import-once resource="classpath:wix-framework-configuration-config.xml"/>
+
+    <wix:config resource="classpath:test-config.xml"/>
+
+    <bean id="cipherCryptographyService" class="com.wixpress.framework.cryptography.CipherCryptographyService"/>
+
+    <bean id="securityService" class="com.wixpress.framework.security.DefaultSecurityService">
+        <property name="cryptographyService" ref="cipherCryptographyService"/>
+    </bean>
+
+    <bean id="webDriverInit" class="com.wixpress.framework.test.webDriver.WebDriverInit" destroy-method="cleanup">
+        <property name="SecurityService" ref="securityService"></property>
+    </bean>
+
+    <bean id="browserConfigurationHolder" class="Utils.BrowserConfigurationHolder">
+        <constructor-arg ref="configurationManagerAdapter"/>
+        <constructor-arg ref="browserType"/>
+    </bean>
+
+    <bean id="browserType" class="com.wixpress.framework.test.webDriver.WebDriverInit$BrowserType" factory-method="valueOf">
+        <constructor-arg>
+            <value>CHROME</value>
+            <!-- supported browsers;   FIREFOX CHROME EXPLORER SAFARI -->
+        </constructor-arg>
+    </bean>
+
+    <bean id="environmentConfigurationHolder" class="Utils.EnvironmentConfigurationHolder">
+       <constructor-arg ref="configurationManagerAdapter"/>
+    </bean>
+
+    <bean id="configurationManagerAdapter" class="com.wixpress.framework.configuration.spring.SpringConfigurationManagerAdapter" autowire="byName">
+        <constructor-arg ref="configurationManager"/>
+    </bean>
+
+    <bean id="configurationManager" class="com.wixpress.framework.configuration.CommonsConfigConfigurationManager">
+        <constructor-arg ref="configurationMetadataManager"/>
+        <property name="conversionProvider">
+            <bean class="com.wixpress.framework.configuration.spring.SpringConversionProvider">
+                <constructor-arg ref="conversionService"/>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="configurationMetadataManager"
+          class="com.wixpress.framework.configuration.metadata.DefaultConfigurationMetadataManager">
+    </bean>
+
+    <bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean"/>
+
+</beans>

@@ -1,0 +1,59 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_13;
+$brs: color_15;
+$brw: 1px;
+$rd: 0;
+$trans: all .4s ease 0s;
+
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+
+@include define-mapped-param(contentPaddingLeft, brw);
+@include define-mapped-param(contentPaddingRight, brw);
+@include define-mapped-param(contentPaddingBottom, brw);
+@include define-mapped-param(contentPaddingTop, brw);
+
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#title {
+  display: none;
+}
+
+#description {
+  display: none;
+}
+
+#link {
+  display: none;
+}
+
+#imageWrapper {
+  border: param-border-size(brw, $brw) solid transparent;
+  @include param-border-radius(rd, $rd);
+  @include param-transition(trans, $trans);
+  cursor: pointer;
+  box-sizing: border-box;
+  height: 100% !important;
+}
+
+#imageWrapper:hover {
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+}
+
+[data-state~="selected"]   #imageWrapper {
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brs, $brs);
+}
+

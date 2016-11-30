@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+@import '../../../../../components/src/main/mixins/components-base';
+
+@mixin zoomAndPanCursor($tdr) {
+  .zoomedin {
+    cursor: param-url(tdr, $tdr, "cursor_zoom_out.png"), param-url(tdr, $tdr, "cursor_zoom_out.cur"), auto;
+    overflow: hidden;
+    display: block;
+  }
+
+  .zoomedout {
+    cursor: param-url(tdr, $tdr, "cursor_zoom_in.png"), param-url(tdr, $tdr, "cursor_zoom_in.cur"), auto;
+  }
+}

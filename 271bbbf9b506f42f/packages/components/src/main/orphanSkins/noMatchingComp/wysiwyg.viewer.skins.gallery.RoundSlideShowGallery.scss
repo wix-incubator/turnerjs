@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$bg: color_1;
+$bge: color_6;
+$rd: 3px;
+$shd: 0 1px 3px rgba(0, 0, 0, .6);
+$shd1: inset -3px -5px 15px rgba(0, 0, 0, .4);
+
+@include exports("widthDiff", 20);
+@include exports("heightDiff", 20);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.RoundFrameDisplayer");
+
+.xxx {
+  @include abs-distance(0);
+  background: param-url(tdr, $tdr, "net.png") center center repeat;
+}
+
+:host {
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+.btn {
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd1, $shd1);
+  background-color: param-bg-color(bge, $bge);
+  background: param-url(tdr, $tdr, "arrows_thin.gif") no-repeat;
+  position: absolute;
+  bottom: 10px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+#buttonPrev {
+  right: 60px;
+  background-position: 10px 50%;
+}
+
+#buttonNext {
+  right: 10px;
+  background-position: 105% 50%;
+}
+
+#autoplay {
+  position: absolute;
+  right: 120px;
+  bottom: 40px;
+}
+
+#counter {
+  position: absolute;
+  right: 120px;
+  bottom: 20px;
+}
+
+#itemsContainer {
+  overflow: hidden;
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+}
+

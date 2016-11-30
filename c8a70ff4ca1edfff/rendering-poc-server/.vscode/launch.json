@@ -1,0 +1,71 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Mocha",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/mocha/bin/_mocha",
+            "stopOnEntry": false,
+            "args": ["{test,src}/**/*.spec.js", "--no-timeouts"],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy",
+                "--require", "babel-register",
+                "--require", "${workspaceRoot}/node_modules/wix-node-build/lib/ignore-extensions.js",
+                "--require", "${workspaceRoot}/node_modules/wix-node-build/lib/setup-dom.js"
+            ],
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "outDir": null
+        },
+        {
+            "name": "Launch Protractor",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/node_modules/protractor/bin/protractor",
+            "args": ["${workspaceRoot}/node_modules/wix-node-build/config/protractor.conf.js"],
+            "stopOnEntry": false,
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy"
+            ],
+            "env": {
+                "NODE_ENV": "test"
+            },
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "outDir": null
+        },
+        {
+            "name": "Launch",
+            "type": "node",
+            "request": "launch",
+            "program": "${workspaceRoot}/index.js",
+            "stopOnEntry": true,
+            "args": ["--no-timeouts"],
+            "cwd": "${workspaceRoot}",
+            "preLaunchTask": null,
+            "runtimeExecutable": null,
+            "runtimeArgs": [
+                "--nolazy",
+                "--require", "babel-register",
+                "--require", "${workspaceRoot}/node_modules/wix-node-build/lib/ignore-extensions.js"
+            ],
+            "env": {
+                "NODE_ENV": "development",
+                "SRC_PATH": "./src"
+            },
+            "console": "internalConsole",
+            "sourceMaps": true,
+            "outDir": null
+        }
+    ]
+}

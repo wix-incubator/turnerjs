@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: #3D3D3D;
+$txth: #000000;
+$pad: 5px;
+
+
+
+[data-state~="bottomMenu"] #buttonsContainer {
+  text-align: center;
+}
+
+#buttonTemplate[data-isTemplate="true"] {
+  display: none;
+}
+
+#buttonTemplate {
+  display: inline-block;
+  cursor: pointer;
+  padding: 0 param-padding-size(pad, $pad);
+  border-left: 1px solid param-text-color(txt, $txt);
+  @include param-font(fnt, $fnt);
+}
+
+#buttonTemplate .buttonLink {
+  color: param-text-color(txt, $txt);
+}
+
+#buttonTemplate .buttonLink:hover {
+  color: param-text-color(txth, $txth);
+}
+
+#buttonTemplate:hover {
+  text-decoration: underline;
+}
+
+#buttonTemplate:first-child {
+  padding-left: 0;
+  border-left: 0;
+}
+
+#buttonTemplate:last-child {
+  padding-right: 0;
+}
+

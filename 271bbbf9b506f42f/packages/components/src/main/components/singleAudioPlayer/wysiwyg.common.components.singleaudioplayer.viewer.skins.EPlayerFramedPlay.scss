@@ -1,0 +1,462 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'singleAudioPlayerSkinsMixin';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_13;
+$iconBG: color_13;
+$brd: color_15;
+$dividers: color_15;
+$audioIcons: color_21;
+$audioText: color_11;
+$prog: color_21;
+$vol: color_15;
+$rd: 0;
+$ird: rd;
+$brw: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$themeDir: THEME_DIRECTORY;
+$fnt: font_9;
+$fnts: font_10;
+
+@include define-mapped-param(ird, rd);
+@include exports(barSpaceLeft, 46);
+@include exports(barSpaceRight, 60);
+@include exports(mobileHeight, 82);
+@include exports(desktopHeight, 68);
+
+$min-height: 68px;
+@include single-audio-player-base($min-height, 82px, param-size(brw, $brw));
+
+:host {
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  @include param-border-radius(ird, $ird);
+  @include param-box-shadow(shd, $shd);
+  box-sizing: border-box;
+}
+
+#player {
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+
+  &:after {
+    content: "";
+    overflow: hidden;
+    z-index: $zindex-eplayer-framed-play-player-after;
+    @include abs-distance(-10px);
+    background-color: param-bg-color(bg, $bg);
+  }
+
+  a {
+    display: block;
+    color: #fff;
+
+    &:before, &:after {
+      margin: -8px 0 0;
+      background-color: param-border-color-alpha(audioIcons, $audioIcons);
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+    }
+  }
+}
+
+.iWrapper {
+  border-bottom: 1px solid param-border-color-alpha(dividers, $dividers);
+  float: left;
+  width: 100%;
+  height: 31px;
+}
+
+#info {
+  color: param-text-color(audioText, $audioText);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  position: absolute;
+  left: 10px;
+  right: 40px;
+  top: 8px;
+  @include param-font(fnt, $fnt);
+}
+
+.mediaControls {
+  float: left;
+  width: 100%;
+}
+
+.mediaButtons {
+  float: left;
+}
+
+.volumeControls {
+  float: right;
+  margin: 10px 10px 0 0;
+}
+
+#durationOfTrack {
+  text-align: right;
+  min-width: 30px;
+  float: right;
+  margin: 10px 10px 0 0;
+  @include param-font(fnts, $fnts);
+}
+
+#trackPosition, #trackDuration, #artistLabel, #trackLabel, #sep, #sep2 {
+  color: param-text-color(audioText, $audioText);
+}
+
+#artistLabel {
+  @include opacity(0.5);
+}
+
+#trackPosition, #sep2 {
+  display: none;
+}
+
+.button {
+  position: relative;
+  overflow: hidden;
+  float: left;
+
+  &:before, &:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+  }
+}
+
+.btnWrappwer {
+  float: left;
+  width: 37px;
+  height: 35px;
+  border-right: 1px solid param-border-color-alpha(dividers, $dividers);
+  cursor: pointer;
+}
+
+#playBtn, #pauseBtn {
+  width: 16px;
+  height: 16px;
+  margin: 10px;
+
+  a {
+    &:before {
+      left: 0;
+      margin-top: -8px;
+      background: transparent;
+    }
+  }
+}
+
+#playBtn {
+  a {
+    &:before {
+      border: 8px solid transparent;
+      border-width: 8px 16px;
+      border-left-color: param-border-color-alpha(audioIcons, $audioIcons);
+    }
+  }
+}
+
+#pauseBtn {
+  a {
+    &:before {
+      width: 4px;
+      height: 14px;
+      border: 5px solid param-border-color-alpha(audioIcons, $audioIcons);
+      border-width: 0 5px;
+    }
+  }
+}
+
+#repeatBtn {
+  width: 16px;
+  height: 18px;
+  margin: 8px;
+
+  a {
+    &:before {
+      left: 1px;
+      width: 9px;
+      height: 9px;
+      border: 3px solid param-border-color-alpha(audioIcons, $audioIcons);
+      margin-top: -6px;
+      background: transparent;
+      border-radius: 16px;
+    }
+
+    &:after {
+      left: 9px;
+      height: 2px;
+      width: 2px;
+      border: 4px solid $iconBG;
+      border-width: 5px 2px 5px 5px;
+      border-left-color: param-border-color-alpha(audioIcons, $audioIcons);
+      border-top-color: transparent;
+      border-bottom-color: transparent;
+      border-right-color: transparent;
+      margin: -9px 0 0;
+      background-color: param-bg-color(bg, $bg);
+    }
+  }
+}
+
+#volumeBtn {
+  margin-top: -2px;
+  width: 20px;
+  height: 20px;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+  height: 10px;
+}
+
+#volumeScale, [data-state~="unmuted"] #volumeScale, [data-state~="muted"] #volumeScale {
+  float: left;
+  height: 10px;
+  width: auto;
+  margin: 3px 0 0 2px;
+}
+
+#volumeScale {
+  li {
+    width: 4px;
+    height: 10px;
+    display: inline;
+    float: left;
+    margin: 0;
+    cursor: pointer;
+
+    &.on {
+      .colorBlock {
+        @include opacity(1);
+      }
+    }
+
+    &.off {
+      .colorBlock {
+        @include opacity(0.3);
+      }
+    }
+  }
+}
+
+.colorBlock, .colorBlank {
+  display: inline;
+  float: left;
+  width: 2px;
+  height: 10px;
+}
+
+.colorBlock {
+  background-color: param-border-color-alpha(vol, $vol);
+}
+
+.colorBlank {
+  background-color: param-bg-color(bg, $bg);
+}
+
+#progressbar {
+  position: absolute;
+  left: 46px;
+  right: 60px;
+  height: 10px;
+  bottom: 12px;
+}
+
+#bar {
+  cursor: pointer;
+  width: 100%;
+  position: absolute;
+  height: 10px;
+  background-color: param-bg-color(prog, $prog);
+  box-shadow: inset 0 -1px 1px rgba(255, 255, 255, .3);
+  @include opacity(0.3);
+}
+
+#slider {
+  position: absolute;
+  height: 10px;
+  display: block;
+  background-color: param-bg-color(prog, $prog);
+  overflow: hidden;
+  cursor: pointer;
+
+  &:after {
+    content: "";
+    z-index: $zindex-eplayer-framed-play-slider-after;
+    overflow: hidden;
+    @include abs-distance(0);
+  }
+}
+
+#handle {
+  height: 10px;
+  width: 10px;
+  background-color: transparent;
+  position: absolute;
+  cursor: pointer;
+
+  &:hover {
+    background-color: param-border-color-alpha(audioIcons, $audioIcons);
+    @include opacity(0.3);
+  }
+}
+
+[data-state~="unmuted"] {
+  #volumeScale {
+    li {
+      &.on {
+        .colorBlock {
+          @include opacity(1);
+        }
+      }
+    }
+  }
+
+  #volumeBtn {
+    a {
+      &:before {
+        left: -2px;
+        border: 7px solid transparent;
+        border-right-color: param-border-color-alpha(vol, $vol);
+        margin-top: -7px;
+        border-radius: 3px;
+        background: transparent;
+      }
+
+      &:after {
+        left: 4px;
+        width: 4px;
+        height: 6px;
+        margin-top: -3px;
+        background-color: param-border-color-alpha(vol, $vol);
+      }
+    }
+  }
+}
+
+[data-state~="muted"] {
+  #volumeScale {
+    li {
+      &.on {
+        .colorBlock {
+          @include opacity(0.3);
+        }
+      }
+    }
+  }
+
+  #volumeBtn {
+    &:before {
+      width: 16px;
+      height: 16px;
+      border: 1px solid param-border-color-alpha(vol, $vol);
+      margin-top: -9px;
+      border-radius: 16px;
+    }
+
+    &:after {
+      width: 18px;
+      border-top: 1px solid param-border-color-alpha(vol, $vol);
+      @include rotate(-45);
+    }
+
+    a {
+      &:before {
+        left: -2px;
+        border: 7px solid transparent;
+        border-right-color: param-border-color-alpha(vol, $vol);
+        margin-top: -7px;
+        border-radius: 3px;
+        background: transparent;
+      }
+
+      &:after {
+        left: 4px;
+        width: 4px;
+        height: 6px;
+        margin-top: -3px;
+        background-color: param-border-color-alpha(vol, $vol);
+      }
+    }
+  }
+}
+
+[data-state~="playing"] {
+  .play, .repeat {
+    display: none;
+  }
+
+  .pause {
+    display: block;
+  }
+}
+
+[data-state~="repeat"] {
+  .play, .pause {
+    display: none;
+  }
+
+  .repeat {
+    display: block;
+  }
+}
+
+[data-state~="pausing"], [data-state~="stopped"], [data-state~="waiting"] {
+  .play {
+    display: block;
+  }
+
+  .pause, .repeat {
+    display: none;
+  }
+}
+
+[data-state~="mobile"] {
+  height: 82px;
+
+  #player {
+    min-height: 82px;
+  }
+
+  #progressbar {
+    right: 10px;
+  }
+
+  .iWrapper {
+    height: 46px;
+  }
+
+  #artistLabel, #trackLabel {
+    float: left;
+    width: 100%;
+  }
+
+  .volumeControls, #sep {
+    display: none;
+  }
+}
+
+[data-state~="loading"] {
+  #player {
+    //    background: param-url(themeDir, $themeDir, "gif_preloader.gif") center no-repeat;
+
+    * {
+      display: none;
+    }
+  }
+}
+
+

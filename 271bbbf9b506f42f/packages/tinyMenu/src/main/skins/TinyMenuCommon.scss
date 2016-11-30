@@ -1,0 +1,57 @@
+$bg: color_15;
+$iconcolor: color_11;
+$bordercolor: color_11;
+$rd: 4px;
+$strokewidth: 3;
+$linewidth: 20px;
+$borderwidth: 1px;
+$fixStrokeBlur: 0;
+$iconcolorSelected: color_11;
+
+@import '../../../../components/src/main/mixins/components-base';
+
+:host{
+  @include tap-highlight-color(rgba(0,0,0,0));
+  z-index: $zindex-tiny-menu-skin;
+}
+
+#menuButton {
+  @include param-border-radius(rd, $rd);
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-width: 40px;
+  min-height: 40px;
+  background-color: param-bg-color(bg, $bg);
+  border: solid param-border-size(borderwidth, $borderwidth) param-border-color-alpha(bordercolor, $bordercolor);
+  cursor: pointer;
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+
+  > .icon {
+    width: param-width(linewidth, $linewidth);
+    overflow: visible;
+    stroke-width: param-width(strokewidth, $strokewidth);
+    stroke: param-bg-color(iconcolor, $iconcolor);
+    height: 17px;
+    padding-top: mutate-size-param(fixStrokeBlur, eval, '(1 - strokewidth % 2) / 2', strokewidth);
+
+    &.saveSelectedIconColor {
+      stroke: param-bg-color(iconcolorSelected, $iconcolorSelected);
+    }
+  }
+}
+
+#menuContainer {
+  z-index: $zindex-tiny-menu-skin-menuContainer;
+  .submenu {
+    display: none;
+  }
+
+  .item.open > .submenu {
+    display: block;
+  }
+}

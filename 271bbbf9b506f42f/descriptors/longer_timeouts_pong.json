@@ -1,0 +1,8 @@
+{
+    "owner": "anna",
+    "description": "setting a longer timeout for contact form emails - this is used for trying to fix/investigate CLNT-7320",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

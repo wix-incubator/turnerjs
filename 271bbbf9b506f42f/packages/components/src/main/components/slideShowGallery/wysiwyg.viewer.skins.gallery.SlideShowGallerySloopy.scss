@@ -1,0 +1,171 @@
+@charset "UTF-8";
+
+@import "slideShowGalleryBase";
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_15;
+$tdr: BASE_THEME_DIRECTORY;
+$txt: color_11;
+$trns: opacity .5s ease 0s;
+
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.SlideShowSloopyDisplayer");
+@include exports("imageItem:styleGroup", "inherit");
+
+:host {
+  overflow: visible !important;
+}
+
+.border {
+  @include abs-distance(0);
+}
+
+.border:before {
+  content: "";
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  bottom: -4px;
+  right: -4px;
+  background: param-url(tdr, $tdr, "sloppyframe.png");
+  background-position: 0 0;
+}
+
+.border:after {
+  content: "";
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  bottom: -8px;
+  right: -8px;
+  background: param-url(tdr, $tdr, "sloppyframe.png");
+  background-position: 100% 100%;
+}
+
+#itemsContainer {
+  background-color: black;
+  @include abs-distance(0);
+  overflow: hidden;
+}
+
+.helpers {
+  position: absolute;
+  @include param-transition(trns, $trns);
+  @include opacity(0);
+  bottom: 10px;
+  right: 0;
+  color: param-border-color(txt, $txt);
+}
+
+[data-state~="mobile"] .helpers {
+  @include opacity(1);
+}
+
+:host:hover > .helpers {
+  background-color: param-bg-color(bg, $bg);
+  @include opacity(1);
+}
+
+:host:hover .pnl {
+  background-color: param-bg-color(bg, $bg);
+  @include opacity(1);
+}
+
+[data-state~="showTextPanel"] .pnl {
+  background-color: param-bg-color(bg, $bg);
+  @include opacity(1);
+}
+
+.helpers > div {
+  float: left;
+  font-family: arial, helvetica,sans-serif;
+  font-size: 12px;
+}
+
+#autoplay {
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  padding-top: 2px;
+  cursor: pointer;
+  text-align: center;
+}
+
+#autoplay span {
+  display: inline-block;
+}
+
+[data-state~="autoplayOff"] span {
+  border: 5px solid transparent;
+  border-left: 5px solid param-border-color(txt, $txt);
+  width: 0;
+  height: 0;
+}
+
+[data-state~="autoplayOn"]  span {
+  border-left: 2px solid param-border-color(txt, $txt);
+  border-right: 2px solid param-border-color(txt, $txt);
+  width: 1px;
+  height: 10px;
+  margin-right: 5px;
+}
+
+[data-state~="showButtons"] .helpers {
+  @include opacity(1);
+}
+
+#buttonPrevArrow {
+  margin-top: 4px;
+  cursor: pointer;
+  height: 6px;
+  width: 6px;
+  position: relative;
+  margin-left:6px;
+  border-style: solid;
+  border-color: param-border-color(txt, $txt);
+  background: transparent;
+  @include rotate(-45);
+  border-width: 1px 0 0 1px;
+}
+
+#buttonPrev,#buttonNext,#autoplay{
+  padding: 15px;
+}
+
+#counter {
+  padding-top: 15px;
+}
+
+
+#buttonNextArrow {
+  margin-top: 4px;
+  margin-right: 8px;
+  cursor: pointer;
+  position: relative;
+  height: 6px;
+  width: 6px;
+  border-style: solid;
+  border-color: param-border-color(txt, $txt);
+  background: transparent;
+  @include rotate(-45);
+  border-width: 0 1px 1px 0;
+}
+
+[data-text-alignment="right"] {
+  .helpers {
+    left:0;
+    right:initial;
+  }
+
+  &[data-state~="hidePlayButton"] {
+    #autoplay {
+      display:none;
+    }
+  }
+}

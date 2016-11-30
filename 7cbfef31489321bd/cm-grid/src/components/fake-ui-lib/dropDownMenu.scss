@@ -1,0 +1,13 @@
+.dropdown {
+  background: white;
+  border: 1px solid black;
+  position: absolute;
+  padding: 8px;
+  z-index: 1;
+  min-width: 100px;
+}
+
+.dropdown-item {
+  position: relative;
+  display: inline-block;
+}

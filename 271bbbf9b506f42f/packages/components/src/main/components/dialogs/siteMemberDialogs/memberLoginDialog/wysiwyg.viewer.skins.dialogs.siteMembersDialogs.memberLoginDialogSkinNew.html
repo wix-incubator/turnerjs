@@ -1,0 +1,65 @@
+<template>
+    <div id="blockingLayer">
+    </div>
+    <div id="xButton">
+        <svg viewBox="0 0 180 180">
+            <path d="M5 5 L175 175 M175 5 L5 175"/>
+        </svg>
+    </div>
+    <div id="dialog" class="responsive">
+
+        <h3 id="title" class="single"></h3>
+
+        <div id="contentWrapper" class="wrapper">
+
+            <div class="customLogin">
+                <div id="content" >
+                    <div id="email"></div>
+                    <div id="password"></div>
+                </div>
+                <div class="switchLinkContainer">
+                    <div id="checkboxWrapper">
+                        <input type="checkbox" id="rememberMeCheckbox"/>
+                        <label class="checked">
+                            <svg class="checkbox" height="15" width="15" x="0px" y="0px" viewBox="0 0 15 15">
+                                <rect class="checkbox-bg" height="15" width="15"/>
+                                <polygon class="checkbox-mark" points="6.3,11.1 2.8,7.6 3.7,6.7 6.3,9.3 11.7,4 12.5,4.9"/>
+                            </svg>
+                        </label>
+                        <label class="unchecked">
+                            <svg class="checkbox" height="15" width="15" x="0px" y="0px" viewBox="0 0 15 15">
+                                <rect class="checkbox-bg" height="15" width="15"/>
+                            </svg>
+                        </label>
+                        <p id="rememberMeCheckboxLabel"></p>
+                    </div>
+                    <div id="forgotYourPasswordLink"></div>
+                </div>
+                <div class="footer">
+
+                    <div id="okButton"></div>
+
+                    <div id="forgotYourPasswordLinkMobile"></div>
+
+                    <div class="switchToSignUpContainer">
+                        <span id="switchToSignUpText"></span>
+                        <a id="switchDialogLink"></a>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="divider"></div>
+
+            <div id="socialLoginWrapper">
+                <iframe id="socialHolder"></iframe>
+                <div id="dummySocialButtons">
+                    <div id="facebookButton"></div>
+                    <div id="googleButton"></div>
+                </div>
+                <p id="socialLoginErrorMsg"></p>
+            </div>
+
+        </div>
+    </div>
+</template>

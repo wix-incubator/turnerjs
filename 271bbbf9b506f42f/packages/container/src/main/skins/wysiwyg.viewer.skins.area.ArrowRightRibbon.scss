@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$rb: color_14;
+
+:host {
+  @include scale(1);
+
+  &:before {
+    border-width: 0 20px 15px 0;
+    bottom: 0;
+    position: absolute;
+    content: "";
+    left: 0;
+    border-style: solid;
+    border-color: transparent param-border-color-alpha(rb, $rb) transparent transparent;
+  }
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+#bg {
+  @include abs-distances(0, 0, 15px, 0);
+  overflow: hidden;
+
+  &:after,
+  &:before {
+    position: absolute;
+    content: "";
+    overflow: hidden;
+    right: 0;
+    width: 100%;
+    border-style: solid;
+    border-color: param-border-color-alpha(bg, $bg) transparent;
+  }
+
+  &:after {
+    border-width: 0 350px 499px 0;
+    bottom: 50%;
+  }
+
+  &:before {
+    border-width: 499px 350px 0 0;
+    top: 50%;
+  }
+}

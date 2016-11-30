@@ -1,0 +1,88 @@
+@charset "UTF-8";
+@import 'VerticalAnchorsMenuBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+$textFont: font_1;
+$textSpacing: 14px;
+$symbolColor: color_15;
+$symbolColorSelected: color_2;
+$symbolHeight: 15px;
+$symbolStrokeWidth: 4px;
+
+@include exports(hoverElementClass, 'symbol');
+@include exports(disableClickOnHiddenElement, true);
+@include define-mapped-param(symbolAndTextColor, symbolColor);
+@include define-mapped-param(selectedColor, symbolColorSelected);
+
+#menuContainer {
+
+  .item {
+
+    .link {
+      pointer-events: none;
+      .text-wrapper {
+        visibility: hidden;
+        opacity: 0;
+        left: 10px;
+        @include param-font(textFont, $textFont);
+        color: param-text-color(symbolColor, $symbolColor);
+        width: calc(100% - #{$symbolHeight});
+        transition: all .3s cubic-bezier(.23, 1, .32, 1);
+      }
+
+      .symbol {
+        pointer-events: all;
+        fill: transparent;
+        stroke: param-bg-color(symbolColor, $symbolColor);
+        stroke-width: $symbolStrokeWidth;
+      }
+    }
+
+    &.active, &.hover {
+      .link {
+        pointer-events: all;
+        .symbol {
+          fill: param-bg-color(symbolColorSelected, $symbolColorSelected);
+          stroke: param-bg-color(symbolColorSelected, $symbolColorSelected);
+        }
+        .text-wrapper {
+          visibility: visible;
+          opacity: 1;
+          left: 0;
+          color: param-text-color(symbolColorSelected, $symbolColorSelected);
+        }
+      }
+    }
+  }
+
+  &.text-align-left, &.orientation-left.text-align-center {
+    .item {
+      .link {
+        .text-wrapper {
+          .label {
+            padding-left: param-padding-size(textSpacing, $textSpacing);
+          }
+        }
+      }
+    }
+  }
+
+  &.text-align-right, &.orientation-right.text-align-center {
+    .item {
+      .link {
+        .text-wrapper {
+          .label {
+            padding-right: param-padding-size(textSpacing, $textSpacing);
+          }
+        }
+      }
+    }
+  }
+}
+
+@include auto-color();

@@ -1,0 +1,20 @@
+.my-account-container {
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.main-view {
+  width: 100%;
+  position: relative;
+}
+
+.navigationPane {
+  width: 198px;
+  background-color: #375b74;
+  color: #ffffff;
+}

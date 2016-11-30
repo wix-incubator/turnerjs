@@ -1,0 +1,38 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/photoZoom';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_11;
+$brw: 2px;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$tdr: BASE_THEME_DIRECTORY;
+
+@include define-mapped-param(contentPaddingLeft, brw);
+@include define-mapped-param(contentPaddingRight, brw);
+@include define-mapped-param(contentPaddingBottom, brw);
+@include define-mapped-param(contentPaddingTop, brw);
+@include zoomAndPanCursor($tdr);
+
+@include exports("img:skin", "skins.core.ImageNewSkinZoomable");
+
+#link {
+  display: block;
+  @include param-box-shadow(shd, $shd);
+  border-radius: 50%;
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  background-color: param-border-color-alpha(brd, $brd);
+  overflow: hidden;
+}
+
+#img {
+  border-radius: 50%;
+  overflow: hidden;
+}

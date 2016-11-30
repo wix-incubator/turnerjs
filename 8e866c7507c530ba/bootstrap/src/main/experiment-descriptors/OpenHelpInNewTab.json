@@ -1,0 +1,11 @@
+{
+    "createTime": "2015-01-12T00:31:00",
+    "owner": "NirN",
+    "description": "Open help in a new tab instead of in iframe",
+    "tags": [
+        "editor"
+    ],
+    "constraints": {
+        "WalkMe": "optional-before"
+    }
+}

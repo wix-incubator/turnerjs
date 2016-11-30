@@ -1,0 +1,184 @@
+@charset "UTF-8";
+
+@import "slideShowGalleryBase";
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$txt: color_11;
+$brw: 0;
+$rd: 0;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$trns: opacity .5s ease 0s;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.SlideTextOverlayDisplayer");
+@include exports("imageItem:styleGroup", "inherit");
+
+:host {
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  overflow: hidden;
+  background: param-border-color-alpha(brd, $brd);
+}
+
+.border {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  pointer-events: none;
+  background: none !important;
+}
+
+#itemsContainer {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  overflow: hidden;
+  @include translate3d(0,0,0);
+}
+
+.btn {
+  @include param-transition(trns, $trns);
+  @include opacity(0.4);
+  height: 70px;
+  background: param-url(tdr, $tdr, "arrows_white_new3.png") no-repeat;
+  width: 45px;
+  position: absolute;
+  top: 50%;
+  margin-top: -35px;
+  cursor: pointer;
+}
+
+[data-state~="mobile"] .btn {
+  @include opacity(1);
+}
+
+#buttonPrev {
+  left: 20px;
+  background-position: 0 0;
+}
+
+#buttonNext {
+  right: 20px;
+  background-position: 100% 0;
+}
+
+.helpers {
+  @include param-transition(trns, $trns);
+  @include opacity(0);
+  position: absolute;
+  right: param-border-size(brw, $brw);
+  bottom: param-border-size(brw, $brw);
+  padding: 0 10px 10px 0;
+  width: 60px;
+  text-align: right;
+}
+
+#counter {
+  display: inline-block;
+  color: param-border-color(txt, $txt);
+  font-family: arial, helvetica,sans-serif;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+#autoplay {
+  display: inline-block;
+  padding-left: 10px;
+  width: 20px;
+  min-height: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#autoplay > span {
+  display: inline-block;
+  position: relative;
+  z-index: $zindex-slide-show-text-overlay-span-after-autoplay;
+}
+
+[data-state~="autoplayOff"] #autoplay > span {
+  border: 5px solid transparent;
+  border-left: 5px solid param-border-color(txt, $txt);
+  width: 0;
+  height: 0;
+}
+
+[data-state~="autoplayOn"]  #autoplay > span {
+  border-left: 2px solid param-border-color(txt, $txt);
+  border-right: 2px solid param-border-color(txt, $txt);
+  height: 10px;
+  width: 1px;
+  margin-right: 5px;
+}
+
+.buttons {
+  @include param-transition(trns, $trns);
+  @include opacity(0);
+}
+
+[data-state~="mobile"] .buttons {
+  @include opacity(1);
+}
+
+:host:hover > .buttons {
+  @include opacity(1);
+}
+
+:host:hover > .helpers {
+  @include opacity(1);
+}
+
+:host:hover .pnl {
+  @include opacity(1);
+}
+
+[data-state~="showTextPanel"] .pnl {
+  @include opacity(1);
+}
+
+.btn:hover {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .buttons {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .helpers {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .pnl {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .btn {
+  @include opacity(1);
+}
+
+[data-state~="showButtons"]  .buttons {
+  @include opacity(1);
+}
+
+[data-text-alignment="right"] {
+  #imageItempanel {
+    padding-right: 10px;
+    padding-left: 100px;
+  }
+  .helpers {
+    left: 0px;
+    right: initial;
+    text-align: left;
+  }
+
+  &[data-state~="hidePlayButton"] {
+    #autoplay {
+      display:none;
+    }
+  }
+}

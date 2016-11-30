@@ -1,0 +1,45 @@
+{
+  "parserOptions": {
+    "ecmaVersion": 6,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true
+    }
+  },
+  "plugins": [
+    "mocha"
+  ],
+  "extends": [
+    "standard",
+    "standard-react"
+  ],
+  "rules": {
+    "indent": 0,
+    "generator-star-spacing": 0,
+    "jsx-quotes": [2, "prefer-double"],
+    "react/prop-types": 0,
+    "space-before-function-paren": 0,
+    "space-in-parens": 2,
+    "spaced-comment": 0,
+    "yield-star-spacing": 0,
+    "no-multi-spaces": 0,
+    "no-trailing-spaces": 0,
+    "no-multiple-empty-lines": 2,
+    "key-spacing": 0,
+    "keyword-spacing": 0,
+    "block-spacing": 0,
+    "react/jsx-no-bind": 0,
+    "no-extra-parens": 0,
+    "no-undef-init": 0,
+    "no-return-assign": 0,
+    "operator-linebreak": 0,
+    "padded-blocks": 0,
+    "react/jsx-boolean-value": [2, "always"],
+    "no-var": 2,
+    "dot-location": 0,
+    "mocha/no-exclusive-tests": 2,
+    "react/jsx-indent-props": 0,
+    "prefer-const": 2,
+    "object-shorthand": 2
+  }
+}

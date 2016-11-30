@@ -1,0 +1,15 @@
+.inner-container {
+  position: relative;
+  height: 25px;
+  padding: 2px 5px;
+  overflow: hidden;
+}
+
+.invalid-value {
+  border-bottom: 1px solid red;
+}
+
+.image-container {
+  padding: 0px;
+  overflow: visible;
+}

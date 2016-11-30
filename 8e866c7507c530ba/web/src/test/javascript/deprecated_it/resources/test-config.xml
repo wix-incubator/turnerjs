@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <cryptography>
+        <cipher>
+            <algorithm>AES</algorithm>
+            <password>1qaz2wsx3edc4rfv</password>
+        </cipher>
+    </cryptography>
+
+    <browser>
+        <inSauce>true</inSauce>
+        <!--browserType accepted values: chrome, firefox (for more, see org.openqa.selenium.remote.DesiredCapabilities)-->
+        <browserType>chrome</browserType>
+        <sauce>
+            <username>yishaib</username>
+            <access-key>2af6babc-ef6b-49c7-af61-c7730a70e3b8</access-key>
+        </sauce>
+    </browser>
+
+    <tested-server>
+        <active_server>server_local_with_pita_users</active_server>
+
+        <server_local_with_pita_users>
+            <domain>pita.wixpress.com</domain>
+            <subdomain>wysiwyg</subdomain>
+            <applicationRoot>services/wix-html-editor</applicationRoot>
+            <userGuid>c0c35b54-964f-4829-9568-5b510163b84d</userGuid>
+            <userName>shiranm2</userName>
+            <port>80</port>
+            <siteGuid>cd581cf6-8b42-4325-abda-d8ad4c3e2682</siteGuid>
+        </server_local_with_pita_users>
+
+        <server_crab>
+            <domain>crab.wixpress.com</domain>
+            <subdomain>meditor</subdomain>
+            <applicationRoot></applicationRoot>
+            <userGuid>8912aa0e-6e8d-4674-902a-26923b03eeef</userGuid> <!--Guid of user shaharz on crab-->
+            <userName>tester</userName>
+            <siteGuid>9e46276b-a489-4f27-b349-96de5149fe05</siteGuid>
+            <port>80</port>
+        </server_crab>
+
+        <server_hummus>
+            <domain>hummus.wixpress.com</domain>
+            <subdomain>meditor</subdomain>
+            <applicationRoot></applicationRoot>
+            <userGuid>dc28837b-f07e-411b-92e0-028703c8f190</userGuid> <!--Guid of user tester@wix.com (password: test123) on hummus-->
+            <userName>tester</userName>
+            <siteGuid>b656fbf5-c424-4fe4-945c-ed59987ee725</siteGuid>
+            <port>80</port>
+        </server_hummus>
+    </tested-server>
+</configuration>

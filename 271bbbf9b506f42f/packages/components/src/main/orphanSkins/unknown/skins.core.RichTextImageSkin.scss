@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$themeDir: THEME_DIRECTORY;
+$_fontTitle: fontSubTitle;
+$_font: fontText;
+$fontColor: textColor;
+$_bgColor: areaBgColor;
+$bgColor: areaBgColor;
+$_borderRadius: radiusContainer;
+$border: borderContainer;
+$itemSpacing: itemSpacing;
+$moreFontColor: areaBgColor;
+$_moreBgColor: textColor;
+
+
+
+:host {
+  position: relative;
+  margin-bottom: param-cssstring(itemSpacing, $itemSpacing);
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  border: param-cssstring(border, $border);
+}
+
+:host > .bg {
+  position: absolute;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  background-color: param-bg-color(_bgColor, $_bgColor);
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+:host > .content {
+  position: relative;
+}
+
+:host > .content> .image {
+  float: left;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  padding: 0!important;
+  margin: 0!important;
+}
+
+:host > .content> .image img {
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  padding: 0!important;
+  margin: 0!important;
+}
+
+:host > .content> .text {
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor);
+  padding: 0 1em 1em;
+}
+
+[data-state="imageOnLeft"]> .content> .image {
+  float: left;
+}
+
+[data-state="imageOnRight"]> .content> .image {
+  float: right;
+}
+
+[data-state="noImage"]> .content> .image {
+  display: none;
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta id="wixMobileViewport" name="viewport" content="minimum-scale=0.25, maximum-scale=1.2"/>
+    <%= siteTitleAndMetaTags %>
+    <%= siteFavicon %>
+    <script>
+        // Generate Beat message ASAP
+        try {
+            window.wixBiSession = {
+                initialTimestamp : Date.now(),
+                viewerSessionId: 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c)
+                        { var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8); return v.toString(16); }
+                )
+            };
+
+            (new Image()).src = 'http://frog.wix.com/bt?src=29&evid=3&pn=1&et=1&v=3.0&vsi=' + wixBiSession.viewerSessionId +
+                    '&url=' + encodeURIComponent(location.href.replace(/^http(s)?:\/\/(www\.)?/, '')) +
+                    '&ts=0&c=' + wixBiSession.initialTimestamp;
+        } catch (e){}
+    </script>
+    <script>
+        <%= siteModel %>
+        var clientSideRender = <%= clientSideRender %>;
+        var serverAndClientRender = <%= serverAndClientRender %>;</script>
+    <script src="http://static.parastorage.com/services/third-party/requirejs/2.1.15/require.min.js"></script>
+    <script src="/target/main-r.js"></script>
+    <link rel="stylesheet" href="//static.parastorage.com/services/santa-versions/1.26.0/viewer.css">
+</head>
+<body>
+    <div id="SITE_CONTAINER">
+        <%= serverSideRender %>
+    </div>
+</body>
+</html>

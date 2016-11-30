@@ -1,0 +1,27 @@
+@import "AgadirCommon";
+
+#fullScreenOverlayContent {
+  overflow: hidden;
+}
+
+#menuBackground {
+  transition: $openAnimationDuration transform ease-in, $openAnimationDuration opacity step-start;
+  opacity: 0;
+
+  &.menuOpen {
+    opacity: 1;
+    transform: none;
+  }
+
+  &.menuClosed {
+    transition: $openAnimationDuration ease-in;
+  }
+}
+
+#menuContainer {
+  .top-menu {
+    .item.has-children {
+      flex-direction: column;
+    }
+  }
+}

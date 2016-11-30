@@ -1,0 +1,263 @@
+@import 'baseContactForm';
+
+$text-padding: 15px;
+$message-field-height: 150px;
+$field-height: 36px;
+$rd: 0px;
+$fnt: font_7;
+$fnt2: font_7;
+$txt-error: #8b0000;
+$txt-success: rgba(186, 218, 85, 1);
+$txt1: color_15;
+$txt2: color_15;
+$bg1: color_11;
+$bg2: color_18;
+$bg3: color_11;
+$input-width: 80%;
+
+@mixin translateX($validTranslate, $input-cover-translate, $email-name-cover-translate) {
+  &:focus,
+  &:valid {
+    transform: translateX($validTranslate);
+
+    & + .input-cover,
+    & + .text-area-cover {
+      transform: translateX($input-cover-translate);
+
+      &#email-cover,
+      &#name-cover {
+        transform: translateX($email-name-cover-translate);
+      }
+    }
+  }
+}
+
+@mixin email-cover-translateX( $email-name-cover-translate) {
+  &:focus,
+  &:valid {
+    & + .input-cover {
+      transform: translateX($email-name-cover-translate);
+      &#email-cover{
+        transform: translateX($email-name-cover-translate);
+      }
+    }
+  }
+}
+
+[data-state~="right"] {
+  direction: rtl;
+  text-align: right;
+}
+
+[data-state~="left"] {
+  direction: ltr;
+  text-align: left;
+}
+
+#wrapper {
+  position: absolute;
+  width: 100%;
+
+  > .flex-wrapper {
+    display: flex;
+
+    [data-state~="mobile"] & {
+      display: block;
+    }
+
+     .input-container {
+      flex: 1;
+      min-width: 0;
+     }
+  }
+
+   .input-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    display: block;
+    margin-bottom: 12px;
+
+    [data-state~="mobile"] & {
+      margin-bottom: 10px;
+    }
+
+    //hide input-container depending on the data-state
+    $fields: (subject, phone, address, message, name);
+    $selector: ();
+    @each $field in $fields {
+      $selector: append($selector, unquote('[data-state~="#{$field}Hidden"] &##{$field}Container'), comma)
+    }
+
+    #{$selector} {
+      display: none !important;
+    }
+
+    > .input {
+      @include appearance(none);
+      @include param-font(fnt, $fnt);
+      @include translateX (100%, $input-width, 59%);
+
+      background-color: param-bg-color(bg1, $bg1);
+      color: param-text-color(txt1, $txt1);
+      position: absolute;
+      padding-left: $text-padding;
+      border: 0;
+      width: 80%;
+      transition: transform 0.5s;
+      right: 100%;
+
+      [data-state~="mobile"] & {
+        font-size: 14px;
+      }
+
+      [data-state~="right"] & {
+        @include translateX (-100%, -1 * $input-width, -59%);
+        padding-right: $text-padding;
+        padding-left: 0;
+        right: -80%;
+      }
+
+      [data-state~="nameHidden"] & {
+        @include email-cover-translateX($input-width);
+      }
+
+      [data-state~="nameHidden"][data-state~="right"] & {
+        @include email-cover-translateX(-1 * $input-width);
+      }
+
+      &:placeholder {
+        color: #fff;
+        opacity: 0;
+      }
+
+      &:focus {
+        outline: 0;
+      }
+
+      &#nameField,
+      &#emailField {
+        width: 60%;
+
+        [data-state~="right"] & {
+          right: -60%;
+        }
+      }
+
+      &#emailField {
+        [data-state~="nameHidden"] & {
+          width: 80%;
+        }
+
+        [data-state~="nameHidden"][data-state~="right"] & {
+          right: -80%;
+        }
+      }
+
+      &.error {
+        + .input-cover,
+        + .text-area-cover {
+          > .label {
+            color: param-text-color(txtError, $txt-error);
+          }
+        }
+      }
+    }
+
+    > textarea.input {
+      resize: none;
+      overflow-y: auto;
+      margin: 0 0 10px;
+      height: $message-field-height;
+      line-height: $field-height;
+    }
+
+    > input.input {
+      display: block;
+      top: 0;
+      height: 100%;
+      line-height: $field-height;
+    }
+
+    > .input-cover,
+    > .text-area-cover {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      line-height: $field-height;
+      color: #fff;
+      cursor: text;
+      font-size: 13px;
+      letter-spacing: 3px;
+      transition: transform 0.5s;
+      background-color: param-bg-color(bg3, $bg3);
+
+      > .label {
+        @include param-font(fnt, $fnt);
+        padding-left: $text-padding;
+        color: param-text-color(txt4, color_15);
+
+        [data-state~="right"] & {
+          padding-right: $text-padding;
+        }
+      }
+    }
+
+    > .text-area-cover {
+      height: $message-field-height;
+    }
+  }
+
+  > .button-wrapper {
+    position: relative;
+    text-align: right;
+
+    [data-state~="right"] & {
+      position: relative;
+      text-align: left;
+    }
+
+    > .submit-button {
+      @include param-font(fnt2, $fnt2);
+      background-color: param-bg-color(bg2, $bg2);
+      color: param-text-color(txt2, $txt2);
+      cursor: pointer;
+      border: 0;
+      min-width: 20%;
+      max-width: calc(50% - 30px);
+      min-height: $field-height;
+      margin: 0 auto;
+      padding: $text-padding;
+
+      [data-state~="right"] & {
+        right: 80%;
+      }
+
+    }
+  }
+
+  > #notifications {
+    font: normal 14px 'Helvetica Neue', Helvetica, sans-serif;
+    max-width: 50%;
+    position: relative;
+    top: -28px;
+    left: $text-padding;
+    height: 14px;
+
+
+    &.success {
+      color: param-text-color(txtSuccess, $txt-success);
+    }
+
+    &.error {
+      color: param-text-color(txtError, $txt-error);
+    }
+
+    [data-state~="right"] & {
+      left: -1 * $text-padding;
+
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$brd: color_15;
+$rd: 5px;
+$brw: 1px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$tdr: BASE_THEME_DIRECTORY;
+
+#bg {
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+  // Don't merge these background properties into the 'background' property in order not to overwrite the param-bg-color settings.
+  background-image: param-url(tdr, $tdr, "apple_box.png");
+  background-repeat: repeat-x;
+  background-position: 0 0;
+}
+
+#inlineContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+

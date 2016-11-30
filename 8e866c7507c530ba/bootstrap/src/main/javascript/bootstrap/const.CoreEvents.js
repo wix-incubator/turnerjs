@@ -1,0 +1,25 @@
+/**@class Constants.CoreEvents */
+define.Const('CoreEvents', {
+    CLICK : 'click',
+    KEY_DOWN : 'keydown',
+    KEY_UP : 'keyup',
+    KEY_PRESS : 'keypress',
+    COPY : 'copy',
+    CUT : 'cut',
+    BLUR : 'blur',
+    FOCUS : 'focus',
+    PASTE : 'paste',
+    MOUSE_OVER : 'mouseover',
+    MOUSE_OUT : 'mouseout',
+    MOUSE_ENTER : 'mouseenter',
+    MOUSE_LEAVE : 'mouseleave',
+    MOUSE_DOWN : 'mousedown',
+    MOUSE_UP : 'mouseup',
+    MOUSE_MOVE : 'mousemove',
+    MOUSE_WHEEL : 'mousewheel',
+    CHANGE : 'change',
+    INPUT : 'input',
+    INPUT_CHANGE: 'inputChanged',
+    RESIZE : 'resize',
+    SCROLL : 'scroll'
+});

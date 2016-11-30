@@ -1,0 +1,678 @@
+{
+    "desktop": {
+        "masterPage": {
+            "id": "masterPage",
+            "layout": {
+                "y": 0
+            },
+            "children": [
+                {
+                    "id": "SITE_FOOTER",
+                    "layout": {
+                        "width": 980,
+                        "height": 132,
+                        "x": 0,
+                        "y": 912,
+                        "scale": 1,
+                        "rotationInDegrees": 0,
+                        "fixedPosition": false
+                    },
+                    "components": [],
+                    "type": "Container",
+                    "componentType": "wysiwyg.viewer.components.FooterContainer",
+                    "conversionData": {
+                        "preserveAspectRatio": false,
+                        "category": "siteSegments"
+                    }
+                },
+                {
+                    "id": "SITE_HEADER",
+                    "layout": {
+                        "width": 980,
+                        "height": 140,
+                        "x": 0,
+                        "y": 0,
+                        "scale": 1,
+                        "rotationInDegrees": 0,
+                        "fixedPosition": false
+                    },
+                    "components": [
+                        {
+                            "id": "comp-irn4krls",
+                            "layout": {
+                                "width": 337,
+                                "height": 40,
+                                "x": 52,
+                                "y": 24,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "components": [
+                                {
+                                    "id": "comp-irn4lbx1",
+                                    "layout": {
+                                        "width": 304,
+                                        "height": 30,
+                                        "x": 16,
+                                        "y": 5,
+                                        "scale": 1,
+                                        "rotationInDegrees": 0,
+                                        "fixedPosition": false
+                                    },
+                                    "type": "Component",
+                                    "componentType": "wysiwyg.viewer.components.WRichText",
+                                    "conversionData": {
+                                        "textLength": 12,
+                                        "actualTextWidth": 126,
+                                        "textAlignments": [
+                                            "left"
+                                        ],
+                                        "averageFontSize": 25,
+                                        "category": "text",
+                                        "preserveAspectRatio": false,
+                                        "shouldEnlargeToFitWidth": true
+                                    }
+                                }
+                            ],
+                            "type": "Container",
+                            "componentType": "mobile.core.components.Container",
+                            "conversionData": {
+                                "borderWidth": 1,
+                                "filterChildrenWhenHidden": true,
+                                "category": "visual"
+                            }
+                        },
+                        {
+                            "id": "comp-irn4lwdf",
+                            "layout": {
+                                "width": 179,
+                                "height": 40,
+                                "x": 456,
+                                "y": 29,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "components": [
+                                {
+                                    "id": "comp-irn4lwe6",
+                                    "layout": {
+                                        "width": 137,
+                                        "height": 30,
+                                        "x": 16,
+                                        "y": 5,
+                                        "scale": 1,
+                                        "rotationInDegrees": 0,
+                                        "fixedPosition": false
+                                    },
+                                    "type": "Component",
+                                    "componentType": "wysiwyg.viewer.components.WRichText",
+                                    "conversionData": {
+                                        "textLength": 12,
+                                        "actualTextWidth": 131,
+                                        "textAlignments": [
+                                            "left"
+                                        ],
+                                        "averageFontSize": 25,
+                                        "category": "text",
+                                        "preserveAspectRatio": false,
+                                        "shouldEnlargeToFitWidth": true
+                                    }
+                                }
+                            ],
+                            "type": "Container",
+                            "componentType": "mobile.core.components.Container",
+                            "conversionData": {
+                                "filterChildrenWhenHidden": true,
+                                "category": "visual"
+                            }
+                        },
+                        {
+                            "id": "comp-irn4motv",
+                            "layout": {
+                                "width": 179,
+                                "height": 70,
+                                "x": 725,
+                                "y": 34,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "components": [
+                                {
+                                    "id": "comp-irn4moun",
+                                    "layout": {
+                                        "width": 137,
+                                        "height": 60,
+                                        "x": 16,
+                                        "y": 5,
+                                        "scale": 1,
+                                        "rotationInDegrees": 0,
+                                        "fixedPosition": false
+                                    },
+                                    "type": "Component",
+                                    "componentType": "wysiwyg.viewer.components.WRichText",
+                                    "conversionData": {
+                                        "textLength": 16,
+                                        "actualTextWidth": 182,
+                                        "textAlignments": [
+                                            "left"
+                                        ],
+                                        "averageFontSize": 25,
+                                        "category": "text",
+                                        "preserveAspectRatio": false,
+                                        "shouldEnlargeToFitWidth": true
+                                    }
+                                }
+                            ],
+                            "type": "Container",
+                            "componentType": "mobile.core.components.Container",
+                            "conversionData": {
+                                "filterChildrenWhenHidden": true,
+                                "category": "visual"
+                            }
+                        }
+                    ],
+                    "type": "Container",
+                    "componentType": "wysiwyg.viewer.components.HeaderContainer",
+                    "conversionData": {
+                        "preserveAspectRatio": false,
+                        "minHeight": 90,
+                        "topRightMargin": [
+                            90,
+                            90
+                        ],
+                        "descendantImageScaleFactor": 0.7,
+                        "category": "siteSegments"
+                    }
+                },
+                {
+                    "id": "PAGES_CONTAINER",
+                    "layout": {
+                        "width": 980,
+                        "height": 772,
+                        "x": 0,
+                        "y": 140,
+                        "scale": 1,
+                        "rotationInDegrees": 0,
+                        "fixedPosition": false
+                    },
+                    "components": [
+                        {
+                            "id": "SITE_PAGES",
+                            "layout": {
+                                "width": 980,
+                                "height": 772,
+                                "x": 0,
+                                "y": 0,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "components": [],
+                            "type": "Container",
+                            "componentType": "wysiwyg.viewer.components.PageGroup",
+                            "conversionData": {}
+                        }
+                    ],
+                    "type": "Container",
+                    "componentType": "wysiwyg.viewer.components.PagesContainer",
+                    "conversionData": {
+                        "marginX": 20,
+                        "category": "siteSegments"
+                    }
+                }
+            ],
+            "type": "Document",
+            "conversionData": {}
+        },
+        "c1dmp": {
+            "id": "c1dmp",
+            "layout": {
+                "width": 320,
+                "height": 340,
+                "x": 0,
+                "y": 0,
+                "scale": 1,
+                "rotationInDegrees": 0,
+                "fixedPosition": false
+            },
+            "components": [
+                {
+                    "id": "comp-irn4ky1v",
+                    "layout": {
+                        "width": 399,
+                        "height": 110,
+                        "x": 115,
+                        "y": 212,
+                        "scale": 1,
+                        "rotationInDegrees": 0,
+                        "fixedPosition": false
+                    },
+                    "components": [
+                        {
+                            "id": "comp-irn4nh2f",
+                            "layout": {
+                                "width": 304,
+                                "height": 30,
+                                "x": 94,
+                                "y": 40,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "type": "Component",
+                            "componentType": "wysiwyg.viewer.components.WRichText",
+                            "conversionData": {
+                                "textLength": 21,
+                                "actualTextWidth": 217,
+                                "textAlignments": [
+                                    "left"
+                                ],
+                                "averageFontSize": 25,
+                                "category": "text",
+                                "preserveAspectRatio": false,
+                                "shouldEnlargeToFitWidth": true
+                            }
+                        }
+                    ],
+                    "type": "Container",
+                    "componentType": "mobile.core.components.Container",
+                    "conversionData": {
+                        "borderWidth": 15,
+                        "filterChildrenWhenHidden": true,
+                        "category": "visual"
+                    }
+                },
+                {
+                    "id": "comp-irw5kiw8",
+                    "layout": {
+                        "width": 980,
+                        "height": 400,
+                        "x": 0,
+                        "y": 352,
+                        "scale": 1,
+                        "rotationInDegrees": 0,
+                        "fixedPosition": false
+                    },
+                    "components": [
+                        {
+                            "id": "comp-irw5kiyn",
+                            "layout": {
+                                "width": 980,
+                                "height": 400,
+                                "x": 0,
+                                "y": 0,
+                                "scale": 1,
+                                "rotationInDegrees": 0,
+                                "fixedPosition": false
+                            },
+                            "components": [
+                                {
+                                    "id": "comp-irw5j5qb",
+                                    "layout": {
+                                        "width": 352,
+                                        "height": 170,
+                                        "x": 348,
+                                        "y": 154,
+                                        "scale": 1,
+                                        "rotationInDegrees": 0,
+                                        "fixedPosition": false
+                                    },
+                                    "components": [
+                                        {
+                                            "id": "comp-irw5j5r6",
+                                            "layout": {
+                                                "width": 304,
+                                                "height": 90,
+                                                "x": 24,
+                                                "y": 40,
+                                                "scale": 1,
+                                                "rotationInDegrees": 0,
+                                                "fixedPosition": false
+                                            },
+                                            "type": "Component",
+                                            "componentType": "wysiwyg.viewer.components.WRichText",
+                                            "conversionData": {
+                                                "textLength": 66,
+                                                "actualTextWidth": 698,
+                                                "textAlignments": [
+                                                    "left"
+                                                ],
+                                                "averageFontSize": 25,
+                                                "category": "text",
+                                                "preserveAspectRatio": false,
+                                                "shouldEnlargeToFitWidth": true
+                                            }
+                                        }
+                                    ],
+                                    "type": "Container",
+                                    "componentType": "mobile.core.components.Container",
+                                    "conversionData": {
+                                        "borderWidth": 15,
+                                        "filterChildrenWhenHidden": true,
+                                        "category": "visual"
+                                    }
+                                }
+                            ],
+                            "type": "Container",
+                            "componentType": "wysiwyg.viewer.components.Column",
+                            "conversionData": {
+                                "filterChildrenWhenHidden": true,
+                                "stretchHorizontally": true,
+                                "minHeight": 200,
+                                "category": "column",
+                                "preserveAspectRatio": false
+                            }
+                        }
+                    ],
+                    "type": "Container",
+                    "componentType": "wysiwyg.viewer.components.StripColumnsContainer",
+                    "conversionData": {
+                        "isSolidColorBackground": true,
+                        "isTransparentContainer": true,
+                        "isScreenWidth": true,
+                        "filterChildrenWhenHidden": true,
+                        "marginX": 0,
+                        "category": "columns"
+                    }
+                }
+            ],
+            "type": "Page",
+            "componentType": "mobile.core.components.Page",
+            "conversionData": {
+                "marginX": 20,
+                "category": "page"
+            }
+        }
+    },
+    "mobile": {
+        "default": {
+            "masterPage": {
+                "id": "masterPage",
+                "layout": {
+                    "y": 0,
+                    "fixedPosition": false
+                },
+                "children": [
+                    {
+                        "id": "SITE_FOOTER",
+                        "layout": {
+                            "width": 320,
+                            "height": 0,
+                            "x": 0,
+                            "y": 969,
+                            "scale": 1,
+                            "rotationInDegrees": 0,
+                            "fixedPosition": false
+                        },
+                        "components": [],
+                        "type": "Container",
+                        "componentType": "wysiwyg.viewer.components.FooterContainer"
+                    },
+                    {
+                        "id": "SITE_HEADER",
+                        "layout": {
+                            "width": 320,
+                            "height": 197,
+                            "x": 0,
+                            "y": 0,
+                            "scale": 1,
+                            "rotationInDegrees": 0,
+                            "fixedPosition": false
+                        },
+                        "components": [
+                            {
+                                "id": "comp-irn4krls",
+                                "layout": {
+                                    "width": 140,
+                                    "height": 47,
+                                    "x": 90,
+                                    "y": 20,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "components": [
+                                    {
+                                        "id": "comp-irn4lbx1",
+                                        "layout": {
+                                            "width": 118,
+                                            "height": 25,
+                                            "x": 11,
+                                            "y": 11,
+                                            "scale": 1,
+                                            "rotationInDegrees": 0,
+                                            "fixedPosition": false
+                                        },
+                                        "type": "Component",
+                                        "componentType": "wysiwyg.viewer.components.WRichText"
+                                    }
+                                ],
+                                "type": "Container",
+                                "componentType": "mobile.core.components.Container"
+                            },
+                            {
+                                "id": "comp-irn4lwdf",
+                                "layout": {
+                                    "width": 280,
+                                    "height": 45,
+                                    "x": 20,
+                                    "y": 77,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "components": [
+                                    {
+                                        "id": "comp-irn4lwe6",
+                                        "layout": {
+                                            "width": 260,
+                                            "height": 25,
+                                            "x": 10,
+                                            "y": 10,
+                                            "scale": 1,
+                                            "rotationInDegrees": 0,
+                                            "fixedPosition": false
+                                        },
+                                        "type": "Component",
+                                        "componentType": "wysiwyg.viewer.components.WRichText"
+                                    }
+                                ],
+                                "type": "Container",
+                                "componentType": "mobile.core.components.Container"
+                            },
+                            {
+                                "id": "comp-irn4motv",
+                                "layout": {
+                                    "width": 280,
+                                    "height": 45,
+                                    "x": 20,
+                                    "y": 132,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "components": [
+                                    {
+                                        "id": "comp-irn4moun",
+                                        "layout": {
+                                            "width": 260,
+                                            "height": 25,
+                                            "x": 10,
+                                            "y": 10,
+                                            "scale": 1,
+                                            "rotationInDegrees": 0,
+                                            "fixedPosition": false
+                                        },
+                                        "type": "Component",
+                                        "componentType": "wysiwyg.viewer.components.WRichText"
+                                    }
+                                ],
+                                "type": "Container",
+                                "componentType": "mobile.core.components.Container"
+                            },
+                            {
+                                "id": "TINY_MENU",
+                                "layout": {
+                                    "x": 250,
+                                    "y": 20,
+                                    "rotationInDegrees": 0,
+                                    "height": 50,
+                                    "width": 50
+                                },
+                                "type": "Component",
+                                "componentType": "wysiwyg.viewer.components.mobile.TinyMenu"
+                            }
+                        ],
+                        "type": "Container",
+                        "componentType": "wysiwyg.viewer.components.HeaderContainer"
+                    },
+                    {
+                        "id": "PAGES_CONTAINER",
+                        "layout": {
+                            "width": 320,
+                            "height": 772,
+                            "x": 0,
+                            "y": 197,
+                            "scale": 1,
+                            "rotationInDegrees": 0,
+                            "fixedPosition": false
+                        },
+                        "components": [
+                            {
+                                "id": "SITE_PAGES",
+                                "layout": {
+                                    "width": 320,
+                                    "height": 772,
+                                    "x": 0,
+                                    "y": 0,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "components": [],
+                                "type": "Container",
+                                "componentType": "wysiwyg.viewer.components.PageGroup"
+                            }
+                        ],
+                        "type": "Container",
+                        "componentType": "wysiwyg.viewer.components.PagesContainer"
+                    }
+                ],
+                "type": "Document"
+            },
+            "c1dmp": {
+                "id": "c1dmp",
+                "layout": {
+                    "width": 320,
+                    "height": 220,
+                    "x": 0,
+                    "y": 0,
+                    "scale": 1,
+                    "rotationInDegrees": 0,
+                    "fixedPosition": false
+                },
+                "components": [
+                    {
+                        "id": "comp-irn4ky1v",
+                        "layout": {
+                            "width": 280,
+                            "height": 75,
+                            "x": 20,
+                            "y": 20,
+                            "scale": 1,
+                            "rotationInDegrees": 0,
+                            "fixedPosition": false
+                        },
+                        "components": [
+                            {
+                                "id": "comp-irn4nh2f",
+                                "layout": {
+                                    "width": 230,
+                                    "height": 25,
+                                    "x": 25,
+                                    "y": 25,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "type": "Component",
+                                "componentType": "wysiwyg.viewer.components.WRichText"
+                            }
+                        ],
+                        "type": "Container",
+                        "componentType": "mobile.core.components.Container"
+                    },
+                    {
+                        "id": "comp-irw5kiw8",
+                        "layout": {
+                            "width": 320,
+                            "height": 115,
+                            "x": 0,
+                            "y": 105,
+                            "scale": 1,
+                            "rotationInDegrees": 0,
+                            "fixedPosition": false
+                        },
+                        "components": [
+                            {
+                                "id": "comp-irw5kiyn",
+                                "layout": {
+                                    "width": 320,
+                                    "height": 115,
+                                    "x": 0,
+                                    "y": 0,
+                                    "scale": 1,
+                                    "rotationInDegrees": 0,
+                                    "fixedPosition": false
+                                },
+                                "components": [
+                                    {
+                                        "id": "comp-irw5j5qb",
+                                        "layout": {
+                                            "width": 280,
+                                            "height": 75,
+                                            "x": 20,
+                                            "y": 20,
+                                            "scale": 1,
+                                            "rotationInDegrees": 0,
+                                            "fixedPosition": false
+                                        },
+                                        "components": [
+                                            {
+                                                "id": "comp-irw5j5r6",
+                                                "layout": {
+                                                    "width": 230,
+                                                    "height": 25,
+                                                    "x": 25,
+                                                    "y": 25,
+                                                    "scale": 1,
+                                                    "rotationInDegrees": 0,
+                                                    "fixedPosition": false
+                                                },
+                                                "type": "Component",
+                                                "componentType": "wysiwyg.viewer.components.WRichText"
+                                            }
+                                        ],
+                                        "type": "Container",
+                                        "componentType": "mobile.core.components.Container"
+                                    }
+                                ],
+                                "type": "Container",
+                                "componentType": "wysiwyg.viewer.components.Column"
+                            }
+                        ],
+                        "type": "Container",
+                        "componentType": "wysiwyg.viewer.components.StripColumnsContainer"
+                    }
+                ],
+                "type": "Page",
+                "componentType": "mobile.core.components.Page"
+            }
+        }
+    },
+    "siteId": "d47104dd-8cb4-4252-8785-8d6cf57e47e3",
+    "metaSiteId": "37033949-f330-4e2d-90ce-8e95255d8bf0"
+}

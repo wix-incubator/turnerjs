@@ -1,0 +1,11 @@
+{
+    "createTime": "2014-01-06T00:15:00",
+    "owner": "tomergab",
+    "description": "Makes App Market panel to load only once",
+    "constraints": {
+        "EditorUIRefactorPhase2": "optional-before"
+    },
+    "tags": [
+        "editor"
+    ]
+}

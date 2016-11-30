@@ -1,0 +1,130 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+@include displayer-text-overflow;
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd-trans: color_15;
+$ttl-trans: color_18;
+$txt-trans: color_15;
+$ttlh-trans: color_18;
+$brw: 10px;
+$rd: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$fntt: font_7;
+$fntds-trans: font_9;
+$optrans: opacity .4s ease 0s;
+$bgtrans: background-color .4s ease 0s;
+$coltrans: color .4s ease 0s;
+
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper,
+.imgBorder,
+#zoom {
+  @include abs-distance(0);
+}
+
+#imageWrapper {
+  @include param-box-shadow(shd, $shd);
+  @include param-border-radius(rd, $rd);
+}
+
+.imgBorder {
+  @include param-border-radius(rd, $rd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brdTrans, $brd-trans);
+  @include param-transition(bgtrans, $bgtrans);
+  overflow: hidden;
+}
+
+#image {
+  @include param-border-radius(rd, $rd);
+  @include param-transition(optrans, $optrans);
+}
+
+#image,
+#image img {
+  @include opacity(0);
+}
+
+#zoom {
+  @include param-border-radius(rd, $rd);
+  padding: 10px;
+  background-image: url("data: image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7");
+}
+
+#title {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(ttlTrans, $ttl-trans);
+  @include param-transition(coltrans, $coltrans);
+  white-space: nowrap;
+}
+
+#description,
+#link {
+  @include param-font(fntdsTrans, $fntds-trans);
+  color: param-text-color(txtTrans, $txt-trans);
+  @include param-transition(coltrans, $coltrans);
+}
+
+
+#link {
+  display: block;
+  text-decoration: underline !important;
+  white-space: nowrap;
+  line-height: 1.8em;
+}
+
+@include align-states();
+
+[data-state~="noLink"] #link {
+  display: none;
+}
+
+:host:hover {
+  #image,
+  #image img {
+    @include opacity(1);
+  }
+
+  #image {
+    @include param-transition(optrans, $optrans);
+  }
+
+  .imgBorder {
+    background-color: param-border-color-alpha(brdTrans, $brd-trans);
+    @include param-transition(bgtrans, $bgtrans);
+  }
+
+  #title{
+    color: param-text-color(ttlhTrans, $ttlh-trans);
+    @include param-transition(coltrans, $coltrans);
+  }
+  #description,
+  #link {
+    color: param-text-color(txthTrans, $txt-trans);
+    @include param-transition(coltrans, $coltrans);
+  }
+}
+
+.table {
+  display: table;
+  height: 100%;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.inner {
+  vertical-align: middle;
+  display: table-cell;
+}

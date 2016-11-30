@@ -1,0 +1,66 @@
+{
+  "JAVASCRIPT_ERROR": {
+    "errorName": "JAVASCRIPT_ERROR",
+    "errorCode": 111022,
+    "severity": "fatal",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "url",
+      "p3": "line",
+      "p4": "column"
+    }
+  },
+  "CONSOLE_ERROR": {
+    "errorName": "CONSOLE_ERROR",
+    "errorCode": 111023,
+    "severity": "error",
+    "params": {
+      "p1": "errorMsg"
+    }
+  },
+  "REQUIREJS_ERROR": {
+    "errorName": "REQUIREJS_ERROR",
+    "errorCode": 111024,
+    "severity": "fatal",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "modules"
+    }
+  },
+  "REQUIREJS_RETRY_ERROR": {
+    "errorName": "REQUIREJS_RETRY_ERROR",
+    "errorCode": 111025,
+    "severity": "recoverable",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "modules"
+    }
+  },
+  "NULL_SITE_ERROR": {
+    "errorName": "NULL_SITE_ERROR",
+    "errorCode": 112000,
+    "severity": "error",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "modules"
+    }
+  },
+  "MISSING_DESKTOP_BACKGROUND_ITEM": {
+    "errorName": "MISSING_DESKTOP_BACKGROUND_ITEM",
+    "errorCode": 112001,
+    "severity": "recoverable",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "modules"
+    }
+  },
+  "MISSING_DESKTOP_BACKGROUND_ITEM": {
+    "errorName": "MISSING_MOBILE_BACKGROUND_ITEM",
+    "errorCode": 112002,
+    "severity": "recoverable",
+    "params": {
+      "p1": "errorMsg",
+      "p2": "modules"
+    }
+  }
+}

@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$backgroundcolor: color_1;
+$bordercolor: color_14;
+$textcolor: color_13;
+$buttonscolor: color_14;
+$arrowscolor: color_1;
+
+
+
+#inputNumberWrapper {
+  width: 70px;
+  height: 38px;
+}
+
+#inputNumberContainer {
+  border: 1px solid param-border-color-alpha(bordercolor, $bordercolor);
+  position: relative;
+  height: 21px;
+  width: 68px;
+  display: inline-block;
+  margin-top: 7px;
+}
+
+#inputNumberInput {
+  border: 0;
+  width: 26px;
+  height: 21px;
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 21px;
+  background-color: param-bg-color(backgroundcolor, $backgroundcolor);
+  color: param-text-color(textcolor, $textcolor);
+  font-size: 10px;
+  @include appearance(none);
+  padding: 0;
+  border-radius: 0;
+}
+
+#controls a.minus {
+  left: 0;
+}
+
+#controls a.plus {
+  left: 47px;
+}
+
+#controls a {
+  background-color: param-bg-color(buttonscolor, $buttonscolor);
+  display: block;
+  width: 21px;
+  height: 21px;
+  position: absolute;
+  top: 0;
+  text-align: center;
+  line-height: 20px;
+  user-select: none;
+  font-size: 14px;
+}
+
+#controls a:focus {
+  outline: 0;
+}
+
+#controls span {
+  display: inline-block;
+  vertical-align: middle;
+  width: 10px;
+  height: 10px;
+  border-top: 1px solid param-border-color-alpha(arrowscolor, $arrowscolor);
+  border-right: 1px solid param-border-color-alpha(arrowscolor, $arrowscolor);
+  margin-bottom: 1px;
+}
+
+#controls a.plus span {
+  @include rotate(45);
+  margin-right: 5px;
+}
+
+#controls a.minus span {
+  @include rotate(-135);
+  margin-left: 5px;
+}
+

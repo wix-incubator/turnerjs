@@ -1,0 +1,55 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+
+#facebookShareButton {
+  border: 1px solid #2d4565;
+  border-radius: 3px;
+  cursor: pointer;
+  min-width: 24px;
+  white-space: nowrap;
+  display: inline-block;
+}
+
+#shareButton {
+  height: 20px;
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: #9aabc6 #6f83ad #6176a3;
+  background: param-url(tdr, $tdr, "bg_fbshare.png") 0 0 repeat-x;
+
+  &:hover {
+    box-shadow: inset 0 8px 13px -4px rgba(255, 255, 255, .4);
+  }
+
+  &:active {
+    box-shadow: inset 5px 5px 10px -4px rgba(0, 0, 0, .4);
+  }
+}
+
+#icon {
+  width: 21px;
+  height: 21px;
+  background: param-url(tdr, $tdr, "facebooklogo.png") 5px 3px no-repeat;
+  border-right: 1px solid #425e85;
+  position: absolute;
+}
+
+#label {
+  line-height: 21px;
+  margin-left: 22px;
+  padding: 3px 6px;
+  color: #fff;
+  font-size: 12px;
+  text-shadow: 1px 1px 1px #304871;
+  border-left: 1px solid #6176a3;
+}
+

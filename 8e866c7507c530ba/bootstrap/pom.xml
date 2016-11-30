@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.wixpress.html-client</groupId>
+    <artifactId>bootstrap</artifactId>
+    <version>2.1281.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>Bootstrap</name>
+
+    <parent>
+        <groupId>com.wixpress.common</groupId>
+        <artifactId>html-client-common-parent</artifactId>
+        <version>100.0.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.wixpress.common</groupId>
+            <artifactId>html-test-framework</artifactId>
+            <type>tar.gz</type>
+        </dependency>
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
+    <profiles>
+        <profile>
+            <id>Windows NodeJs</id>
+            <activation>
+                <os>
+                    <family>windows</family>
+                </os>
+            </activation>
+            <properties>
+                <npm>${env.NODE_HOME}\npm.cmd</npm>
+                <node>${env.NODE_HOME}\node</node>
+            </properties>
+        </profile>
+        <profile>
+            <id>Unix NodeJs</id>
+            <activation>
+                <os>
+                    <family>unix</family>
+                </os>
+            </activation>
+            <properties>
+                <npm>${env.NODE_HOME}/npm</npm>
+                <node>${env.NODE_HOME}/node</node>
+            </properties>
+        </profile>
+        <profile>
+            <id>buildmachine</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <build>
+                <plugins>
+                    <!--setup dependent folder sources-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-surefire-plugin</artifactId>
+                        <version>2.11</version>
+                        <configuration>
+                            <systemPropertyVariables>
+                                <testicle.baseDir>target</testicle.baseDir>
+                            </systemPropertyVariables>
+                        </configuration>
+                    </plugin>
+
+                    <!--Unpacking dependencies-->
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-dependency-plugin</artifactId>
+                        <version>2.8</version>
+                        <executions>
+                            <execution>
+                                <id>unpack html-test-framework for buildmachine testing</id>
+                                <phase>compile</phase>
+                                <goals>
+                                    <goal>unpack</goal>
+                                </goals>
+                                <configuration>
+                                    <artifactItems>
+                                        <artifactItem>
+                                            <groupId>com.wixpress.common</groupId>
+                                            <artifactId>html-test-framework</artifactId>
+                                            <type>tar.gz</type>
+                                            <outputDirectory>${project.build.directory}/html-test-framework/src/main
+                                            </outputDirectory>
+                                            <includes>*.*</includes>
+                                        </artifactItem>
+                                    </artifactItems>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
+
+    <build>
+        <plugins>
+
+            <!-- avoid the maven jar - we only need a tar.gz -->
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>default-jar</id>
+                        <phase>never</phase>
+                        <configuration>
+                            <finalName>unwanted</finalName>
+                            <classifier>unwanted</classifier>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>unpack node_modules</id>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unpack</goal>
+                        </goals>
+                        <configuration>
+                            <markersDirectory>${project.basedir}/../target</markersDirectory>
+                            <artifactItems>
+                                <artifactItem>
+                                    <groupId>wix.external</groupId>
+                                    <artifactId>grunt-common</artifactId>
+                                    <version>1.36.0</version>
+                                    <type>tar.gz</type>
+                                    <outputDirectory>${project.basedir}/..</outputDirectory>
+                                    <includes>/node_modules</includes>
+                                    <excludes>**/test*</excludes>
+                                </artifactItem>
+                            </artifactItems>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>2.2.1</version>
+                <configuration>
+                    <descriptors>
+                        <descriptor>maven/assembly/tar.gz.xml</descriptor>
+                    </descriptors>
+                    <appendAssemblyId>false</appendAssemblyId>
+                    <finalName>${project.artifactId}-${pom.version}</finalName>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.11</version>
+                <configuration>
+                    <useFile>false</useFile>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.2.1</version>
+                <executions>
+                    <execution>
+                        <id>run grunt</id>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <phase>generate-sources</phase>
+                        <configuration>
+                            <executable>${node}</executable>
+                            <workingDirectory>${project.basedir}</workingDirectory>
+                            <arguments>
+                                <argument>${project.basedir}/../rungrunt.js</argument>
+                                <argument>--no-color</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <properties>
+        <com.wixpress.common_html-test-framework>1.28.0</com.wixpress.common_html-test-framework>
+    </properties>
+</project>

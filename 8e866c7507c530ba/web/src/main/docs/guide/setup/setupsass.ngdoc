@@ -1,0 +1,66 @@
+
+@doc overview
+@id setupsass
+@name Setup Sass
+@description
+
+
+We are using [sass](http://sass-lang.com/) for styling in ngEditor.  
+Sass uses Ruby as its runtime so you need to have that installed first. 
+
+### general setup
+**Windows users only**
+
+
+Install the Ruby Runtime from: <http://rubyinstaller.org/downloads/>.  
+You must run the installer as an administrator (right click on file - select 'run as administrator').<br>
+Also, make sure that Ruby is registering itself in the path.
+If you're using a real OS, you probably already have Ruby installed.
+
+Get Sass by running (this should also be done while running the cmd as an administrator):
+
+Toy Os with start menu:
+
+    gem install sass
+    gem install scss-lint
+
+Real Men OS:
+
+    sudo gem install sass && sudo gem install scss-lint
+        
+This will have sass installed on your system and you can start compiling sass. 
+You need to install the following two packages in your html-client directory
+
+    npm i grunt-contrib-sass grunt-contrib-watch grunt-scss-lint grunt-autoprefixer
+
+### IDEA / webstorm file watchers
+
+if you're using JetBrains IDE, you can setup a sass filewatch which will automatically compile sass for you as you write it.
+Make sure that you have the following plugins installed:
+
+*  sass
+*  File Watchers
+
+### enable the sass watcher
+
+#### Automatic way
+
+1. Open editor.scss in the IDEA
+1. The IDE should offer to add a watcher for you.  Accept all defaults.
+
+#### Manual way
+
+open the preferences panel and search for 'file watcher'. 
+Add a new file watcher and choose  'scss' from the templates. 
+
+use the following values:
+(in webstorm replace $projectFileDir$ with the actual path to web)
+
+* arguments - --no-cache --update $FileName$:$FileNameWithoutExtension$.css
+* working directory - $ProjectFileDir$/web
+
+ 
+<DOCULAR-PAGER></DOCULAR-PAGER>
+
+
+

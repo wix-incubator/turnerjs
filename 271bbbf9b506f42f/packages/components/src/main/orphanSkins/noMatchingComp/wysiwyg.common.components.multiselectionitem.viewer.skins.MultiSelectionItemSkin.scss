@@ -1,0 +1,56 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$webThemeDir: WEB_THEME_DIRECTORY;
+$_closeBorderRadius: 0 5px 0 0;
+
+
+
+:host {
+  position: relative;
+}
+
+#content {
+  border-radius: 2px;
+  border: solid 1px #d4d4d4;
+}
+
+#content > * {
+  height: 15px;
+  backgroud-color: #ffffff;
+  display: inline-block;
+}
+
+#text {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#button {
+  cursor: pointer;
+}
+
+#button span {
+  display: block;
+  padding-left: 4px;
+  padding-right: 4px;
+  color: #737373;
+  border-left: solid 1px #d4d4d4;
+}
+
+#button span:hover {
+  color: #0099ff;
+}
+
+#button:hover {
+  background: #ddd;
+}
+

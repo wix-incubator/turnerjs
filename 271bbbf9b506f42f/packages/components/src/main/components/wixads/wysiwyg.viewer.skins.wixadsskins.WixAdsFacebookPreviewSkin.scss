@@ -1,0 +1,155 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: #000000;
+$rd1: 0 0 5px 5px;
+$rd2: 5px 5px 0 0;
+$brw: 1px;
+$brd: rgba(255, 255, 255, .207);
+$tdr: BASE_THEME_DIRECTORY;
+$trans: all .3s ease-in-out;
+
+:host {
+  cursor: pointer;
+}
+
+#topRect {
+  @include param-border-radius(rd1, $rd1);
+  height: 24px;
+  position: fixed;
+  right: 11px;
+  top: 0;
+  overflow: hidden;
+  @include param-transition(trans, $trans);
+  font-size: 12px;
+  line-height: 16px;
+  color: #fff;
+  font-weight: bold;
+  border: solid param-border-size(brw, $brw) transparent;
+  border-top: 0;
+}
+
+#topRect:hover {
+  height: 90px;
+  background-color: mutate-bg-color-const(bg, alpha, .7, $bg);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  border-top: 0;
+}
+
+#topRectLabel {
+  background-color: mutate-bg-color-const(bg, alpha, .7, $bg);
+  padding: 5px 0 2px 6px;
+  @include param-border-radius(rd1, $rd1);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  border-top: 0;
+}
+
+#topRect:hover #topRectLabel {
+
+}
+
+#topRect #topRectLabel .smallMusa {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 16px;
+  height: 16px;
+  margin-right: 4px;
+  background-image: param-url(tdr, $tdr, "wixads/wf_label_static.png");
+  background-repeat: no-repeat;
+  background-position: 0% 0%;
+}
+
+#topRect #topRectLabel .smallLogo {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 29px;
+  height: 16px;
+  margin: 0 -2px 0 1px;
+  background-image: param-url(tdr, $tdr, "wixads/wf_label_static.png");
+  background-repeat: no-repeat;
+  background-position: -16px top;
+}
+
+#topRectContent {
+  text-align: center;
+  padding: 7px 0 0 28px;
+  width: 110px;
+}
+
+#topRectContent .emphasis {
+  color: #ffcc00;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 16px;
+}
+
+#footerLabel {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 45px;
+  background-color: mutate-bg-color-const(bg, alpha, .7, $bg);
+  @include param-border-radius(rd2, $rd2);
+  text-align: center;
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  border-bottom: 0;
+}
+
+#footerLabel .wrapper {
+  width: 330px;
+  height: 30px;
+  margin: 5px auto;
+  text-align: left;
+}
+
+#footerLabel h5 {
+  float: left;
+  text-indent: -9999px;
+  width: 36px;
+  height: 30px;
+  background: param-url(tdr, $tdr, "wixads/wf_label_static.png") left bottom no-repeat;
+  margin-top: 1px;
+}
+
+#footerLabel p.txt {
+  float: left;
+  font-size: 13px;
+  line-height: 17px;
+  color: #fff;
+  font-weight: bold;
+  width: 236px;
+  text-align: justify;
+  padding: 0 10px 0 4px;
+}
+
+#footerLabel p.emphasis {
+  float: left;
+  width: 36px;
+  height: 30px;
+  line-height: 36px;
+  font-size: 16px;
+  color: #ffcc00;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+#footerLabel .spacier {
+  word-spacing: 2px;
+}
+
+#footerLabel .logoDot {
+  display: inline-block;
+  text-indent: -9999px;
+  width: 39px;
+  height: 15px;
+  float: right;
+  background: param-url(tdr, $tdr, "wixads/wf_label_static.png") right -17px no-repeat;
+}
+

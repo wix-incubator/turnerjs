@@ -1,0 +1,1023 @@
+{
+  "structure": {
+    "type": "Page",
+    "layout": {
+      "width": 980,
+      "height": 560,
+      "x": 0,
+      "y": 0
+    },
+    "styleId": "p2",
+    "components": [
+      {
+        "type": "Component",
+        "layout": {
+          "width": 305,
+          "height": 364,
+          "x": -1,
+          "y": 5,
+          "anchors": [
+            {
+              "distance": 15,
+              "topToTop": 379,
+              "originalValue": 384,
+              "type": "BOTTOM_TOP",
+              "locked": true,
+              "targetComponent": "WRchTxt1"
+            }
+          ]
+        },
+        "styleId": "wp2",
+        "id": "WPht1",
+        "dataQuery": "#c1dcz",
+        "skin": "wysiwyg.viewer.skins.photo.NoSkinPhoto",
+        "propertyQuery": "c17qh",
+        "componentType": "wysiwyg.viewer.components.WPhoto"
+      },
+      {
+        "type": "Component",
+        "layout": {
+          "width": 305,
+          "height": 162,
+          "x": 0,
+          "y": 384,
+          "anchors": [
+            {
+              "distance": 14,
+              "topToTop": 384,
+              "originalValue": 560,
+              "type": "BOTTOM_PARENT",
+              "locked": false,
+              "targetComponent": "c1n0f"
+            }
+          ]
+        },
+        "styleId": "tx1",
+        "id": "WRchTxt1",
+        "dataQuery": "#cinr",
+        "skin": "wysiwyg.viewer.skins.WRichTextSkin",
+        "componentType": "wysiwyg.viewer.components.WRichText"
+      },
+      {
+        "type": "Component",
+        "layout": {
+          "width": 613,
+          "height": 535,
+          "x": 345,
+          "y": 5,
+          "anchors": [
+            {
+              "distance": 20,
+              "topToTop": 5,
+              "originalValue": 560,
+              "type": "BOTTOM_PARENT",
+              "locked": false,
+              "targetComponent": "c1n0f"
+            }
+          ]
+        },
+        "styleId": "pagg1",
+        "id": "PgntdGrdGllry1",
+        "dataQuery": "#c1gma",
+        "skin": "wysiwyg.viewer.skins.paginatedgrid.PaginatedGridDefaultSkin",
+        "propertyQuery": "c1bl4",
+        "componentType": "wysiwyg.viewer.components.PaginatedGridGallery"
+      }
+    ],
+    "id": "c1n0f",
+    "dataQuery": "#c1n0f",
+    "skin": "wysiwyg.viewer.skins.page.TransparentPageSkin",
+    "componentType": "mobile.core.components.Page"
+  },
+  "data": {
+    "document_data": {
+      "imageazs": {
+        "type": "Image",
+        "id": "imageazs",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_344dcf63fd1868db96d9fa9ce2e57849.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 482,
+        "alt": ""
+      },
+      "imagertk": {
+        "type": "Image",
+        "id": "imagertk",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9b36843e6992a0eedcb1c5bf1d3075cf.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 481,
+        "height": 720,
+        "alt": ""
+      },
+      "image1ojf": {
+        "type": "Image",
+        "id": "image1ojf",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_8ec731c2fca31d20ab49e081aff36ef4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 402,
+        "alt": ""
+      },
+      "image144y": {
+        "type": "Image",
+        "id": "image144y",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_da39dfcd34920fa6fb84c1237bfaad62.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 480,
+        "alt": ""
+      },
+      "image1wjs": {
+        "type": "Image",
+        "id": "image1wjs",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_16fe539f19dbe9235e28aea0f69bbefc.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 676,
+        "alt": ""
+      },
+      "c199t": {
+        "type": "Page",
+        "id": "c199t",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Portraits",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "portraits",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "image13nx": {
+        "type": "Image",
+        "id": "image13nx",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_3802d2865c9c8d34ad407e0ef98a7b63.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 416,
+        "alt": ""
+      },
+      "image1f1a": {
+        "type": "Image",
+        "id": "image1f1a",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_8ec731c2fca31d20ab49e081aff36ef4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 402,
+        "alt": ""
+      },
+      "image1aqa": {
+        "type": "Image",
+        "id": "image1aqa",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_1db711e956ccce91ccfcdaa304573aa4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 458,
+        "height": 720,
+        "alt": ""
+      },
+      "imageuk8": {
+        "type": "Image",
+        "id": "imageuk8",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_0a6ce89763088875cb4842d9d8c51421.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 463,
+        "height": 720,
+        "alt": ""
+      },
+      "image15at": {
+        "type": "Image",
+        "id": "image15at",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9b36843e6992a0eedcb1c5bf1d3075cf.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 481,
+        "height": 720,
+        "alt": ""
+      },
+      "image20co": {
+        "type": "Image",
+        "id": "image20co",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_855aeb7c16e9e423cd967379a4731046.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 480,
+        "height": 720,
+        "alt": ""
+      },
+      "imageuv6": {
+        "type": "Image",
+        "id": "imageuv6",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_d91ba376b1c7f622a706e8d4e5bece92.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 481,
+        "height": 720,
+        "alt": ""
+      },
+      "image176i": {
+        "type": "Image",
+        "id": "image176i",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_8ec731c2fca31d20ab49e081aff36ef4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 402,
+        "alt": ""
+      },
+      "imagev16": {
+        "type": "Image",
+        "id": "imagev16",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9f00ff2edb2cc168ebe2d932fb7d1952.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "image1jrs": {
+        "type": "Image",
+        "id": "image1jrs",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_da39dfcd34920fa6fb84c1237bfaad62.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 480,
+        "alt": ""
+      },
+      "c65q": {
+        "type": "Page",
+        "id": "c65q",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Video",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "video",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "image1c0y": {
+        "type": "Image",
+        "id": "image1c0y",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_d91ba376b1c7f622a706e8d4e5bece92.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 481,
+        "height": 720,
+        "alt": ""
+      },
+      "c1gma": {
+        "type": "ImageList",
+        "id": "c1gma",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "items": [
+          "#image1aqa",
+          "#imagev16",
+          "#image1wjs",
+          "#image144y",
+          "#image15at",
+          "#image1f1a",
+          "#image1moz",
+          "#imageuk8",
+          "#image1i95",
+          "#i8h33",
+          "#image1jxq",
+          "#image1rrh",
+          "#image1wwa",
+          "#imagesbx",
+          "#imagertk",
+          "#image1c0y",
+          "#image1ojf",
+          "#image1o3u",
+          "#image20co",
+          "#image13nx",
+          "#imageput",
+          "#image1ut1",
+          "#i724hn",
+          "#i241f84",
+          "#image1ehh",
+          "#image1jrs",
+          "#imagejzo",
+          "#image176i",
+          "#imageazs",
+          "#imageuv6",
+          "#image1kte",
+          "#image2nx",
+          "#imagezal",
+          "#image1rsb"
+        ]
+      },
+      "imagejzo": {
+        "type": "Image",
+        "id": "imagejzo",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_1db711e956ccce91ccfcdaa304573aa4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 458,
+        "height": 720,
+        "alt": ""
+      },
+      "cinr": {
+        "type": "RichText",
+        "id": "cinr",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "<p>\n\t<span class=\"font_5\">Color Fashion</span></p>\n<p>\n\t&nbsp;</p>\n<p>\n\t<span class=\"font_8\">I'm a paragraph. Click here to add your own text and edit me. It’s easy. Just click “Edit Text” or double click me and you can start adding your own content and make changes to the font. I’m a great place for you to tell a story and let your users know a little more about you.</span></p>\n",
+        "defaultStyle": "font_6"
+      },
+      "#Link1v77": {
+        "type": "TextLink",
+        "id": "#Link1v77",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "_self",
+        "linkType": "PAGE",
+        "href": "#!Home/mainPage"
+      },
+      "i724hn": {
+        "type": "Image",
+        "id": "i724hn",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_c34f3b6bdad235fccf306fd632dfeb9c.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "SITE_STRUCTURE": {
+        "type": "Document",
+        "id": "SITE_STRUCTURE",
+        "metaData": {
+          "isPreset": false,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "siteName": "Template Base",
+        "mainPage": "#mainPage",
+        "renderModifiers": {
+          "pageAutoShrink": false
+        }
+      },
+      "Linkq6g": {
+        "type": "TextLink",
+        "id": "Linkq6g",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "target": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "image1wwa": {
+        "type": "Image",
+        "id": "image1wwa",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_16fe539f19dbe9235e28aea0f69bbefc.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 676,
+        "alt": ""
+      },
+      "MAIN_MENU": {
+        "type": "Menu",
+        "id": "MAIN_MENU",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "items": [
+          {
+            "refId": "#mainPage",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#c240r",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#c199t",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#c1n0f",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#cyuu",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#c65q",
+            "items": [
+
+            ]
+          },
+          {
+            "refId": "#czpl",
+            "items": [
+
+            ]
+          }
+        ]
+      },
+      "image1ehh": {
+        "type": "Image",
+        "id": "image1ehh",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "",
+        "uri": "84770f_0a6ce89763088875cb4842d9d8c51421.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 463,
+        "height": 720,
+        "alt": ""
+      },
+      "image1o3u": {
+        "type": "Image",
+        "id": "image1o3u",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_0a6ce89763088875cb4842d9d8c51421.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 463,
+        "height": 720,
+        "alt": ""
+      },
+      "i8h33": {
+        "type": "Image",
+        "id": "i8h33",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_41379ff3ac5b0732e67c8b41838b7c67.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "imagezal": {
+        "type": "Image",
+        "id": "imagezal",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_855aeb7c16e9e423cd967379a4731046.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 480,
+        "height": 720,
+        "alt": ""
+      },
+      "image1ut1": {
+        "type": "Image",
+        "id": "image1ut1",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_344dcf63fd1868db96d9fa9ce2e57849.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 482,
+        "alt": ""
+      },
+      "image1rsb": {
+        "type": "Image",
+        "id": "image1rsb",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9f00ff2edb2cc168ebe2d932fb7d1952.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "image1kte": {
+        "type": "Image",
+        "id": "image1kte",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9b36843e6992a0eedcb1c5bf1d3075cf.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 481,
+        "height": 720,
+        "alt": ""
+      },
+      "image1moz": {
+        "type": "Image",
+        "id": "image1moz",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_855aeb7c16e9e423cd967379a4731046.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 480,
+        "height": 720,
+        "alt": ""
+      },
+      "image1i95": {
+        "type": "Image",
+        "id": "image1i95",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_66f454c0daa222d2ce371918e397bfb2.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "image2nx": {
+        "type": "Image",
+        "id": "image2nx",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_16fe539f19dbe9235e28aea0f69bbefc.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 676,
+        "alt": ""
+      },
+      "mainPage": {
+        "type": "Page",
+        "id": "mainPage",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Home",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "home",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "i241f84": {
+        "type": "Image",
+        "id": "i241f84",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_41379ff3ac5b0732e67c8b41838b7c67.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "#Link2zk": {
+        "type": "TextLink",
+        "id": "#Link2zk",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "czpl": {
+        "type": "Page",
+        "id": "czpl",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Contact",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "contact",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "cyuu": {
+        "type": "Page",
+        "id": "cyuu",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Landscape",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "landscape",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "imagesbx": {
+        "type": "Image",
+        "id": "imagesbx",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_da39dfcd34920fa6fb84c1237bfaad62.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 720,
+        "height": 480,
+        "alt": ""
+      },
+      "c1n0f": {
+        "type": "Page",
+        "id": "c1n0f",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "Fashion",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "fashion",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "image1rrh": {
+        "type": "Image",
+        "id": "image1rrh",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_9f00ff2edb2cc168ebe2d932fb7d1952.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "imageput": {
+        "type": "Image",
+        "id": "imageput",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_66f454c0daa222d2ce371918e397bfb2.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 604,
+        "height": 403,
+        "alt": ""
+      },
+      "c1dcz": {
+        "type": "Image",
+        "id": "c1dcz",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "target": "",
+        "linkType": "FREE_LINK",
+        "href": "",
+        "title": "",
+        "uri": "84770f_a67ad8e20ab636418fe33aaf78fb79aa.jpg",
+        "description": "",
+        "width": 403,
+        "height": 604,
+        "alt": ""
+      },
+      "Linkqin": {
+        "type": "TextLink",
+        "id": "Linkqin",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "text": "",
+        "target": "",
+        "linkType": "FREE_LINK",
+        "icon": "",
+        "href": ""
+      },
+      "c240r": {
+        "type": "Page",
+        "id": "c240r",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "title": "About",
+        "hideTitle": true,
+        "icon": "",
+        "descriptionSEO": "",
+        "metaKeywordsSEO": "",
+        "pageTitleSEO": "",
+        "pageUriSEO": "about",
+        "hidePage": false,
+        "underConstruction": false,
+        "tpaApplicationId": 0,
+        "pageSecurity": {
+          "requireLogin": false,
+          "passwordDigest": ""
+        }
+      },
+      "image1jxq": {
+        "type": "Image",
+        "id": "image1jxq",
+        "metaData": {
+          "isPreset": true,
+          "schemaVersion": "1.0",
+          "isHidden": false
+        },
+        "linkType": "FREE_LINK",
+        "title": "I'm a title",
+        "uri": "84770f_1db711e956ccce91ccfcdaa304573aa4.jpg",
+        "description": "I'm a description. Click to edit me",
+        "width": 458,
+        "height": 720,
+        "alt": ""
+      }
+    },
+    "theme_data": {
+
+    },
+    "component_properties": {
+      "c1bl4": {
+        "type": "PaginatedGridGalleryProperties",
+        "expandEnabled": true,
+        "galleryImageOnClickAction": "zoomMode",
+        "goToLinkText": "Go to link",
+        "imageMode": "clipImage",
+        "numCols": 6,
+        "maxRows": 4,
+        "margin": 5,
+        "transition": "swipe_horiz_All",
+        "transDuration": 1.0,
+        "autoplayInterval": 3.0,
+        "autoplay": true,
+        "showAutoplay": true,
+        "showNavigation": true,
+        "showCounter": true
+      },
+      "c17qh": {
+        "type": "WPhotoProperties",
+        "displayMode": "fill"
+      }
+    }
+  },
+  "title": "Fashion",
+  "pageUriSEO": "fashion"
+}

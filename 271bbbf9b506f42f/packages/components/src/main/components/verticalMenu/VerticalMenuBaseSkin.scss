@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+a span {
+  pointer-events: none;
+}
+
+.noLink {
+  cursor: default !important;
+}

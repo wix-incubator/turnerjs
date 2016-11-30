@@ -1,0 +1,9 @@
+{
+    "owner": "yanivz",
+    "description": "workaround for onboarding viewport height, should be removed when onboarding fixes the viewer iframe height",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}
+

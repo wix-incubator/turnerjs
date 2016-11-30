@@ -1,0 +1,15 @@
+$header-background: #f0f4f7;
+$header-text: #20455e;
+
+.wrapper {
+  background-color: $header-background;
+  color: $header-text;
+  height: 90px;
+  padding: 12px 36px;
+}
+
+.header-text {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 36px;
+  font-weight: 100;
+}

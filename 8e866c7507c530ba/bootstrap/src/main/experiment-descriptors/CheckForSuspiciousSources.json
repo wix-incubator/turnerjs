@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-07-14T02:44:00",
+    "owner": "dimar",
+    "description": "A standalone script will be called 10 seconds after editor starts loading, to check for any script/img/css coming from non white-listed sources. This should point us to malware. In 1st stage, it will only send BI",
+    "tags": [
+        "editor"
+    ],
+    "constraints": {
+    }
+}

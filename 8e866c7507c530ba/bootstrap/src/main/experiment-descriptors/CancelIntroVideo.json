@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-12-27T19:51:00",
+    "owner": "guyr",
+    "description": "Do not show intro video to new Editor users",
+    "constraints": {
+    },
+    "tags": [
+        "editor"
+    ]
+}

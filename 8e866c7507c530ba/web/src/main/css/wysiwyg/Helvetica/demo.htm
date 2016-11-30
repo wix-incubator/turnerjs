@@ -1,0 +1,199 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Webfonts Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <style type="text/css">
+	    body, textarea { font-family:Arial, Sans-Serif; line-height:1.6em; font-size:13px; }
+	    h1 { font-size:3em; }
+	    h2, h3 { color:#999; }
+	    .content { width:780px; margin: 20px auto 40px; }
+	    .demo { font-weight:bold; font-style:normal; color: #999 }
+	    .fontdisplay {font-size:2em;line-height:150%;margin: 10px 40px 0px 0px;}
+	    .guidelines { color:#333; }
+	    pre { padding:0 0 0 20px; }
+	    hr { border:0; border-bottom:1px solid #537094; margin:20px 0; }
+	    .link { color: #537094;text-decoration:none; font-weight:bold;}
+	    .uc {text-transform:uppercase}
+    </style>
+    <style type="text/css">
+
+@import url("http://fast.fonts.com/t/1.css?apiType=css&projectid=3738a8da-853d-4e98-b0cc-703eb8265098");
+@font-face{
+font-family:"HelveticaNeueW02-UltLt";
+src:url("Fonts/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix");
+src:url("Fonts/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix") format("eot"),url("Fonts/84558c76-9f1b-44d2-ac62-d7937f43809b.woff") format("woff"),url("Fonts/411a88fe-e483-4fb8-af42-8369ebb1138d.ttf") format("truetype"),url("Fonts/6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167.svg#6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-Thin";
+src:url("Fonts/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix");
+src:url("Fonts/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix") format("eot"),url("Fonts/775a65da-14aa-4634-be95-6724c05fd522.woff") format("woff"),url("Fonts/988eaaa7-5565-4f65-bb17-146b650ce9e9.ttf") format("truetype"),url("Fonts/3503a1a6-91c3-4c42-8e66-2ea7b2b57541.svg#3503a1a6-91c3-4c42-8e66-2ea7b2b57541") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-45Ligh";
+src:url("Fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix");
+src:url("Fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix") format("eot"),url("Fonts/9a2e4855-380f-477f-950e-d98e8db54eac.woff") format("woff"),url("Fonts/fa82d0ee-4fbd-4cc9-bf9f-226ad1fcbae2.ttf") format("truetype"),url("Fonts/48d599a6-92b5-4d43-a4ac-8959f6971853.svg#48d599a6-92b5-4d43-a4ac-8959f6971853") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-65Medi";
+src:url("Fonts/55f60419-09c3-42bd-b81f-1983ff093852.eot?#iefix");
+src:url("Fonts/55f60419-09c3-42bd-b81f-1983ff093852.eot?#iefix") format("eot"),url("Fonts/5b4a262e-3342-44e2-8ad7-719998a68134.woff") format("woff"),url("Fonts/4a3ef5d8-cfd9-4b96-bd67-90215512f1e5.ttf") format("truetype"),url("Fonts/58ab5075-53ea-46e6-9783-cbb335665f88.svg#58ab5075-53ea-46e6-9783-cbb335665f88") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-75Bold";
+src:url("Fonts/db853e0e-929b-4272-b420-c946c954cf3a.eot?#iefix");
+src:url("Fonts/db853e0e-929b-4272-b420-c946c954cf3a.eot?#iefix") format("eot"),url("Fonts/4a9c62ab-b359-4081-8383-a0d1cdebd111.woff") format("woff"),url("Fonts/db5f9ba6-05a4-433a-9461-0a6f257a0c3a.ttf") format("truetype"),url("Fonts/25e09910-ffc3-4fc4-b0d1-db9a95dface8.svg#25e09910-ffc3-4fc4-b0d1-db9a95dface8") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-95Blac";
+src:url("Fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix");
+src:url("Fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix") format("eot"),url("Fonts/6d5b06b3-f8db-4de6-aa46-2a6de9569b51.woff") format("woff"),url("Fonts/86438896-04f9-4558-a21a-e7a6d6061591.ttf") format("truetype"),url("Fonts/c486d95f-f220-435d-8a83-5d9497f04c49.svg#c486d95f-f220-435d-8a83-5d9497f04c49") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-45Ligh";
+src:url("Fonts/5b85c7cc-6ad4-4226-83f5-9d19e2974123.eot?#iefix");
+src:url("Fonts/5b85c7cc-6ad4-4226-83f5-9d19e2974123.eot?#iefix") format("eot"),url("Fonts/835e7b4f-b524-4374-b57b-9a8fc555fd4e.woff") format("woff"),url("Fonts/2c694ef6-9615-473e-8cf4-d8d00c6bd973.ttf") format("truetype"),url("Fonts/3fc84193-a13f-4fe8-87f7-238748a4ac54.svg#3fc84193-a13f-4fe8-87f7-238748a4ac54") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-65Medi";
+src:url("Fonts/7092fdcc-7036-48ce-ae23-cfbc9be2e3b0.eot?#iefix");
+src:url("Fonts/7092fdcc-7036-48ce-ae23-cfbc9be2e3b0.eot?#iefix") format("eot"),url("Fonts/5b29e833-1b7a-40ab-82a5-cfd69c8650f4.woff") format("woff"),url("Fonts/b0298148-2d59-44d1-9ec9-1ca6bb097603.ttf") format("truetype"),url("Fonts/ae1dea8c-a953-4845-b616-74a257ba72e6.svg#ae1dea8c-a953-4845-b616-74a257ba72e6") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-75Bold";
+src:url("Fonts/41fb73ed-90c8-456d-838e-254f4dfda106.eot?#iefix");
+src:url("Fonts/41fb73ed-90c8-456d-838e-254f4dfda106.eot?#iefix") format("eot"),url("Fonts/d85949a1-c37a-43f7-9d09-fb056acf0c27.woff") format("woff"),url("Fonts/5289fb0d-053f-4fac-9c67-2d02365d6d05.ttf") format("truetype"),url("Fonts/1376b116-8954-4534-8045-eabe8e2fcaa4.svg#1376b116-8954-4534-8045-eabe8e2fcaa4") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-95Blac";
+src:url("Fonts/35f91c73-f2f1-4dd3-83ee-3649dc7ff4ed.eot?#iefix");
+src:url("Fonts/35f91c73-f2f1-4dd3-83ee-3649dc7ff4ed.eot?#iefix") format("eot"),url("Fonts/b1d7b778-bdf9-4ff3-b4e8-8cdabf234863.woff") format("woff"),url("Fonts/27bdcc15-be32-4f6c-a7df-12494376e947.ttf") format("truetype"),url("Fonts/3af50121-f334-4e73-b155-b105e0029509.svg#3af50121-f334-4e73-b155-b105e0029509") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-35Thin";
+src:url("Fonts/93b6bf6a-418e-4a8f-8f79-cb9c99ef3e32.eot?#iefix");
+src:url("Fonts/93b6bf6a-418e-4a8f-8f79-cb9c99ef3e32.eot?#iefix") format("eot"),url("Fonts/c881c21b-4148-4a11-a65d-f35e42999bc8.woff") format("woff"),url("Fonts/03634cf1-a9c9-4e13-b049-c90d830423d4.ttf") format("truetype"),url("Fonts/1bc99c0a-298b-46f9-b325-18b5e5169795.svg#1bc99c0a-298b-46f9-b325-18b5e5169795") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-25UltL";
+src:url("Fonts/072d8516-5d40-44bc-b694-65b3c8bd8fa5.eot?#iefix");
+src:url("Fonts/072d8516-5d40-44bc-b694-65b3c8bd8fa5.eot?#iefix") format("eot"),url("Fonts/723fd1ed-5aad-454d-af88-3711c5caf1c7.woff") format("woff"),url("Fonts/2a81d94e-d365-4f5f-9957-7e96414d6a72.ttf") format("truetype"),url("Fonts/6be38bc3-96b3-47e3-a9ef-e1a184b54d64.svg#6be38bc3-96b3-47e3-a9ef-e1a184b54d64") format("svg");
+}
+
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 class="demo">Fonts.com Web fonts</h1>
+        <p style="margin-top:-10px; font-size:1.5em;color:#666"><b>@font-face implementation instructions</b></p>
+        <hr />
+        <p class="uc">The fonts contained in this kit are:</p>
+        <div class="fontdisplay">
+<div style="font-family:'HelveticaNeueW02-UltLt';"> Neue Helvetica® 25 Ultra Light </div>
+<div style="font-family:'HelveticaNeueW02-Thin';"> Neue Helvetica® 35 Thin </div>
+<div style="font-family:'HelveticaNeueW02-45Ligh';"> Neue Helvetica® 45 Light </div>
+<div style="font-family:'HelveticaNeueW02-65Medi';"> Neue Helvetica® 65 Medium </div>
+<div style="font-family:'HelveticaNeueW02-75Bold';"> Neue Helvetica® 75 Bold </div>
+<div style="font-family:'HelveticaNeueW02-95Blac';"> Neue Helvetica® 95 Black </div>
+<div style="font-family:'HelveticaNeueW10-45Ligh';"> Neue Helvetica® 45 Light </div>
+<div style="font-family:'HelveticaNeueW10-65Medi';"> Neue Helvetica® 65 Medium </div>
+<div style="font-family:'HelveticaNeueW10-75Bold';"> Neue Helvetica® 75 Bold </div>
+<div style="font-family:'HelveticaNeueW10-95Blac';"> Neue Helvetica® 95 Black </div>
+<div style="font-family:'HelveticaNeueW10-35Thin';"> Neue Helvetica® 35 Thin </div>
+<div style="font-family:'HelveticaNeueW10-25UltL';"> Neue Helvetica® 25 Ultra Light </div>
+
+        </div>
+        <hr />
+        Click here for <a class="link uc" href="demo-async.htm">asynchronous</a> web fonts implementation
+        <hr />
+        <div class="guidelines">
+            <h2>CSS Implementation Guidelines</h2>
+            <p>You and any third party web font hosting service are responsible for ensuring that the font software in the self-hosting kit, in its original format, can only be used on the Web Sites for which the self-hosting kit was downloaded and cannot be used or referenced by any other web site. This includes, but is not limited to installing adequate technical protection measures that restrict the use and/or access to the font software, for instance by utilizing JavaScript or access control mechanism for cross-origin resource sharing and protecting against use on web sites other than the Web Sites for which the self-hosting kit was downloaded by restricting domain access only to such Web Sites. You must also retain the pageview tracking code on any Web Site that you self-host. In the event this Agreement terminates for any reason, the font software included with the self-hosting kit must be deleted from the server and all copies must be destroyed or returned to Monotype Imaging.</p>
+            <p>View <a class="link" href="http://new.fonts.com/info/legal/eula/web-fonts" target="_blank">"WEB FONT SOFTWARE" LICENSE AGREEMENT</a></p>
+            <p>Font file names have been obfuscated to protect the font software. You can identify font format based on file ending:</p>
+            <ul>
+                <li>1 - TrueType (ttf)</li>
+                <li>2 - Embedded OpenType (eot)</li>
+                <li>3 - Web Open Font Format (woff)</li>
+                <li>4 - Scalable Vector Graphics (svg)</li>
+            </ul>
+            <p class="uc" style="margin: 20px 0px -20px;"><b>Copy and paste following code in head section of the page</b></p>
+            <hr />
+            <textarea style="width:830px; height:350px; border:1 #fff solid; background-color:#fcfcfc;"><style type="text/css">
+
+@import url("http://fast.fonts.com/t/1.css?apiType=css&projectid=3738a8da-853d-4e98-b0cc-703eb8265098");
+@font-face{
+font-family:"HelveticaNeueW02-UltLt";
+src:url("Fonts/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix");
+src:url("Fonts/787ee748-9cce-45a0-910b-6b5c6e87e327.eot?#iefix") format("eot"),url("Fonts/84558c76-9f1b-44d2-ac62-d7937f43809b.woff") format("woff"),url("Fonts/411a88fe-e483-4fb8-af42-8369ebb1138d.ttf") format("truetype"),url("Fonts/6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167.svg#6dfe33a4-0ad5-4c85-8e01-f48ecfe3c167") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-Thin";
+src:url("Fonts/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix");
+src:url("Fonts/30b6ffc3-3b64-40dd-9ff8-a3a850daf535.eot?#iefix") format("eot"),url("Fonts/775a65da-14aa-4634-be95-6724c05fd522.woff") format("woff"),url("Fonts/988eaaa7-5565-4f65-bb17-146b650ce9e9.ttf") format("truetype"),url("Fonts/3503a1a6-91c3-4c42-8e66-2ea7b2b57541.svg#3503a1a6-91c3-4c42-8e66-2ea7b2b57541") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-45Ligh";
+src:url("Fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix");
+src:url("Fonts/88fcd49a-13c7-4d0c-86b1-ad1e258bd75d.eot?#iefix") format("eot"),url("Fonts/9a2e4855-380f-477f-950e-d98e8db54eac.woff") format("woff"),url("Fonts/fa82d0ee-4fbd-4cc9-bf9f-226ad1fcbae2.ttf") format("truetype"),url("Fonts/48d599a6-92b5-4d43-a4ac-8959f6971853.svg#48d599a6-92b5-4d43-a4ac-8959f6971853") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-65Medi";
+src:url("Fonts/55f60419-09c3-42bd-b81f-1983ff093852.eot?#iefix");
+src:url("Fonts/55f60419-09c3-42bd-b81f-1983ff093852.eot?#iefix") format("eot"),url("Fonts/5b4a262e-3342-44e2-8ad7-719998a68134.woff") format("woff"),url("Fonts/4a3ef5d8-cfd9-4b96-bd67-90215512f1e5.ttf") format("truetype"),url("Fonts/58ab5075-53ea-46e6-9783-cbb335665f88.svg#58ab5075-53ea-46e6-9783-cbb335665f88") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-75Bold";
+src:url("Fonts/db853e0e-929b-4272-b420-c946c954cf3a.eot?#iefix");
+src:url("Fonts/db853e0e-929b-4272-b420-c946c954cf3a.eot?#iefix") format("eot"),url("Fonts/4a9c62ab-b359-4081-8383-a0d1cdebd111.woff") format("woff"),url("Fonts/db5f9ba6-05a4-433a-9461-0a6f257a0c3a.ttf") format("truetype"),url("Fonts/25e09910-ffc3-4fc4-b0d1-db9a95dface8.svg#25e09910-ffc3-4fc4-b0d1-db9a95dface8") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW02-95Blac";
+src:url("Fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix");
+src:url("Fonts/c8ec8ade-129c-47df-86b4-f9f1cd69ac15.eot?#iefix") format("eot"),url("Fonts/6d5b06b3-f8db-4de6-aa46-2a6de9569b51.woff") format("woff"),url("Fonts/86438896-04f9-4558-a21a-e7a6d6061591.ttf") format("truetype"),url("Fonts/c486d95f-f220-435d-8a83-5d9497f04c49.svg#c486d95f-f220-435d-8a83-5d9497f04c49") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-45Ligh";
+src:url("Fonts/5b85c7cc-6ad4-4226-83f5-9d19e2974123.eot?#iefix");
+src:url("Fonts/5b85c7cc-6ad4-4226-83f5-9d19e2974123.eot?#iefix") format("eot"),url("Fonts/835e7b4f-b524-4374-b57b-9a8fc555fd4e.woff") format("woff"),url("Fonts/2c694ef6-9615-473e-8cf4-d8d00c6bd973.ttf") format("truetype"),url("Fonts/3fc84193-a13f-4fe8-87f7-238748a4ac54.svg#3fc84193-a13f-4fe8-87f7-238748a4ac54") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-65Medi";
+src:url("Fonts/7092fdcc-7036-48ce-ae23-cfbc9be2e3b0.eot?#iefix");
+src:url("Fonts/7092fdcc-7036-48ce-ae23-cfbc9be2e3b0.eot?#iefix") format("eot"),url("Fonts/5b29e833-1b7a-40ab-82a5-cfd69c8650f4.woff") format("woff"),url("Fonts/b0298148-2d59-44d1-9ec9-1ca6bb097603.ttf") format("truetype"),url("Fonts/ae1dea8c-a953-4845-b616-74a257ba72e6.svg#ae1dea8c-a953-4845-b616-74a257ba72e6") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-75Bold";
+src:url("Fonts/41fb73ed-90c8-456d-838e-254f4dfda106.eot?#iefix");
+src:url("Fonts/41fb73ed-90c8-456d-838e-254f4dfda106.eot?#iefix") format("eot"),url("Fonts/d85949a1-c37a-43f7-9d09-fb056acf0c27.woff") format("woff"),url("Fonts/5289fb0d-053f-4fac-9c67-2d02365d6d05.ttf") format("truetype"),url("Fonts/1376b116-8954-4534-8045-eabe8e2fcaa4.svg#1376b116-8954-4534-8045-eabe8e2fcaa4") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-95Blac";
+src:url("Fonts/35f91c73-f2f1-4dd3-83ee-3649dc7ff4ed.eot?#iefix");
+src:url("Fonts/35f91c73-f2f1-4dd3-83ee-3649dc7ff4ed.eot?#iefix") format("eot"),url("Fonts/b1d7b778-bdf9-4ff3-b4e8-8cdabf234863.woff") format("woff"),url("Fonts/27bdcc15-be32-4f6c-a7df-12494376e947.ttf") format("truetype"),url("Fonts/3af50121-f334-4e73-b155-b105e0029509.svg#3af50121-f334-4e73-b155-b105e0029509") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-35Thin";
+src:url("Fonts/93b6bf6a-418e-4a8f-8f79-cb9c99ef3e32.eot?#iefix");
+src:url("Fonts/93b6bf6a-418e-4a8f-8f79-cb9c99ef3e32.eot?#iefix") format("eot"),url("Fonts/c881c21b-4148-4a11-a65d-f35e42999bc8.woff") format("woff"),url("Fonts/03634cf1-a9c9-4e13-b049-c90d830423d4.ttf") format("truetype"),url("Fonts/1bc99c0a-298b-46f9-b325-18b5e5169795.svg#1bc99c0a-298b-46f9-b325-18b5e5169795") format("svg");
+}
+@font-face{
+font-family:"HelveticaNeueW10-25UltL";
+src:url("Fonts/072d8516-5d40-44bc-b694-65b3c8bd8fa5.eot?#iefix");
+src:url("Fonts/072d8516-5d40-44bc-b694-65b3c8bd8fa5.eot?#iefix") format("eot"),url("Fonts/723fd1ed-5aad-454d-af88-3711c5caf1c7.woff") format("woff"),url("Fonts/2a81d94e-d365-4f5f-9957-7e96414d6a72.ttf") format("truetype"),url("Fonts/6be38bc3-96b3-47e3-a9ef-e1a184b54d64.svg#6be38bc3-96b3-47e3-a9ef-e1a184b54d64") format("svg");
+}
+
+</style>
+
+</textarea>
+            <h3>Licensing information should be included within the CSS</h3>
+<pre>/*
+This CSS resource incorporates links to font software which is the valuable copyrighted
+property of Monotype Imaging and/or its suppliers. You may not attempt to copy, install,
+redistribute, convert, modify or reverse engineer this font software. Please contact Monotype
+Imaging with any questions regarding Web Fonts:  http://webfonts.fonts.com
+*/</pre>
+        </div>
+    </div>
+</body>
+</html>

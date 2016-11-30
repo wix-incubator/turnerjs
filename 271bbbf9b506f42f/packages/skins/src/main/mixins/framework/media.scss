@@ -1,0 +1,18 @@
+//this is the sass version of util/media/media.js
+@import "staticAssets";
+
+@function get-media($media-path) {
+  // static binary/bitmap media url (see https://github.com/wix/santa-resources), without protocol
+  $editor-media-url: "//static.parastorage.com/services/santa-resources/resources/viewer";
+  //normalize and remove leading slash
+  $media-path: if(str-index($media-path, "/") == 1, str-slice($media-path, 2), $media-path);
+
+  $mapped-data: map-get($g-media-static-assets, $media-path);
+  $suffix: if($mapped-data == null, str-insert($media-path, "/", 1), $mapped-data);
+
+  @return $editor-media-url + $suffix;
+}
+
+@function get-media-url($media-path) {
+  @return url("#{get-media($media-path)}");
+}

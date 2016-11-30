@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <style type="text/css">
+        html, body, p, img { margin: 0; padding: 0; border: 0; }
+    </style>
+    <script type="text/javascript" src="//www.skypeassets.com/i/scom/js/skype-uri.js"></script>
+    <script type="text/javascript">
+
+    function capitalize(str) {
+        return str.charAt(0).toUpperCase() + str.slice(1);
+    }
+
+    function queryStringToObject(queryString) {
+        var pairs = queryString.substring(1).split("&"),
+            obj = {},
+            pair, key, value,
+            i;
+
+        for (i in pairs) {
+            if (pairs[i] === "") continue;
+
+            pair = pairs[i].split("=");
+
+            key = decodeURIComponent(pair[0]);
+            value = decodeURIComponent(pair[1]);
+            obj[key] = value;
+        }
+
+        return obj;
+    }
+
+    function embedSkype() {
+        var data = queryStringToObject(location.search),
+            container,
+            skypeImage,
+            tempImage,
+            job;
+
+        if (!data.skypeName || typeof data.skypeName !== "string") {
+            return;
+        }
+
+        container = document.createElement("DIV");
+        container.id = ["SkypeButton", capitalize(data.buttonType), data.skypeName, 1].join("_");
+        container.style.display = "none";
+        document.body.appendChild(container);
+
+        Skype.ui({
+            "name": data.buttonType,
+            "element": container.id,
+            "participants": [ data.skypeName ],
+            "imageColor": data.imageColor,
+            "imageSize": parseInt(data.imageSize)
+        });
+
+        skypeImage = document.images[0];
+        if (skypeImage) {
+
+            skypeImage.style.margin = "0";
+            skypeImage.style.verticalAlign = "0";
+
+            tempImage = new Image();
+            tempImage.onload = function () { // NOTE: prevent flash of unstyled content in Firefox
+                container.style.display = "block";
+            };
+            tempImage.src = skypeImage.src;
+
+        } else if (typeof console !== "undefined") {
+            console.warn("skype image is not found");
+        }
+    }
+
+    window.onload = embedSkype;
+    </script>
+</head>
+<body>
+</body>
+</html>

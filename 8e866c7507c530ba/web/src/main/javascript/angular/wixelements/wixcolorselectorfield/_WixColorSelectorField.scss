@@ -1,0 +1,24 @@
+.wix-color-selector-field {
+  position: relative;
+  height: 40px;
+  min-width: 80px;
+}
+
+.wix-color-selector-field-label, .wix-color-selector-field-opacity, .wix-color-selector-field-selector {
+  position: absolute;
+}
+
+.wix-color-selector-field-label, .wix-color-selector-field-opacity {
+  top: 25%;
+}
+
+.wix-color-selector-field-selector {
+  top: 0;
+  right: 30px;
+  position: absolute;
+  margin-left: 100%;
+}
+
+.wix-color-selector-field-opacity {
+  right: 0;
+}

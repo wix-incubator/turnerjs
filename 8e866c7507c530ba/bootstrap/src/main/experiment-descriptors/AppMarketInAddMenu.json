@@ -1,0 +1,10 @@
+{
+    "createTime": "2014-06-24T10:15:00",
+    "owner": "tomergab",
+    "description": "Adds a link to App Market under the Add menu",
+    "tags": [
+        "editor"
+    ],
+    "constraints": {
+    }
+}

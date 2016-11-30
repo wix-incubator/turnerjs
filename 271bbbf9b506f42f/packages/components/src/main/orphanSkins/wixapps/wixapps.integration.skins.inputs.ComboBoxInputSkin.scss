@@ -1,0 +1,84 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$webThemeDir: WEB_THEME_DIRECTORY;
+$_borderRadius: 4px;
+$borderColor: #c4c4c4;
+$borderColorOver: #89a4af;
+$bgColor: #f9fafc;
+$bgColorOver: #f2f3f5;
+$bgColorPressed: #f3f3f3;
+$shadowColor: 0, 0, 0, .2;
+$shadowInsetColor: 0, 0, 0, .7;
+$shadowInsetColorOver: 255, 255, 255, .7;
+
+:host::after {
+  content: "▾";
+  position: absolute;
+  right: 3px;
+  top: 2px;
+  color: #3095CB;
+  font-size: 25px;
+}
+
+#collection {
+  width: 200px;
+  border: 0;
+  @include appearance(none);
+  background-color: transparent;
+  padding: 5px;
+  cursor: pointer;
+}
+
+:host {
+  width: 200px;
+  border: 1px solid param-border-color(borderColor, $borderColor);
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  background: param-bg-color(bgColor, $bgColor) param-url(webThemeDir, $webThemeDir, "button/button-gradient.png") repeat-x 0 50%;
+  position: relative;
+  text-align: center;
+}
+
+:host:hover {
+  border: 1px solid param-border-color(borderColorOver, $borderColorOver);
+  background: param-bg-color(bgColorOver, $bgColorOver) none;
+  box-shadow: 0 2px 3px 0 param-box-shadow-color(shadowColor, $shadowColor), 0 1px 2px 0 param-box-shadow-color(shadowInsetColorOver, $shadowInsetColorOver) inset;
+}
+
+[data-state~="invalid"]:before {
+  content: "!";
+  position: absolute;
+  text-align: center;
+  bottom: 50%;
+  left: -20px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px !important;
+  margin-bottom: -11px;
+  color: #fff;
+  background: #f00;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+  font-size: 12px;
+  font-weight: bold;
+}
+
+[data-state~="invalid"]:after {
+  content: "►";
+  position: absolute;
+  bottom: 50%;
+  left: 3px;
+  margin: 0 0 -7px -2px;
+  color: #fff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+  font-size: 10px;
+}
+

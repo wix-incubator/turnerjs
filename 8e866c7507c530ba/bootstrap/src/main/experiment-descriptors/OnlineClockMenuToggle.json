@@ -1,0 +1,11 @@
+{
+    "createTime": "2014-05-15T17:30:00",
+    "owner": "dmitriyy",
+    "description": "Online Clock component Menu Toggle",
+    "constraints": {
+        "OnlineClock": "required"
+    },
+    "tags": [
+        "editor"
+    ]
+}

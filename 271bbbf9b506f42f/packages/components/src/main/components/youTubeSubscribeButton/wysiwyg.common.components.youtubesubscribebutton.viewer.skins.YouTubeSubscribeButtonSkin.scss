@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+
+#youtubeIframe {
+  height: 66px;
+  display: inline-block;
+  position: absolute;
+  font-size: 0;
+  line-height: 0;
+  width: 100%;
+  z-index: $zindex-youtube-subscribe-button-skin-youtube-iframe;
+}
+
+.hitOutVertical {
+  right: 0;
+  position: absolute;
+  height: 100%;
+  z-index: $zindex-youtube-subscribe-button-skin-hit-out-vertical;
+}
+
+.hitOutHorizontal {
+  bottom: 0;
+  position: absolute;
+  width: 100%;
+  z-index: $zindex-youtube-subscribe-button-skin-hit-out-horizontal;
+}
+
+[data-state~="hoverMode"] {
+  z-index: $zindex-youtube-subscribe-button-skin-hover-mode;
+}
+
+[data-state~="hoverMode"] #youtubeIframe {
+  height: 120px;
+}
+
+[data-state~="default"] .hitOutVertical {
+  left: 130px;
+}
+
+[data-state~="default"] .hitOutHorizontal {
+  top: 33px;
+}
+
+[data-state~="full"] .hitOutVertical {
+  left: 190px;
+  height: 53px;
+}
+
+[data-state~="full"] .hitOutHorizontal {
+  top: 55px;
+}
+[data-state~="defaultIE"] .hitOutVertical {
+  left: 141px;
+}
+
+[data-state~="defaultIE"] .hitOutHorizontal {
+  top: 38px;
+}
+
+[data-state~="fullIE"] .hitOutVertical {
+  left: 202px;
+  height: 65px;
+}
+
+[data-state~="fullIE"] .hitOutHorizontal {
+  top: 67px;
+}
+

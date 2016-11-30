@@ -1,0 +1,7 @@
+{
+    "extends": "wix-editor/node",
+    "rules": {
+        "func-style": [2, "declaration", {"allowArrowFunctions": true}],
+        "no-use-before-define": 0
+    }
+}

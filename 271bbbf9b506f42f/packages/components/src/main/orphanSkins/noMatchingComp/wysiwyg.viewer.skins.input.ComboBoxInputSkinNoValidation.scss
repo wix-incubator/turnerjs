@@ -1,0 +1,160 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_8;
+$bgh: color_8;
+$bgf: color_8;
+$bge: color_8;
+$shd: 0 0 0 rgba(0, 0, 0, 0);
+$brd: #F9F9F9;
+$brdh: #F9F9F9;
+$brdf: #F9F9F9;
+$brde: #F9F9F9;
+$txt: #888888;
+$txt2: color_15;
+$fnt: font_7;
+$arrow-color: #515151;
+$brw: 2px;
+$brwh: 2px;
+$brwf: 2px;
+$brwe: 2px;
+$rd: 5px;
+
+
+
+:host {
+  position: relative;
+  display: inline-block !important;
+
+  :after {
+    content: "▼";
+    position: absolute;
+    width: 25px;
+    pointer-events: none;
+    color: $arrow-color;
+    text-align: center;
+    line-height: 30px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    top: calc(50% - 15px)
+  }
+}
+
+.left-direction {
+  text-align-last: left;
+  :after {
+    right: 5px;
+  }
+}
+
+.right-direction {
+  text-align-last: right;
+  :after {
+    left: 5px;
+  }
+}
+
+.center-direction {
+  text-align-last: center;
+  :after {
+    right: 5px;
+  }
+}
+
+select {
+  @include param-border-radius(rd, $rd);
+  @include appearance(none);
+  @include param-box-shadow(shd, $shd);
+  @include param-font(fnt, $fnt);
+  background-color: param-bg-color(bg, $bg);
+  color: param-text-color(txt, $txt);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  margin: 0;
+  padding: 0 12px;
+  cursor: pointer;
+  position: relative;
+  max-width: 100%;
+  min-width: 100%;
+  min-height: 100%;
+  text-overflow: ellipsis;
+
+  &.placeholder-style {
+    color: param-text-color(txt2, $txt2);
+  }
+
+  &:hover,
+  &[data-preview~="hover"]{
+    border: solid param-border-size(brwh, $brwh) param-border-color-alpha(brdh, $brdh);
+    background-color: param-bg-color(bgh, $bgh);
+  }
+
+  &:focus,
+  &[data-preview~="focus"]{
+    border: solid param-border-size(brwf, $brwf) param-border-color-alpha(brdf, $brdf);
+    background-color: param-bg-color(bgf, $bgf);
+  }
+}
+
+
+.err {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 1px;
+  width: 1px;
+}
+
+[data-state~="invalid"] .err:before {
+  color: #fff;
+  background: #d00;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+  text-align: center;
+  font-size: 12px;
+  content: "!";
+  position: absolute;
+  top: 5px;
+  left: -15px;
+  width: 20px;
+  height: 20px;
+  line-height: 20px !important;
+}
+
+[data-state~="invalid"] .err:after {
+  color: #fff;
+  font-size: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, .5);
+  content: "►";
+  position: absolute;
+  top: 10px;
+  left: 8px;
+}
+
+[data-disabled="true"],
+[data-preview~="disabled"]{
+  select {
+    @include disabled-bg-color(bgd);
+    @include disabled-border-color(brdd);
+    @include disabled-text-color(txtd);
+  }
+}
+
+[data-error="true"],
+[data-preview~="error"]{
+  select {
+    background-color: param-bg-color(bge, $bge);
+    border: solid param-border-size(brwe, $brwe) param-border-color-alpha(brde, $brde);
+
+
+  }
+}
+

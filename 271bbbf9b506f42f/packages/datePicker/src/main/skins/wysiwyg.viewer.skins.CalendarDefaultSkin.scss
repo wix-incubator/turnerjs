@@ -1,0 +1,111 @@
+@charset "UTF-8";
+@import '../../../../components/src/main/mixins/components-base';
+@import 'calendarBase';
+
+@include exports("month:skin", "wysiwyg.viewer.skins.MonthDefaultSkin");
+
+$brd-calendar: #aeaeae;
+$brw-calendar: 1px;
+$txt-header: #ffffff;
+
+:host {
+
+  $dataStateMobile: create-attr-selector(data-state, mobile, '~=');
+  $dataStateNotMobile: create-attr-selector(data-state, notMobile, '~=');
+  > .date-picker > .header {
+    @include param-font-family(fnt-family-header, 'arial');
+    @include sizes(100%, 60px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    word-wrap: break-word;
+    color: param-text-color(txt-header, $txt-header);
+    font-size: param-text-size(txt-size-header, 18px);
+    background-color: param-bg-color(bg-header, #7343d1);
+    border-bottom: param-border-bottom-size(brw-calendar, $brw-calendar) solid param-border-color(brd-calendar, $brd-calendar);
+
+    @include when-root-has-attr($dataStateMobile) {
+      font-size: 16px;
+    }
+
+    > .year-navigation,
+    > .month-navigation {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      cursor: pointer;
+
+      > .nav-symbol {
+        height: 13px;
+        pointer-events: none;
+        fill: param-text-color(txt-header, $txt-header);
+
+        @include when-root-has-attr($dataStateMobile) {
+          height: 17px;
+        }
+      }
+
+      @include when-root-has-attr($dataStateNotMobile) {
+        &:hover > .nav-symbol {
+          fill-opacity: 0.75;
+        }
+      }
+    }
+
+    > .year-navigation {
+      @include sizes(25px, 25px);
+
+      @include when-root-has-attr($dataStateMobile) {
+        @include sizes(40px, 40px);
+      }
+    }
+
+    > .month-navigation {
+      @include sizes(20px, 25px);
+
+      @include when-root-has-attr($dataStateMobile) {
+        @include sizes(40px, 40px);
+      }
+    }
+
+    > .month-navigation-next,
+    > .year-navigation-next {
+      @include rotate(180);
+    }
+
+    $month-nav-margin: 5px;
+    > .month-navigation-previous {
+      @include when-root-has-attr($dataStateNotMobile) {
+        margin-left: $month-nav-margin;
+      }
+    }
+
+    > .month-navigation-next {
+      @include when-root-has-attr($dataStateNotMobile) {
+        margin-right: $month-nav-margin;
+      }
+    }
+
+    > .current-month-with-year {
+      width: 170px;
+      text-align: center;
+      display: inline-block;
+      color: param-text-color(txt-header, $txt-header);
+      cursor: pointer;
+
+      @include when-root-has-attr($dataStateMobile) {
+        width: 120px;
+      }
+
+      @include when-root-has-attr($dataStateNotMobile) {
+        &:hover {
+          opacity: 0.75;
+        }
+      }
+    }
+  }
+}
+
+

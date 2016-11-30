@@ -1,0 +1,9 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+#wrapper {
+  min-width: 180px;
+  max-width: 980px;
+  max-height: 1024px;
+}

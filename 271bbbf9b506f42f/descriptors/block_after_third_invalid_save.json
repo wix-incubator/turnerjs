@@ -1,0 +1,9 @@
+{
+    "owner": "etai",
+    "description": "when enabled, will block save after 3 consecutive document save failures due to -10104 error",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "onlyForLoggedInUsers": "true",
+    "constraints": {}
+}

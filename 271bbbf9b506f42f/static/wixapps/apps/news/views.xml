@@ -1,0 +1,692 @@
+<views descriptor="descriptor.json" xmlns="http://dev.wix.com/wix-apps/views-schema.xsd">
+
+    <!--
+
+    There date formattings will not be taken from the translation resources but shown as is
+    (our date library doesn't know how to say "Jan" or "Thursday" in languages other than English - yet".
+
+    "Customize_News_DATE_COMBO1": "23 Jan 2017",
+    "Customize_News_DATE_COMBO2": "23-Jan-2017",
+    "Customize_News_DATE_COMBO3": "January 23, 2017",
+    "Customize_News_DATE_COMBO4": "Sunday, January 23, 2017",
+    "Customize_News_DATE_COMBO5": "23 January 2017",
+    "Customize_News_DATE_COMBO6": "23-January-2017",
+    -->
+
+    <view for-type="wix:Date" name="NewsDate1">
+        <date id="date" data="this" format="d mmm yyyy"/>
+        <customizations>
+            <combobox fieldId="date" key="format" label="@Customize_News_DATE_FORMAT@" priority="99" format="*">
+                <option label="23 Jan 2017" value="d mmm yyyy"/>
+                <option label="23-Jan-2017" value="d-mmm-yyyy"/>
+                <option label="January 23, 2017" value="longDate"/>
+                <option label="Sunday, January 23, 2017" value="fullDate"/>
+                <option label="23 January 2017" value="d mmmm yyyy"/>
+                <option label="23-January-2017" value="d-mmmm-yyyy"/>
+                <option label="1/23/2017" value="m/d/yyyy"/>
+                <option label="01/23/2017" value="mm/dd/yyyy"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="wix:Date" name="NewsDate2">
+        <date id="date" data="this" format="d mmm yyyy"/>
+        <customizations>
+            <combobox fieldId="date" key="format" label="@Customize_News_DATE_FORMAT@" priority="99" format="*">
+                <option label="23 Jan 2017" value="d mmm yyyy"/>
+                <option label="23-Jan-2017" value="d-mmm-yyyy"/>
+                <option label="January 23, 2017" value="longDate"/>
+                <option label="Sunday, January 23, 2017" value="fullDate"/>
+                <option label="23 January 2017" value="d mmmm yyyy"/>
+                <option label="23-January-2017" value="d-mmmm-yyyy"/>
+                <option label="1/23/2017" value="m/d/yyyy"/>
+                <option label="01/23/2017" value="mm/dd/yyyy"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="wix:Date" name="NewsDate3">
+        <date id="date" data="this" format="d mmm yyyy"/>
+        <customizations>
+            <combobox fieldId="date" key="format" label="@Customize_News_DATE_FORMAT@" priority="99" format="*">
+                <option label="23 Jan 2017" value="d mmm yyyy"/>
+                <option label="23-Jan-2017" value="d-mmm-yyyy"/>
+                <option label="January 23, 2017" value="longDate"/>
+                <option label="Sunday, January 23, 2017" value="fullDate"/>
+                <option label="23 January 2017" value="d mmmm yyyy"/>
+                <option label="23-January-2017" value="d-mmmm-yyyy"/>
+                <option label="1/23/2017" value="m/d/yyyy"/>
+                <option label="01/23/2017" value="mm/dd/yyyy"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="wix:Date" name="NewsDate1|NewsDate2|NewsDate3" format="Mobile">
+        <date id="date" data="this" format="d mmm yyyy"/>
+    </view>
+
+    <view for-type="wix:Date" name="NewsDate5" format="Mobile">
+        <date id="date" data="this" format="d mmm yyyy" fontSize="14" color="#ffffff"/>
+        <customizations>
+            <combobox fieldId="date" key="format" label="Date format" priority="99">
+                <option label="23 Jan 2017" value="d mmm yyyy"/>
+                <option label="23-Jan-2017" value="d-mmm-yyyy"/>
+                <option label="January 23, 2017" value="longDate"/>
+                <option label="Sunday, January 23, 2017" value="fullDate"/>
+                <option label="23 January 2017" value="d mmmm yyyy"/>
+                <option label="23-January-2017" value="d-mmmm-yyyy"/>
+                <option label="1/23/2017" value="m/d/yyyy"/>
+                <option label="01/23/2017" value="mm/dd/yyyy"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="NewsSourceView1">
+        <switchbox data="newsSourceLink._type" css="box-flex:1">
+            <case name="wix:LinkBase">
+                <label data="newsSource" singleLine="true" noWrap="true" showTooltip="true"/>
+            </case>
+            <default>
+                <link data="newsSourceLink">
+                    <label data="newsSource" singleLine="true" noWrap="true" showTooltip="true"/>
+                </link>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Item" name="NewsSourceView2">
+        <switchbox data="newsSourceLink._type" css="box-flex:1">
+            <case name="wix:LinkBase">
+                <label data="newsSource" singleLine="true" showTooltip="true"/>
+            </case>
+            <default>
+                <link data="newsSourceLink">
+                    <label data="newsSource" singleLine="true" showTooltip="true"/>
+                </link>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Item" name="NewsSourceView3">
+        <switchbox data="newsSourceLink._type" css="box-flex:1">
+            <case name="wix:LinkBase">
+                <label data="newsSource" singleLine="true" showTooltip="true"/>
+            </case>
+            <default>
+                <link data="newsSourceLink">
+                    <label data="newsSource" singleLine="true" showTooltip="true"/>
+                </link>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Item" name="NewsSourceView1|NewsSourceView2|NewsSourceView3" format="Mobile">
+        <switchbox data="newsSourceLink._type" css="box-flex:1">
+            <case name="wix:LinkBase">
+                <label data="newsSource" singleLine="true" showTooltip="true"/>
+            </case>
+            <default>
+                <link data="newsSourceLink">
+                    <label data="newsSource" singleLine="true" showTooltip="true"/>
+                </link>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Item" name="NewsSourceView5">
+        <switchbox data="newsSourceLink._type" css="box-flex:1">
+            <case name="wix:LinkBase">
+                <label data="newsSource" singleLine="true" showTooltip="true" fontSize="14" color="#ffffff"/>
+            </case>
+            <default>
+                <link data="newsSourceLink">
+                    <label data="newsSource" singleLine="true" showTooltip="true" fontSize="14" color="#ffffff"/>
+                </link>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Item" name="DateAndSource1">
+        <vbox>
+            <switchbox id="dateNameSwitch" value="showDate" layout="spacerBefore:0">
+                <case name="showDate">
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <use view="NewsDate1" data="date"/>
+                            <switchbox id="newsSourceSwitch" data="newsSource" layout="box-flex:1">
+                                <case name=""/>
+                                <default>
+                                    <hbox id="source" css="width:100%">
+                                        <label value="," layout="spacerAfter:5"/>
+                                        <use view="NewsSourceView1" layout="box-flex:1"/>
+                                    </hbox>
+                                </default>
+                            </switchbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <hbox id="source" layout="box-flex:1">
+                                <use view="NewsSourceView1"/>
+                            </hbox>
+                        </hbox>
+                    </vbox>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <slider label="@Customize_Title_Source_spacing@" priority="89" fieldId="dateNameSwitch" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@Customize_Story_Source_spacing@" priority="85" fieldId="contentBox" key="layout.spacerAfter" minVal="0" maxVal="100"/>
+            <checkbox label="@Customize_Show_source@" fieldId="source" key="hidden" priority="88" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@Customize_Show_date@" fieldId="dateNameSwitch" key="value" priority="87" trueVal="showDate" falseVal="hideDate" defaultVal="showDate"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="DateAndSource2">
+        <vbox>
+            <switchbox id="dateNameSwitch" value="showDate" layout="spacerBefore:0">
+                <case name="showDate">
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <use view="NewsDate2" data="date"/>
+                            <switchbox id="newsSourceSwitch" data="newsSource" layout="box-flex:1">
+                                <case name=""/>
+                                <default>
+                                    <hbox id="source">
+                                        <label value="," layout="spacerAfter:5"/>
+                                        <use view="NewsSourceView2"/>
+                                    </hbox>
+                                </default>
+                            </switchbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <hbox id="source" layout="box-flex:1">
+                                <use view="NewsSourceView2"/>
+                            </hbox>
+                        </hbox>
+                    </vbox>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <slider label="@Customize_Title_Source_spacing@" priority="89" fieldId="dateNameSwitch" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@Customize_Story_Source_spacing@" priority="85" fieldId="contentBox" key="layout.spacerAfter" minVal="0" maxVal="100"/>
+            <checkbox label="@Customize_Show_source@" fieldId="source" key="hidden" priority="88" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@Customize_Show_date@" fieldId="dateNameSwitch" key="value" priority="87" trueVal="showDate" falseVal="hideDate" defaultVal="showDate"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="DateAndSource3">
+        <vbox>
+            <switchbox id="dateNameSwitch" value="showDate" layout="spacerBefore:0">
+                <case name="showDate">
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <use view="NewsDate3" data="date"/>
+                            <switchbox id="newsSourceSwitch" data="newsSource" layout="box-flex:1">
+                                <case name=""/>
+                                <default>
+                                    <hbox id="source">
+                                        <label value="," layout="spacerAfter:5"/>
+                                        <use view="NewsSourceView3"/>
+                                    </hbox>
+                                </default>
+                            </switchbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <hbox id="source" layout="box-flex:1">
+                                <use view="NewsSourceView3"/>
+                            </hbox>
+                        </hbox>
+                    </vbox>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <slider label="@Customize_Title_Source_spacing@" priority="89" fieldId="dateNameSwitch" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@Customize_Story_Source_spacing@" priority="85" fieldId="contentBox" key="layout.spacerAfter" minVal="0" maxVal="100"/>
+            <checkbox label="@Customize_Show_source@" fieldId="source" key="hidden" priority="88" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@Customize_Show_date@" fieldId="dateNameSwitch" key="value" priority="87" trueVal="showDate" falseVal="hideDate" defaultVal="showDate"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="DateAndSource1|DateAndSource2|DateAndSource3" format="Mobile">
+        <vbox>
+            <switchbox id="dateNameSwitch" value="showDate" layout="spacerBefore:0">
+                <case name="showDate">
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <use view="{String.concat('NewsDate', $viewIndex)}" data="date"/>
+                            <switchbox id="newsSourceSwitch" data="newsSource" layout="box-flex:1">
+                                <case name=""/>
+                                <default>
+                                    <hbox id="source">
+                                        <label value="," layout="spacerAfter:5"/>
+                                        <use view="{String.concat('NewsSourceView', $viewIndex)}"/>
+                                    </hbox>
+                                </default>
+                            </switchbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <hbox id="source" layout="box-flex:1">
+                                <use view="{String.concat('NewsSourceView', $viewIndex)}"/>
+                            </hbox>
+                        </hbox>
+                    </vbox>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <slider label="@Customize_Title_Source_spacing@" priority="89" fieldId="dateNameSwitch" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <checkbox label="@Customize_Show_source@" fieldId="source" key="hidden" priority="88" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@Customize_Show_date@" fieldId="dateNameSwitch" key="value" priority="87" trueVal="showDate" falseVal="hideDate" defaultVal="showDate"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="DateAndSource5" format="Mobile">
+        <hbox css="width:100%">
+            <switchbox id="dateNameSwitch" value="showDate" layout="width:100%">
+                <case name="showDate">
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <use view="NewsDate5" data="date"/>
+                            <switchbox id="newsSourceSwitch" data="newsSource" layout="box-flex:1">
+                                <case name=""/>
+                                <default>
+                                    <hbox id="source">
+                                        <label value="," layout="spacerAfter:5" fontSize="14" color="#ffffff"/>
+                                        <use view="NewsSourceView5"/>
+                                    </hbox>
+                                </default>
+                            </switchbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <vbox>
+                        <hbox id="contentBox" layout="spacerAfter:8">
+                            <hbox id="source" layout="box-flex:1">
+                                <use view="NewsSourceView5"/>
+                            </hbox>
+                        </hbox>
+                    </vbox>
+                </default>
+            </switchbox>
+        </hbox>
+        <customizations>
+            <slider label="@Customize_Title_Source_spacing@" priority="89" fieldId="dateNameSwitch" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <checkbox label="@Customize_Show_source@" fieldId="source" key="hidden" priority="88" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@Customize_Show_date@" fieldId="dateNameSwitch" key="value" priority="87" trueVal="showDate" falseVal="hideDate" defaultVal="showDate"/>
+        </customizations>
+    </view>
+
+    <!-- ########################## SimpleVList ########################### -->
+
+    <view for-type="ItemList" name="SimpleVList">
+        <vbox>
+            <label data="title" layout="spacerAfter:22"/>
+            <vlist data="items" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="SimpleVList"/>
+                            <spacer id="inline-news-spacer" size="30"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <use view="SimpleVList"/>
+                    </last>
+                </templates>
+            </vlist>
+        </vbox>
+
+        <customizations>
+            <checkbox label="@Customize_Show_section_title@" fieldId="title" key="hidden" priority="109" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_Section_title_spacing@" priority="111" fieldId="title" key="layout.spacerAfter" minVal="0" maxVal="300"/>
+            <slider label="@Customize_Item_spacing@" priority="90" fieldId="inline-news-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="SimpleVList">
+        <zoomlink listExpression="parent.parent.items">
+            <label data="title"/>
+            <use view="DateAndSource1"/>
+            <clippedparagraph2 data="content" max-chars="150" layout="width:100%"/>
+        </zoomlink>
+        <customizations>
+            <slider label="@Customize_maximum_content_characters@" priority="51" fieldId="title" key="comp.max-chars" minVal="1" maxVal="500"/>
+            <checkbox label="@Customize_Show_story@" fieldId="content" key="hidden" priority="50" trueVal="false" falseVal="true" defaultVal="false"/>
+        </customizations>
+    </view>
+
+    <!-- ########################## ImageVList ########################### -->
+
+    <view for-type="ItemList" name="ImageVList">
+        <vbox>
+            <label data="title" layout="spacerAfter:22"/>
+            <vlist data="items" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="ImageVList"/>
+                            <spacer id="inline-news-spacer" size="30"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <vbox>
+                            <use view="ImageVList"/>
+                        </vbox>
+                    </last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <checkbox label="@Customize_Show_section_title@" fieldId="title" key="hidden" priority="109" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_Section_title_spacing@" priority="111" fieldId="title" key="layout.spacerAfter" minVal="0" maxVal="300"/>
+            <slider label="@Customize_Item_spacing@" priority="95" fieldId="inline-news-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="ImageVList">
+        <zoomlink listExpression="parent.parent.items" box-align="left" orientation="horizontal">
+            <vbox id="imageBox" layout="width:100;height:100;spacerAfter:17">
+                <image data="image" layout="box-flex:1" style="wp2"/>
+            </vbox>
+            <vbox layout="box-flex:1">
+                <clippedparagraph2 data="title" max-chars="50" layout="spacerAfter:2"/>
+                <use view="DateAndSource2"/>
+                <clippedparagraph2 data="content" max-chars="150"/>
+            </vbox>
+        </zoomlink>
+        <customizations>
+            <slider label="@Customize_Image_height@" priority="80" fieldId="imageBox" key="layout.height" minVal="1" maxVal="300"/>
+            <slider label="@Customize_Image_width@" priority="81" fieldId="imageBox" key="layout.width" minVal="1" maxVal="300"/>
+            <slider label="@Customize_Item_image_spacing@" priority="82" fieldId="imageBox" key="layout.spacerAfter" minVal="0" maxVal="300"/>
+            <checkbox label="@Customize_Show_story@" fieldId="content" key="hidden" priority="86" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_maximum_title_characters@" priority="84" fieldId="title" key="comp.max-chars" minVal="1" maxVal="500"/>
+            <slider label="@Customize_maximum_content_characters@" priority="83" fieldId="content" key="comp.max-chars" minVal="1" maxVal="500"/>
+        </customizations>
+    </view>
+
+    <!-- ########################## DateVList ########################### -->
+
+    <view for-type="ItemList" name="DateVList">
+        <vbox>
+            <label data="title" layout="spacerAfter:22"/>
+            <vlist data="items" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="DateVList"/>
+                            <spacer id="inline-news-spacer" size="30"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <use view="DateVList"/>
+                    </last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <checkbox label="@Customize_Show_section_title@" fieldId="title" key="hidden" priority="109" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_Section_title_spacing@" priority="110" fieldId="title" key="layout.spacerAfter" minVal="0" maxVal="300"/>
+            <slider label="@Customize_Item_spacing@" priority="90" fieldId="inline-news-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="DateVList">
+        <zoomlink listExpression="parent.parent.items">
+            <vbox>
+                <hbox>
+                    <vbox>
+                        <hbox id="dateBox" layout="min-width:80">
+                            <use data="date" view="NewsDate3"/>
+                            <!--<spacer id="date-news-spacer" size="10"/>-->
+                        </hbox>
+                    </vbox>
+                    <vbox layout="box-flex:1">
+                        <label data="title"/>
+                    </vbox>
+                </hbox>
+            </vbox>
+        </zoomlink>
+        <customizations>
+            <checkbox label="@Customize_Show_date@" priority="98" fieldId="dateBox" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <!--<slider label="Date and news spacing" priority="90" fieldId="date-news-spacer" key="size" minVal="0" maxVal="300"/>-->
+            <slider label="@Customize_Date_item_spacing@" priority="90" fieldId="dateBox" key="layout.min-width" minVal="50" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <!-- ########################## MobileVList ########################### -->
+
+    <view for-type="ItemList" name="SimpleVList|ImageVList|DateVList" format="Mobile">
+        <vbox>
+            <label data="title" layout="spacerAfter:22"/>
+            <vlist data="items" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="{$viewName}"/>
+                            <spacer id="inline-news-spacer" size="30"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <vbox>
+                            <use view="{$viewName}"/>
+                        </vbox>
+                    </last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <checkbox label="@Customize_Show_section_title@" fieldId="title" key="hidden" priority="109" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_Section_title_spacing@" priority="111" fieldId="title" key="layout.spacerAfter" minVal="0" maxVal="300"/>
+            <slider label="@Customize_Item_spacing@" priority="95" fieldId="inline-news-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Item" name="SimpleVList|ImageVList|DateVList" format="Mobile">
+        <zoomlink listExpression="parent.parent.items" box-align="left" orientation="horizontal">
+            <vbox layout="box-flex:1">
+                <clippedparagraph2 data="title" max-chars="150" layout="spacerAfter:2"/>
+                <switchbox data="$viewName">
+                    <case name="SimpleVList">
+                        <use view="DateAndSource1" vars="viewIndex:1"/>
+                    </case>
+                    <case name="ImageVList">
+                        <use view="DateAndSource2" vars="viewIndex:2"/>
+                    </case>
+                    <case name="DateVList">
+                        <use view="DateAndSource3" vars="viewIndex:3"/>
+                    </case>
+                </switchbox>
+                <spacer id="date-image-spacer" size="10"/>
+                <image data="image" layout="height:240;width:100%" style="wp2" imageMode="fill"/>
+                <spacer id="image-content-spacer" size="10"/>
+                <clippedparagraph2 data="content" max-chars="150"/>
+            </vbox>
+        </zoomlink>
+        <customizations>
+            <checkbox label="@Customize_Show_image@" priority="86" fieldId="image" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@Customize_Image_height@" priority="84" fieldId="image" key="layout.height" minVal="1" maxVal="300"/>
+            <!--<slider label="@Customize_Image_width@" priority="81" fieldId="image" key="layout.width" minVal="1" maxVal="300"/>-->
+            <slider label="@Customize_image_before_spacing@" priority="83" fieldId="date-image-spacer" key="size" minVal="0" maxVal="300"/>
+            <slider label="@Customize_image_after_spacing@" priority="82" fieldId="image-content-spacer" key="size" minVal="0" maxVal="300"/>
+            <checkbox label="@Customize_Show_story@" fieldId="content" key="hidden" priority="85" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="Maximum title characters" priority="80" fieldId="title" key="max-chars" minVal="1" maxVal="5"/>
+            <slider label="Maximum story characters" priority="81" fieldId="content" key="max-chars" minVal="1" maxVal="500"/>
+        </customizations>
+    </view>
+
+    <!-- ##################### Zoom ####################### -->
+
+    <view for-type="Item" name="ZoomView">
+        <zoom css="text-align:left">
+            <vbox css="height:100%;padding:10;min-width:320">
+                <label data="title"/>
+                <use view="DateAndSource1"/>
+                <switchbox data="image.src" layout="min-width:300">
+                    <case name="2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png"/>
+                    <default>
+                        <vbox>
+                            <image data="image" imageMode="fitWidth" layout="spacerBefore:25"/>
+                        </vbox>
+                    </default>
+                </switchbox>
+                <label data="content" layout="spacerBefore:20;spacerAfter:25"/>
+            </vbox>
+        </zoom>
+    </view>
+
+    <!-- ##################### Mobile Zoom####################### -->
+    <view for-type="Item" name="ZoomView" format="Mobile">
+        <use view="MobileZoomView"/>
+    </view>
+
+    <view for-type="Item" name="MobileZoomView" format="Mobile">
+        <zoom css="text-align:left;">
+            <!--<hbox>-->
+            <!--<spacer size="10"/>-->
+            <!--<vbox css="text-align:left">-->
+            <hbox>
+
+                <vbox layout="box-flex:1; text-align:left">
+                    <spacer size="20"/>
+                    <hbox>
+                        <label data="title" fontSize="24" layout="spacerBefore:10;spacerAfter:10" color="#ffffff"
+                               bold="true"/>
+                    </hbox>
+                    <spacer size="5"/>
+                    <hbox>
+                        <use view="DateAndSource5" layout="spacerBefore:10;spacerAfter:10"/>
+                    </hbox>
+                    <!--<hbox layout="width:100%">-->
+                    <!--<spacer size="10"/>-->
+                    <switchbox data="image.src" orientation="horizontal">
+                        <case name="2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png"/>
+                        <default>
+                            <vbox layout="spacer:10;width:300">
+                                <image data="image" imageMode="fitWidth" layout="spacerBefore:20"/>
+                                <!--<image data="image" imageMode="fitWidth"/>-->
+                            </vbox>
+                        </default>
+                    </switchbox>
+                    <!--<spacer size="10"/>-->
+                    <!--</hbox>-->
+                    <spacer size="20"/>
+                    <hbox>
+                        <label data="content" layout="spacerBefore:10;spacerAfter:10" fontSize="16" color="#ffffff"/>
+                    </hbox>
+                    <spacer size="20"/>
+                </vbox>
+            </hbox>
+            <!--</vbox>-->
+            <!--<spacer size="10"/>-->
+            <!--</hbox>-->
+        </zoom>
+        <customizations>
+            <checkbox label="@Customize_Show_image@" priority="86" fieldId="image" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+        </customizations>
+    </view>
+
+    <!-- ##################### editorSummary ####################### -->
+
+    <view for-type="ItemList" name="editorSummary">
+        <vbox css="height:54">
+            <label id="summaryTitle" data="title" singleLine="true" layout="spacerBefore:18;spacerAfter:19" postfix="&lt;span class='typeName'&gt; | @EditorSummary_News_Section@&lt;/span&gt;"/>
+        </vbox>
+    </view>
+
+    <view for-type="Item" name="editorSummary">
+        <hbox css="height:54">
+            <hbox layout="box-flex:1; spacerAfter:200;">
+                <vbox layout="spacer:10">
+                    <image data="image" layout="spacer:*;width:50;height:50"/>
+                </vbox>
+                <vbox layout="box-flex:1">
+                    <unstyledlabel id="summaryTitle" data="title" singleLine="true" layout="spacerBefore:3;spacerAfter:3"
+                                   postfix="&lt;span class='typeName'&gt; | @EditorSummary_News_item@&lt;/span&gt;"/>
+                    <unstyledlabel id="summaryDescription" data="content" singleLine="true" layout="spacerAfter:9"/>
+                </vbox>
+            </hbox>
+        </hbox>
+
+    </view>
+
+    <!-- ##################### editorForm ####################### -->
+
+    <view for-type="ItemList" name="editorForm">
+        <vbox css="width:100%;">
+            <label id="label" value="@EditorForm_News_Title@"/>
+            <textinput data="title" layout="spacerAfter:150" placeholder="@EditorForm_News_Title_Placeholder@"/>
+        </vbox>
+    </view>
+
+    <view for-type="Item" name="editorForm">
+        <vbox css="width:518">
+            <label id="label" value="@EditorForm_News_Item_Title@"/>
+            <textinput data="title" layout="spacerAfter:5" placeholder="@EditorForm_News_Item_Title_Placeholder@"/>
+            <hbox layout="spacerAfter:5">
+                <vbox>
+                    <label id="label" value="@EditorForm_News_Item_Image@"/>
+                    <imageselector data="image" layout="width:200;height:120" defaultImage="{ '_type': 'wix:Image', 'title': 'Default image', 'src': '2f7b76_f3e0b18a805017bb5c34c633f3fd93bc.png', 'width': 1280, 'height': 960 }"/>
+                </vbox>
+                <vbox layout="spacerBefore:30;box-flex:1">
+                    <label id="label" value="@EditorForm_News_Item_Date_Created@"/>
+                    <dateselector data="date" layout="spacerAfter:*;spacerBefore:6" allowEmpty="false"/>
+                    <label id="label" value="@EditorForm_News_Item_Source@"/>
+                    <hbox>
+                        <textinput data="newsSource" layout="box-flex:1;spacerAfter:5" placeholder="@EditorForm_News_Item_Source_Description@"/>
+                        <vbox>
+                            <linkselector data="newsSourceLink" layout="spacer:*"/>
+                        </vbox>
+                    </hbox>
+                </vbox>
+            </hbox>
+            <label id="label" value="@EditorForm_News_Item_Description@"/>
+            <richtextinput data="content" height="240" css="width:512"/>
+        </vbox>
+    </view>
+
+    <!-- ##################### error handling ####################### -->
+
+    <view for-type="Error" name="ErrorInEditor">
+        <switchbox data="code">
+            <case name="-1021">
+                <vbox css="background-color:red" box-align="center">
+                    <image value="{_type:'wix:Image',src:'images/warning-icon.png',width:256,height:256}" layout="spacerBefore:30;spacerAfter:10;width:64;height:64" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_TITLE@" style="Heading M" color="#FFFFFF" layout="spacerAfter:10" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_DESCRIPTION@" style="Body M" color="#FFFFFF" layout="spacerAfter:10" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_DISCLAIMER@" style="Body XS" color="#FFFFFF" italic="true" layout="spacerAfter:30" isStyleEditable="false"/>
+                </vbox>
+            </case>
+            <default>
+                <label value="@ERROR_MESSAGE_IN_EDITOR@" isStyleEditable="false"/>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Error" name="ErrorInPublished">
+        <switchbox data="code">
+            <case name="-1021"></case>
+            <default>
+                <label value="@ERROR_MESSAGE_IN_PUBLISHED@" isStyleEditable="false"/>
+            </default>
+        </switchbox>
+    </view>
+
+</views>

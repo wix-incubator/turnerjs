@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$label-hover-color: color_15;
+$label-color: color_15;
+$label-font: font_5;
+$link-border-color: #000;
+$container-color: #fff;
+$link-background-color: #000;
+$label-transition: color .4s ease 0s;
+$theme-directory: BASE_THEME_DIRECTORY;
+$link-border: solid 1px mutate-color-alpha-const(brd, alpha, .13, $link-border-color);
+
+:host {
+  &:before,
+  &:after {
+    border-bottom: solid 1px mutate-color-alpha-const(brd2, alpha, .12, $container-color);
+    content: '';
+    display: block;
+    height: 7px;
+    left: 1px;
+    position: absolute;
+    right: 1px;
+  }
+
+  &:before {
+    top: -7px;
+  }
+
+  &:after {
+    bottom: -7px;
+  }
+}
+
+[data-disabled="false"] {
+  cursor: pointer;
+
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #label {
+      color: param-text-color(txth, $label-hover-color);
+      @include param-transition(trans2, $label-transition);
+    }
+  }
+}
+
+#link {
+  @include abs-distance(0);
+  background: mutate-color-alpha-const(bg, alpha, .01, $link-background-color);
+  border-bottom: $link-border;
+  border-top: $link-border;
+  display: block;
+}
+
+.left,
+.right {
+  background: transparent param-url(tdr, $theme-directory, 'scotchtape_edges.png') repeat-y;
+  bottom: 0;
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  width: 10px;
+}
+
+.left {
+  background-position: right -2px;
+  left: -7px;
+}
+
+.right {
+  background-position: left -2px;
+  right: -7px;
+}
+
+#label {
+  @include param-font(fnt, $label-font);
+  @include param-transition(trans2, $label-transition);
+  color: param-text-color(txt, $label-color);
+  display: inline-block;
+  position: relative;
+  white-space: nowrap;
+}
+
+[data-disabled="true"] {
+  #label {
+    @include disabled-text-color(txtd);
+  }
+}
+
+

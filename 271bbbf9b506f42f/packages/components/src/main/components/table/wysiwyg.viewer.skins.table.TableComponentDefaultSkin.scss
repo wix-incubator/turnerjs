@@ -1,0 +1,69 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$trans: background-color .5s ease 0s;
+$bg: color_11;
+$brw: 0;
+$brd: color_14;
+$bgh: color_13;
+$shd: 0 0 3px rgba(0, 0, 0, .5);
+
+:host {
+  @include param-box-shadow(shd, $shd);
+  background-color: param-bg-color(bg, $bg);
+  box-sizing: border-box !important;
+  padding: 20px;
+  border: solid param-border-color(brd, $brd) param-border-size(brw, $brw);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: "Arial";
+  font-size: 11px;
+
+  * {
+    vertical-align: middle;
+  }
+}
+
+tbody {
+  vertical-align: middle;
+
+  td {
+    background-color: param-bg-color(bg, $bg);
+    border-bottom: solid 1px param-border-color(brd, $brd);
+    padding: 5px;
+    @include param-transition(trans, $trans);
+  }
+
+  input[type="number"] {
+    max-width: 50px;
+    text-align: center;
+  }
+
+  tr {
+    &:hover td {
+      background-color: param-bg-color(bgh, $bgh);
+    }
+
+    &.spacer:hover td {
+      background-color: param-bg-color(bg, $bg);
+    }
+  }
+}
+
+tr.spacer {
+  height: 100%;
+
+  td {
+    padding: 0 !important;
+    border: 0 none !important;
+  }
+}

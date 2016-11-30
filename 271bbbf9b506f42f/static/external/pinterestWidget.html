@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="x-ua-compatible" content="IE=edge">
+        <style>
+            html {
+                overflow: hidden;
+            }
+            body {
+                margin: 0;
+                padding: 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <a id="pin" class="pin" data-pin-do="embedPin" href=""></a>
+        <script type="text/javascript">
+            var parseQueryString = function(queryString) {
+                var params = {},
+                    queries,
+                    i, j, k;
+
+                queries = queryString.split('&');
+                for (i = 0, j = queries.length; i < j; i++) {
+                    k = queries[i].split('=');
+                    params[decodeURIComponent(k[0])] = decodeURIComponent(k[1]);
+                }
+
+                return params;
+            };
+
+            var self = this;
+            var Controller = function(){
+                var controllerScope= this;
+                var checkState = function (){
+                    controllerScope.currTry++;
+                    if (controllerScope.currTry>controllerScope.maxtries){
+                        clearTimeout(controllerScope.intervalid);
+                        var elem = document.getElementsByTagName("A");
+                        if (elem.length == 1){
+                                self.parent.postMessage(JSON.stringify({
+                                    compId: parseQueryString(location.search.substring(1)).compId,
+                                    showError:true,
+                                    type: 'pinterest'
+                                }), '*');
+
+                        }
+                    }
+                };
+                this.intervalid = setInterval(checkState, 1000);
+                if(self.isIE) {
+                    window.addEventListener('propertychange', this.postDimensions, false);
+                } else {
+                    window.addEventListener('DOMSubtreeModified', this.postDimensions, false);
+                }
+                var data = parseQueryString(location.search.substring(1));
+                this.setData(data);
+            };
+
+            Controller.prototype = {
+               maxtries: 5,
+               currTry : 0,
+               intervalid: '',
+
+               postDimensions: function (event){
+                   var target = parent.postMessage ? parent : (parent.document.postMessage ? parent.document : undefined);
+                   if (typeof target != 'undefined' && event.target.tagName === 'BODY' && document.body.clientHeight) {
+                       target.postMessage(JSON.stringify({
+                           height: document.body.clientHeight,
+                           width: document.body.childNodes[1].clientWidth,
+                           compId: parseQueryString(location.search.substring(1)).compId,
+                           type: 'pinterest'
+                       }), '*');
+                   }
+               },
+
+               getElement: function(){
+                   this.el = document.getElementById('pin');
+                   return this.el;
+               },
+
+               isIE :function() {
+                   var browser = navigator.userAgent.toLowerCase();
+                   return (browser.indexOf('msie') != -1) ? parseInt(browser.split('msie')[1]) : false;
+               },
+
+               removeProtocol : function (elem){
+                    for (var i = 0; i < elem.length; i++){
+                        var aTag = elem[i],
+                            url = aTag.href;
+
+                        if (url != undefined) {
+                            if (url.indexOf('http://') === 0) {
+                                url = url.substr(5);
+                            }
+                            if (url.indexOf('https://') === 0) {
+                                url = url.substr(6);
+                            }
+                            var index = url.indexOf('//www.pinterest');
+                            if (index > 0) {
+                                url = url.substr(index);
+                            }
+                        }
+                    }
+                   aTag.href = url;
+               },
+
+               setData: function(data){
+                   var el = this.getElement();
+                   el.href =  data.pinUrl;
+               }
+            };
+            var controller = new Controller();
+        </script>
+
+        <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+    </body>
+</html>

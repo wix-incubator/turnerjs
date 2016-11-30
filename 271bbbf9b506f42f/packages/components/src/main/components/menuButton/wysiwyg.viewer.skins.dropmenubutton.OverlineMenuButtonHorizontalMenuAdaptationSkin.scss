@@ -1,0 +1,11 @@
+@charset "UTF-8";
+
+@import 'wysiwyg.viewer.skins.dropmenubutton.OverlineMenuButtonNSkin';
+
+[data-state~="over"] #label {
+  color: param-text-color(txt, $txt);
+}
+
+[data-state~="selected"] #label {
+  color: param-text-color(txt, $txt);
+}

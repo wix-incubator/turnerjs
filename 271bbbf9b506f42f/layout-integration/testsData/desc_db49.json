@@ -1,0 +1,15 @@
+{
+    "id": "desc_db49",
+    "name": "Current logic - Anchors that apply to components before them",
+    "tests": {
+        "test_fa8b": {
+            "id": "test_fa8b",
+            "name": "[Todo]",
+            "testData": {},
+            "runInBuild": true
+        }
+    },
+    "experiments": {
+        "layout_verbs_with_anchors": 1
+    }
+}

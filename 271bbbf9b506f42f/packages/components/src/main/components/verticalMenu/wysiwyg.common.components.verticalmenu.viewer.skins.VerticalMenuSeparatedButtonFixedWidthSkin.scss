@@ -1,0 +1,264 @@
+@charset "UTF-8";
+
+@import 'VerticalMenuBaseSkin';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$font: font_1;
+$sub-menu-font: font_1;
+
+$text-color: color_15;
+$hover-text-color: color_13;
+$selected-text-color: color_13;
+
+$separator-height: 8;
+$background-color: color_11;
+$sub-menu-background-color: color_11;
+$hover-background-color: color_15;
+$selected-background-color: color_15;
+
+$border-radius: 0;
+$sub-menu-border-radius: 0;
+
+$border-width: 1px;
+$border-color: color_15;
+
+$sub-menu-margin: 8px;
+$text-spacing: 10px;
+$box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+$item-background-color-transition: background-color .4s ease 0s;
+$sub-menu-opacity-transition: all .6s ease 0s;
+
+@include define-mapped-param(rdTop, rd);
+@include define-mapped-param(rdBottom, rd);
+@include define-mapped-param(dropDownRdTop, SKINS_submenuBR);
+@include define-mapped-param(dropDownRdBottom, SKINS_submenuBR);
+
+@include sum-params(dropdownMarginReal, SKINS_submenuMargin, brw, brw);
+
+@include exports(separatorNotIncludedInLineHeight, true);
+@include exports(borderNotIncludedInLineHeight, true);
+
+:host {
+  pointer-events: none;
+}
+
+#menuContainer {
+  pointer-events: auto;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+  position: relative;
+
+  .emptySubMenu {
+    display: none;
+  }
+}
+
+.subMenu {
+  min-width: 100%;
+  z-index: $zindex-vertical-menu-separated-button-fixed-width-skin-sub-menu;
+  background-color: transparent;
+  @include opacity(0);
+  display: none;
+  position: absolute;
+  @include param-transition(subMenuOpacityTrans, $sub-menu-opacity-transition);
+
+  &:before {
+    content: " ";
+    display: block;
+    width: param-margin-size(SKINS_submenuMargin, $sub-menu-margin);
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+
+  .label {
+    @include param-font(SKINS_fntSubmenu, $sub-menu-font);
+  }
+
+  .itemContentWrapper {
+    border: solid param-border-size(brw, $border-width) param-border-color-alpha(brd, $border-color);
+    background-color: param-bg-color(SKINS_bgSubmenu, $sub-menu-background-color);
+    @include param-border-radius(SKINS_submenuBR, $sub-menu-border-radius);
+    @include param-box-shadow(shd, $box-shadow);
+  }
+}
+
+.itemContentWrapper {
+  display: block;
+  border: solid param-border-size(brw, $border-width) param-border-color-alpha(brd, $border-color);
+  @include param-box-shadow(shd, $box-shadow);
+  @include param-border-radius(rd, $border-radius);
+  @include param-transition(itemBGColorTrans, $item-background-color-transition);
+  cursor: pointer;
+  padding-left: param-padding-size(textSpacing, $text-spacing);
+  padding-right: param-padding-size(textSpacing, $text-spacing);
+  background-color: param-bg-color(bg, $background-color);
+}
+
+.item {
+  width: 100%;
+  background-color: transparent;
+  margin: 0;
+  position: relative;
+  list-style: none;
+
+  &:last-child .separator {
+    display: none;
+  }
+
+  &.selected,
+  &.selectedContainer {
+    > .itemContentWrapper {
+      background-color: param-bg-color(bgs, $selected-background-color);
+      @include param-transition(itemBGColorTrans, $item-background-color-transition);
+      > .label {
+        color: param-text-color(txts, $selected-text-color);
+      }
+    }
+  }
+
+  &.hover {
+
+    .subMenu {
+      background-color: transparent;
+      @include opacity(1);
+      @include param-transition(subMenuOpacityTrans, $sub-menu-opacity-transition);
+      display: block;
+    }
+
+    > .itemContentWrapper {
+
+      :not(.noLink) {
+        background-color: param-bg-color(bgh, $hover-background-color);
+        @include param-transition(itemBGColorTrans, $item-background-color-transition);
+
+        > .label {
+          color: param-text-color(txth, $hover-text-color);
+          position: relative; /* this makes a.label to rise upon :before. This is the fix for a CLNT-2965, where :before was preventing a click on a.label */
+        }
+      }
+
+      &:before {
+        content: " ";
+        position: absolute;
+        left: 0;
+        right: 0;
+        height: 100%;
+        top: 0;
+      }
+    }
+  }
+}
+
+.label {
+  @include param-font(fnt, $font);
+  color: param-text-color(txt, $text-color);
+  display: inline;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+[data-state~="items-align-left"] {
+  text-align: left;
+
+  .item {
+    text-align: left;
+  }
+}
+
+[data-state~="items-align-center"] {
+  text-align: center;
+
+  .item {
+    text-align: center;
+  }
+}
+
+[data-state~="items-align-right"] {
+  text-align: right;
+
+  .item {
+    text-align: right;
+  }
+}
+
+[data-state~="subItems-align-left"] {
+  .subMenu {
+    .item {
+      text-align: left;
+    }
+
+    .itemContentWrapper {
+      padding-left: param-padding-size(textSpacing, $text-spacing);
+      padding-right: mutate-size-param(subItemAlterAlignPad, increase, 7, textSpacing);
+    }
+  }
+}
+
+[data-state~="subItems-align-center"] {
+  .subMenu {
+    .item {
+      text-align: center;
+    }
+
+    .itemContentWrapper {
+      padding-left: param-padding-size(textSpacing, $text-spacing);
+      padding-right: param-padding-size(textSpacing, $text-spacing);
+    }
+  }
+}
+
+[data-state~="subItems-align-right"] {
+  .subMenu {
+    .item {
+      text-align: right;
+    }
+
+    .itemContentWrapper {
+      padding-left: mutate-size-param(subItemAlterAlignPad, increase, 7, textSpacing);
+      padding-right: param-padding-size(textSpacing, $text-spacing);
+    }
+  }
+}
+
+[data-state~="subMenuOpenSide-right"] .subMenu {
+  left: calc(100% - 1px);
+  float: left;
+  margin-left: param-margin-size(SKINS_submenuMargin, $sub-menu-margin);
+
+  &:before {
+    left: 0;
+    margin-left: calc(-1 * #{param-margin-size(SKINS_submenuMargin, $sub-menu-margin)});
+  }
+}
+
+[data-state~="subMenuOpenSide-left"] .subMenu {
+  right: calc(100% - 1px);
+  float: right;
+  margin-right: param-margin-size(SKINS_submenuMargin, $sub-menu-margin);
+
+  &:before {
+    right: 0;
+    margin-right: calc(-1 * #{param-margin-size(SKINS_submenuMargin, $sub-menu-margin)});
+  }
+}
+
+[data-state~="subMenuOpenDir-down"] .subMenu {
+  top: 0;
+}
+
+[data-state~="subMenuOpenDir-up"] .subMenu {
+  bottom: 0;
+}
+
+.separator {
+  width: 100%;
+  height: #{param-height(separatorHeight, $separator-height)};
+  background-color: transparent;
+}
+

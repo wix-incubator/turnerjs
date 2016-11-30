@@ -1,0 +1,29 @@
+@import "../colors";
+
+.overflow-visible {
+  overflow: visible;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.typed-editor {
+  position: relative;
+  z-index: 1;
+  border: 2px solid $b1;
+}
+
+.editor-container {
+  position: relative;
+  z-index: 1;
+}
+
+.validation-message {
+  max-width: 222px;
+  background-color: $white;
+  box-shadow: 0 0 14px 0 $shadow;
+  overflow: hidden;
+  padding: 6px;
+  white-space: normal;
+}

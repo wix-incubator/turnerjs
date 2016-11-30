@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$itemSpacing: itemSpacing;
+$_ButtonIconBgColor: iconBgColor;
+$_font: fontButton;
+$fontColor: textColor;
+$iconSize: iconSize;
+
+
+
+:host {
+  position: relative;
+  margin-bottom: param-cssstring(itemSpacing, $itemSpacing);
+}
+
+[data-class~="lastItem"] {
+  margin-bottom: 0;
+}
+
+:host > .btnIcon {
+  position: absolute;
+  background-color: param-bg-color(_ButtonIconBgColor, $_ButtonIconBgColor);
+}
+
+:host > .btnIcon img {
+  width: param-width(iconSize, $iconSize);
+  display: block;
+}
+
+:host > .btnText {
+  position: relative;
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor);
+  padding-left: 3.6em;
+  padding-bottom: .2em;
+}
+

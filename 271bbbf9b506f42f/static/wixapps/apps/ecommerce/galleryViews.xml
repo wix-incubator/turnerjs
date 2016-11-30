@@ -1,0 +1,720 @@
+<views descriptor="descriptor.json" xmlns="views-schema.xsd">
+
+    <!-- Text: Default layout -->
+    <view for-type="ProductBundle" name="Default_DefTxtLayout|SimpleClean_DefTxtLayout|Polaroid_DefTxtLayout" vars="outOfStockMsg:'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@'">
+        <switchbox data="$text-alignment">
+            <case name="left">
+                <vbox>
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="text-align:left" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="desc" data="title" max-chars="150"
+                                      layout="text-align:left"  hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}" cssClass="txtHoverColor"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice" cssClass="txtHoverColor">
+                        <case name="&lt;br/&gt;">
+                            <hbox css="text-align:left">
+                                <label id="text" data="price" cssClass="price"/>
+                            </hbox>
+                        </case>
+                        <default>
+                            <hbox>
+                                <hbox layout="spacerBefore:0;spacerAfter:*;text-align:left">
+                                    <label data="retailPrice" lineThrough="true" cssClass="retail" />
+                                    <spacer size="5" />
+                                    <label data="price" cssClass="salePrice" />
+                                </hbox>
+                            </hbox>
+                        </default>
+                    </switchbox>
+                </vbox>
+            </case>
+            <case name="center">
+                <vbox>
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="text-align:center" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="desc" data="title" max-chars="150"
+                                      layout="text-align:center"  hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}" cssClass="txtHoverColor"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice" cssClass="txtHoverColor">
+                        <case name="&lt;br/&gt;">
+                            <hbox css="text-align:center">
+                                <label id="text" data="price" cssClass="price" layout="spacerBefore:*;spacerAfter:*;" />
+                            </hbox>
+                        </case>
+                        <default>
+                            <hbox>
+                                <hbox layout="spacerBefore:*;spacerAfter:*;">
+                                    <label data="retailPrice" lineThrough="true" cssClass="retail" />
+                                    <spacer size="10" />
+                                    <label data="price" cssClass="salePrice" />
+                                </hbox>
+                            </hbox>
+                        </default>
+                    </switchbox>
+                </vbox>
+            </case>
+            <case name="right">
+                <vbox css="direction:rtl">
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="text-align:right" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="desc" data="title" max-chars="150"
+                                      layout="text-align:right"  hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}" cssClass="txtHoverColor"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice" cssClass="txtHoverColor">
+                        <case name="&lt;br/&gt;">
+                            <hbox css="text-align:right">
+                                <label id="text" data="price" cssClass="price" layout="spacerBefore:0;spacerAfter:*;" />
+                            </hbox>
+                        </case>
+                        <default>
+                            <hbox>
+                                <hbox layout="spacerBefore:0;spacerAfter:*;text-align:right">
+                                    <label data="retailPrice" lineThrough="true" cssClass="retail" />
+                                    <spacer size="10" />
+                                    <label data="price" cssClass="salePrice" />
+                                </hbox>
+                            </hbox>
+                        </default>
+                    </switchbox>
+                </vbox>
+            </case>
+        </switchbox>
+        <customizations>
+<!--
+            <textfield priority="20" fieldId="vars" key="outOfStockMsg" format="*" label="@ECOM_GALLERY_OUT_OF_STOCK_LABEL@" maxLength="30"/>
+-->
+        </customizations>
+    </view>
+
+    <!-- Text: Alternative layout -->
+    <view for-type="ProductBundle" name="Default_AltTxtLayout|SimpleClean_AltTxtLayout|Polaroid_AltTxtLayout" vars="outOfStockMsg:'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@'">
+        <switchbox data="$text-alignment">
+            <case name="left">
+                <hbox>
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:left" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="text" data="title" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:left" hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice">
+                        <case name="&lt;br/&gt;">
+                            <vbox css="text-align:right">
+                                <label data="price" cssClass="price"/>
+                            </vbox>
+                        </case>
+                        <default>
+                            <vbox css="text-align:right">
+                                <label data="retailPrice" lineThrough="true" cssClass="retail"/>
+                                <label data="price" cssClass="salePrice"/>
+                            </vbox>
+                        </default>
+                    </switchbox>
+                </hbox>
+            </case>
+            <case name="center">
+                <hbox>
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:center" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="text" data="title" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:center"  hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice">
+                        <case name="&lt;br/&gt;">
+                            <vbox css="text-align:right">
+                                <label data="price" cssClass="price" />
+                            </vbox>
+                        </case>
+                        <default>
+                            <vbox css="text-align:right">
+                                <label data="retailPrice" lineThrough="true" cssClass="retail"/>
+                                <label data="price" cssClass="salePrice"/>
+                            </vbox>
+                        </default>
+                    </switchbox>
+                </hbox>
+            </case>
+            <case name="right">
+                <hbox css="direction:rtl">
+                    <clippedparagraph2 pack="top" id="outOfStockTitle" value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:right" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 pack="top" id="text" data="title" max-chars="150"
+                                      layout="box-flex:1; spacerAfter:10;text-align:right"  hidden="{and(outOfStock, $expOutOfStockOpen, $hover)}"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice">
+                        <case name="&lt;br/&gt;">
+                            <vbox css="text-align:left">
+                                <label data="price" cssClass="price"/>
+                            </vbox>
+                        </case>
+                        <default>
+                            <vbox css="text-align:left">
+                                <label data="retailPrice" lineThrough="true" cssClass="retail"/>
+                                <label data="price" cssClass="salePrice"/>
+                            </vbox>
+                        </default>
+                    </switchbox>
+                </hbox>
+            </case>
+        </switchbox>
+        <customizations>
+<!--
+            <textfield priority="20" fieldId="vars" key="outOfStockMsg" format="*" label="@ECOM_GALLERY_OUT_OF_STOCK_LABEL@" maxLength="30"/>
+-->
+        </customizations>
+    </view>
+
+    <!-- Ribbon -->
+    <view for-type="ProductBundle" name="DefaultRibbon|SimpleCleanRibbon|PolaroidRibbon">
+        <vbox pack="start" css="position:absolute; width:100%; height:100%;">
+            <box id="ribbonSpacer" layout="height:60%"/>
+            <switchbox id="ribbonAlignment" data="$alignment" css="width:100%;">
+                <case name="left">
+                    <hbox>
+                        <hbox layout="spacerAfter:*">
+                            <vbox id="ribbon" cssClass="ribbon" layout="">
+                                <hbox id="pad" layout="spacer:10; box-flex:1;">
+                                    <spacer size="5" />
+                                    <vbox id="pad" layout="spacer:10;" box-align="center">
+                                        <label data="ribbon"/>
+                                    </vbox>
+                                    <spacer size="5" />
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                    </hbox>
+                </case>
+                <case name="center">
+                    <vbox id="ribbon" cssClass="ribbon">
+                        <hbox>
+                            <vbox layout="spacerBefore:*; spacerAfter:*;">
+                                <hbox id="pad" layout="spacer:10; box-flex:1;">
+                                    <vbox id="pad" layout="spacer:10;" box-align="center">
+                                        <label data="ribbon"/>
+                                    </vbox>
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                    </vbox>
+                </case>
+                <default>
+                    <hbox>
+                        <hbox layout="spacerBefore:*">
+                            <vbox id="ribbon" cssClass="ribbon" layout="">
+                                <hbox id="pad" layout="spacer:10; box-flex:1;">
+                                    <spacer size="5" />
+                                    <vbox id="pad" layout="spacer:10;" box-align="center">
+                                        <label data="ribbon"/>
+                                    </vbox>
+                                    <spacer size="5" />
+                                </hbox>
+                            </vbox>
+                        </hbox>
+                    </hbox>
+                </default>
+            </switchbox>
+        </vbox>
+
+        <customizations>
+            <slider label="@ECOM_GALLERY_RIBBON_VERTICAL_POSITION_PANEL@" priority="60" fieldId="ribbonSpacer" key="layout.height" minVal="0" maxVal="90" unit="%"/>
+            <slider label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" priority="60" fieldId="pad" key="layout.spacer" minVal="0" maxVal="30" />
+        </customizations>
+    </view>
+
+    <view for-type="ProductBundle" name="Default" vars="alignment:right;text-alignment:left;hover:false">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.items" hoverVar="hover">
+            <hbox id="itemPad" layout="box-flex:1; width:100%; spacer:7;">
+                <vbox id="itemPad" cssClass="vBOX" layout="box-flex:1; spacer:0;">
+                    <!-- Top side: picture, ribbon, rollover line -->
+                    <stack layout="box-flex:1;" stackType="layout">
+                        <vbox css="left:0; right:0; top:0; bottom:0;">
+                            <image data="currentImage" imageMode="full" layout="width:100%; height:100%; box-flex:1" cssClass="pic"/>
+                            <box id="rolloverStrip" cssClass="rolloverStrip" layout="width:100%; height:3px; margin-top:3px"/>
+                        </vbox>
+                        <switchbox id="ribbonSwitch" data="ribbon"
+                                css="position:absolute; width:100%; height:100%;" cssClass="switchDIV"
+                                >
+                            <case name=""/>
+                            <default>
+                                <switchbox data="$viewName">
+                                    <case name="Default"><use view="DefaultRibbon"/></case>
+                                    <case name="SimpleClean"><use view="SimpleCleanRibbon"/></case>
+                                    <case name="Polaroid"><use view="PolaroidRibbon"/></case>
+                                </switchbox>
+                            </default>
+                        </switchbox>
+                    </stack>
+                    <spacer size="12"/>
+
+                    <!-- Bottom side: text (description, prices)-->
+                    <switchbox value="defaultLayout" id="textLayout"
+                            layout="margin-left:2; margin-right:2;" cssClass="txtHoverColor">
+                        <case name="altLayout">
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_AltTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_AltTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_AltTxtLayout"/></case>
+                            </switchbox>
+                        </case>
+                        <default>
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_DefTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_DefTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_DefTxtLayout"/></case>
+                            </switchbox>
+                        </default>
+                    </switchbox>
+                    <spacer size="10"/>
+                </vbox>
+            </hbox>
+        </zoomlink>
+
+        <customizations>
+            <slider label="@ECOM_GALLERY_ITEM_PADDING_PANEL@" priority="60" fieldId="itemPad" key="layout.spacer" minVal="0" maxVal="20"/>
+            <radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <checkbox label="@ECOM_GALLERY_HORIZ_LINE_ON_ROLLOVER_PANEL@" fieldId="rolloverStrip" key="hidden" trueVal="false"
+                      falseVal="true" defaultVal="false" priority="50"/>
+            <radioimages label="@ECOM_GALLERY_TEXT_LAYOUT_PANEL@" fieldId="textLayout" key="value" priority="45">
+                <option value="defaultLayout" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="altLayout" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+            </radioimages>
+            <radioimages label="@ECOM_ALIGNMENT_LABEL_PANEL@" fieldId="vars" key="text-alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+
+        </customizations>
+    </view>
+
+
+    <view for-type="ProductBundle" name="SimpleClean" vars="alignment:right;text-alignment:left;hover:false">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.items" hoverVar="hover">
+            <hbox id="itemPad" layout="box-flex:1; width:100%; spacer:0;">
+                <vbox id="itemPad" cssClass="vBOX" layout="box-flex:1; spacer:0;">
+
+                    <!-- Top side: picture, ribbon, rollover line -->
+                    <stack layout="box-flex:1;" stackType="layout">
+                        <vbox css="left:0; right:0; top:0; bottom:0; overflow:hidden">
+                            <image data="currentImage" imageMode="full" layout="width:100%; height:100%; box-flex:1"
+                                   cssClass="pic" style="wp2"/>
+                            <box id="rolloverStrip" cssClass="rolloverStrip"
+                                 layout="width:100%; height:3px; margin-top:3px"/>
+                        </vbox>
+                        <switchbox id="ribbonSwitch" data="ribbon"
+                                css="position:absolute; width:100%; height:100%;" cssClass="switchDIV">
+                            <case name=""/>
+                            <default>
+                                <switchbox data="$viewName">
+                                    <case name="Default"><use view="DefaultRibbon"/></case>
+                                    <case name="SimpleClean"><use view="SimpleCleanRibbon"/></case>
+                                    <case name="Polaroid"><use view="PolaroidRibbon"/></case>
+                                </switchbox>
+                            </default>
+                        </switchbox>
+                    </stack>
+                    <spacer size="12"/>
+
+                    <!-- Bottom side: text (description, prices)-->
+                    <switchbox value="defaultLayout" id="textLayout"
+                            layout="margin-left:2; margin-right:2;">
+                        <case name="altLayout">
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_AltTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_AltTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_AltTxtLayout"/></case>
+                            </switchbox>
+                        </case>
+                        <default>
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_DefTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_DefTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_DefTxtLayout"/></case>
+                            </switchbox>
+                        </default>
+                    </switchbox>
+                    <spacer size="10"/>
+                </vbox>
+            </hbox>
+        </zoomlink>
+
+        <customizations>
+            <slider label="@ECOM_GALLERY_ITEM_PADDING_PANEL@" priority="60" fieldId="itemPad" key="layout.spacer" minVal="0" maxVal="20"/>
+            <radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <checkbox label="@ECOM_GALLERY_HORIZ_LINE_ON_ROLLOVER_PANEL@" fieldId="rolloverStrip" key="hidden" trueVal="false"
+                      falseVal="true" defaultVal="false" priority="50"/>
+            <combobox fieldId="currentImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" priority="2">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+            <radioimages label="@ECOM_ALIGNMENT_LABEL_PANEL@" fieldId="vars" key="text-alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+
+        </customizations>
+    </view>
+
+
+    <view for-type="ProductBundle" name="Polaroid" vars="alignment:right;text-alignment:left;hover:false">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.items" hoverVar="hover">
+            <hbox id="itemPad" layout="box-flex:1; width:100%; spacer:0;">
+                <vbox id="itemPad" cssClass="vBOX" layout="box-flex:1; spacer:0;">
+
+                    <!-- Top side: picture, ribbon, rollover line -->
+                    <stack layout="box-flex:1;" stackType="layout">
+                        <vbox css="left:0; right:0; top:0; bottom:0; overflow:hidden">
+                            <image data="currentImage" imageMode="full" layout="width:100%; height:100%; box-flex:1"
+                                   cssClass="pic" style="wp2"/>
+                            <box id="rolloverStrip" cssClass="rolloverStrip"
+                                 layout="width:100%; height:3px; margin-top:3px"/>
+                        </vbox>
+                        <switchbox id="ribbonSwitch" data="ribbon"
+                                css="position:absolute; width:100%; height:100%;" cssClass="switchDIV">
+                            <case name=""/>
+                            <default>
+                                <switchbox data="$viewName">
+                                    <case name="Default"><use view="DefaultRibbon"/></case>
+                                    <case name="SimpleClean"><use view="SimpleCleanRibbon"/></case>
+                                    <case name="Polaroid"><use view="PolaroidRibbon"/></case>
+                                </switchbox>
+                            </default>
+                        </switchbox>
+                    </stack>
+                    <spacer size="12"/>
+
+                    <!-- Bottom side: text (description, prices)-->
+                    <switchbox value="defaultLayout" id="textLayout"
+                            layout="margin-left:2; margin-right:2;" cssClass="txtHoverColor">
+                        <case name="altLayout">
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_AltTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_AltTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_AltTxtLayout"/></case>
+                            </switchbox>
+                        </case>
+                        <default>
+                            <switchbox data="$viewName">
+                                <case name="Default"><use view="Default_DefTxtLayout"/></case>
+                                <case name="SimpleClean"><use view="SimpleClean_DefTxtLayout"/></case>
+                                <case name="Polaroid"><use view="Polaroid_DefTxtLayout"/></case>
+                            </switchbox>
+                        </default>
+                    </switchbox>
+                    <spacer size="10"/>
+                </vbox>
+            </hbox>
+        </zoomlink>
+
+        <customizations>
+            <slider label="@ECOM_GALLERY_ITEM_PADDING_PANEL@" priority="60" fieldId="itemPad" key="layout.spacer" minVal="0" maxVal="20"/>
+            <radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <radioimages label="@ECOM_ALIGNMENT_LABEL_PANEL@" fieldId="vars" key="text-alignment" priority="95">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <combobox fieldId="currentImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" priority="2">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="String" name="RibbonBox">
+        <area style="c1">
+            <spacer size="5"/>
+            <hbox layout="position:relative">
+                <label style="Body L" layout="spacer:20"/>
+            </hbox>
+            <spacer size="5"/>
+        </area>
+    </view>
+
+    <view for-type="String" name="RibbonBoxHover">
+        <area style="c2">
+            <spacer size="5"/>
+            <hbox layout="position:relative">
+                <label style="Body M" layout="spacer:20"/>
+            </hbox>
+            <spacer size="5"/>
+        </area>
+    </view>
+
+    <view for-type="String" name="CleanRibbon" vars="alignment:left">
+        <switchbox>
+            <case name="">
+            </case>
+            <default>
+                <switchbox data="$alignment">
+                    <case name="left">
+                        <hbox>
+                            <use view="{if($hover, 'RibbonBoxHover', 'RibbonBox')}" layout="spacerAfter:*"/>
+                        </hbox>
+                    </case>
+                    <case name="center">
+                        <hbox>
+                            <use view="{if($hover, 'RibbonBoxHover', 'RibbonBox')}" layout="spacer:*"/>
+                        </hbox>
+                    </case>
+                    <case name="right">
+                        <hbox>
+                            <use view="{if($hover, 'RibbonBoxHover', 'RibbonBox')}" layout="spacerBefore:*"/>
+                        </hbox>
+                    </case>
+                </switchbox>
+            </default>
+        </switchbox>
+        <customizations>
+            <radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="alignment">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+        </customizations>
+    </view>
+
+    <!-- ################## Pics Only Gallery ################## -->
+
+    <view for-type="ProductBundle" name="PicsOnlyMouseOver"  vars="outOfStockMsg:'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@';alignment:left;hover:true;editable:{eq($showHoverOnEdit,'true')}">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.parent.items" css="height:100%">
+            <hbox layout="box-flex:1;">
+                <vbox layout="spacer:20;box-flex:1">
+                    <spacer size="20" id="hoverSpacerTop"/>
+                    <clippedparagraph2 value="{if(String.isEmpty($outOfStockMsg),'@ECOM_GALLERY_OUT_OF_STOCK_TEXT@',$outOfStockMsg)}" hidden="{not(and($hover, outOfStock, $expOutOfStockOpen))}"
+                                       max-chars="150" style="Heading S" isStyleEditable="{$editable}" layout="text-align:{$alignment}" cssClass="txtHoverColorOutOfStock"/>
+                    <clippedparagraph2 data="title" max-chars="150" style="Heading S" isStyleEditable="{$editable}"
+                                      layout="text-align:{$alignment}" hidden="{and($hover, outOfStock, $expOutOfStockOpen)}"/>
+                    <hline id="ttlDescDivider" layout="spacer:10" style="hl1" isStyleEditable="{$editable}"/>
+                    <vbox hidden="{eq(details, '')}" layout="width:100%">
+                        <clippedparagraph2 id="showDetails" data="details" style="Body M" max-chars="150" isStyleEditable="{$editable}"
+                                          layout="text-align:{$alignment}"/>
+                        <spacer id="showDetails" size="20"/>
+                    </vbox>
+                    <label id="readMoreLabel" value="@ECOM_GALLERY_READ_MORE_TEXT@" bold="true" layout="text-align:{$alignment}" isStyleEditable="{$editable}"/>
+                    <spacer id="hoverOverviewPriceSpacer" size="10"/>
+                    <switchbox id="retailPriceSwitch" data="retailPrice">
+                        <case name="&lt;br/&gt;">
+                            <vbox>
+                                <label data="price" cssClass="price" style="Heading S" isStyleEditable="{$editable}"
+                                       layout="text-align:{$alignment}"/>
+                            </vbox>
+                        </case>
+                        <default>
+                            <vbox box-align="{String.replace($alignment,'middle','center')}" layout="text-align:{$alignment}">
+                                <hbox box-align="baseline">
+                                    <label data="price" style="Heading S" cssClass="salePrice" isStyleEditable="{$editable}"/>
+                                    <spacer size="10"/>
+                                    <label data="retailPrice" style="Body L" lineThrough="true" cssClass="retail" isStyleEditable="{$editable}"/>
+                                </hbox>
+                            </vbox>
+                        </default>
+                    </switchbox>
+                    <spacer id="hoverSpacerBottom" size="20"/>
+                </vbox>
+            </hbox>
+        </zoomlink>
+        <customizations>
+            <textfield priority="88" fieldId="readMoreLabel" key="value" label="@ECOM_GALLERY_READ_MORE_TEXT@" maxLength="40"/>
+            <checkbox priority="85" key="hidden" fieldId="ttlDescDivider" label="@ECOM_GALLERY_LINE_SEPARATOR_PANEL@"
+                      defaultVal="false" trueVal="false" falseVal="true" spaceAfter="10"/>
+            <!--<checkbox key="hidden" fieldId="showDetails" label="@ECOM_GALLERY_LINE_SEPARATOR_PANEL@" defaultVal="false" trueVal="false" falseVal="true" spaceAfter="10"/>-->
+            <checkbox priority="87" label="@ECOM_ZOOM_GALLERY_LEFT_DISPLAY_DETAILS@" fieldId="showDetails" key="hidden" trueVal="false" falseVal="true" defaultVal="false" spaceAfter="10"/>
+            <radioimages priority="84" label="@ECOM_GALLERY_TEXT_ALIGNMENT_PANEL@" fieldId="vars" key="alignment" >
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/left.png"/>
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/center.png"/>
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"
+                        icon="radiobuttons/alignment/right.png"/>
+            </radioimages>
+            <slider priority="83" fieldId="hoverSpacerTop" key="size" label="@ECOM_GALLERY_TITLE_MARGIN_TOP_PANEL@" minVal="0" maxVal="30"/>
+            <slider priority="82" fieldId="hoverOverviewPriceSpacer" key="size" label="@ECOM_GALLERY_OVERVIEW_AND_PRICE_SPACER_PANEL@" minVal="0" maxVal="30"/>
+        </customizations>
+    </view>
+
+    <view  for-type="ProductBundle" name="PicsOnlyNoHover"  vars="ribbonMargin:20;ribbonTop:10%;ribbonAlign:left;alignment:right;text-alignment:left;hover:false;editable:{eq($showHoverOnEdit,'false')}">
+        <zoomlink idField="id" titleField="title" listExpression="parent.parent.parent.items" css="height:100%">
+            <box layout="position:relative;height:100%;width:100%">
+                <box layout="position:absolute;width:100%;height:100%">
+                    <image data="currentImage" imageMode="full" layout="height:100%;width:100%" isStyleEditable="{$editable}" cssClass="pic" style="wp2"/>
+                </box>
+                <box layout="position:absolute;min-height:40;top:{$ribbonTop};left:{if(eq($ribbonAlign,'right'),'auto',0)};right:{if(eq($ribbonAlign,'left'),'auto',0)}"
+                     hidden="{eq(ribbon, '')}">
+                    <area layout="min-height:40;padding-left:{$ribbonMargin};padding-right:{$ribbonMargin};text-align:center" style="c1" isStyleEditable="{$editable}">
+                        <spacer size="12"/>
+                        <label data="ribbon" isStyleEditable="{$editable}"/>
+                        <spacer size="12"/>
+                    </area>
+
+                </box>
+            </box>
+        </zoomlink>
+        <customizations>
+            <slider label="@ECOM_GALLERY_RIBBON_VERTICAL_POSITION_PANEL@" priority="95" fieldId="vars"
+                    key="ribbonTop" minVal="0" maxVal="85" unit="%"/>
+            <slider label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" priority="94" fieldId="vars" key="ribbonMargin"
+                    minVal="0" maxVal="75"/>
+            <radioimages priority="93" fieldId="vars" key="ribbonAlign" label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" format="*">
+                <option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/left.png" />
+                <option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/center.png" />
+                <option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px" icon="radiobuttons/alignment/right.png" />
+            </radioimages>
+            <combobox fieldId="currentImage" key="imageMode" label="@ECOM_IMAGE_MODE_PANEL@" priority="96">
+                <option label="@ECOM_IMAGE_MODE_CROP_PANEL@" value="fill"/>
+                <option label="@ECOM_IMAGE_MODE_CENTER_PANEL@" value="full"/>
+            </combobox>
+        </customizations>
+    </view>
+
+    <view for-type="ItemsList" name="PicsOnly" vars="isViewCustomizing:false; alignment:right; text-alignment:left; hover:false">
+        <switchbox data="emptyGalleryLabel">
+            <case name="">
+                <gallery data="items" id="hoverGallery" columns="4" rows="2" gap="20" autoplay="false"
+                         expandEnabled="false" hoverVar="hover"
+                         styleNS="hoverGallery" layout="box-flex:1;width:100%" transition="horizSwipeAllAtOnce"/>
+            </case>
+            <default>
+                <label data="emptyGalleryLabel"/>
+            </default>
+        </switchbox>
+        <customizations>
+            <slider fieldId="hoverGallery" priority="99" key="rows" label="@ECOM_GALLERY_ROWS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <slider fieldId="hoverGallery" priority="98" key="columns" label="@ECOM_GALLERY_COLUMNS_LABEL_PANEL@" minVal="1" maxVal="10" updateOnDragEnd="true"/>
+            <slider fieldId="hoverGallery" priority="86" key="gap" label="@ECOM_GALLERY_CELLS_MARGINS_PANEL@" minVal="0" maxVal="200"/>
+            <changestyle label="@ECOM_GALLERY_CHANGE_COLORS_PANEL@" fieldId="hoverGallery" priority="97" key="style" showAs="button" spaceAfter="20"/>
+        </customizations>
+    </view>
+
+    <view for-type="ProductBundle" name="PicsOnly" vars="showHoverOnEdit:false; hover:false; showHover:{or($hover, and($isViewCustomizing, eq(String.concat('', $showHoverOnEdit), 'true')))}">
+        <stylesheet>
+            .expand { position:absolute; top:0; left:0; right:0; bottom:0; }
+            .rollover, .rollover * { visibility:hidden !important; }
+        </stylesheet>
+        <vbox hoverVar="hover">
+            <box layout="position:relative;box-flex:1">
+                <box cssClass="expand">
+                    <use view="PicsOnlyNoHover"/>
+                </box>
+                <box cssClass="{if($showHover, 'expand rolloverHolder', 'expand rolloverHolder rollover')}">
+                    <use view="PicsOnlyMouseOver"/>
+                </box>
+            </box>
+        </vbox>
+        <customizations>
+            <togglebutton priority="90" label="@ECOM_GALLERY_SHOW_HOVER_MODE_PANEL@" titleLabel="@ECOM_GALLERY_SHOW_HOVER_MODE_DESCRIPTION_PANEL@" fieldId="vars" key="showHoverOnEdit"
+                          trueVal="true" falseVal="false" defaultVal="false" spaceAfter="15"/>
+        </customizations>
+    </view>
+
+
+    <!--<view for-type="ProductBundle" name="SimpleClean">-->
+        <!--<use view="GalleryContentBottom" vars="bottomViewName:PricesHorizontal"/>-->
+    <!--</view>-->
+
+    <!--<view for-type="ProductBundle" name="Polaroid">-->
+        <!--<use view="GalleryContentBottom" vars="bottomViewName:PricesVertical"/>-->
+    <!--</view>-->
+
+    <!--<view for-type="ProductBundle" name="GalleryContentBottom" vars="ribbonAlign:left">-->
+        <!--<box css="height:100%;position:relative">-->
+            <!--<zoomlink idField="id" titleField="title" listExpression="parent.parent.items" id="itemPadding" layout="margin:15;position:absolute;top:0;left:0;right:0;bottom:0;">-->
+                <!--<vbox layout="box-flex:1;position:relative;">-->
+                    <!--<image data="currentImage" imageMode="fill" layout="width:100%; box-flex:1" cssClass="pic"/>-->
+                    <!--<box id="ribbonContainer" cssClass="ribbon" hidden="{eq(ribbon,'')}" layout="width:auto;position:absolute;top:20;padding:10;left:{if(eq($ribbonAlign,'right'),'auto',0)};right:{if(eq($ribbonAlign,'left'),'auto',0)}">-->
+                        <!--<label data="ribbon" layout="text-align:center"/>-->
+                    <!--</box>-->
+                <!--</vbox>-->
+                <!--<use view="{$bottomViewName}" layout="spacerAfter:5;"/>-->
+            <!--</zoomlink>-->
+        <!--</box>-->
+        <!--<customizations>-->
+            <!--<radioimages label="@ECOM_GALLERY_RIBBON_ALIGNMENT_PANEL@" fieldId="vars" key="ribbonAlign" priority="95">-->
+                <!--<option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/left.png"/>-->
+                <!--<option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/center.png"/>-->
+                <!--<option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/right.png"/>-->
+            <!--</radioimages>-->
+            <!--<slider label="@ECOM_GALLERY_ITEM_PADDING_PANEL@" priority="60" fieldId="itemPadding" key="layout.margin" minVal="0" maxVal="30"/>-->
+            <!--<slider label="@ECOM_GALLERY_RIBBON_VERTICAL_POSITION_PANEL@" priority="60" fieldId="ribbonContainer" key="layout.top" minVal="0" maxVal="300"/>-->
+            <!--<slider label="@ECOM_GALLERY_RIBBON_PADDING_PANEL@" priority="60" fieldId="ribbonContainer" key="layout.padding" minVal="0" maxVal="30" />-->
+        <!--</customizations>-->
+    <!--</view>-->
+
+    <!--<view for-type="ProductBundle" name="PricesHorizontal" vars="textAlign:left;hasDiscount:{not(eq(retailPrice,'&lt;br/&gt;'))}">-->
+        <!--<vbox>-->
+            <!--<box id="rolloverStrip" cssClass="rolloverStrip"-->
+                 <!--layout="width:100%; height:3px; margin-top:3px"/>-->
+            <!--<clippedparagraph pack="top" id="desc" data="title" minLines="2" maxLines="2" layout="text-align:{$textAlign};spacerAfter:3;spacerBefore:10;padding:0 2px" />-->
+            <!--<hbox layout="direction:{if(eq($textAlign,'right'),'rtl','ltr')};padding:0 2px">-->
+                <!--<spacer size="{if(eq($textAlign,'center'),'*',0)}"/>-->
+                <!--<label data="retailPrice" lineThrough="true" cssClass="retail" layout="spacerAfter:10" hidden="{not($hasDiscount)}"/>-->
+                <!--<label data="price" cssClass="salePrice" />-->
+                <!--<spacer size="{if(eq($textAlign,'center'),'*',0)}"/>-->
+            <!--</hbox>-->
+        <!--</vbox>-->
+        <!--<customizations>-->
+            <!--<checkbox label="@ECOM_GALLERY_HORIZ_LINE_ON_ROLLOVER_PANEL@" fieldId="rolloverStrip" key="hidden" trueVal="false"-->
+                      <!--falseVal="true" defaultVal="false" priority="50"/>-->
+            <!--<radioimages label="@ECOM_GALLERY_TEXT_ALIGNMENT_PANEL@" fieldId="vars" key="textAlign" priority="80">-->
+                <!--<option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/left.png"/>-->
+                <!--<option value="center" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/center.png"/>-->
+                <!--<option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/right.png"/>-->
+            <!--</radioimages>-->
+        <!--</customizations>-->
+
+    <!--</view>-->
+
+    <!--<view for-type="ProductBundle" name="PricesVertical" vars="textAlign:left;invTextAlign:{if(eq($textAlign,'left'),'right','left')};hasDiscount:{not(eq(retailPrice,'&lt;br/&gt;'))}">-->
+        <!--<hbox cssClass="txtHoverColor" css="direction:{if(eq($textAlign,'right'),'rtl','ltr')};margin-top:10px">-->
+            <!--<clippedparagraph pack="top" id="text" data="title" minLines="2" maxLines="2"-->
+                              <!--layout="box-flex:1; spacerAfter:10; text-align:{$textAlign}" />-->
+
+            <!--<vbox box-align="{if(eq($textAlign,'left'),'end','start')}">-->
+                <!--<label data="retailPrice" hidden="{not($hasDiscount)}" lineThrough="true" cssClass="retail" layout="text-align:{$invTextAlign}"/>-->
+                <!--<label data="price" cssClass="{if($hasDiscount, 'salePrice', 'price')}" layout="text-align:{$invTextAlign}"/>-->
+            <!--</vbox>-->
+        <!--</hbox>-->
+        <!--<customizations>-->
+            <!--<radioimages label="@ECOM_GALLERY_TEXT_ALIGNMENT_PANEL@" fieldId="vars" key="textAlign" priority="80">-->
+                <!--<option value="left" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/left.png"/>-->
+                <!--<option value="right" image="radiobuttons/radio_button_states.png" width="35px" height="33px"-->
+                        <!--icon="radiobuttons/alignment/right.png"/>-->
+            <!--</radioimages>-->
+        <!--</customizations>-->
+    <!--</view>-->
+
+</views>

@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+
+:host {
+  @include rotate(360);
+}
+
+#bg {
+  @include abs-distance(0);
+  bottom: 315px;
+  background: param-border-color-alpha(bg, $bg);
+  min-height: 50%;
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+i {
+  @include abs-distances(50%, 0, 0, 0);
+  overflow: hidden;
+}
+
+[data-state~="mobileView"] {
+  i {
+    margin-top: -1px;
+  }
+}
+
+b {
+  position: absolute;
+  display: block;
+  top: 100%;
+  margin-top: -500px;
+  overflow: hidden;
+  bottom: 0;
+}
+
+.l {
+  left: 0;
+  right: 50%;
+
+  &:after {
+    left: 0;
+    border-width: 0 500px 315px 500px;
+    border-color: param-border-color-alpha(bg, $bg) transparent transparent param-border-color-alpha(bg, $bg);
+  }
+}
+
+.r {
+  right: 0;
+  left: 50%;
+
+  &:before {
+    right: 0;
+    border-width: 0 500px 315px 0;
+    border-color: transparent param-border-color-alpha(bg, $bg) transparent param-border-color-alpha(bg, $bg);
+  }
+}
+
+.l:after,
+.r:before {
+  position: absolute;
+  bottom: 0;
+  content: "";
+  border-style: solid;
+  overflow: hidden;
+}

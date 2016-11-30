@@ -1,0 +1,111 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$bgc: color_11;
+$clr: color_11;
+$trans1: left .7s ease 0s;
+$trans2: right .7s ease 0s;
+
+@include exports("heightDiff", 0);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.SlideDisplayer");
+@include exports("imageItem:styleGroup", "displayer");
+
+.xxx {
+  @include abs-distance(0);
+  background: param-url(tdr, $tdr, "net.png") center center repeat;
+}
+
+.btn {
+  background-color: mutate-bg-color-const(bgc, alpha, .6, $bgc);
+  padding: 10px;
+  text-align: center;
+  position: absolute;
+  top: 50%;
+  margin-top: -15px;
+  cursor: pointer;
+}
+
+#buttonPrev {
+  left: -50px;
+  @include param-transition(trans1, $trans1);
+}
+
+#buttonNext {
+  right: -50px;
+  @include param-transition(trans2, $trans2);
+}
+
+:host:hover #buttonPrev {
+  left: 0;
+}
+
+:host:hover #buttonNext {
+  right: 0;
+}
+
+[data-state~="touchRollOver"] #buttonPrev {
+  left: 0;
+}
+
+[data-state~="touchRollOver"] #buttonNext {
+  right: 0;
+}
+
+.arr {
+  height: 0;
+  width: 0;
+  border: 5px solid transparent;
+}
+
+.fr {
+  border-left: 5px solid param-border-color(clr, $clr);
+}
+
+.fl {
+  border-right: 5px solid param-border-color(clr, $clr);
+}
+
+.helpers {
+  position: absolute;
+  bottom: 10px;
+  background-color: mutate-bg-color-const(bgc, alpha, .6, $bgc);
+  padding: 10px;
+  height: 15px;
+  color: param-border-color(clr, $clr);
+}
+
+#counter {
+  right: 110px;
+}
+
+#autoplay {
+  right: 10px;
+  width: 80px;
+  text-align: center;
+}
+
+[data-state~="autoplayOn"] #autoplay {
+  
+}
+
+[data-state~="autoplayOff"] #autoplay {
+  
+}
+
+[data-state~="showButtons"] #buttonPrev {
+  left: 0;
+}
+
+[data-state~="showButtons"] #buttonNext {
+  right: 0;
+}
+

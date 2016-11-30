@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$txth: color_13;
+$txt: color_15;
+$fnt: font_8;
+$brw: 5px;
+
+@include define-param(brw, SIZE, $brw);
+@include define-mapped-param(contentPaddingLeft, brw);
+@include define-mapped-param(contentPaddingRight, brw);
+@include define-mapped-param(contentPaddingTop, brw);
+
+@include exports("img:skin", "skins.core.ImageNewSkin");
+
+:host {
+  text-align: center;
+}
+
+#link {
+  cursor: pointer !important;
+  @include abs-distance(0);
+}
+
+#img {
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+
+#label {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  transition: color .5s ease 0s;
+  display: inline-block;
+
+  &.hidden {
+    display: none;
+  }
+}
+
+:host:hover #label {
+  color: param-text-color(txth, $txth);
+}

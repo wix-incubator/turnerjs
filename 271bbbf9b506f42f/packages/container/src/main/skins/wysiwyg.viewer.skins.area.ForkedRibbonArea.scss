@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$rb1: color_14;
+$rb2: color_14;
+$rb3: color_15;
+$rb4: color_15;
+$brd: color_14;
+$brw: 2px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+.container {
+  @include distance(0);
+  min-width: 80px !important;
+}
+
+#bg {
+  box-sizing: border-box;
+  @include abs-distance(0);
+  background: param-bg-color(bg, $bg);
+  margin: 0 50px 14px;
+  @include param-box-shadow(shd, $shd);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+b {
+  &.ctr {
+    @include abs-distance(0);
+    margin: 0 50px 20px;
+
+    &:after,
+    &:before {
+      position: absolute;
+      content: "";
+      overflow: hidden;
+      bottom: -20px;
+      border-style: solid;
+    }
+
+    &:after {
+      left: 0;
+      border-width: 0 20px 14px 0;
+      border-color: transparent param-border-color-alpha(rb3, $rb3) transparent transparent;
+    }
+
+    &:before {
+      right: 0;
+      border-width: 0 0 14px 20px;
+      border-color: transparent transparent transparent param-border-color-alpha(rb4, $rb4);
+    }
+  }
+
+  &.top,
+  &.bot {
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+
+    &:before,
+    &:after {
+      position: absolute;
+      content: "";
+      overflow: hidden;
+      width: 10px;
+    }
+
+    &:before {
+      right: 0;
+      border-right: 60px solid transparent;
+      border-left: 0;
+    }
+
+    &:after {
+      left: 0;
+      border-left: 60px solid transparent;
+      border-right: 0;
+    }
+  }
+
+  &.top {
+    top: 14px;
+    bottom: 50%;
+    margin-bottom: -7px;
+
+    &:after {
+      top: 0;
+      border-top: 100px solid param-border-color-alpha(rb1, $rb1);
+    }
+
+    &:before {
+      top: 0;
+      border-top: 100px solid param-border-color-alpha(rb2, $rb2);
+    }
+  }
+
+  &.bot {
+    top: 50%;
+    bottom: 0;
+    margin-top: 7px;
+
+    &:after {
+      bottom: 0;
+      border-bottom: 100px solid param-border-color-alpha(rb1, $rb1);
+    }
+
+    &:before {
+      bottom: 0;
+      border-bottom: 100px solid param-border-color-alpha(rb2, $rb2);
+    }
+  }
+}

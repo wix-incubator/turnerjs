@@ -1,0 +1,115 @@
+@charset "UTF-8";
+
+@import 'sliderGalleryBase';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$ishd: rgba(255, 255, 255, 0.4) 0px 0px 6px 0px inset, rgba(255, 255, 255, 0.7) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.2) 0px 0px 5px 0px inset, rgba(0, 0, 0, 0.4) 0px 1px 3px 0px;
+$trans: opacity .4s ease 0s;
+
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.galleryslider.SliderDisplayerIronSkin");
+@include exports("imageItem:styleGroup", "inherit");
+
+@include exports("itemContainerAdditionalHeight", -7);
+@include exports("itemContainerAdditionalwidth", 114);
+@include exports("itemContainerTotalOffset", 114);
+
+#itemsContainer {
+  position: absolute;
+  left: 57px !important;
+  right: 57px !important;
+  top: -3px !important;
+  bottom: -4px !important;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.arr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  width: 45px;
+  background: param-url(tdr, $tdr, "ironpatern.png") no-repeat;
+  cursor: pointer;
+}
+
+#swipeLeftHitArea {
+  left: 0;
+  @include param-box-shadow(ishd, $ishd);
+  width: 45px;
+  height: 43px;
+  border-radius: 2px;
+}
+
+.arrowLeft {
+  position: relative;
+  top: 27%;
+  left: 33%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid rgba(0, 0, 0, 0);
+  border-right: 12px solid #202020;
+}
+
+#swipeRightHitArea {
+  right: 0;
+  @include param-box-shadow(ishd, $ishd);
+  width: 45px;
+  height: 43px;
+  border-radius: 2px;
+}
+
+.arrowRight {
+  position: relative;
+  top: 27%;
+  left: 43%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid rgba(0, 0, 0, 0);
+  border-left: 12px solid #202020;
+}
+
+.screw {
+  display: inline-block;
+  background-image: param-url(tdr, $tdr, "skrew.png");
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+}
+
+.screwTL {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.screwTR {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.screwBL {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+}
+
+.screwBR {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+#autoplay {
+  display: none;
+}
+

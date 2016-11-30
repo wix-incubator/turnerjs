@@ -1,0 +1,29 @@
+{
+  "JS_SDK_FUNCTION_CALL": {
+    "eventId": 12,
+    "adapter": "sdk",
+    "src": 11,
+    "params": {
+      "visitor_id": "visitorUuid",
+      "ver": "sdkVersion",
+      "origin": "origin",
+      "function_name": "fnName",
+      "namespace": "namespace",
+      "app_id": "appId",
+      "instance_id": "instanceId",
+      "is_published": "isPublished"
+    }
+  },
+  "GALLERY_FUNCTION_CALL": {
+    "eventId": 11,
+    "adapter": "sdk",
+    "src": 11,
+    "params": {
+      "visitor_id": "visitorUuid",
+      "sdk_ver": "sdkVersion",
+      "origin": "origin",
+      "function_name": "fnName",
+      "namespace": "namespace"
+    }
+  }
+}

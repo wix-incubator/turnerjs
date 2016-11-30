@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+
+    <style>
+        html{
+            height: 100%;
+            overflow: hidden;
+        }
+        body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        #pinCont {
+            bottom: 0;
+            left: 0;
+            line-height: 0;
+            position: absolute;
+            z-index: 0; /* fix for IE */
+        }
+        #pinCover{
+            cursor: pointer;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            z-index: 1; /* fix for IE */
+        }
+    </style>
+</head>
+<body>
+
+    <span id="pinCont">
+        <a id="pin" class="pin" href=""></a>
+    </span>
+    <div id="pinCover"></div>
+
+
+    <script type="text/javascript">
+        var crutches = function(){
+            if (!Function.prototype.bind) {
+                Function.prototype.bind = function (oThis) {
+                    if (typeof this !== "function") {
+                        // closest thing possible to the ECMAScript 5 internal IsCallable function
+                        throw new TypeError("Function.prototype.bind - what is trying to be bound is not callable");
+                    }
+
+                    var aArgs = Array.prototype.slice.call(arguments, 1),
+                            fToBind = this,
+                            fNOP = function () {},
+                            fBound = function () {
+                                return fToBind.apply(this instanceof fNOP && oThis
+                                        ? this
+                                        : oThis,
+                                        aArgs.concat(Array.prototype.slice.call(arguments)));
+                            };
+
+                    fNOP.prototype = this.prototype;
+                    fBound.prototype = new fNOP();
+
+                    return fBound;
+                };
+            }
+
+            if (!window.addEventListener){
+                (function (WindowPrototype, DocumentPrototype, ElementPrototype, addEventListener, removeEventListener, dispatchEvent, registry) {
+                    WindowPrototype[addEventListener] = DocumentPrototype[addEventListener] = ElementPrototype[addEventListener] = function (type, listener) {
+                        var target = this;
+
+                        registry.unshift([target, type, listener, function (event) {
+                            event.currentTarget = target;
+                            event.preventDefault = function () { event.returnValue = false };
+                            event.stopPropagation = function () { event.cancelBubble = true };
+                            event.target = event.srcElement || target;
+
+                            listener.call(target, event);
+                        }]);
+
+                        this.attachEvent("on" + type, registry[0][3]);
+                    };
+
+                    WindowPrototype[removeEventListener] = DocumentPrototype[removeEventListener] = ElementPrototype[removeEventListener] = function (type, listener) {
+                        for (var index = 0, register; register = registry[index]; ++index) {
+                            if (register[0] == this && register[1] == type && register[2] == listener) {
+                                return this.detachEvent("on" + type, registry.splice(index, 1)[0][3]);
+                            }
+                        }
+                    };
+
+                    WindowPrototype[dispatchEvent] = DocumentPrototype[dispatchEvent] = ElementPrototype[dispatchEvent] = function (eventObject) {
+                        return this.fireEvent("on" + eventObject.type, eventObject);
+                    };
+                })(Window.prototype, HTMLDocument.prototype, Element.prototype, "addEventListener", "removeEventListener", "dispatchEvent", []);
+            }
+        };
+
+        crutches();
+
+        var Controller = function(){
+            var data = this._parseUrl();
+
+            if (!data.gagPath){
+                this.queryStr = this._getQueryFromData(data);
+                this._setData(data);
+                this._bindClick();
+            } else{
+                document.body.style.background = 'url("'+data.gagPath+'") no-repeat bottom left';
+            }
+        };
+
+        Controller.prototype = {
+            _getEl: function(){
+                this.el = document.getElementById('pin');
+                return this.el;
+            },
+
+            _parseUrl: function(){
+                var query = location.search.substring(1),
+                    queryPairs = query.split('&'),
+                    queryPair,
+                    i,
+                    params = {};
+
+                for (i = 0; i < queryPairs.length; i++){
+                    queryPair = queryPairs[i].split('=');
+                    params[decodeURIComponent(queryPair[0])] = decodeURIComponent(queryPair[1]);
+                }
+
+                return params;
+            },
+
+            _toQueryString: function(obj){
+                var str = [],
+                    p;
+
+                for(p in obj){
+                    if (obj.hasOwnProperty(p)) {
+                        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+                    }
+                }
+
+                return str.join("&");
+            },
+
+            _setData: function(data){
+                var el = this._getEl(),
+                    baseUrl = '//www.pinterest.com/pin/create/button/?';
+
+                el.href = baseUrl + this.queryStr;
+                el.setAttribute('data-pin-do', 'buttonPin');
+                el.setAttribute('data-pin-config', data['data-pin-config']);
+                el.setAttribute('data-pin-height', data['data-pin-height']);
+                el.setAttribute('data-pin-color', data['data-pin-color']);
+            },
+
+            _getQueryFromData: function(data){
+                return this._toQueryString({
+                    url: data.url,
+                    media: data.media,
+                    description: data.description
+                });
+            },
+
+            _bindClick: function(){
+                var pinItContainer = document.getElementById('pinCover');
+
+                pinItContainer.addEventListener('click', this._clicked.bind(this), false);
+            },
+
+            _clicked: function(){
+                var base = '//www.pinterest.com/pin/create/button/?',
+                    url = base + this.queryStr;
+
+                window.open(url, '_blank');
+            }
+        };
+
+        var controller = new Controller();
+
+    </script>
+    <script type="text/javascript" async src="//assets.pinterest.com/js/pinit.js"></script>
+</body>
+
+</html>

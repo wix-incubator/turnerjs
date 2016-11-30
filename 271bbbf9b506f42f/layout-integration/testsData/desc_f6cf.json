@@ -1,0 +1,15 @@
+{
+    "id": "desc_f6cf",
+    "name": "Spec A - tow components - docked bottom - docked top",
+    "tests": {
+        "test_a34c": {
+            "id": "test_a34c",
+            "name": "[Todo]",
+            "testData": {},
+            "runInBuild": true
+        }
+    },
+    "experiments": {
+        "layout_verbs_with_anchors": 1
+    }
+}

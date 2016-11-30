@@ -1,0 +1,18 @@
+    <html>
+	<head>
+		<script type="text/javascript">
+			function initDomain() {
+                if(!window['decodeURIComponent'])
+                    return;
+				var regex = /d=([^&]+)/;
+				var domain = regex.exec(location.href)[1];
+				regex = /c=([^&]+)/;
+				var callback = regex.exec(location.href)[1];
+				callback = decodeURIComponent(callback);
+				document.domain = domain;
+                if(window.parent.W)window.parent.W[callback].apply();
+			}
+		</script>
+	</head>
+	<body onload="initDomain();"></body>
+</html>

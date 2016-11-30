@@ -1,0 +1,38 @@
+[
+    {
+        "id":       "specs",
+        "tags":     ["test"],
+        "atPhase":  "PHASES.TEST",
+        "sourceDir":"src/test",
+        "targetDir":"",
+        "package":  "",
+        "lint":false,
+        "include":  [
+            "mock/**",
+            "html/**",
+            "javascript/integration/**/*Spec.js",
+            "javascript/bootstrap/**/*Spec.js"
+        ],
+        "exclude":  [
+            "javascript/**/~*",
+            "mock/scriptloader/wixBlob/expectedServerResponse.js"
+
+        ]
+    },
+    {
+        "id":       "aggCopy",
+        "tags":     [""],
+        "atPhase":  "PHASES.TEST",
+        "excludeFromManifest":"true",
+        "sourceDir":"src/test",
+        "targetDir":"",
+        "package":  "",
+        "lint":false,
+        "include":  [
+            "mock/scriptloader/wixBlob/expectedServerResponse.js"
+        ],
+        "exclude":  [
+            "javascript/**/~*"
+        ]
+    }
+]

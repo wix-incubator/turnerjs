@@ -1,0 +1,11 @@
+{
+    "createTime": "2000-01-01T02:44:00",
+    "owner": "LeoniJ",
+    "description": "save dont show again in user prefs",
+    "constraints": {
+        "AnimationEditorPhase1":"optional-before"
+    },
+    "tags": [
+        "editor"
+    ]
+}

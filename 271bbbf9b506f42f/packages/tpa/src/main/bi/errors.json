@@ -1,0 +1,39 @@
+{
+  "SDK_SET_HEIGHT_ERROR": {
+    "errorCode": 190,
+    "desc": "sdk - set height with a big number",
+    "severity": "error",
+    "params": {
+      "p1": "height"
+    }
+  },
+  "SDK_PUBSUB_PUBLISH_ERROR": {
+    "errorCode": 191,
+    "desc": "sdk - pubSub: publish error. App not installed on site - cannot find appDefId",
+    "severity": "error"
+  },
+  "SDK_NAVIGATION_TO_SECTION_ERROR": {
+    "errorCode": 192,
+    "desc": "sdk - navigate to section failed",
+    "severity": "error",
+    "params": {
+      "p1": "appDefinitionName",
+      "p2": "sectionId"
+    }
+  },
+  "ECOM_MISSING_PAGES": {
+    "errorCode": 300,
+    "desc": "missing ecom pages",
+    "severity": "error"
+  },
+  "APP_IS_NOT_RESPONSIVE": {
+      "errorCode": 302,
+      "desc": "monitoring apps that are down",
+      "severity": "error",
+      "params": {
+          "p1": "endpoint",
+          "p2": "app_id"
+      }
+  }
+}
+

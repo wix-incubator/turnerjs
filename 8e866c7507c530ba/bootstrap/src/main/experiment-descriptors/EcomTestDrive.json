@@ -1,0 +1,9 @@
+{
+  "createTime": "2014-08-06T11:09:43.369",
+  "owner": "tanyak@wix.com",
+  "description": "Migrates old ecom in old editor to new store in new editor",
+  "tags": [
+    "editor"
+  ],
+  "constraints": {}
+}

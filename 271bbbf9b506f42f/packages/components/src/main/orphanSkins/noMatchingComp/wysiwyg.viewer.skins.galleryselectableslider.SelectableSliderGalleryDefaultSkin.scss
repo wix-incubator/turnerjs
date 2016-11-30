@@ -1,0 +1,88 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$trans: opacity .4s ease 0s;
+
+@include exports("widthDiff", 0);
+@include exports("heightDiff", 0);
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.galleryselectableslider.SelectableSliderDisplayerDefaultSkin");
+@include exports("imageItem:styleGroup", "inherit");
+@include exports("itemContainerTotalOffset", 70);
+
+:host {
+  position: relative;
+}
+
+#itemsContainer {
+  margin-left: 35px;
+  margin-right: 35px;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+#images{
+  position: absolute;
+  white-space: nowrap;
+}
+
+.arr {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 30px;
+  cursor: pointer;
+  @include opacity(0.5);
+  @include param-transition(trans, $trans);
+}
+
+#swipeLeftHitArea {
+  left: 0;
+}
+
+#swipeRightHitArea {
+  right: 0;
+}
+
+#swipeLeftHitArea:after {
+  content: "";
+  border: 10px solid transparent;
+  border-right-color: param-border-color-alpha(brd, $brd);
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  left: 0;
+  margin-top: -10px;
+}
+
+#swipeRightHitArea:after {
+  content: "";
+  border: 10px solid transparent;
+  border-left-color: param-border-color-alpha(brd, $brd);
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 50%;
+  right: 0;
+  margin-top: -10px;
+}
+
+.arr:hover {
+  @include opacity(1);
+  @include param-transition(trans, $trans);
+}
+
+#autoplay {
+  display: none;
+}
+

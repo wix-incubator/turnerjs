@@ -1,0 +1,865 @@
+{
+    "id": "desc_e96c",
+    "name": "Regression - anchors - bottom_parent",
+    "tests": {
+        "test_26f6": {
+            "id": "test_26f6",
+            "name": "[Todo] - Should not add anything to pusher bottom if pushed is page and not locked",
+            "testData": {},
+            "runInBuild": true
+        },
+        "test_7050": {
+            "id": "test_7050",
+            "name": "[Todo] - Should add the container margin to the height when anchor not locked",
+            "testData": {},
+            "runInBuild": true
+        },
+        "test_63cb": {
+            "id": "test_63cb",
+            "name": "[Todo] - Should add the container margin to the height when anchor locked",
+            "testData": {},
+            "runInBuild": true
+        },
+        "test_19a8": {
+            "id": "test_19a8",
+            "name": "[Todo] - Should allow pushed to shrink as needed if pushed is page, site structure or pages container",
+            "testData": {},
+            "runInBuild": true
+        },
+        "test_0782": {
+            "id": "test_0782",
+            "name": "[Todo] - Should not allow the pushed to shrink beyond original value if anchor not locked",
+            "testData": {},
+            "runInBuild": true
+        },
+        "test_eb27": {
+            "id": "test_eb27",
+            "name": "Should change height, add anchor distance to pusher bottom if locked",
+            "testData": {
+                "structure": {
+                    "id": "page",
+                    "layout": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 1265,
+                        "height": 500
+                    },
+                    "children": [
+                        {
+                            "id": "comp-4423",
+                            "layout": {
+                                "x": 225,
+                                "y": 124,
+                                "width": 310,
+                                "height": 179,
+                                "rotationInDegrees": 0
+                            },
+                            "children": [
+                                {
+                                    "id": "comp-d430",
+                                    "layout": {
+                                        "x": 106,
+                                        "y": 95,
+                                        "width": 100,
+                                        "height": 60,
+                                        "rotationInDegrees": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "measureMap": {
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-4423": 310,
+                        "comp-d430": 100
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-4423": 225,
+                        "comp-d430": 106
+                    },
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-4423": 179,
+                        "comp-d430": 80
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-4423": 310,
+                        "comp-d430": 100
+                    },
+                    "clientHeight": 800,
+                    "fixed": {
+                        "page": false,
+                        "comp-4423": false,
+                        "comp-d430": false
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-4423": 124,
+                        "comp-d430": 95
+                    },
+                    "clientWidth": 1265,
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-4423": 179,
+                        "comp-d430": 80
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-4423": 124,
+                        "comp-d430": 219
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-4423": 225,
+                        "comp-d430": 331
+                    },
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "expectedMeasureMap": {
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-4423": 310,
+                        "comp-d430": 100
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-4423": 225,
+                        "comp-d430": 106
+                    },
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-4423": 199,
+                        "comp-d430": 80
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-4423": 310,
+                        "comp-d430": 100
+                    },
+                    "clientHeight": 800,
+                    "fixed": {
+                        "page": false,
+                        "comp-4423": false,
+                        "comp-d430": false
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-4423": 124,
+                        "comp-d430": 95
+                    },
+                    "clientWidth": 1265,
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-4423": 179,
+                        "comp-d430": 80
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-4423": 124,
+                        "comp-d430": 219
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-4423": 225,
+                        "comp-d430": 331
+                    },
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "editorData": {
+                    "testScreens": {
+                        "initial": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        },
+                        "rendered": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        }
+                    },
+                    "renderedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500
+                        },
+                        "children": [
+                            {
+                                "id": "comp-4423",
+                                "layout": {
+                                    "x": 225,
+                                    "y": 124,
+                                    "width": 310,
+                                    "height": 179,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-d430",
+                                        "layout": {
+                                            "x": 106,
+                                            "y": 95,
+                                            "width": 100,
+                                            "height": 80,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "measuredRenderedScreenDimensions": {
+                        "width": 1265,
+                        "height": 800
+                    },
+                    "expectedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500,
+                            "rotationInDegrees": 0
+                        },
+                        "children": [
+                            {
+                                "id": "comp-4423",
+                                "layout": {
+                                    "x": 225,
+                                    "y": 124,
+                                    "width": 310,
+                                    "height": 199,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-d430",
+                                        "layout": {
+                                            "x": 106,
+                                            "y": 95,
+                                            "width": 100,
+                                            "height": 80,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "runInBuild": true
+        },
+        "test_d094": {
+            "id": "test_d094",
+            "name": "Should allow the pushed to shrink as needed by anchor if locked",
+            "testData": {
+                "structure": {
+                    "id": "page",
+                    "layout": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 1265,
+                        "height": 500
+                    },
+                    "children": [
+                        {
+                            "id": "comp-7ad9",
+                            "layout": {
+                                "x": 335,
+                                "y": 128,
+                                "width": 316,
+                                "height": 184,
+                                "rotationInDegrees": 0
+                            },
+                            "children": [
+                                {
+                                    "id": "comp-6234",
+                                    "layout": {
+                                        "x": 100,
+                                        "y": 90,
+                                        "width": 100,
+                                        "height": 60,
+                                        "rotationInDegrees": 0
+                                    }
+                                },
+                                {
+                                    "id": "comp-602b",
+                                    "layout": {
+                                        "x": 100,
+                                        "y": 20,
+                                        "width": 100,
+                                        "height": 60,
+                                        "rotationInDegrees": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "measureMap": {
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-7ad9": 184,
+                        "comp-6234": 60,
+                        "comp-602b": 40
+                    },
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-7ad9": 316,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-7ad9": 316,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-7ad9": 184,
+                        "comp-6234": 60,
+                        "comp-602b": 40
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-7ad9": 128,
+                        "comp-6234": 90,
+                        "comp-602b": 20
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-7ad9": 335,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-7ad9": 128,
+                        "comp-6234": 218,
+                        "comp-602b": 148
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-7ad9": 335,
+                        "comp-6234": 435,
+                        "comp-602b": 435
+                    },
+                    "fixed": {
+                        "page": false,
+                        "comp-7ad9": false,
+                        "comp-6234": false,
+                        "comp-602b": false
+                    },
+                    "clientWidth": 1265,
+                    "clientHeight": 800,
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "expectedMeasureMap": {
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-7ad9": 164,
+                        "comp-6234": 60,
+                        "comp-602b": 40
+                    },
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-7ad9": 316,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-7ad9": 316,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-7ad9": 184,
+                        "comp-6234": 60,
+                        "comp-602b": 40
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-7ad9": 128,
+                        "comp-6234": 70,
+                        "comp-602b": 20
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-7ad9": 335,
+                        "comp-6234": 100,
+                        "comp-602b": 100
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-7ad9": 128,
+                        "comp-6234": 218,
+                        "comp-602b": 148
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-7ad9": 335,
+                        "comp-6234": 435,
+                        "comp-602b": 435
+                    },
+                    "fixed": {
+                        "page": false,
+                        "comp-7ad9": false,
+                        "comp-6234": false,
+                        "comp-602b": false
+                    },
+                    "clientWidth": 1265,
+                    "clientHeight": 800,
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "editorData": {
+                    "testScreens": {
+                        "initial": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        },
+                        "rendered": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        }
+                    },
+                    "initialStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500
+                        },
+                        "children": [
+                            {
+                                "id": "comp-7ad9",
+                                "layout": {
+                                    "x": 335,
+                                    "y": 128,
+                                    "width": 316,
+                                    "height": 184,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-6234",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 90,
+                                            "width": 100,
+                                            "height": 60,
+                                            "rotationInDegrees": 0
+                                        }
+                                    },
+                                    {
+                                        "id": "comp-602b",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 20,
+                                            "width": 100,
+                                            "height": 60,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "renderedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500
+                        },
+                        "children": [
+                            {
+                                "id": "comp-7ad9",
+                                "layout": {
+                                    "x": 335,
+                                    "y": 128,
+                                    "width": 316,
+                                    "height": 184,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-6234",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 90,
+                                            "width": 100,
+                                            "height": 60,
+                                            "rotationInDegrees": 0
+                                        }
+                                    },
+                                    {
+                                        "id": "comp-602b",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 20,
+                                            "width": 100,
+                                            "height": 40,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "measuredRenderedScreenDimensions": {
+                        "width": 1265,
+                        "height": 800
+                    },
+                    "expectedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500,
+                            "rotationInDegrees": 0
+                        },
+                        "children": [
+                            {
+                                "id": "comp-7ad9",
+                                "layout": {
+                                    "x": 335,
+                                    "y": 128,
+                                    "width": 316,
+                                    "height": 164,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-6234",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 70,
+                                            "width": 100,
+                                            "height": 60,
+                                            "rotationInDegrees": 0
+                                        }
+                                    },
+                                    {
+                                        "id": "comp-602b",
+                                        "layout": {
+                                            "x": 100,
+                                            "y": 20,
+                                            "width": 100,
+                                            "height": 40,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "runInBuild": true
+        },
+        "test_1519": {
+            "id": "test_1519",
+            "name": "Should change height, add anchor default margin to pusher bottom if not locked",
+            "testData": {
+                "structure": {
+                    "id": "page",
+                    "layout": {
+                        "x": 0,
+                        "y": 0,
+                        "width": 1265,
+                        "height": 500
+                    },
+                    "children": [
+                        {
+                            "id": "comp-ec9d",
+                            "layout": {
+                                "x": 265,
+                                "y": 142,
+                                "width": 350,
+                                "height": 214,
+                                "rotationInDegrees": 0
+                            },
+                            "children": [
+                                {
+                                    "id": "comp-593d",
+                                    "layout": {
+                                        "x": 119,
+                                        "y": 33,
+                                        "width": 100,
+                                        "height": 60,
+                                        "rotationInDegrees": 0
+                                    }
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "measureMap": {
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-ec9d": 350,
+                        "comp-593d": 100
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-ec9d": 265,
+                        "comp-593d": 119
+                    },
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-ec9d": 214,
+                        "comp-593d": 180
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-ec9d": 350,
+                        "comp-593d": 100
+                    },
+                    "clientHeight": 800,
+                    "fixed": {
+                        "page": false,
+                        "comp-ec9d": false,
+                        "comp-593d": false
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-ec9d": 142,
+                        "comp-593d": 33
+                    },
+                    "clientWidth": 1265,
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-ec9d": 214,
+                        "comp-593d": 180
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-ec9d": 142,
+                        "comp-593d": 175
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-ec9d": 265,
+                        "comp-593d": 384
+                    },
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "expectedMeasureMap": {
+                    "width": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-ec9d": 350,
+                        "comp-593d": 100
+                    },
+                    "left": {
+                        "page": 0,
+                        "comp-ec9d": 265,
+                        "comp-593d": 119
+                    },
+                    "height": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-ec9d": 223,
+                        "comp-593d": 180
+                    },
+                    "innerWidth": {
+                        "screen": 1265,
+                        "page": 1265,
+                        "comp-ec9d": 350,
+                        "comp-593d": 100
+                    },
+                    "clientHeight": 800,
+                    "fixed": {
+                        "page": false,
+                        "comp-ec9d": false,
+                        "comp-593d": false
+                    },
+                    "top": {
+                        "page": 0,
+                        "comp-ec9d": 142,
+                        "comp-593d": 33
+                    },
+                    "clientWidth": 1265,
+                    "innerHeight": {
+                        "screen": 800,
+                        "page": 500,
+                        "comp-ec9d": 214,
+                        "comp-593d": 180
+                    },
+                    "absoluteTop": {
+                        "page": 0,
+                        "comp-ec9d": 142,
+                        "comp-593d": 175
+                    },
+                    "absoluteLeft": {
+                        "page": 0,
+                        "comp-ec9d": 265,
+                        "comp-593d": 384
+                    },
+                    "shrinkableContainer": {},
+                    "minHeight": {},
+                    "collapsed": {},
+                    "containerHeightMargin": {}
+                },
+                "editorData": {
+                    "testScreens": {
+                        "initial": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        },
+                        "rendered": {
+                            "deviceName": "LAPTOP",
+                            "screenDimensions": {
+                                "width": 1280,
+                                "height": 800
+                            }
+                        }
+                    },
+                    "renderedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500
+                        },
+                        "children": [
+                            {
+                                "id": "comp-ec9d",
+                                "layout": {
+                                    "x": 265,
+                                    "y": 142,
+                                    "width": 350,
+                                    "height": 214,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-593d",
+                                        "layout": {
+                                            "x": 119,
+                                            "y": 33,
+                                            "width": 100,
+                                            "height": 180,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    },
+                    "measuredRenderedScreenDimensions": {
+                        "width": 1265,
+                        "height": 800
+                    },
+                    "expectedStructure": {
+                        "id": "page",
+                        "layout": {
+                            "x": 0,
+                            "y": 0,
+                            "width": 1265,
+                            "height": 500,
+                            "rotationInDegrees": 0
+                        },
+                        "children": [
+                            {
+                                "id": "comp-ec9d",
+                                "layout": {
+                                    "x": 265,
+                                    "y": 142,
+                                    "width": 350,
+                                    "height": 223,
+                                    "rotationInDegrees": 0
+                                },
+                                "children": [
+                                    {
+                                        "id": "comp-593d",
+                                        "layout": {
+                                            "x": 119,
+                                            "y": 33,
+                                            "width": 100,
+                                            "height": 180,
+                                            "rotationInDegrees": 0
+                                        }
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            },
+            "runInBuild": true
+        },
+        "test_2f92": {
+            "id": "test_2f92",
+            "name": "[Todo] - Should ignore BOTTOM_PARENT anchors to a rotated component",
+            "testData": {},
+            "runInBuild": true
+        }
+    },
+    "experiments": {
+        "layout_verbs_with_anchors": 1
+    }
+}

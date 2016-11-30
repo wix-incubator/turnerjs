@@ -1,0 +1,684 @@
+<views descriptor="descriptor.json" xmlns="http://dev.wix.com/wix-apps/views-schema.xsd">
+
+    <!-- ###################### FAQ VIEWS ########################## -->
+
+    <view for-type="FAQ" name="Expand|ExpandQuestions|Left|ContainerBox">
+        <vbox>
+            <vbox id="header">
+                <label data="title"/>
+                <label data="description" layout="spacerBefore:5"/>
+                <hline id="h-line" layout="width:100%;spacerBefore:5"/>
+                <spacer id="item-spacer" size="25"/>
+            </vbox>
+            <vlist data="categories" isStyleEditable="false">
+                <templates>
+                    <first>
+                        <switchbox data="$viewName">
+                            <case name="Expand"><use view="Expand"/></case>
+                            <case name="ExpandQuestions"><use view="ExpandQuestions"/></case>
+                            <case name="Left"><use view="Left"/></case>
+                            <case name="ContainerBox"><use view="ContainerBox"/></case>
+                        </switchbox>
+                    </first>
+                    <item>
+                        <switchbox data="$viewName">
+                            <case name="Expand">
+                                <vbox>
+                                    <use view="CategorySeparatorExpand"/>
+                                    <use view="Expand"/>
+                                </vbox>
+                            </case>
+                            <case name="ExpandQuestions">
+                                <vbox>
+                                    <use view="CategorySeparatorExpandQuestions"/>
+                                    <use view="ExpandQuestions"/>
+                                </vbox>
+                            </case>
+                            <case name="Left">
+                                <vbox>
+                                    <use view="CategorySeparatorLeft"/>
+                                    <use view="Left"/>
+                                </vbox>
+                            </case>
+                            <case name="ContainerBox">
+                                <vbox>
+                                    <use view="CategorySeparatorContainerBox"/>
+                                    <use view="ContainerBox"/>
+                                </vbox>
+                            </case>
+                        </switchbox>
+                    </item>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title_underline@" priority="99" fieldId="h-line" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title@" priority="100" fieldId="header" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Title_spacing@" priority="200" fieldId="item-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="FAQ" name="ExpandQuestionsSep" vars="toggleState:''">
+        <vbox>
+            <vbox id="header">
+                <label data="title"/>
+                <label data="description" layout="spacerBefore:5"/>
+                <spacer id="item-spacer" size="25"/>
+            </vbox>
+            <vlist data="categories" isStyleEditable="false"/>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title@" priority="100" fieldId="header" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Title_spacing@" priority="200" fieldId="item-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Category" name="CategorySeparatorExpand|CategorySeparatorExpandQuestions|CategorySeparatorLeft|CategorySeparatorContainerBox">
+        <vbox id="spacer">
+            <spacer id="catSpace" size="10"/>
+            <hline id="line"/>
+            <spacer id="catSpace" size="10"/>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_category_separator@" priority="79" fieldId="line" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Category_spacing@" priority="95" fieldId="catSpace" key="size" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <!-- ###################### Expand (expandable sections, but not items) ########################## -->
+
+    <view for-type="Category" name="Expand">
+        <use view="ExpandContent"/>
+    </view>
+
+    <view for-type="Category" name="ExpandContent" vars="toggleState:'off'">
+        <toggle initialState="{$toggleState}" seoDisplayState="on">
+            <on>
+                <vbox>
+                    <hbox layout="spacerAfter:10">
+                        <vbox layout="spacerAfter:10" id="iconContainer">
+                            <icon id="exIcon" value="{_type:'wix:Image', src:'images/arrow8_down.png', width:8, height:8}" layout="spacer:*;"/>
+                        </vbox>
+                        <label data="title" layout="box-flex:1"/>
+                        <events>
+                            <event original="click">set:$toggleState='off'</event>
+                        </events>
+                    </hbox>
+                    <vlist data="questions" css="cursor:auto;" isStyleEditable="false">
+                        <templates><item>
+                                <vbox>
+                                    <hbox>
+                                        <spacer id="qna-indent" size="20"/>
+                                        <use view="LeftExpand" layout="box-flex:1"/>
+                                    </hbox>
+                                    <spacer id="qna-spacer" size="18"/>
+                                </vbox>
+                            </item>
+                            <last>
+                                <hbox>
+                                    <spacer id="qna-indent" size="20"/>
+                                    <use view="LeftExpand" layout="box-flex:1"/>
+                                </hbox>
+                            </last>
+                      </templates>
+                    </vlist>
+                </vbox>
+            </on>
+            <off>
+                <hbox>
+                    <vbox layout="spacerAfter:5" id="iconContainer">
+                        <icon id="exIcon" value="{_type:'wix:Image', src:'images/arrow8_right.png', width:8, height:8}" layout="spacer:*;"/>
+                    </vbox>
+                    <label data="title" layout="box-flex:1;spacerAfter:10"/>
+                    <events>
+                        <event original="click">set:$toggleState='on'</event>
+                    </events>
+                </hbox>
+            </off>
+        </toggle>
+        <customizations>
+            <slider label="@CUSTOMIZE_QA_spacing@" priority="65" fieldId="qna-spacer" key="size" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_QA_indentation@" priority="66" fieldId="qna-indent" key="size" minVal="0" maxVal="100"/>
+            <checkbox label="@CUSTOMIZE_Categories_initially_collapsed@" priority="90" fieldId="vars" key="toggleState" trueVal="off" falseVal="on" defaultVal="off"/>
+            <checkbox label="@CUSTOMIZE_Show_category_icon@" priority="85" fieldId="iconContainer" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+        </customizations>
+    </view>
+
+    <!-- ###################### Expand items (category is not expanded) ########################## -->
+
+    <view for-type="Category" name="ExpandQuestions">
+        <use view="ExpandQuestionsContent"/>
+    </view>
+
+    <view for-type="Category" name="ExpandQuestionsContent">
+        <vbox>
+            <label data="title" layout="spacerAfter:10"/>
+            <hline id="separator"/>
+            <spacer id="item-spacer" size="20"/>
+            <vlist data="questions" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="Expand"/>
+                            <spacer id="qna-spacer" size="10"/>
+                        </vbox>
+                    </item>
+                    <last><use view="Expand"/></last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_category_title@" priority="91" fieldId="title" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@CUSTOMIZE_Show_category_underline@" priority="90" fieldId="separator" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_QA_spacing@" priority="65" fieldId="qna-spacer" key="size" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="Expand" vars="toggleState:'off'">
+        <toggle initialState="{$toggleState}" seoDisplayState="on">
+            <on>
+                <vbox>
+                    <hbox id="question-container">
+                        <vbox layout="spacerAfter:5" id="iconContainer">
+                            <icon id="exIcon" value="{_type:'wix:Image', src:'images/arrow8_down.png', width:8, height:8}" layout="spacer:*;"/>
+                        </vbox>
+                        <label data="question" layout="box-flex:1"/>
+                        <events>
+                            <event original="click">set:$toggleState='off'</event>
+                        </events>
+                    </hbox>
+                    <hbox id="answer-container" layout="spacerBefore:6" css="cursor:auto;">
+                        <label data="answer" layout="box-flex:1;spacerBefore:13"/>
+                    </hbox>
+                </vbox>
+            </on>
+            <off>
+                <vbox>
+                    <hbox id="question-container">
+                        <vbox layout="spacerAfter:5" id="iconContainer">
+                            <icon id="exIcon" value="{_type:'wix:Image', src:'images/arrow8_right.png', width:8, height:8}" layout="spacer:*;"/>
+                        </vbox>
+                        <label data="question" layout="box-flex:1"/>
+                        <events>
+                            <event original="click">set:$toggleState='on'</event>
+                        </events>
+                    </hbox>
+                </vbox>
+            </off>
+        </toggle>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_QA_icon@" priority="70" fieldId="iconContainer" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Question_indentation@" priority="60" fieldId="iconContainer" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Answer_indentation@" priority="59" fieldId="answer" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <!-- ###################### Toggle items (for mobile view) ########################## -->
+    <!--name="Expand|ExpandQuestions|Left|ContainerBox|ExpandQuestionsSep"-->
+
+    <view for-type="FAQ" name="Expand|ExpandQuestions|Left|ContainerBox|ExpandQuestionsSep" format="Mobile">
+        <use view="ToggleMobile"/>
+    </view>
+
+    <view for-type="Category" name="Expand|ExpandQuestions|Left|ContainerBox|ExpandQuestionsSep" format="Mobile" vars="toggleState:''">
+        <use view="ToggleMobile2"/>
+    </view>
+
+    <view for-type="FAQ" name="ToggleMobile" format="Mobile">
+        <vbox>
+            <vbox id="header">
+                <label data="title"/>
+                <label data="description" layout="spacerBefore:5"/>
+                <spacer id="item-spacer" size="30"/>
+            </vbox>
+            <switchbox value="{Array.length(this.categories)}">
+                <case name="1">
+                    <use view="ToggleMobile2" data="this.categories[0]"/>
+                </case>
+                <case name="0"/>
+                <default>
+                    <list2 data="this.categories"/>
+                </default>
+            </switchbox>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title@" priority="100" fieldId="header" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Title_spacing@" priority="200" fieldId="item-spacer" key="size" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Category" name="ToggleMobile2" format="Mobile">
+        <vbox>
+            <label data="title" layout="spacerBefore:0;spacerAfter:10" hidden="true"/>
+            <vlist data="questions" isStyleEditable="false">
+                <templates>
+                    <first>
+                        <vbox>
+                            <hline id="line-between-items" layout="spacerAfter:14"/>
+                            <use view="ToggleMobile2"/>
+                            <hline id="line-between-items" layout="spacer:14"/>
+                        </vbox>
+                    </first>
+                    <item>
+                        <vbox>
+                            <use view="ToggleMobile2"/>
+                            <hline id="line-between-items" layout="spacer:14"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <vbox>
+                            <use view="ToggleMobile2"/>
+                            <hline id="line-between-items" layout="spacerBefore:14"/>
+                        </vbox>
+                    </last>
+                </templates>
+            </vlist>
+            <spacer id="cat-spacer" size="20"/>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_category_title@" priority="92" fieldId="title" key="hidden" trueVal="false" falseVal="true" defaultVal="true"/>
+        </customizations>
+    </view>
+
+    <view for-type="Category" name="ToggleMobile"  format="Mobile">
+        <toggle id="toggle" initialState="{if(eq($toggleState, _iid), 'on', 'off)}" seoDisplayState="on">
+            <on>
+                <vbox>
+                    <hbox layout="spacerAfter:10">
+                        <vbox layout="width:100%">
+                            <!--<hline id="separator" layout="width:100%;spacerAfter:10" style="hl2"/>-->
+                            <hbox layout="spacerBefore:10">
+                                <vbox layout="spacerAfter:12" id="iconContainer">
+                                    <imagebutton id="exIcon" value="{_type:'wix:Image', src:'images/up_down.png', width:13, height:10}"
+                                                 isSprite="true" startPositionX="0" startPositionY="0" spriteDirection="none" layout="spacer:*"/>
+                                </vbox>
+                                <label data="title" layout="box-flex:1"/>
+                            </hbox>
+                            <hline id="separator" layout="width:100%;spacerBefore:10"/>
+                        </vbox>
+                        <events>
+                            <event original="click">set:$toggleState=''</event>
+                        </events>
+                    </hbox>
+                    <vlist data="questions" css="cursor:auto;" isStyleEditable="false">
+                        <templates>
+                            <item>
+                                <vbox>
+                                    <hbox>
+                                        <spacer id="qna-indent" size="0"/>
+                                        <use view="ToggleMobile" layout="box-flex:1"/>
+                                    </hbox>
+                                    <spacer id="qna-spacer" size="18"/>
+                                </vbox>
+                            </item>
+                            <last>
+                                <hbox>
+                                    <spacer id="qna-indent" size="0"/>
+                                    <use view="ToggleMobile" layout="box-flex:1"/>
+                                </hbox>
+                            </last>
+                        </templates>
+                    </vlist>
+                    <spacer size="10"/>
+                    <hline id="separator" layout="width:100%;spacerAfter:0"/>
+                    <spacer id="cat-spacer" size="0"/>
+                </vbox>
+            </on>
+            <off>
+                <hbox>
+                    <vbox layout="width:100%">
+                        <spacer id="hline-spacer" size="0"/>
+                        <hbox layout="spacerBefore:10">
+                            <vbox layout="spacerAfter:12" id="iconContainer">
+                                <imagebutton id="exIcon" value="{_type:'wix:Image', src:'images/up_down.png', width:13, height:10}"
+                                             isSprite="true" startPositionX="0" startPositionY="-10" spriteDirection="none" layout="spacer:*"/>
+                            </vbox>
+                            <label data="title" layout="box-flex:1;spacer:10"/>
+                        </hbox>
+                        <hline id="separator" layout="width:100%;spacerBefore:10"/>
+                        <spacer id="cat-spacer" size="0"/>
+                    </vbox>
+                    <events>
+                        <event original="click">set:$toggleState={_iid}</event>
+                    </events>
+                </hbox>
+            </off>
+        </toggle>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_QA_icon@" priority="70" fieldId="exIcon" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider priority="96" fieldId="cat-spacer" key="size" label="@CUSTOMIZE_Category_spacing@" minVal="0" maxVal="300"/>
+            <slider label="@CUSTOMIZE_QA_spacing@" priority="65" fieldId="qna-spacer" key="size" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_QA_indentation@" priority="66" fieldId="qna-indent" key="size" minVal="0" maxVal="100"/>
+            <checkbox label="@CUSTOMIZE_Categories_initially_collapsed@" priority="90" fieldId="vars" key="initialState" trueVal="off" falseVal="on" defaultVal="off"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="ToggleMobile2"  format="Mobile">
+        <toggle initialState="{if(eq($toggleState, _iid), 'on', 'off')}" seoDisplayState="on">
+            <on>
+                <vbox>
+                    <hbox layout="spacerAfter:3">
+                        <label data="question" layout="box-flex:1"/>
+                        <vbox layout="spacerBefore:20" id="iconContainer">
+                            <imagebutton id="exIcon" value="{_type:'wix:Image', src:'images/up_down.png', width:13, height:10}"
+                                         isSprite="true" startPositionX="0" startPositionY="0" spriteDirection="none" layout="spacerBefore:4"/>
+                        </vbox>
+                        <events>
+                            <event original="click">set:$toggleState=''</event>
+                        </events>
+                    </hbox>
+                    <hbox css="cursor:auto;"><label data="answer" layout="box-flex:1;spacerAfter:33;spacerBefore:0;"/></hbox>
+                </vbox>
+            </on>
+            <off>
+                <hbox>
+                    <label data="question" layout="box-flex:1;spacerAfter:0"/>
+                    <vbox layout="spacerBefore:20" id="iconContainer">
+                        <imagebutton id="exIcon" value="{_type:'wix:Image', src:'images/up_down.png', width:13, height:10}"
+                                     isSprite="true" startPositionX="0" startPositionY="-10" spriteDirection="none" layout="spacerBefore:4"/>
+                    </vbox>
+                    <events>
+                        <event original="click">set:$toggleState={_iid}</event>
+                    </events>
+                </hbox>
+            </off>
+        </toggle>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_QA_icon@" priority="70" fieldId="exIcon" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider priority="59" fieldId="answer" key="layout.spacerBefore" label="@CUSTOMIZE_Answer_indentation@" minVal="0" maxVal="300"/>
+            <slider label="@CUSTOMIZE_Question_indentation@" priority="60" fieldId="iconContainer" key="layout.spacerAfter" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="ToggleMobile"  format="Mobile">
+        <vbox>
+            <hbox>
+                <label data="question" layout="box-flex:1;spacerBefore:0"/>
+            </hbox>
+            <hbox layout="spacerBefore:3">
+                <label data="answer" layout="box-flex:1;spacerBefore:0"/>
+            </hbox>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_Question_indentation@" priority="60" fieldId="question" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Answer_indentation@" priority="59" fieldId="answer" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <!-- ###################### Left (not expansions) ########################## -->
+
+    <view for-type="Category" name="Left">
+        <use view="LeftContent"/>
+    </view>
+
+    <view for-type="Category" name="LeftContent">
+        <vbox>
+            <vbox id="cat-title">
+                <label data="title"/>
+                <hline id="separator" layout="width:100%;spacerBefore:5"/>
+                <spacer id="item-spacer" size="15"/>
+            </vbox>
+            <vlist data="questions" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="Left"/>
+                            <spacer id="qna-spacer" size="18"/>
+                        </vbox>
+                    </item>
+                    <last><use view="Left"/></last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_QA_spacing@" priority="65" fieldId="qna-spacer" key="size" minVal="0" maxVal="100"/>
+            <checkbox label="@CUSTOMIZE_Show_category_title@" priority="92" fieldId="cat-title" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@CUSTOMIZE_Show_category_underline@" priority="90" fieldId="separator" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="Left">
+        <vbox>
+            <hbox>
+                <label data="question" layout="box-flex:1"/>
+            </hbox>
+            <hbox layout="spacerBefore:3">
+                <label data="answer" layout="box-flex:1"/>
+            </hbox>
+            <spacer id="lineSpacer" size="0"/>
+            <hline id="separator" hidden="true"/>
+            <spacer id="lineSpacer" size="0"/>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_Question_indentation@" priority="60" fieldId="question" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Answer_indentation@" priority="59" fieldId="answer" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <checkbox label="@CUSTOMIZE_Show_QA_separator@" priority="64" fieldId="separator" key="hidden" trueVal="false" falseVal="true" defaultVal="true"/>
+            <slider label="@CUSTOMIZE_Item_separator_spacing@" priority="63" fieldId="lineSpacer" key="size" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="LeftExpand">
+        <vbox>
+            <hbox>
+                <label data="question" layout="box-flex:1"/>
+            </hbox>
+            <hbox layout="spacerBefore:3">
+                <label data="answer" layout="box-flex:1"/>
+            </hbox>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_Question_indentation@" priority="60" fieldId="question" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Answer_indentation@" priority="59" fieldId="answer" key="layout.spacerBefore" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <!-- ###################### ContainerBox (like left, but with containers on questions) ########################## -->
+
+    <view for-type="Category" name="ContainerBox">
+        <use view="ContainerBoxContent"/>
+    </view>
+
+    <view for-type="Category" name="ContainerBoxContent">
+        <vbox>
+            <label data="title"/>
+            <hline id="separator" layout="width:100%;spacerBefore:5"/>
+            <spacer id="item-spacer" size="15"/>
+            <vlist data="questions" isStyleEditable="false">
+                <templates>
+                    <item>
+                        <vbox>
+                            <use view="ContainerBox"/>
+                            <spacer id="qna-spacer" size="18"/>
+                        </vbox>
+                    </item>
+                    <last><use view="ContainerBox"/></last>
+                </templates>
+            </vlist>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_QA_spacing@" priority="65" fieldId="qna-spacer" key="size" minVal="0" maxVal="100"/>
+            <checkbox label="@CUSTOMIZE_Show_category_title@" priority="92" fieldId="title" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@CUSTOMIZE_Show_category_underline@" priority="90" fieldId="separator" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="ContainerBox">
+        <vbox>
+            <container>
+                <vbox>
+                    <hbox id="question-container" layout="spacer:10">
+                        <label data="question" layout="box-flex:1"/>
+                    </hbox>
+                </vbox>
+            </container>
+            <spacer id="inline-qna-spacer" size="6"/>
+            <hbox id="answer-container" layout="spacerBefore:0;spacerBefore:3">
+                <label data="answer" id="answer-indent" layout="box-flex:1"/>
+            </hbox>
+        </vbox>
+        <customizations>
+            <slider label="@CUSTOMIZE_Question_left_right_margins@" priority="110" fieldId="question" key="layout.spacer" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Question_top_bottom_margins@" priority="111" fieldId="question-container" key="layout.spacer" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Question_and_answer_spacing@" priority="64" fieldId="inline-qna-spacer" key="size" minVal="0" maxVal="100"/>
+            <slider label="@CUSTOMIZE_Answer_indentation@" priority="59" fieldId="answer-indent" key="layout.spacer" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+
+    <view for-type="Category" name="ExpandQuestionsSep" vars="categoryId:{_iid}">
+        <vbox>
+            <!--<spacer id="cat-spacer"/>-->
+            <label data="title" layout="spacerBefore:0;spacerAfter:10"/>
+            <vlist data="questions" isStyleEditable="false">
+                <templates>
+                    <first>
+                        <vbox>
+                            <hline id="line-between-items" layout="spacerAfter:14"/>
+                            <use view="ExpandQuestionsSep"/>
+                            <hline id="line-between-items" layout="spacer:14"/>
+                        </vbox>
+                    </first>
+                    <item>
+                        <vbox>
+                            <use view="ExpandQuestionsSep"/>
+                            <hline id="line-between-items" layout="spacer:14"/>
+                        </vbox>
+                    </item>
+                    <last>
+                        <vbox>
+                            <use view="ExpandQuestionsSep"/>
+                            <hline id="line-between-items" layout="spacerBefore:14"/>
+                        </vbox>
+                    </last>
+                </templates>
+            </vlist>
+            <spacer id="cat-spacer" size="20"/>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_category_title@" priority="92" fieldId="title" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider priority="96" fieldId="cat-spacer" key="size" label="@CUSTOMIZE_Category_spacing@" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="Question" name="ExpandQuestionsSep" vars="toggleId:{String.concat($categoryId, '.', _iid)}">
+        <toggle seoDisplayState="on" initialState="{if(eq($toggleState, $toggleId), 'on', 'off')}">
+            <on>
+                <vbox>
+                    <hbox layout="spacerAfter:3">
+                        <label data="question" layout="box-flex:1"/>
+                        <events>
+                            <event original="click">set:$toggleState=''</event>
+                        </events>
+                    </hbox>
+                    <hbox css="cursor:auto;"><label data="answer" layout="box-flex:1"/></hbox>
+                </vbox>
+            </on>
+            <off>
+                <hbox>
+                    <label data="question" layout="box-flex:1"/>
+                    <events>
+                        <event original="click">set:$toggleState={$toggleId}</event>
+                    </events>
+                </hbox>
+            </off>
+        </toggle>
+        <customizations>
+            <slider priority="59" fieldId="answer" key="layout.spacerBefore" label="@CUSTOMIZE_Answer_indentation@" minVal="0" maxVal="300"/>
+        </customizations>
+    </view>
+
+    <view for-type="FAQ" name="FAQHeader">
+        <vbox id="all">
+            <label data="title"/>
+            <label data="description" layout="spacerBefore:5"/>
+            <hline id="header-underline" layout="width:100%;spacerBefore:5"/>
+            <spacer id="item-spacer" size="25"/>
+        </vbox>
+        <customizations>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title@" priority="100" fieldId="all" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <checkbox label="@CUSTOMIZE_Show_FAQ_title_underline@" priority="99" fieldId="header-underline" key="hidden" trueVal="false" falseVal="true" defaultVal="false"/>
+            <slider label="@CUSTOMIZE_Title_spacing@" priority="98" fieldId="item-spacer" key="size" minVal="0" maxVal="100"/>
+        </customizations>
+    </view>
+
+    <!-- ##################### editorSummary ####################### -->
+
+    <view for-type="FAQ" name="editorSummary">
+        <hbox css="height:54">
+            <vbox layout="box-flex:1; spacerAfter:200;">
+                <label id="summaryTitle" data="title" layout="spacerBefore:3;spacerAfter:3" singleLine="true" postfix="&lt;span class='typeName'&gt; | @EditorSummary_FAQ_Title@&lt;/span&gt;" />
+                <unstyledlabel id="summaryDescription" data="description" layout="spacerAfter:9" singleLine="true" />
+            </vbox>
+        </hbox>
+    </view>
+
+    <view for-type="Category" name="editorSummary">
+        <vbox css="width:600px">
+            <label id="summaryTitle" data="title" singleLine="true" layout="spacerBefore:18;spacerAfter:19" postfix="&lt;span class='typeName'&gt; | @EditorSummary_CATEGORY_Title@&lt;/span&gt;"/>
+        </vbox>
+    </view>
+
+    <view for-type="Question" name="editorSummary">
+            <vbox css="box-flex:1; spacerAfter:80;">
+                <label id="summaryTitle" data="question" layout="spacerBefore:3;spacerAfter:3" singleLine="true" postfix="&lt;span class='typeName'&gt; | @EditorSummary_QA_Title@&lt;/span&gt;"/>
+                <!--<label id="summaryDescription" data="answer" singleLine="true" layout="spacerAfter:9"/>-->
+                <unstyledlabel id="summaryDescription" data="answer" singleLine="true" layout="spacerAfter:9"/>
+            </vbox>
+    </view>
+
+    <!-- ##################### editorForm ####################### -->
+
+    <view for-type="FAQ" name="editorForm">
+        <vbox css="width:496px;">
+            <label id="label" value="@EditorForm_Title@"/>
+            <textinput data="title" layout="spacerAfter:30" placeholder="@EditorForm_Title_Placeholder@"/>
+            <label id="label" value="@EditorForm_Description@"/>
+            <textinput data="description" layout="height:250" skin='wixapps.integration.skins.TextAreaSkin' placeholder="@EditorForm_Description_Placeholder@"/>
+        </vbox>
+    </view>
+
+    <view for-type="Category" name="editorForm">
+        <vbox css="width:496px;">
+            <label id="label" value="@EditorForm_Title@"/>
+            <textinput data="title" layout="spacerAfter:250" placeholder="@EditorForm_CATEGORY_Description_Placeholder@"/>
+        </vbox>
+    </view>
+
+    <view for-type="Question" name="editorForm">
+        <vbox css="width:496px;">
+            <label id="label" value="@EditorForm_Question@"/>
+            <textinput data="question" layout="spacerAfter:30" placeholder="@EditorForm_Question_Placeholder@"/>
+            <label id="label" value="@EditorForm_Answer@"/>
+            <richtextinput data="answer" height="250" css="width:530px;"/>
+        </vbox>
+    </view>
+
+    <!-- ##################### error handling ####################### -->
+
+    <view for-type="Error" name="ErrorInEditor">
+        <switchbox data="code">
+            <case name="-1021">
+                <vbox css="background-color:red" box-align="center">
+                    <image value="{_type:'wix:Image',src:'images/warning-icon.png',width:256,height:256}" layout="spacerBefore:30;spacerAfter:10;width:64;height:64" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_TITLE@" style="Heading M" color="#FFFFFF" layout="spacerAfter:10" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_DESCRIPTION@" style="Body M" color="#FFFFFF" layout="spacerAfter:10" isStyleEditable="false"/>
+                    <label value="@ERROR_ITEM_NOT_FOUND_DISCLAIMER@" style="Body XS" color="#FFFFFF" italic="true" layout="spacerAfter:30" isStyleEditable="false"/>
+                </vbox>
+            </case>
+            <default>
+                <label value="@ERROR_MESSAGE_IN_EDITOR@" isStyleEditable="false"/>
+            </default>
+        </switchbox>
+    </view>
+
+    <view for-type="Error" name="ErrorInPublished">
+        <switchbox data="code">
+            <case name="-1021"></case>
+            <default>
+                <label value="@ERROR_MESSAGE_IN_PUBLISHED@" isStyleEditable="false"/>
+            </default>
+        </switchbox>
+    </view>
+
+</views>
+

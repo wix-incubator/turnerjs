@@ -1,0 +1,494 @@
+@charset "UTF-8";
+
+@import 'baseSubscribeForm';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg1: color_11;
+$bg2: color_19;
+$bg3: color_12;
+$bg4: color_18;
+$txt1: color_15;
+$txt2: color_11;
+$txt3: color_15;
+$title-color: color_15;
+$label-text-color: color_12;
+$error-text-color: #8b0000;
+$success-text-color: rgba(186, 218, 85, 1);
+$brd: color_12;
+$brw: 1px;
+$tfnt: font_6;
+$fnt: font_9;
+$fnt2: font_9;
+$efnt: font_9;
+$rd: 10px;
+$web-theme-directory: WEB_THEME_DIRECTORY;
+
+@include exports("hidePlaceholders", "false");
+@include exports("successMessageOutside", "true");
+
+:host {
+  min-width: 505px;
+  min-height: 126px;
+  max-width: 980px;
+  max-height: 1024px;
+}
+
+#wrapper {
+  &.wrapper {
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+
+    .container {
+      border: 25px solid transparent;
+      border-image: param-url(webThemeDir, $web-theme-directory, "subscribeform/envelope-border.png") 25 round;
+      box-sizing: border-box;
+      position: relative;
+
+      &:before {
+        content: "";
+        @include abs-distance(-10px);
+        display: block;
+        background-color: #fff;
+      }
+
+      .bg {
+        margin: -5px;
+        padding: 30px 24px;
+        background: param-bg-color(bg3, $bg3) param-url(webThemeDir, $web-theme-directory, "subscribeform/envelope-bg.png");
+        position: relative;
+      }
+
+      h1 {
+        padding: 0;
+        margin: 0 0 10px;
+        @include param-font(tfnt, $tfnt);
+        color: param-text-color(titleColor, $title-color);
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        li {
+          list-style: none;
+          margin-top: 10px;
+          margin-right: 10px;
+
+          &:first-child {
+            margin-top: 20px;
+          }
+
+          & > span {
+            display: inline-block;
+            margin: 0 10px 0 0;
+            width: 100%;
+          }
+
+          &.table-view {
+            margin: 0;
+
+            div {
+              display: table;
+              width: 100%;
+            }
+
+            span {
+              display: table-cell;
+
+              &:last-child {
+                padding-right: 10px;
+              }
+
+              input {
+                margin-top: 10px;
+              }
+            }
+          }
+        }
+      }
+
+      div.error {
+        @include param-font(efnt, $efnt);
+        color: param-border-color(txtError, $error-text-color);
+        padding-top: 5px;
+      }
+    }
+  }
+
+  input {
+    margin: 0;
+    box-sizing: border-box;
+    color: param-text-color(txt1, $txt1);
+    background-color: param-bg-color(bg1, $bg1);
+    @include param-font(fnt, $fnt);
+    border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+    padding: 7px;
+    width: 100%;
+
+    &::placeholder {
+      color: param-text-color(labelTxt, $label-text-color);
+    }
+
+    &.error {
+      border: mutate-size-param(maxbrw, max, 1, brw) solid param-border-color(txtError, $error-text-color);
+      color: param-border-color(txtError, $error-text-color);
+      box-sizing: border-box;
+    }
+  }
+
+  em {
+    display: block;
+    margin: 0 0 10px 15px;
+    font-size: 10px;
+    color: param-text-color(txt1, $txt1);
+  }
+
+  .button {
+    position: relative;
+    display: block;
+
+    &:before {
+      position: absolute;
+      content: "";
+      display: block;
+      left: 15px;
+      height: 35px;
+      top: -45px;
+      right: 0;
+      background: transparent param-url(webThemeDir, $web-theme-directory, "subscribeform/mark.svg") repeat-x;
+    }
+
+    button {
+      border: 0;
+      display: block;
+      margin: 0 0 0 15px;
+      box-sizing: border-box;
+      color: param-text-color(txt2, $txt2);
+      @include param-font(fnt2, $fnt2);
+      padding: calc(7px + #{param-border-size(brw, $brw)}) 24px;
+      max-width: 250px;
+      overflow: hidden;
+      background-color: param-bg-color(bg2, $bg2);
+      white-space: nowrap;
+
+      &:active,
+      &:hover {
+        color: param-text-color(txt3, $txt3);
+        background-color: param-bg-color(bg4, $bg4);
+      }
+    }
+  }
+
+  .phoneField {
+    position: relative;
+
+    .drop-list {
+      background-color: param-bg-color(bg1, $bg1);
+      display: inline-block;
+      width: 106px;
+      position: relative;
+      padding: 0;
+      vertical-align: top;
+      overflow: hidden;
+      white-space: nowrap;
+      border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+      box-sizing: border-box;
+
+      .selected {
+        background-color: transparent;
+        display: block;
+        color: param-text-color(txt1, $txt1);
+        overflow: hidden;
+        width: 100%;
+        margin: 0;
+        @include param-font(fnt, $fnt);
+        text-align: center;
+        border: 0;
+        padding-right: 20px;
+      }
+
+      select {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-image: none;
+        border: 0;
+        @include opacity(0);
+      }
+
+      .after {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        bottom: 5px;
+        text-align: center;
+        padding: 5px;
+        width: 14px;
+        background: param-bg-color(bg3, $bg3) no-repeat center;
+        @include param-font(fnt, $fnt);
+
+        svg {
+          position: absolute;
+          top: 50%;
+          margin-top: -4px;
+          left: 50%;
+          margin-left: -8px;
+        }
+
+        polygon {
+          fill: param-bg-color(bg1, $bg1);
+        }
+      }
+    }
+
+    .forPhone {
+      position: absolute;
+      display: block;
+      left: 116px;
+      right: 0;
+      top: 0;
+    }
+  }
+
+  .message {
+    margin: 15px 0 0;
+    background-color: #26e089;
+    text-align: center;
+    @include param-font(efnt, $efnt);
+    padding: 10px 0;
+    display: none;
+
+    &.success {
+      background-color: transparent;
+      color: param-text-color(txtSuccess, $success-text-color);
+      display: block;
+    }
+
+    &.error {
+      background-color: transparent;
+      color: param-border-color(txtError, $error-text-color);
+      display: block;
+    }
+
+    &.editorView {
+      border: 1px dashed #d1d1d1;
+      background-color: #eee;
+      color: #d1d1d1;
+      display: block;
+    }
+  }
+
+  .table {
+    display: table;
+    width: 100%;
+  }
+
+  .table-row {
+    display: table-row;
+    width: 100%;
+  }
+
+  .table-cell {
+    display: table-cell;
+    width: 100%;
+    vertical-align: bottom;
+  }
+}
+
+[data-state~="right"] {
+  direction: rtl;
+  text-align: right;
+
+  #wrapper {
+    .container {
+      em {
+        margin: 0 15px 10px 0;
+      }
+
+      .button {
+        &:before {
+          left: 0;
+          right: 15px;
+        }
+
+        button {
+          margin-right: 15px;
+          margin-left: 0;
+        }
+      }
+
+      li > span {
+        margin: 0 0 0 10px;
+      }
+
+      ul li {
+        margin-left: 10px;
+        margin-right: 0;
+
+        &.table-view {
+          margin: 0;
+
+          span {
+            padding-left: 10px;
+            padding-right: 0;
+          }
+        }
+      }
+
+      #phoneField {
+        direction: ltr;
+        text-align: left;
+
+        .forPhone input {
+          text-align: right;
+        }
+      }
+    }
+  }
+}
+
+[data-state~="left"] {
+  direction: ltr;
+  text-align: left;
+
+  #wrapper {
+    .container {
+      ul li {
+        &.table-view {
+          span {
+            &:first-child {
+              padding-right: 10px;
+            }
+
+            &:last-child {
+              padding-right: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+[data-state~="mobile"] {
+
+  min-width: initial;
+  min-height: initial;
+  max-width: initial;
+  max-height: initial;
+
+  #wrapper {
+    .table {
+      display: block;
+      width: 100%;
+    }
+
+    .table-row {
+      display: block;
+      width: 100%;
+    }
+
+    .table-cell {
+      display: block;
+      width: 100%;
+      vertical-align: bottom;
+    }
+
+    .container ul li.table-view span {
+      display: block;
+      padding-right: 0;
+      padding-left: 0;
+    }
+
+    .container ul li.table-view span input {
+      margin-bottom: 0;
+    }
+
+    .container ul li {
+      margin-left: 0;
+      margin-right: 0;
+    }
+
+    .container {
+
+      .button {
+
+        button {
+          margin-right: 0;
+          margin-left: 0;
+        }
+      }
+    }
+
+    input {
+      font-size: 14px;
+      padding: 0 5px;
+      margin: 0 0 5px;
+      height: 45px;
+      line-height: normal;
+      @include appearance(none);
+    }
+
+    .phoneField {
+
+      .drop-list {
+        height: 45px;
+        margin-top: 0;
+        line-height: 45px;
+        width: 86px;
+
+        .selected {
+          height: 45px;
+          line-height: 35px;
+          font-size: 14px;
+        }
+      }
+
+      .forPhone {
+        left: 96px;
+      }
+    }
+
+    select {
+      font-size: 14px;
+      height: 45px;
+      line-height: 45px;
+    }
+
+    em {
+      font-size: 10px;
+      margin: 10px 0;
+
+      & + .button:before {
+        position: initial;
+        margin-bottom: 10px;
+      }
+    }
+
+    div.button {
+      margin-top: 5px;
+
+      span {
+        display: block;
+        text-align: center;
+        padding: 0;
+        width: 100%;
+      }
+
+      button {
+        margin-left: 0;
+        margin-right: 0;
+        max-width: auto;
+        min-width: auto;
+        width: 100%;
+      }
+    }
+  }
+}

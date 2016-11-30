@@ -1,0 +1,9 @@
+{
+    "createTime": "2015-03-24T16:20:00",
+    "owner": "elip",
+    "description": "Handles successful saves that got to onFail callback",
+    "constraints": {},
+    "tags": [
+        "editor"
+    ]
+}

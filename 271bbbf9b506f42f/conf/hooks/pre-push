@@ -1,0 +1,38 @@
+#!/usr/bin/env node
+
+
+try {
+  var chalk = require('chalk')
+  var shelljs = require('shelljs')
+} catch(e) {
+  process.exit(0)
+}
+
+
+function getListOfFilesOfGitCommand(command) {
+  return shelljs.exec(command, {silent:true}).output.split('\n').filter(Boolean)
+}
+
+
+var fileLists = [
+  { command: 'git diff --staged --name-only',            color: 'green'  },
+  { command: 'git diff --name-only',                     color: 'yellow' },
+  { command: 'git ls-files --others --exclude-standard', color: 'red'    }
+]
+
+
+var output = fileLists.map(function(list) {
+  var rawList = getListOfFilesOfGitCommand(list.command)
+  if (!rawList) return
+  return rawList.map(function(fileName) {
+    return '    ' + chalk[list.color](fileName) + '\n'
+  }).join('')
+}).join('')
+
+
+if (output.length > 0) {
+  console.log(chalk.bold.red('Warning, you have uncommited changes!'))
+  console.log(output)
+  //process.exit(1)
+}
+

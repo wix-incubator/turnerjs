@@ -1,0 +1,9 @@
+{
+    "rules": {
+        "santa/enforce-package-access": 0
+    },
+    "env": {
+        "jasmine": true,
+        "browser": true
+    }
+}

@@ -1,0 +1,17 @@
+@mixin override-alignment {
+  &.override-left {
+    * { text-align: left !important; }
+  }
+
+  &.override-right {
+    * { text-align: right !important; }
+  }
+
+  &.override-center {
+    * { text-align: center !important; }
+  }
+
+  &.override-justify {
+    * { text-align: justify !important; }
+  }
+};

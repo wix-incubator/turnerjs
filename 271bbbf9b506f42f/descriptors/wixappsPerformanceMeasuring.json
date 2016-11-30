@@ -1,0 +1,8 @@
+{
+    "owner": "andreys",
+    "description": "Adds BI events for performance measuring of wixapps components",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

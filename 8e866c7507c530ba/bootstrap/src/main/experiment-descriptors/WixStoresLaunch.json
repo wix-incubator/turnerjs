@@ -1,0 +1,11 @@
+{
+	"createTime": "2014-12-02T16:09:43.369",
+	"owner": "dvirc@wix.com",
+	"description": "Wix Store Experience - Launch",
+	"tags": [
+		"wixstores"
+	],
+	"constraints": {
+		"Ecom2G" : "required-before"
+	}
+}

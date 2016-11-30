@@ -1,0 +1,18 @@
+{
+  "FORM_SUBMIT": {
+    "eventId": 100,
+    "adapter": "ugc-viewer",
+    "params": {
+      "c1": "componentId",
+      "c2": "componentType"
+    }
+  },
+  "FORM_SUBMIT_SUCCESS": {
+    "eventId": 367,
+    "adapter": "ugc-viewer",
+    "params": {
+      "component_id": "componentId",
+      "component_type": "componentType"
+    }
+  }
+}

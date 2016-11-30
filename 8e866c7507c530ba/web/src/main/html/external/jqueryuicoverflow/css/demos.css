@@ -1,0 +1,62 @@
+body,html{
+    width:100%;
+    height:100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background:transparent;
+	font-family: "Trebuchet MS", "Helvetica", "Arial",  "Verdana", "sans-serif";
+}
+
+div.wrapper {
+	/*height: 450px;*/
+	/*width: 10px;*/
+	/*padding: 2%;*/
+    /*width:100%;*/
+    /*height:100%;*/
+	position: relative;
+	margin: 0 auto;
+
+}
+
+#coverflow {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+	/*display: inline-block;*/
+	/*height: 600px;*/
+	width:12600px;
+
+	/*padding: 42px;*/
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	margin-top: 60px;
+}
+
+#coverflow img {
+	/*width: 260px;*/
+	/*height: 260px;*/
+	float: left;
+	position: relative;
+	/*margin: -15px;*/
+	 -webkit-box-reflect: below 1px -webkit-gradient(linear,  left bottom,left top, from(black), color-stop(.7, rgba(0,0,0,0.2)), to(transparent));
+
+}
+
+
+.ui-selected {
+	color: white;
+	background: #EDA32D; /* old browsers */
+	background: -moz-linear-gradient(top, #EDA32D 0%, #F9731E 99%); /* firefox */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#EDA32D), color-stop(99%,#F9731E)); /* webkit */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EDA32D', endColorstr='#F9731E',GradientType=0 ); /* ie */
+	border:none;
+}
+
+

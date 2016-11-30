@@ -1,0 +1,5 @@
+@charset "UTF-8";
+@import 'datePickerBase';
+
+@include exports("calendar:skin", "wysiwyg.viewer.skins.CalendarTextBetweenNavSkin");
+

@@ -1,0 +1,18 @@
+<project name="MyProject" default="dist" basedir=".">
+    <description>
+        simple example build file
+    </description>
+    <!-- set global properties for this build -->
+    <property name="src" location="src"/>
+    <property name="build" location="build"/>
+    <property name="dist" location="dist"/>
+
+    <target name="default">
+        <!--<scp todir="user:password@somehost:/home/chuck">-->
+            <!--<fileset dir="src_dir" excludes="**/*.java"/>-->
+        <!--</scp>-->
+        <scp file="/Users/idok/Projects/html-client/web/build.xml"
+             todir="wix@0qp0.com:/home/wix/html-client/web"
+             keyfile="${user.home}/.ssh/id_rsa" />
+    </target>
+</project>

@@ -1,0 +1,95 @@
+@charset "UTF-8";
+
+@import "slideShowGalleryBase";
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$txt: color_15;
+
+@include exports("imageItem:skin", "wysiwyg.viewer.skins.displayers.SlideShowTextBottomDisplayer");
+@include exports("imageItem:styleGroup", "inherit");
+
+.helpers {
+  bottom: 70px;
+  height: 10px;
+  text-align: right;
+  color: param-border-color(txt, $txt);
+  position: relative;
+  div {
+    display: inline-block;
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+  }
+}
+
+#autoplay {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  line-height: 10px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+[data-state~="autoplayOff"] #autoplay > span {
+  display: inline-block;
+  border: 5px solid transparent;
+  border-left: 5px solid param-border-color(txt, $txt);
+  width: 0;
+  height: 0;
+}
+
+[data-state~="autoplayOn"]  #autoplay > span {
+  display: inline-block;
+  border-left: 2px solid param-border-color(txt, $txt);
+  border-right: 2px solid param-border-color(txt, $txt);
+  height: 10px;
+  width: 1px;
+  margin-right: 5px;
+}
+
+#buttonPrev,
+#buttonNext,
+#autoplay {
+  padding: 15px;
+}
+
+#buttonPrevArrow,
+#buttonNextArrow {
+  cursor: pointer;
+  height: 6px;
+  width: 6px;
+  position: relative;
+  border: solid param-border-color(txt, $txt);
+  background: transparent;
+  @include rotate(-45);
+}
+
+#buttonPrevArrow {
+  border-width: 1px 0 0 1px;
+}
+
+#buttonNextArrow {
+  border-width: 0 1px 1px 0;
+}
+
+[data-text-alignment="right"] {
+  #imageItempanel {
+    right:0;
+    left:130px;
+  }
+
+  .helpers {
+    text-align:left;
+  }
+
+  &[data-state~="hidePlayButton"] {
+    #autoplay {
+      display:none;
+    }
+  }
+}

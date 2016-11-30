@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$brw: 1px;
+$brd: color_15;
+$brdh: color_15;
+$brds: color_15;
+$bgh: color_17;
+$bgs: color_18;
+$rd: 0;
+$trans: background-color .4s ease 0s, border-color .4s ease 0s;
+$trans2: color .4s ease 0s;
+
+@include sum-params(menuButtonBorders, brw, brw);
+
+:host {
+  display: inline-block;
+}
+
+.gapper {
+  padding: 0 param-padding-size(pad, $pad);
+}
+
+#borderWrapper {
+  border-bottom: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  border-top: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  cursor: pointer;
+  color: param-text-color(txt, $txt);
+  background: transparent;
+  @include param-font(fnt, $fnt);
+  @include param-transition(trans, $trans);
+}
+
+#label {
+  display: inline-block;
+  color: param-text-color(txt, $txt);
+  @include param-font(fnt, $fnt);
+  @include param-transition(trans2, $trans2);
+}
+
+[data-listposition="left"] .gapper {
+  padding-left: 0;
+}
+
+[data-listposition="right"]  .gapper {
+  padding-right: 0;
+}
+
+[data-listposition="lonely"] .gapper {
+  padding: 0;
+}
+
+[data-state~="drop"] {
+  width: 100%;
+  display: block;
+
+  .gapper {
+    padding: 0;
+  }
+
+  #borderWrapper {
+    border: 0;
+  }
+
+  #label {
+    padding: 0 .5em;
+  }
+}
+
+[data-listposition="dropLonely"],
+[data-listposition="top"],
+[data-listposition="bottom"] {
+  #borderWrapper {
+    @include param-border-radius(rd, $rd);
+  }
+}
+
+[data-listposition="top"] #borderWrapper {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-listposition="bottom"] #borderWrapper {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-state~="over"],
+[data-state~="selected"] {
+  #borderWrapper {
+    @include param-transition(trans, $trans);
+  }
+
+  #label {
+    display: inline-block;
+  }
+}
+
+[data-state~="over"] {
+  #borderWrapper {
+    border-color: param-border-color-alpha(brdh, $brdh);
+    background-color: param-bg-color(bgh, $bgh);
+  }
+
+  #label {
+    color: param-text-color(txth, $txth);
+  }
+}
+
+[data-state~="selected"] {
+  #borderWrapper {
+    border-color: param-border-color-alpha(brds, $brds);
+    background-color: param-bg-color(bgs, $bgs);
+  }
+
+  #label {
+    color: param-text-color(txts, $txts);
+  }
+}

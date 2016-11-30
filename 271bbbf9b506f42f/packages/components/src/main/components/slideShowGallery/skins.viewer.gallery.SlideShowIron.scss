@@ -1,0 +1,220 @@
+@charset "UTF-8";
+
+@import "slideShowGalleryBase";
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$brd: color_15;
+$abg: color_11;
+$txt: color_11;
+$brw: 0;
+$rd: 2px;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$trns: opacity .5s ease 0s;
+$ishdd: rgba(255, 255, 255, 0.4) 0px 0px 6px 0px inset, rgba(255, 255, 255, 0.701961) 0px 1px 0px 0px inset, rgba(255, 255, 255, 0.2) 0px 0px 5px 0px inset, rgba(0, 0, 0, 0.498039) 0px 1px 3px 0px;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include exports("imageItem:skin", "skins.viewer.displayers.SlideIronDisplayer");
+@include exports("imageItem:styleGroup", "inherit");
+
+:host {
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+  background: param-bg-color(brd, $brd);
+}
+
+.border {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  pointer-events: none;
+  background: none !important;
+}
+
+#itemsContainer {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+  overflow: hidden;
+  @include translate3d(0,0,0);
+}
+
+[data-state~="mobile"] .btn {
+  @include opacity(1);
+}
+
+#buttonPrev {
+  left: 0;
+  @include param-box-shadow(ishdd, $ishdd);
+  width: 44px;
+  height: 43px;
+  border-radius: 2px;
+}
+
+#buttonNext {
+  right: 0;
+  @include param-box-shadow(ishdd, $ishdd);
+  width: 44px;
+  height: 43px;
+  border-radius: 2px;
+}
+
+.imgGlow {
+  @include param-border-radius(rd, $rd);
+  @include abs-distance(0);
+}
+
+.btn {
+  position: absolute;
+  top: 35%;
+  margin-top: -22.5px;
+  width: 45px;
+  background: param-url(tdr, $tdr, "ironpatern.png") no-repeat;
+  cursor: pointer;
+  background-color: param-bg-color(abg, $abg);
+}
+
+.arrowLeft {
+  position: relative;
+  top: 27%;
+  left: 38%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid rgba(0, 0, 0, 0);
+  border-right: 12px solid #202020;
+}
+
+.arrowRight {
+  position: relative;
+  top: 27%;
+  left: 36%;
+  width: 0;
+  height: 0;
+  border-top: 10px solid rgba(0, 0, 0, 0);
+  border-bottom: 10px solid rgba(0, 0, 0, 0);
+  border-left: 12px solid #202020;
+}
+
+.screw {
+  display: inline-block;
+  background-image: param-url(tdr, $tdr, "skrew.png");
+  background-repeat: no-repeat;
+  width: 15px;
+  height: 15px;
+}
+
+.screwTL {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+}
+
+.screwTR {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+}
+
+.screwBL {
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
+}
+
+.screwBR {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+}
+
+.helpers {
+  position: absolute;
+  right: 15px !important;
+  bottom: 90px !important;
+  padding: 0 10px 10px 0;
+  width: 60px;
+  text-align: right;
+}
+
+#counter {
+  display: inline-block;
+  color: param-border-color(txt, $txt);
+  font-family: arial, helvetica,sans-serif;
+  font-size: 12px;
+  padding-left: 5px;
+}
+
+#autoplay {
+  display: inline-block;
+  padding-left: 10px;
+  width: 20px;
+  min-height: 10px;
+  position: relative;
+  text-align: center;
+}
+
+#autoplay > span {
+  display: inline-block;
+  position: relative;
+  z-index: $zindex-slide-show-iron-span-after-autoplay;
+}
+
+[data-state~="autoplayOff"] #autoplay > span {
+  border: 5px solid transparent;
+  border-left: 5px solid param-border-color(txt, $txt);
+  width: 0;
+  height: 0;
+}
+
+[data-state~="autoplayOn"] #autoplay > span {
+  border-left: 2px solid param-border-color(txt, $txt);
+  border-right: 2px solid param-border-color(txt, $txt);
+  height: 10px;
+  width: 1px;
+  margin-right: 5px;
+}
+
+[data-state~="mobile"] .buttons {
+  @include opacity(1);
+}
+
+:host:hover .pnl {
+  @include opacity(1);
+}
+
+[data-state~="showTextPanel"] .pnl {
+  @include opacity(1);
+}
+
+.btn:hover {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .pnl {
+  @include opacity(1);
+}
+
+[data-state~="touchRollOver"] .btn {
+  @include opacity(1);
+}
+
+[data-state~="showButtons"]  .buttons {
+  @include opacity(1);
+}
+
+[data-text-alignment="right"] {
+  .helpers {
+    left: 15px !important;
+    bottom: 90px !important;
+    text-align: left;
+  }
+
+  &[data-state~="hidePlayButton"] {
+    #autoplay {
+      display:none;
+    }
+  }
+}

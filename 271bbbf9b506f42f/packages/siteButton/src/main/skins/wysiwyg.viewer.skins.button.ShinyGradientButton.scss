@@ -1,0 +1,72 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_5;
+$rd: 15px;
+$txt: color_5;
+$bgh: color_2;
+$txth: color_6;
+$tdr: BASE_THEME_DIRECTORY;
+$xxx: color_1;
+
+@include exports("_maxWidth", 400);
+@include exports("_maxHeight", 400);
+
+:host {
+  text-align: center;
+}
+
+#label {
+  position: relative;
+  color: param-text-color(txt, $txt);
+  @include param-font(fnt, $fnt);
+  white-space: nowrap;
+  padding: 15px 10px;
+  display: inline-block;
+}
+
+:host {
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #label {
+      color: param-text-color(txth, $txth);
+    }
+
+    .mainColor {
+      background-color: param-bg-color(bgh, $bgh);
+    }
+  }
+}
+
+.pose {
+  @include abs-distance(0);
+  @include param-border-radius(rd, $rd);
+}
+
+.mainColor {
+  background: param-bg-color(xxx, $xxx) param-url(tdr, $tdr, "net.png") center center repeat;
+}
+
+.topper {
+  background: param-url(tdr, $tdr, "transparent_arc.png") center center;
+}
+
+.oval {
+  background: blue;
+  width: 200%;
+  height: 50%;
+}
+
+.bord {
+  border-width: 11px;
+  border-image: param-url(tdr, $tdr, "plastic_highlight_border.png") 11 stretch stretch;
+}
+

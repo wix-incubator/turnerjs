@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@import "screenWidthBase";
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$rd: 0;
+$bg: color_11;
+$brd: color_15;
+$brw: 0;
+$shc: bg;
+
+@include define-mapped-param(shc, bg, COLOR);
+
+.border {
+  @include abs-distance(0);
+  background: param-bg-color(brd, $brd);
+  @include param-border-radius(rd, $rd);
+  box-shadow: 1px 1px mutate-color-param(shc, brightness, .5, bg),
+              3px 3px mutate-color-param(shc, brightness, .5, bg),
+              5px 5px mutate-color-param(shc, brightness, .5, bg),
+              7px 7px mutate-color-param(shc, brightness, .5, bg),
+              9px 9px mutate-color-param(shc, brightness, .5, bg);
+}
+
+[data-state~="mobileView"] .border {
+  left: 10px;
+  right: 10px;
+}
+
+#bg {
+  @include abs-distance(param-size(brw, $brw));
+  background-color: param-bg-color(bg, $bg);
+  @include param-border-radius(rd, $rd);
+}
+
+#inlineContent,
+#centeredContent {
+  @include abs-distance(0);
+
+}
+

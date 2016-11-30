@@ -1,0 +1,17 @@
+### Operating systems ###
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.Spotlight-V100
+.Trashes
+
+### Regular dev ###
+node_modules
+npm-debug.log*
+.idea
+.vscode
+*.iml
+
+/*.tar.gz
+/santa

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+
+    <script type="text/javascript" src="//static.parastorage.com/services/third-party/lodash/2.4.1/dist/lodash.min.js"></script>
+    <script type="text/javascript" src="consts.js"></script>
+    <script type="text/javascript" src="snake.js"></script>
+    <script type="text/javascript" src="canvas.js"></script>
+    <script type="text/javascript" src="game.js"></script>
+
+    <style type="text/css">
+
+        body {
+            background-color: white;
+        }
+
+        span, canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        span {
+            font-family: monospace;
+            font-weight: bold;
+            width: 800px;
+            height: 400px;
+            text-align: center;
+            line-height: 400px;
+            visibility:hidden;
+            opacity:0;
+            color: #ff0000;
+
+            -webkit-transition: all 1s ease;
+            -moz-transition: all 1s ease;
+            -o-transition: all 1s ease;
+            -ms-transition: all 1s ease;
+        }
+
+        span.show {
+            visibility: visible;
+            opacity:1;
+            font-size: 60px;
+        }
+
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+
+    <script>
+
+    </script>
+
+</head>
+<body onload="Game.init()">
+<canvas id="canvas" width="800" height="400">
+</canvas>
+<span id="message" class="">some text</span>
+</body>
+</html>

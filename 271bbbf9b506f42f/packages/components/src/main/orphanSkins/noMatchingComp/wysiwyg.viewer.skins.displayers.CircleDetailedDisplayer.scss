@@ -1,0 +1,61 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$bg: color_11;
+$bg1: color_11;
+$txt: color_15;
+$brw: 0;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$rd: 50%;
+$trns: opacity .5s ease 0s;
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+.xxx {
+  @include abs-distance(param-size(brw, $brw));
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+  overflow: hidden;
+  background: param-url(tdr, $tdr, "net.png") center center repeat;
+}
+
+:host {
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+  overflow: hidden;
+}
+
+#zoom {
+  @include abs-distance(param-size(brw, $brw));
+  overflow: hidden;
+}
+
+#panel {
+  @include opacity(0);
+  @include param-transition(trns, $trns);
+  @include param-border-radius(rd, $rd);
+  background-color: mutate-bg-color-const(bg1, alpha, .6, $bg1);
+  color: param-text-color(txt, $txt);
+  text-align: center;
+  padding: 20%;
+  @include abs-distance(param-size(brw, $brw));
+}
+
+#image {
+  overflow: hidden;
+  @include param-border-radius(rd, $rd);
+}
+
+:host:hover > #panel {
+  @include opacity(1);
+}
+

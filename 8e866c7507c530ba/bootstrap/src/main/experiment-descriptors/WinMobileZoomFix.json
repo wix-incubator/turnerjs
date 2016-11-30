@@ -1,0 +1,9 @@
+{
+    "createTime": "2013-12-08T10:32:00",
+    "owner": "denisw, sivanb",
+    "description": "WinMobileZoomFix #MOB-1036 - disable zooming on win mobile phones",
+    "constraints": {},
+    "tags": [
+        "viewer"
+    ]
+}

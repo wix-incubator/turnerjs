@@ -1,0 +1,8 @@
+{
+  "owner": "dimar",
+  "description": "new facebook conversion tracking script",
+  "scopes": [
+    "santa-viewer"
+  ],
+  "constraints": {}
+}

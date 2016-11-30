@@ -1,0 +1,8 @@
+{
+    "owner": "nirna",
+    "description": "Retrying to save a document once a concurrency error code (40103) is returned from the server",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

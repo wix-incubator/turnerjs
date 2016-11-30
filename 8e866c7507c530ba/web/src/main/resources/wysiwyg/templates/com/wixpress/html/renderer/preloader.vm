@@ -1,0 +1,15 @@
+<link rel="stylesheet" type="text/css" href="${topology.artifactResource("web", "css/wysiwyg/preloader.css")}">
+
+<div id="viewer_preloader">
+#if ($siteMetaData && $siteMetaData.hasPreloaderImage)
+    <div id="userLogo" style="background:url('${siteMetaData.renderPreloadImageUrl($topology)}_256') no-repeat 50% 50%;background-size:contain;" ></div>
+#end
+    <p>Loading</p>
+#if ($siteMetaData && $siteMetaData.contactInfoOrNull.companyName)
+    <h2>$siteMetaData.contactInfoOrNull.companyName</h2>
+#end
+    <div id="preloader"></div>
+</div>
+
+<script type="text/javascript" src="${topology.artifactResource("core", "javascript/core/utils/mobile_utils.js")}"></script>
+<script type="text/javascript" src="${topology.artifactResource("web", "javascript/wysiwyg/viewer/preloader.js")}"></script>

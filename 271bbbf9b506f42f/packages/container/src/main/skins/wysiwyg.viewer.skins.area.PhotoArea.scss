@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$brd: color_15;
+$brw: 10px;
+$shd: 0 1px 5px rgba(0, 0, 0, .10);
+$tdr: BASE_THEME_DIRECTORY;
+
+#bg {
+  @include abs-distance(0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+}
+
+.bgShadow {
+  background: param-url(tdr, $tdr, "shadow_photo.png") no-repeat;
+  width: 168px;
+  height: 154px;
+}
+
+.shadowImgTL,
+.shadowImgTR,
+.shadowImgBL,
+.shadowImgBR {
+  position: absolute;
+}
+
+.shadowImgTL {
+  background-position: 0 0;
+  left: -13px;
+  top: -15px;
+}
+
+.shadowImgTR {
+  background-position: 100% 0;
+  right: -15px;
+  top: -14px;
+}
+
+.shadowImgBL {
+  background-position: 0 100%;
+  left: -14px;
+  bottom: -13px;
+}
+
+.shadowImgBR {
+  background-position: 100% 100%;
+  right: -16px;
+  bottom: -14px;
+}
+
+#inlineContent {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+

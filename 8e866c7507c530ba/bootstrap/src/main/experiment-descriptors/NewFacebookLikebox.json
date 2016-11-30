@@ -1,0 +1,10 @@
+{
+    "createTime": "2015-06-11T13:15:00",
+    "owner": "elip@wix.com",
+    "description": "Update facebook likebox to the new Facebook Page Plugin",
+    "tags": [
+        "editor",
+        "viewer"
+    ],
+    "constraints": {}
+}

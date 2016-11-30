@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/photoZoom';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$brw: 10px;
+$shd: 0 1px 2px 1px rgba(0, 0, 0, .10);
+$pbtm: 50px;
+$tdr: BASE_THEME_DIRECTORY;
+
+@include define-mapped-param(contentPaddingLeft, brw);
+@include define-mapped-param(contentPaddingRight, brw);
+@include define-mapped-param(contentPaddingTop, brw);
+@include define-mapped-param(contentPaddingBottom, brw);
+@include exports(contentPaddingBottom, $pbtm);
+
+@include exports("img:skin", "skins.core.ImageNewSkinZoomable");
+@include zoomAndPanCursor($tdr);
+
+
+#link {
+  display: block;
+  @include abs-distance(0);
+  @include param-box-shadow(shd, $shd);
+  background-color: param-bg-color(bg, $bg);
+  border: param-border-size(brw, $brw) solid transparent;
+  overflow: hidden;
+  padding: 0 0 $pbtm;
+}
+
+.bgShadow {
+  background: param-url(tdr, $tdr, "shadow_photo.png") no-repeat;
+  width: 168px;
+  height: 154px;
+  @include opacity(.8);
+}
+
+#img {
+  overflow: hidden;
+}
+
+.shadowImgTL,
+.shadowImgTR,
+.shadowImgBL,
+.shadowImgBR {
+  position: absolute;
+}
+
+.shadowImgTL {
+  background-position: 0 0;
+  left: -13px;
+  top: -15px;
+}
+
+.shadowImgTR {
+  background-position: 100% 0;
+  right: -15px;
+  top: -14px;
+}
+
+.shadowImgBL {
+  background-position: 0 100%;
+  left: -14px;
+  bottom: -13px;
+}
+
+.shadowImgBR {
+  background-position: 100% 100%;
+  right: -16px;
+  bottom: -14px;
+}

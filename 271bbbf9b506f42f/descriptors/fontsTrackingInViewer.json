@@ -1,0 +1,8 @@
+{
+  "owner": "dimar",
+  "description": "report to bi when custom (paid) fonts are present on the viewed site",
+  "scopes": [
+    "santa-viewer"
+  ],
+  "constraints": {}
+}

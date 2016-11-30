@@ -1,0 +1,104 @@
+@charset "UTF-8";
+
+@import 'bootcamp';
+@import '../../main/mixins/skins-base';
+
+@include runner-start;
+
+@include describe('function theme-color-map') {
+  $predefined-colors-last-index: 35;
+
+  @include it('should return corresponding color from the colors map') {
+    @for $i from 0 through $predefined-colors-last-index {
+      @include should(
+              expect(theme-color-map('color_#{$i}')),
+              not-to(equal('color_#{$i}'))
+      );
+    }
+  }
+
+  @include it('should return passed color if not predefined color passed') {
+    @include should(
+            expect(theme-color-map('#012345')),
+            to(equal('#012345'))
+    );
+  }
+}
+
+@include describe('function theme-font-map') {
+  $predefined-fonts-last-index: 10;
+
+  @include it('should return corresponding font from the fonts map') {
+    @for $i from 0 through $predefined-fonts-last-index {
+      @include should(
+              expect(theme-font-map('font_#{$i}')),
+              not-to(equal('font_#{$i}'))
+      );
+
+      @include should(
+              expect(theme-font-map('font_#{$i}')),
+              not-to(be-null())
+      );
+    }
+  }
+
+  @include it('should return null if incorrect font name provided') {
+    @include should(
+            expect(theme-font-map('font_#{$predefined-fonts-last-index + 1}')),
+            to(be-null())
+    );
+  }
+}
+
+@include describe('function theme-border-map') {
+  $predefined-borders-last-index: 2;
+
+  @include it('should return corresponding border from the border map') {
+    @for $i from 0 through $predefined-borders-last-index {
+      @include should(
+              expect(theme-border-map('border_#{$i}')),
+              not-to(equal('border_#{$i}'))
+      );
+
+      @include should(
+              expect(theme-border-map('border_#{$i}')),
+              not-to(be-null())
+      );
+    }
+  }
+
+  @include it('should return null if incorrect border name provided') {
+    @include should(
+            expect(theme-border-map('border_#{$predefined-borders-last-index + 1}')),
+            to(be-null())
+    );
+  }
+}
+
+@include describe('function theme-data-map') {
+
+  @include it('should return corresponding value from the data map') {
+    @include should(
+            expect(theme-data-map('BASE_THEME_DIRECTORY')),
+            to(equal('base'))
+    );
+  }
+
+  @include it('should return passed value if there is no matching in the data map') {
+    @include should(
+            expect(theme-data-map('TEST_VALUE')),
+            to(equal('TEST_VALUE'))
+    );
+  }
+}
+
+@include describe('function base-url') {
+  @include it('sould return right base URL, with url protocol inheriting from parent') {
+    @include should(
+            expect(base-url()),
+            to(equal('//static.parastorage.com/services/skins/' + html-client-version() + '/images/wysiwyg/core/themes'))
+    );
+  }
+}
+
+@include runner-end;

@@ -1,0 +1,12 @@
+{
+    "createTime": "2014-05-08T17:10:00",
+    "owner": "kfirg",
+    "description": "Attach services to the metasite in the first save - provision when trying to edit",
+    "constraints": {
+        "AppBuilderProvision": "optional-before"
+    },
+    "tags": [
+        "editor",
+        "viewer"
+    ]
+}

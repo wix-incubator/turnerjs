@@ -1,0 +1,24 @@
+<div ng-controller="ClipartPanelController as clipartPanelController" class="ng-content-panel">
+    <div class="groupBox">
+        <wix-image-picker
+                initial-tab="free"
+                class="wix-button-default wix-image-picker-transparent-background"
+                label="CLIP_ART_REPLACE_IMAGE"
+                on-image-pick="clipartPanelController._mediaGalleryCallback(rawData)"
+                gallery-type="clipart"
+                height="65px" width="65px"
+                wix-data="propertyPanelController.compData.data"></wix-image-picker>
+    </div>
+    <div class="groupBox">
+        <wix-checkbox wix-data="propertyPanelController.compData.properties.displayMode"
+                      label="CLIP_ART_MAINTAIN_ASPECT_RATIO" true-value="full" false-value="stretch"></wix-checkbox>
+    </div>
+    <div class="groupBox">
+        <wix-link label="LINK_LINK_TO" placeholder="LINK_ADD_LABEL"
+                  wix-data="propertyPanelController.compData.data.link"></wix-link>
+    </div>
+
+    <div class="groupBox">
+        <wix-add-animation></wix-add-animation>
+    </div>
+</div>

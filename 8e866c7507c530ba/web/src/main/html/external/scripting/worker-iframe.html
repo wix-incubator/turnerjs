@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>worker</title>
+</head>
+<body>
+<script type="text/javascript">
+
+
+    function workerPostMessage(data) {
+
+        parent.postMessage(data, "*");
+    }
+
+
+    function importScripts(script) {
+
+        var xhrObj = new XMLHttpRequest();
+        // open and send a synchronous request
+        xhrObj.open('GET', script, false);
+        xhrObj.send('');
+
+
+        var scriptEl = document.createElement('script');
+        scriptEl.text = xhrObj.responseText;
+        scriptEl.type = 'text/javascript';
+        document.body.appendChild(scriptEl);
+
+    }
+
+    function close() {
+        parent.postMessage(JSON.stringify({
+            workerId: params['workerId'],
+            terminate: true
+        }), '*');
+    }
+
+    (function () {
+
+        var query = window.location.search.substring(1).split("&"),
+                params = [];
+
+        for (var i = 0, length = query.length; i < length; i++) {
+            var pair = query[i].split("=");
+            params[pair[0]] = pair[1];
+        }
+
+        window.addEventListener ? window.addEventListener('message', onIframeMessage, false)
+                                : window.attachEvent('onmessage', onIframeMessage);
+
+
+        function onIframeMessage(e) {
+
+            var msg;
+
+            try {
+                msg = JSON.parse(e.data);
+
+            } catch (e) {
+                return;
+            }
+
+            if (msg.blob && params['workerId'] == msg.workerId) {
+
+                window.removeEventListener ? window.removeEventListener('message', onIframeMessage, false)
+                        : window.detachEvent('onmessage', onIframeMessage)
+
+                try {
+                    eval(msg.blob);
+
+                    parent.postMessage(JSON.stringify({
+                        workerId: params['workerId'],
+                        ready: true
+                    }), '*');
+
+
+                }
+                catch (e) {
+                    parent.postMessage(JSON.stringify({
+                        workerId: params['workerId'],
+                        error: e
+                    }), '*');
+                }
+
+            }
+        }
+
+        //send ready event
+        parent.postMessage(JSON.stringify({
+            workerId: params['workerId'],
+            initialized: true
+        }), '*');
+
+    })();
+
+
+</script>
+</body>
+</html>

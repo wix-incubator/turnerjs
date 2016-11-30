@@ -1,0 +1,39 @@
+{
+  "name": "wix-mobile-media-manager",
+  "version": "1.0.172",
+  "description": "Wix Mobile Media Manager",
+  "publishConfig": {
+    "registry": "http://repo.dev.wix/artifactory/api/npm/npm-local/"
+  },
+  "main": "src/module.js",
+  "author": "Yedidya Kennard <yedidyak@wix.com>",
+  "license": "Wix.com",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wix-private/wix-mobile-media-manager.git"
+  },
+  "scripts": {
+    "build": ":",
+    "start": "node node_modules/react-native/local-cli/cli.js start",
+    "xcode": "open ./ios/$npm_package_config_appName.xcodeproj",
+    "lint": "eslint src test -c node_modules/a-wix-react-native-commons/.eslintrc",
+    "pretest": "npm run lint",
+    "test": "BABEL_ENV=test node ./node_modules/a-wix-react-native-commons/scripts/jasmineUnitRunner.js",
+    "release": "wnpm-release --no-shrinkwrap && node node_modules/a-wix-react-native-commons/scripts/printTeamCityPublishedVersion"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "a-wix-react-native-framework": "^1.0.0"
+  },
+  "peerDependencies": {},
+  "babel": {
+    "env": {
+      "test": {
+        "presets": [
+          "react-native"
+        ],
+        "retainLines": true
+      }
+    }
+  }
+}

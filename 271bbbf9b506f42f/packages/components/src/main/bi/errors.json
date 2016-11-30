@@ -1,0 +1,60 @@
+{
+    "FORM_SUBMIT_FAILURE": {
+        "errorCode": 101027,
+        "severity": "error",
+        "params": {
+            "p1": "componentId",
+            "p2": "componentType",
+            "p3": "errorDesc",
+            "p4": "response"
+        }
+    },
+    "FORM_SUBMIT_FINAL_FALLBACK": {
+        "errorCode": 101028,
+        "severity": "fatal",
+        "params": {
+            "p1": "componentId",
+            "p2": "componentType",
+            "p3": "errorDesc",
+            "p4": "response"
+        }
+    },
+    "FORM_SUBMIT_INVALID_EMAIL": {
+        "errorCode": 101029,
+        "severity": "error",
+        "params": {
+            "p1": "email"
+        }
+    },
+    "MEDIA_RICH_TEXT_WRONG_COMP_DATA": {
+        "errorCode": 32000,
+        "severity": "fatal",
+        "params": {
+            "p1": "wixCompJson",
+            "p2": "errorDesc",
+            "p3": "errorStack"
+        }
+    },
+    "MEDIA_RICH_TEXT_UNSUPPORTED_COMPONENT": {
+        "errorCode": 32001,
+        "severity": "fatal",
+        "params": {
+            "p1": "wixCompJson"
+        }
+    },
+    "MEDIA_RICH_MISSING_COMPONENT_PLACEHOLDER": {
+        "errorCode": 32002,
+        "severity": "fatal",
+        "params": {
+            "p1": "dataQuery"
+        }
+    },
+    "IMAGE_FILTER_NOT_VALID": {
+        "errorName": "image_filter_not_valid",
+        "errorCode": 556,
+        "severity": "error",
+        "params": {
+            "p1": "filterName"
+        }
+    }
+}

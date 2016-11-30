@@ -1,0 +1,30 @@
+<style>
+    body {
+        margin:  0;
+    }
+</style>
+<iframe id='twf' allowtransparency="true" frameborder="0" scrolling="no"
+  src=""
+  style="width:100%; height:100%;"></iframe>
+
+<script type="text/javascript">
+     function setPropertiesOn( elem ) {
+        var query = window.location.search.substring(1);
+        var vars = query.split("&");
+         var q = "";
+        for (var i = 0; i < vars.length; i++) {
+           var pair = vars[i].split("=");
+           if (pair[0] == "c" || pair[0] == "d")
+             continue;
+           q +="&" + pair[0] + "=" + pair[1];
+        }
+        if (q){
+          document.getElementById('twf').src = "//platform.twitter.com/widgets/follow_button.html?a=a" + q;
+        }else{
+          document.getElementById('twf').src = "//platform.twitter.com/widgets/follow_button.html?screen_name=wix";
+        }
+    }
+
+    setPropertiesOn( null );
+
+</script>

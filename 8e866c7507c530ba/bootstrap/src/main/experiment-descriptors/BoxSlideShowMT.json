@@ -1,0 +1,12 @@
+{
+    "createTime": "2000-01-01T03:15:00",
+    "owner": "talm",
+    "description": "BoxSlideShowMT",
+    "tags": [
+        "editor",
+        "viewer"
+    ],
+    "constraints": {
+        "BoxSlideShow": "required-before"
+    }
+}

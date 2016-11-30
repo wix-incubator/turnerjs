@@ -1,0 +1,8 @@
+{
+    "owner": "nirm",
+    "description": "prevent overriding of favicon on client side. Favicon will be used only from server.",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

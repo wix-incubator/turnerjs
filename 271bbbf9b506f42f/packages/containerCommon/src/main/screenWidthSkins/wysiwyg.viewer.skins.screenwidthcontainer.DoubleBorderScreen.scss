@@ -1,0 +1,45 @@
+@charset "UTF-8";
+
+@import "screenWidthBase";
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$shd: 0 0 5px rgba(0, 0, 0, .7);
+$bordersPosition: 6;
+$bgPosition: 0;
+$lineGap: 5;
+$outerLineSize: 3;
+$innerLineSize: 1;
+$brd: color_15;
+$brd2: color_14;
+
+#bg {
+  @include abs-distances(param-size(bgPosition, $bgPosition), 0, param-size(bgPosition, $bgPosition), 0);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+}
+
+.outer {
+  @include abs-distances(param-size(bordersPosition, $bordersPosition), 0, param-size(bordersPosition, $bordersPosition), 0);
+  border-top: param-border-size(outerLineSize, $outerLineSize) solid param-border-color-alpha(brd, $brd);
+  border-bottom: param-border-size(outerLineSize, $outerLineSize) solid param-border-color-alpha(brd, $brd);
+}
+
+.inner {
+  @include abs-distances(param-size(lineGap, $lineGap), 0, param-size(lineGap, $lineGap), 0);
+  border-top: param-border-size(innerLineSize, $innerLineSize) solid param-border-color-alpha(brd2, $brd2);
+  border-bottom: param-border-size(innerLineSize, $innerLineSize) solid param-border-color-alpha(brd2, $brd2);
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+#centeredContent {
+  @include abs-distance(0);
+}
+

@@ -1,0 +1,379 @@
+@charset "UTF-8";
+
+@import 'baseSubscribeForm';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg1: color_11;
+$txt1: color_15;
+$bg2: color_19;
+$txt2: color_11;
+$title-color: #a9a9a9;
+$label-color: #a9a9a9;
+$error-color: #8b0000;
+$success-color: rgba(186, 218, 85, 1);
+$brd: color_15;
+$brw: 0;
+$tfnt: font_6;
+$fnt: font_9;
+$fnt1: font_7;
+$fnt2: font_9;
+$efnt: font_9;
+$rd: 5px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$tl-bg4: color_18;
+$tl-txt3: color_15;
+
+@include exports("hidePlaceholders", "true");
+
+:host {
+  min-width: 235px;
+  min-height: 120px;
+  max-width: 980px;
+  max-height: 1024px;
+}
+
+input::placeholder {
+  color: transparent;
+}
+
+#wrapper {
+  width: 100%;
+
+  ul {
+    width: 100%;
+
+    li.row {
+      min-width: 100%;
+
+      &.phone {
+        position: relative;
+      }
+
+      .cell {
+        display: block;
+        position: relative;
+      }
+
+      label.cell {
+        @include param-font(fnt1, $fnt1);
+        color: param-text-color(labelTxt, $label-color);
+        border: 0;
+        vertical-align: middle;
+        text-align: left;
+        padding: 3px 0;
+      }
+
+      div.cell.button {
+        text-align: right;
+        vertical-align: middle;
+
+        span {
+          vertical-align: middle;
+          display: none;
+          padding: 0 10px;
+          @include param-font(efnt, $efnt);
+          text-align: left;
+
+          &.success {
+            color: param-text-color(txtSuccess, $success-color);
+            display: block;
+          }
+
+          &.error {
+            color: param-border-color(txtError, $error-color);
+            display: block;
+          }
+        }
+
+        button {
+          &:active,
+          &:hover {
+            color: param-text-color(tl_txt3, $tl-txt3);
+            background-color: param-bg-color(tl_bg4, $tl-bg4);
+          }
+        }
+      }
+    }
+  }
+
+  #formTitle {
+    @include param-font(tfnt, $tfnt);
+    margin-bottom: 4px;
+    color: param-text-color(titleColor, $title-color);
+  }
+
+  #phoneField {
+    position: relative;
+
+    .drop-list {
+      display: inline-block;
+      width: 86px;
+      @include param-font(fnt, $fnt);
+      position: relative;
+      padding: 0;
+      vertical-align: top;
+      @include param-border-radius(rd, $rd);
+      @include param-box-shadow(shd, $shd);
+      background-color: transparent;
+      overflow: hidden;
+      white-space: nowrap;
+      margin-bottom: 2px;
+
+      .selected {
+        display: block;
+        box-sizing: border-box;
+        color: param-text-color(txt1, $txt1);
+        @include param-font(fnt, $fnt);
+        padding: 5px 1em 5px 5px;
+        overflow: hidden;
+        width: 100%;
+        border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+        @include param-border-radius(rd, $rd);
+        box-shadow: none;
+        margin: 0;
+      }
+
+      .after {
+        position: absolute;
+        color: param-text-color(txt1, $txt1);
+        right: param-border-size(brw, $brw);
+        padding-right: 5px;
+        font-family: Arial;
+        font-size: .6em;
+        @include param-border-radius(rd, $rd);
+        top: 50%;
+        margin-top: -1em;
+
+        &:before {
+          content: "▼";
+        }
+      }
+
+      select {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        background-image: none;
+        border: 0;
+        @include opacity(0);
+      }
+    }
+
+    .forPhone {
+      position: absolute;
+      display: block;
+      left: 95px;
+      right: 0;
+      top: 0;
+
+      input {
+        margin: 0;
+      }
+    }
+  }
+
+  button {
+    @include param-border-radius(rd, $rd);
+    @include param-box-shadow(shd, $shd);
+    background-color: param-bg-color(bg2, $bg2);
+    @include param-font(fnt2, $fnt2);
+    color: param-text-color(txt2, $txt2);
+    padding: 5px 10px;
+    border: 0;
+    cursor: pointer;
+    display: inline-block;
+    white-space: nowrap;
+    vertical-align: middle;
+    margin: 8px 0 0;
+    float: right;
+  }
+
+  input {
+    box-sizing: border-box;
+    color: param-text-color(txt1, $txt1);
+    @include param-border-radius(rd, $rd);
+    @include param-box-shadow(shd, $shd);
+    background-color: param-bg-color(bg1, $bg1);
+    @include param-font(fnt, $fnt);
+    border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+    padding: 5px;
+    width: 100%;
+
+    &.error {
+      border: mutate-size-param(maxbrw, max, 1, brw) solid param-border-color(txtError, $error-color);
+      color: param-border-color(txtError, $error-color);
+      @include param-font(fnt, $fnt);
+    }
+  }
+}
+
+[data-state~="left"] {
+  direction: ltr;
+  text-align: left;
+
+  #wrapper ul li.row label.cell {
+    text-align: left;
+  }
+}
+
+[data-state~="right"] {
+  direction: rtl;
+  text-align: right;
+
+  #wrapper {
+    ul li.row {
+      div.cell {
+        &.button span {
+          text-align: right;
+        }
+
+        &.button {
+          text-align: left;
+        }
+
+        select + input {
+          margin-right: 23%;
+        }
+      }
+
+      label.cell {
+        text-align: right;
+        padding: 0 0 5px 15px;
+      }
+    }
+
+    button {
+      float: left;
+    }
+
+    #phoneField {
+      direction: ltr;
+      text-align: left;
+
+      .forPhone input {
+        direction: ltr;
+        text-align: right;
+      }
+
+      .drop-list {
+        direction: ltr;
+        text-align: left;
+
+        .selected {
+          direction: ltr;
+          text-align: right;
+          padding-right: 20px;
+        }
+      }
+    }
+  }
+}
+
+[data-state~="mobile"] {
+
+  min-width: initial;
+  min-height: initial;
+  max-width: initial;
+  max-height: initial;
+
+  &[data-state~="right"] ul li.row div.cell .drop-list .selected {
+    padding-right: 20px;
+  }
+
+  &[data-state~="right"] #wrapper ul li.row label.cell {
+    text-align: right;
+  }
+
+  &[data-state~="left"] #wrapper ul li.row label.cell {
+    text-align: left;
+  }
+
+  #wrapper {
+    ul {
+      display: block;
+      width: 100%;
+      font-size: 14px;
+      padding: 0;
+      margin: 3px 0;
+
+      li.row {
+        display: block;
+        width: 100%;
+
+        label.cell {
+          display: block;
+          width: 100%;
+          font-size: 14px;
+          margin: 3px 0;
+        }
+
+        div.cell {
+          display: block;
+          width: 100%;
+          font-size: 14px;
+          padding: 0;
+          margin: 3px 0;
+
+          input {
+            width: 100%;
+            font-size: 14px;
+            padding: 0 5px;
+            margin: 0;
+            height: 45px;
+            line-height: 45px;
+            @include appearance(none);
+          }
+
+          .drop-list {
+            height: 45px;
+            margin-top: 0;
+            line-height: 45px;
+            width: 86px;
+
+            .selected {
+              height: 45px;
+              line-height: 35px;
+              font-size: 14px;
+            }
+
+            .after {
+              top: 0;
+              bottom: 0;
+              right: param-border-size(brw, $brw);
+              line-height: 45px;
+              font-size: 12px;
+              margin: 0;
+            }
+          }
+
+          span + input {
+            display: inline-block;
+          }
+
+          select {
+            font-size: 14px;
+            height: 45px;
+            line-height: 45px;
+          }
+          &.button {
+            span {
+              display: block;
+              text-align: center;
+              padding: 0;
+              width: 100%;
+            }
+
+            button {
+              margin-top: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

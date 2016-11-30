@@ -1,0 +1,197 @@
+{
+    "MediaContainerDesignData": {
+        "type": "object",
+        "properties": {
+            "charas": {"type": ["string", "null"] },
+            "background": {"type": ["string", "null"], "pseudoType": ["ref"]},
+            "dataChangeBehaviors": {"$ref": "dataChangeBehaviors"},
+
+            "cssStyle": {
+                "type": "object",
+                "properties": {
+                    "cssBorder": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"$ref": "cssBorder"}
+                        ]
+                    },
+
+                    "cssBorderRadius": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"$ref": "cssBorderRadius"}
+                        ]
+                    },
+
+                    "cssBoxShadow": {
+                        "oneOf": [
+                            {"type": "null"},
+                            {"$ref": "cssBoxShadow"}
+                        ]
+                    }
+                }
+            },
+
+            "themeMappings": {"type": "object"}
+        }
+    },
+    "dataChangeBehaviors": {
+        "type": ["array", "null"],
+        "items": {
+            "type": "object",
+            "properties": {
+                "trigger": {"type": "string"},
+                "type": { "type": "string"},
+                "part": {"type": "string"},
+                "name": {"type": "string"},
+                "params": {"type": "object"}
+            }
+        }
+    },
+    "BackgroundMedia": {
+        "type": "object",
+        "properties": {
+            "mediaRef": {"type": ["string", "null"], "pseudoType": ["ref"]},
+            "mediaTransforms": {"$ref": "BackgroundTransforms"},
+            "overlayTransforms": {"$ref": "BackgroundTransforms"},
+            "color": {"type": "string"},
+            "colorOpacity": {"type": "number"},
+            "alignType": {
+                "type": "string",
+                "enum": ["top", "bottom", "left", "right", "center", "top_left", "top_right", "bottom_left", "bottom_right"]
+            },
+            "fittingType": {
+                "type": "string",
+                "enum": ["fill", "fit", "stretch", "actual_size", "original_size", "tile", "tile_horizontal", "tile_vertical", "fit_and_tile", "legacy_tile", "legacy_tile_horizontal", "legacy_tile_vertical", "legacy_normal"]
+            },
+            "scrollType": {
+                "type": "string",
+                "enum": ["none", "fixed", "scroll", "local", "parallax"]
+            },
+            "showOverlayForMediaType": {
+                "type": "string",
+                "enum": ["all", "WixVideo", "Image"],
+                "default": "WixVideo"
+            },
+            "imageOverlay": {"type": ["string", "null"], "pseudoType": ["ref"]},
+            "colorOverlay": {"type": "string"},
+            "colorOverlayOpacity": {"type": "number"}
+        }
+    },
+    "BackgroundTransforms": {
+        "type": "object",
+        "properties": {
+            "scale": {"type": "number", "minimum": 0},
+            "opacity": {"type": "number", "minimum": 0, "maximum": 1}
+        }
+    },
+    "WixVideo": {
+        "type": "object",
+        "properties": {
+            "title": {
+                "type": "string",
+                "maxLength": 100
+            },
+            "videoId": {"type": "string"},
+            "qualities": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "quality": {"type": "string"},
+                        "width": {"type": "number"},
+                        "height": {"type": "number"},
+                        "formats": {
+                            "type": "array",
+                            "items": {"type": "string"}
+                        }
+                    }
+                }
+            },
+            "posterImageRef": {"type": ["string", "null"], "pseudoType": ["ref"]},
+            "duration": {"type": "number"},
+            "loop": {"type": "boolean"},
+            "autoplay": {"type": "boolean"},
+            "playbackSpeed": {"type": "number"},
+            "preload": {
+                "type": "string",
+                "enum": ["auto", "metadata", "none"]
+            },
+            "controls": {
+                "type": "string",
+                "enum": ["none", "full"]
+            },
+            "mute": {"type": "boolean"},
+            "opacity": {"type": "number"},
+            "artist": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "id": {"type": "string"}
+                }
+            }
+        }
+    },
+    "Image": {
+        "type": "object",
+        "properties": {
+            "link": {"type": ["string", "null"], "pseudoType": ["ref"]},
+            "title": {
+                "type": "string",
+                "default": "",
+                "maxLength": 100
+            },
+            "uri": {
+                "type": "string",
+                "default": ""
+            },
+            "description": {
+                "type": "string",
+                "maxLength": 1200
+            },
+            "height": {
+                "type": "number",
+                "default": 200
+            },
+            "width": {
+                "type": "number",
+                "default": 200
+            },
+            "borderSize": {"type": "string"},
+            "alt": {
+                "type": "string",
+                "default": ""
+            },
+            "originalImageDataRef": {
+                "type": ["string", "null"], "pseudoType": ["ref"],
+                "description": "Original Image before edit",
+                "default": null
+            },
+            "opacity": {"type": "number"},
+            "crop": {
+                "oneOf": [
+                    {
+                        "type": "null"
+                    },
+                    {
+                        "type": "object",
+                        "minProperties": 4,
+                        "properties": {
+                            "x": {"type": "number", "minimum": 0},
+                            "y": {"type": "number", "minimum": 0},
+                            "width": {"type": "number", "minimum": 0},
+                            "height": {"type": "number", "minimum": 0}
+                        }
+                    }
+                ]
+            },
+            "artist": {
+                "type": "object",
+                "properties": {
+                    "name": {"type": "string"},
+                    "id": {"type": "string"}
+                }
+            }
+        }
+    }
+}

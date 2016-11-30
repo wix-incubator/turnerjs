@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$rb1: color_14;
+$rb2: color_14;
+$brd: color_15;
+$brw: 2px;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+
+.container {
+  @include distance(0);
+  min-width: 80px !important;
+}
+
+#bg {
+  @include abs-distance(0);
+  margin: 0 40px;
+  @include param-box-shadow(shd, $shd);
+  background: param-bg-color(bg, $bg);
+  border: param-border-size(brw, $brw) solid param-border-color-alpha(brd, $brd);
+}
+
+#inlineContent {
+  @include abs-distance(0);
+}
+
+.top,
+.bot {
+  overflow: hidden;
+
+  &:after,
+  &:before {
+    position: absolute;
+    content: "";
+    overflow: hidden;
+  }
+
+  &:after {
+    left: 0;
+    border-left: 60px solid transparent;
+    border-right: 0;
+  }
+
+  &:before {
+    right: 0;
+    border-right: 60px solid transparent;
+    border-left: 0;
+  }
+}
+
+.top {
+  @include abs-distances(0, 0, 50%, 0);
+  margin-top: 10px;
+  &:before,
+  &:after {
+    top: 0;
+    border-top: 100px solid;
+  }
+  &:before {
+    border-top-color: param-border-color-alpha(rb2, $rb2);
+  }
+  &:after {
+    border-top-color: param-border-color-alpha(rb1, $rb1);
+  }
+}
+
+.bot {
+  @include abs-distances(50%, 0, 0, 0);
+  margin-bottom: 10px;
+
+  &:before,
+  &:after {
+    bottom: 0;
+    border-bottom: 100px solid;
+  }
+  &:before {
+    border-bottom-color: param-border-color-alpha(rb2, $rb2);
+  }
+  &:after {
+    border-bottom-color: param-border-color-alpha(rb1, $rb1);
+  }
+}

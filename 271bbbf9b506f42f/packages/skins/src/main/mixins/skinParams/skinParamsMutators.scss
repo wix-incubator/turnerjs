@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+// Created by Eitan Rousso
+@import "skinParamsThemeData";
+@import "skinParamsUtils";
+
+//***************************************************************************************
+//****************** SIZE mutators ***********************************************
+@function mutate-size-param($name, $fn, $amount, $mutated-param-name) {
+  @return wrap-mutator($name, $fn, SIZE, $amount, param, $mutated-param-name, 0);
+}
+
+//deprecated "mutate-size-const" - use a css rule with calc instead - this is a constant calculation involving some pixels value and param-size()
+
+
+//***************************************************************************************
+//****************** COLOR mutators ***********************************************
+@function mutate-color-param($name, $fn, $value, $mutated-param-name, $defaultOnly:null) {
+  @return wrap-mutator($name, $fn, COLOR, $value, param, $mutated-param-name, unquote('#fff'), $defaultOnly);
+}
+
+@function mutate-color-const($name, $fn, $value, $mutated-const) {
+  @return wrap-mutator($name, $fn, COLOR, $value, const, $mutated-const, unquote('#fff'));
+}
+
+//***************************************************************************************
+//****************** COLOR_ALPHA mutators ***********************************************
+@function mutate-color-alpha-param($name, $fn, $value, $mutated-param-name) {
+  @return wrap-mutator($name, $fn, COLOR_ALPHA, $value, param, $mutated-param-name, rgba(0, 0, 0, 0));
+}
+
+@function mutate-color-alpha-const($name, $fn, $value, $mutated-const) {
+  @return wrap-mutator($name, $fn, COLOR_ALPHA, $value, const, $mutated-const, rgba(0, 0, 0, 0));
+}
+
+//************************************************************************************
+//****************** BG_COLOR mutators ***********************************************
+@function mutate-bg-color-param($name, $fn, $value, $mutated-param-name, $defaultOnly:null) {
+  @return wrap-mutator($name, $fn, BG_COLOR, $value, param, $mutated-param-name, unquote('#fff'), $defaultOnly);
+}
+
+@function mutate-bg-color-const($name, $fn, $value, $mutated-const) {
+  @return wrap-mutator($name, $fn, BG_COLOR, $value, const, $mutated-const, unquote('#fff'));
+}

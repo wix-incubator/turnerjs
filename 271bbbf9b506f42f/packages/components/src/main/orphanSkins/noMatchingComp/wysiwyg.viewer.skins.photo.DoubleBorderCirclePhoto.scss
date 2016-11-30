@@ -1,0 +1,66 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$brd1: color_14;
+$brd2: color_14;
+$sz1: 4px;
+$sz2: 6px;
+$sz4: 10px;
+$sz3: 8px;
+$shd: 0 1px 3px rgba(0, 0, 0, .5);
+$rd: 50%;
+$contentPaddingLeft: sz2;
+$contentPaddingRight: sz2;
+$contentPaddingBottom: sz2;
+$contentPaddingTop: sz2;
+
+@include define-mapped-param(contentPaddingLeft, sz2);
+@include define-mapped-param(contentPaddingRight, sz2);
+@include define-mapped-param(contentPaddingBottom, sz2);
+@include define-mapped-param(contentPaddingTop, sz2);
+
+@include exports("img:skin", "skins.core.ImageNewSkinZoomable");
+
+:host {
+  background-color: param-bg-color(bg, $bg);
+  border: param-border-size(sz1, $sz1) solid param-border-color-alpha(brd1, $brd1);
+  box-sizing: border-box !important;
+  @include param-border-radius(rd, $rd);
+  @include param-box-shadow(shd, $shd);
+}
+
+#link {
+  box-sizing: border-box !important;
+  position: relative;
+  margin: param-margin-size(sz2, $sz2);
+  display: block;
+  @include param-border-radius(rd, $rd);
+  overflow: hidden;
+  height: 100%;
+}
+
+:host:after {
+  position: absolute;
+  content: "";
+  top: param-margin-size(sz4, $sz4);
+  bottom: param-margin-size(sz4, $sz4);
+  left: param-margin-size(sz4, $sz4);
+  right: param-margin-size(sz4, $sz4);
+  border: param-border-size(sz3, $sz3) solid param-border-color-alpha(brd2, $brd2);
+  @include param-border-radius(rd, $rd);
+}
+
+#img {
+  box-sizing: border-box !important;
+  overflow: hidden;
+}
+

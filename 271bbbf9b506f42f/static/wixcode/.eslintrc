@@ -1,0 +1,102 @@
+---
+  plugins:
+    - "react"
+    - "santa"
+    - "lodash"
+    - "wix-editor"
+  extends: "wix-editor"
+  rules:
+    no-console: 2
+    no-path-concat: 2
+    strict:
+      - 2
+      - "global"
+    quotes:
+      - 2
+      - "single"
+      - "avoid-escape"
+    space-before-function-paren:
+      - 2
+      - "never"
+    space-before-blocks: 2
+    quote-props: 2
+    object-curly-spacing:
+      - 2
+      - "always"
+    no-extra-parens: 2
+    indent:
+      - 2
+      - 2
+      - SwitchCase: 1
+    func-style:
+      - 2
+      - "declaration"
+    semi-spacing: 2
+    key-spacing: 2
+    no-use-before-define: 2
+    no-throw-literal: 2
+    no-multi-spaces: 2
+    consistent-this:
+      - 2
+      - "self"
+    id-match:
+      - 2
+      - "^\\$?[a-zA-Z0-9_]*$"
+    padded-blocks: 0
+    santa/enforce-package-access: 0
+    santa/module-definition: 2
+    santa/no-for-loop: 2
+    santa/no-window-location-origin: 2
+    wix-editor/prefer-ternary: 2
+    wix-editor/no-not-not: 2
+    wix-editor/return-boolean: 2
+    wix-editor/no-unneeded-match: 2
+    wix-editor/simplify-boolean-expression: 2
+    wix-editor/prefer-filter: 2
+    wix-editor/augmented-assignment: 2
+    no-duplicate-case: 2
+    react/display-name: 0
+    react/jsx-boolean-value: 0
+    react/jsx-quotes: 0
+    react/jsx-no-undef: 0
+    react/jsx-sort-props: 0
+    react/jsx-sort-prop-types: 0
+    react/jsx-uses-react: 0
+    react/jsx-uses-vars: 0
+    react/no-did-mount-set-state: 0
+    react/no-did-update-set-state: 0
+    react/no-multi-comp: 0
+    react/no-unknown-property: 0
+    react/prop-types: 0
+    react/react-in-jsx-scope: 0
+    react/self-closing-comp: 0
+    react/wrap-multilines: 0
+    react/sort-comp: 0
+    react/no-did-mount-callbacks-from-props: 0
+    lodash/prop-shorthand: 0
+    lodash/matches-prop-shorthand: 0
+    lodash/prefer-chain: 0
+    lodash/preferred-alias: 0
+    lodash/no-single-chain: 0
+    lodash/prefer-reject: 0
+    lodash/prefer-filter: 0
+    lodash/no-unnecessary-bind: 0
+    lodash/unwrap: 0
+    lodash/prefer-compact: 0
+    lodash/no-double-unwrap: 0
+    lodash/prefer-map: 0
+    lodash/prefer-wrapper-method: 0
+    lodash/prefer-invoke: 0
+    lodash/prefer-thru: 0
+    lodash/prefer-lodash-method: 0
+    lodash/prefer-lodash-typecheck: 0
+    lodash/no-commit: 0
+    lodash/prefer-get: 0
+    lodash/collection-return: 0
+    lodash/prefer-matches: 0
+    lodash/prefer-times: 0
+    lodash/prefer-includes: 0
+  env:
+    browser: true
+    node: true
+    jasmine: true

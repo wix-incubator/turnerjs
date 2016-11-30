@@ -1,0 +1,155 @@
+#if ($siteMetaData && $siteMetaData.quickActions && $siteMetaData.quickActions.configuration.quickActionsMenuEnabled)
+
+    #set( $imagesStaticUrl = ${topology.artifactResource("web", "images/wysiwyg/viewer")} )
+
+    #if($topology.runningExperiments.get("mobileactionsmenu")=="new")
+        <div style="display:none;">mobileactionsmenu available</div>
+    #else
+        <div style="display:none;">mobileactionsmenu unavailable</div>
+    #end
+
+
+    #if ($topology.runningExperiments && $siteMetaData.quickActions.configuration.mobileActionsMenuTypeOrNull=="VER2")
+
+        <link rel="stylesheet" type="text/css" href="${topology.artifactResource("web", "css/wysiwyg/quick_actions_hybrid.css")}">
+
+        <div id="mobileActionsMenu">
+            <div id="mobileActionsMenuOverlay"></div>
+            <div id="mobileActionsMenuLists"></div>
+            <div id="mobileActionsMenuNavigation"></div>
+        </div>
+
+        <script src="${topology.artifactResource("web", "libs/hammer.min.js")}"></script>
+        <script src="${topology.artifactResource("web", "javascript/wysiwyg/common/quick_actions_hybrid.js")}"></script>
+        <script>
+            if (MobileUtils.isMobile() && MobileUtils.isViewportOpen()){
+                WMobileActionsMenu.initialize();
+            }
+        </script>
+
+    #else
+
+        <link rel="stylesheet" type="text/css" href="${topology.artifactResource("web", "css/wysiwyg/quick_actions.css")}">
+        <style type="text/css">
+            .dark .quick-actions-sprite,
+            .dark .quick-actions-sprite-before:before,
+            .dark .quick-actions-sprite-after:after{
+                background-image : url($imagesStaticUrl/quickAction_darkSprite.png);
+            }
+            .dark .quick-actions-bg-gradient{
+                background-image : url($imagesStaticUrl/quickActions_dark_bg.png);
+            }
+
+            .light .quick-actions-sprite,
+            .light .quick-actions-sprite-before:before,
+            .light .quick-actions-sprite-after:after{
+                background-image : url($imagesStaticUrl/quickAction_lightSprite.png);
+            }
+            .light .quick-actions-bg-gradient{
+                background-image : url($imagesStaticUrl/quickAction_lightSprite.png);
+            }
+
+            .quick-actions-drop-up-x {
+                background-image: url($imagesStaticUrl/x.png);
+            }
+
+        </style>
+
+        <div id="quick-actions-menus-container">
+            #if ($siteMetaData.quickActions.configuration.navigationMenuEnabled)
+                <div id="qa-drop-up-pages" class="quick-actions-drop-up-wrapper">
+                    <div class="quick-actions-drop-up-back"></div>
+                    <div class="quick-actions-drop-up quick-actions-drop-up-open">
+                        <div class="quick-actions-drop-up-header">
+                            <span class='quick-actions-drop-up-title'>Pages</span>
+                            <span class='quick-actions-drop-up-x'></span>
+                        </div>
+
+                        <ul id="qa-drop-up-pages-list">
+                        </ul>
+                    </div>
+                </div>
+            #end
+
+            #if ($siteMetaData.quickActions.configuration.socialLinksEnabled)
+                <div id="qa-drop-up-social" class="quick-actions-drop-up-wrapper">
+                    <div class="quick-actions-drop-up-back"></div>
+                    <div class="quick-actions-drop-up quick-actions-drop-up-open">
+                        <div class="quick-actions-drop-up-header">
+                            <span class='quick-actions-drop-up-title'>See me on...</span>
+                            <span class='quick-actions-drop-up-x'></span>
+                        </div>
+
+                        <ul id="quick-actions-menus-social-links">
+                            #foreach($link in $siteMetaData.quickActions.socialLinks)
+                                <li><a href="${link.url}" target="_blank">${link.id}</a></li>
+                            #end
+                            <li class="quick-actions-drop-up-ugly-clearfix"></li>
+                        </ul>
+                    </div>
+                </div>
+            #end
+        </div>
+
+
+        <div id="quick-actions" class="quick-actions $siteMetaData.quickActions.colorScheme">
+            <div id="quick-actions-drag-handle" class="quick-actions-drag-handle quick-actions-sprite">
+                &nbsp
+            </div>
+
+            <div id="quick-actions-bar" class="quick-actions-bar quick-actions-bg-gradient">
+
+                <ul id="qa-menu" class="quick-actions-menu">
+                    #if ($siteMetaData.quickActions.configuration.navigationMenuEnabled)
+                        <li id="quick-actions-pages-button" class="qa-new-menus-hide quick-actions-item quick-actions-site-nav quick-actions-sprite disabled">
+                            <div class="quick-actions-site-nav-button quick-actions-sprite">
+                                    <a class="quick-actions-button quick-actions-sprite"></a>
+                            </div>
+                        </li>
+                    #end
+                    #if ($siteMetaData.contactInfoOrNull)
+                        #if ($siteMetaData.quickActions.configuration.phoneEnabled && $siteMetaData.contactInfoOrNull.phone)
+
+                            <li class="quick-actions-item quick-actions-call quick-actions-sprite">
+                                <a id="quick-actions-call" class="quick-actions-button quick-actions-sprite" href="#">Phone
+                                    number</a>
+                            </li>
+                        #end
+                        #if ($siteMetaData.quickActions.configuration.emailEnabled && $siteMetaData.contactInfoOrNull.email)
+
+                            <li class="quick-actions-item quick-actions-email quick-actions-sprite">
+                                <a id="quick-actions-email" class="quick-actions-button quick-actions-sprite" href="#">Email</a>
+                            </li>
+                        #end
+                        #if ($siteMetaData.quickActions.configuration.addressEnabled && $siteMetaData.contactInfoOrNull.address)
+
+                            <li class="quick-actions-item quick-actions-location quick-actions-sprite">
+                                <a id="quick-actions-location" class="quick-actions-button quick-actions-sprite" href="#">Location</a>
+                            </li>
+                        #end
+                    #end
+                    #if ($siteMetaData.quickActions.configuration.socialLinksEnabled)
+                        <li id="quick-actions-social-button" class="qa-new-menus-hide quick-actions-item quick-actions-social quick-actions-sprite">
+                            <a class="quick-actions-button quick-actions-sprite" href="#"></a>
+                        </li>
+                    #end
+
+
+                </ul>
+
+            </div>
+        </div>
+
+        <script src="${topology.artifactResource("web", "libs/hammer.min.js")}"></script>
+        <script src="${topology.artifactResource("web", "javascript/wysiwyg/viewer/quick_actions_new_menus.js")}"></script>
+        <script>
+            if (MobileUtils.isMobile() && MobileUtils.isViewportOpen()){
+                WQuickActions.element.style.visibility = "visible";
+                WQuickActions.initialize();
+            } else if(WQuickActions && WQuickActions.element){
+                WQuickActions.element.style.display = 'none';
+            }
+        </script>
+    #end
+
+#end

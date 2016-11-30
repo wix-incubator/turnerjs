@@ -1,0 +1,11 @@
+{
+    "createTime": "2014-06-12T12:51:00",
+    "owner": "idanb",
+    "description": "Angular Editor Panels",
+    "constraints": {
+        "NGDialogManagement": "required-before"
+    },
+    "tags": [
+        "editor"
+    ]
+}

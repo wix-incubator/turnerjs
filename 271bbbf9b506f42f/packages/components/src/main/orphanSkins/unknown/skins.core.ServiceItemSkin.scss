@@ -1,0 +1,145 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$themeDir: THEME_DIRECTORY;
+$_fontTitle: fontSubTitle;
+$_font: fontText;
+$fontColor: textColor;
+$_bgColor: areaBgColor;
+$bgColor: areaBgColor;
+$_borderRadius: radiusContainer;
+$border: borderContainer;
+$itemSpacing: itemSpacing;
+$moreFontColor: areaBgColor;
+$_moreBgColor: textColor;
+
+
+
+:host {
+  position: relative;
+  padding: .5em;
+  transition: all .3s ease-in-out;
+  min-height: 7.5em;
+  max-height: 1000%;
+  overflow: hidden;
+  margin-bottom: param-cssstring(itemSpacing, $itemSpacing);
+  border: param-cssstring(border, $border);
+  @include param-border-radius(_borderRadius, $_borderRadius);
+}
+
+:host > .bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: param-bg-color(_bgColor, $_bgColor);
+  background-image: param-url(themeDir, $themeDir, "inlineShadow.png");
+  background-repeat: repeat-x;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+}
+
+:host > .btnIcon {
+  z-index: $zindex-service-item-skin-button-icon-after-host;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  vertical-align: top;
+  margin-right: .5em;
+  width: 6em;
+  height: 6em;
+}
+
+:host > .btnIcon img {
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  padding: 0!important;
+  margin: 0!important;
+}
+
+:host > .info {
+  position: relative;
+  @include param-border-radius(_borderRadius, $_borderRadius);
+  min-height: 7em;
+  margin-top: 0em;
+  margin-bottom: 1em;
+}
+
+:host > .info > .label {
+  color: param-text-color(fontColor, $fontColor);
+  @include param-font(_fontTitle, $_fontTitle);
+  margin-bottom: .1em;
+}
+
+:host > .info > .richTextContainer {
+  display: block;
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor);
+  word-wrap: break-word;
+}
+
+:host > .info > .richTextContainer p {
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor)! important;
+}
+
+:host > .info > .richTextContainer span {
+  @include param-font(_font, $_font);
+  color: param-text-color(fontColor, $fontColor)! important;
+}
+
+:host > .readMore {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  cursor: pointer;
+  background-color: param-bg-color(_moreBgColor, $_moreBgColor);
+  @include param-border-radius(_borderRadius, $_borderRadius);
+}
+
+:host > .readMore> div[data-skinPart="readMore"] {
+  position: relative;
+  @include param-font(_font, $_font);
+  font-weight: bold;
+  text-align: center;
+  color: param-text-color(moreFontColor, $moreFontColor);
+  padding: .25em 0;
+}
+
+:host > .readMore> div.topCornerFix {
+  position: absolute;
+  background-color: param-bg-color(_moreBgColor, $_moreBgColor);
+  height: 50%;
+  width: 100%;
+  border-top: 2px solid param-color(bgColor, $bgColor);
+}
+
+[data-state="cutClosed"] {
+  max-height: 7.5em;
+  height: 7.5em;
+}
+
+[data-state="cutOpened"] {
+  padding-bottom: 1.5em;
+}
+
+[data-state="uncut"] .info {
+  min-height: 0!important;
+}
+
+[data-state="uncut"] {
+  min-height: 0!important;
+}
+
+[data-state="uncut"] .readMore {
+  display: none;
+}
+

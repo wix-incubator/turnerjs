@@ -1,0 +1,8 @@
+{
+    "owner": "mayasc",
+    "description": "fileUploader - new developer component",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

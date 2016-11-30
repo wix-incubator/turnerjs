@@ -1,0 +1,9 @@
+{
+    "owner": "guyr",
+    "description": "check that moving from new users to all users is consistent",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "onlyForLoggedInUsers": "true",
+    "constraints": {}
+}

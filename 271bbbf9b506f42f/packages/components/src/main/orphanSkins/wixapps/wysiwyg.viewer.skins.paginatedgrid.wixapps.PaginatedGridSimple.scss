@@ -1,0 +1,83 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_11;
+$bgh: color_11;
+$strip: color_18;
+$rbn: color_23;
+$itemBrw: 0;
+$itemBrc: color_16;
+$itemBrch: color_18;
+$txth: color_18;
+$paging: color_15;
+$tdr: BASE_THEME_DIRECTORY;
+$rd: 0;
+
+@include exports("heightDiff", 40);
+
+#itemsContainer {
+  overflow: hidden;
+}
+
+.hid {
+  display: none;
+}
+
+.galleryDisplayer {
+  box-sizing: border-box;
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  border: param-border-size(itemBrw, $itemBrw) solid param-border-color-alpha(itemBrc, $itemBrc);
+  cursor: pointer !important;
+}
+
+.galleryDisplayer .rolloverStrip {
+  background: transparent;
+}
+
+.galleryDisplayer .ribbon {
+  background-color: param-bg-color(rbn, $rbn);
+}
+
+.galleryDisplayer:hover .rolloverStrip {
+  background: param-bg-color(strip, $strip);
+}
+
+.galleryDisplayer:hover .txtHoverColor * {
+  color: param-text-color(txth, $txth);
+}
+
+.galleryDisplayer:hover {
+  background-color: param-bg-color(bgh, $bgh);
+  border-color: param-border-color-alpha(itemBrch, $itemBrch);
+}
+
+.galleryDisplayer:hover .pic:after {
+  content: "";
+  @include abs-distances(0, 0, -6px, 0);
+  background: transparent param-url(tdr, $tdr, "wix_apps/magnify.png") right top no-repeat;
+  border-bottom: solid 3px param-text-color(txth, $txth);
+}
+
+ul {
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  color: param-text-color(paging, $paging) !important;
+}
+
+li {
+  padding: 0 5px;
+  display: inline !important;
+  font-size: 14px;
+  color: param-text-color(paging, $paging) !important;
+}
+

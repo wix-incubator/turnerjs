@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@import 'dropDownMenuBase';
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.TextOnlyMenuButtonNSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+#itemsContainer {
+  position: relative;
+  overflow: hidden;
+}
+
+#dropWrapper {
+  visibility: hidden;
+  position: absolute;
+  margin-top: 7px;
+}
+
+#dropWrapper[data-dropMode="dropUp"]{
+  margin-top: 0;
+  margin-bottom: 7px;
+}
+
+#moreContainer {
+}
+

@@ -1,0 +1,138 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+@import 'menuButtonBase';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$fnt: font_1;
+$txt: color_15;
+$txth: color_15;
+$txts: color_15;
+$pad: 5px;
+$brw: 0;
+$brd: color_15;
+$brdh: color_15;
+$brds: color_15;
+$bg: color_11;
+$bgh: color_17;
+$bgs: color_18;
+$rd: 10px;
+$rd-drop: 10px;
+$nord: 0;
+$rdTop: rdDrop;
+$rdBottom: rdDrop;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$noshd: none;
+$trans: background-color .4s ease 0s;
+$trans2: color .4s ease 0s;
+$trans3: border-color .4s ease 0s;
+
+@include define-mapped-param(childrenSpacing, pad);
+@include sum-params(menuButtonBorders, brw, brw);
+
+:host {
+  display: inline-block;
+  margin: 0 param-margin-size(pad, $pad);
+}
+
+#label {
+  @include param-transition(trans2, $trans2);
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  display: inline-block;
+}
+
+.wrapper {
+  @include param-transition(trans, $trans);
+  @include param-border-radius(rd, $rd);
+  background-color: param-bg-color(bg, $bg);
+  @include param-box-shadow(shd, $shd);
+  cursor: pointer;
+}
+
+#borderWrapper {
+  @include param-transition(trans3, $trans3);
+  @include param-border-radius(rd, $rd);
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+}
+
+[data-state~="drop"] {
+  display: block;
+  margin: 0;
+
+  .wrapper {
+    background-color: transparent;
+    @include param-transition(trans, $trans);
+    @include param-box-shadow(noshd, $noshd);
+    @include param-border-radius(nord, $nord);
+  }
+
+  #borderWrapper {
+    border: 0;
+  }
+}
+
+[data-listposition="dropLonely"],
+[data-listposition="top"],
+[data-listposition="bottom"] {
+  .wrapper {
+    @include param-border-radius(rdDrop, $rd-drop);
+  }
+}
+
+[data-listposition="top"] .wrapper {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+[data-listposition="bottom"] .wrapper {
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+[data-state~="over"],
+[data-state~="selected"] {
+  .wrapper {
+    @include param-transition(trans, $trans);
+  }
+
+  #label {
+    @include param-transition(trans2, $trans2);
+  }
+
+  #borderWrapper {
+    @include param-transition(trans3, $trans3);
+  }
+}
+
+[data-state~="over"] {
+  #label {
+    color: param-text-color(txth, $txth);
+  }
+
+  .wrapper {
+    background-color: param-bg-color(bgh, $bgh);
+  }
+
+  #borderWrapper {
+    border-color: param-border-color-alpha(brdh, $brdh);
+  }
+}
+
+[data-state~="selected"] {
+  #label {
+    color: param-text-color(txts, $txts);
+  }
+
+  .wrapper {
+    background-color: param-bg-color(bgs, $bgs);
+  }
+
+  #borderWrapper {
+    border-color: param-border-color-alpha(brds, $brds);
+  }
+}

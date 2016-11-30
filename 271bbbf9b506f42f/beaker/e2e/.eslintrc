@@ -1,0 +1,36 @@
+{
+    "rules": {
+        "array-bracket-spacing": [2, "never"],
+        "comma-spacing": 2,
+        "consistent-this": 2,
+        "dot-location": [2, "property"],
+        "func-style": [2, "declaration", {"allowArrowFunctions": true}],
+        "indent": [2, 4, {"SwitchCase": 1}],
+        "key-spacing": [2, { "beforeColon": false, "afterColon": true }],
+        "no-extra-parens": 0,
+        "no-multi-spaces": 2,
+        "no-throw-literal": 2,
+        "no-use-before-define": 0,
+        "object-curly-spacing": [2, "never"],
+        "operator-linebreak": [2, "after"],
+        "quote-props": [2, "as-needed"],
+        "quotes": [2, "single", "avoid-escape"],
+        "semi-spacing": [2, {"before": false, "after": true}],
+        "space-before-blocks": [2, "always"],
+        "space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+        "strict": [2, "global"],
+
+        "santa/enforce-package-access": 0,
+        "santa/module-definition": 0,
+        "lodash/prefer-includes": 0
+    },
+    "env": {
+        "browser": false,
+        "node": true,
+        "amd": true,
+        "jasmine": true,
+        "es6": true
+    },
+    "globals": {
+    }
+}

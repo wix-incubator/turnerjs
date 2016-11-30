@@ -1,0 +1,31 @@
+{
+    "createTime": "2000-01-01T01:16:00",
+    "owner": "Ido, Denis",
+    "description": "Fixes flow for TopologyUrl appliance to get images from custom url",
+    "constraints": {
+        "Staff": "optional-before",
+        "Dev": "optional-before",
+        "TPAExtensions": "optional-before",
+        "VerifyPremium": "optional-before",
+        "NewFetchPolicy": "optional-before",
+        "AppBuilderPage": "optional-before",
+        "RichTextMigrationStudio": "optional-before",
+        "PublishMarketingBanner": "optional-before",
+        "DummyExp1": "optional-before",
+        "DummyExp2": "optional-before",
+        "DummyExp3": "optional-before",
+        "DummyExp4": "optional-before",
+        "DummyExp6": "optional-before",
+        "DummyExp7": "optional-before",
+        "DummyExp8": "optional-before",
+        "DummyExp9": "optional-before",
+        "DummyExp10": "optional-before",
+        "noPaddingBox": "optional-before",
+        "FixTouchSupportBug": "optional-before",
+        "MobileQuickActions": "optional-before"
+    },
+    "tags": [
+        "viewer",
+        "editor"
+    ]
+}

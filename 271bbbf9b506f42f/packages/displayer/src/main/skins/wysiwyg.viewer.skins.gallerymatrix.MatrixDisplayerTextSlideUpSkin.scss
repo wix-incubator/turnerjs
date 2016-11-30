@@ -1,0 +1,131 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import 'mixins/displayerMixins';
+@include displayer-text-overflow;
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$tdr: BASE_THEME_DIRECTORY;
+$brd: color_15;
+$bgh: color_11;
+$lbgh: color_11;
+$ttl: color_15;
+$txt: color_15;
+$brw: 0;
+$rd: 0;
+$shd: 0 1px 4px rgba(0, 0, 0, .6);
+$fntt: font_8;
+$fntds: font_9;
+$trans: bottom .3s ease-in-out;
+$padding-size: 9px;
+
+@include define-mapped-param(imageWrapperBottom, brw);
+@include define-mapped-param(imageWrapperTop, brw);
+@include define-mapped-param(imageWrapperRight, brw);
+@include define-mapped-param(imageWrapperLeft, brw);
+
+@include exports("image:skin", "skins.core.ImageSkin");
+
+#imageWrapper,
+.imgBorder,
+#image,
+#zoom,
+zoomContentWrapper {
+  @include param-border-radius(rd, $rd);
+}
+
+#imageWrapper,
+.imgBorder,
+#zoom {
+  @include abs-distance(0);
+}
+
+#imageWrapper {
+  @include param-box-shadow(shd, $shd);
+}
+
+.imgBorder {
+  border: solid param-border-size(brw, $brw) param-border-color-alpha(brd, $brd);
+  background: param-border-color-alpha(brd, $brd);
+}
+
+#zoom {
+  overflow: hidden;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#zoomContentWrapper {
+  @include abs-distances(auto, 0, -100%, 0);
+  padding: 0;
+  background: param-bg-color(bgh, $bgh);
+  @include param-transition(trans, $trans);
+  overflow: hidden;
+  height: auto;
+  max-height: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+:host:hover {
+  #zoom {
+    @include opacity(1);
+    @include param-transition(trans, $trans);
+  }
+
+  #zoomContentWrapper {
+    height: auto;
+    bottom: 0;
+  }
+}
+
+#title {
+  @include param-font(fntt, $fntt);
+  color: param-text-color(ttl, $ttl);
+  white-space: nowrap;
+  margin-top: mutate-size-param(paddingTop, decrease, 1, paddingSize);
+  margin-left: mutate-size-param(paddingLeft, increase, 2, paddingSize);
+  margin-right: param-margin-size(paddingSize, $padding-size);
+}
+
+#description,
+#link {
+  color: param-text-color(txt, $txt);
+  @include param-font(fntds, $fntds);
+  margin: 0 param-margin-size(paddingSize, $padding-size) param-margin-size(paddingSize, $padding-size) mutate-size-param(paddingLeft, increase, 2, paddingSize);
+}
+
+#link {
+  white-space: nowrap;
+  text-decoration: underline !important;
+}
+
+#title:empty {
+  margin-top: 0;
+
+  + #description:empty + #link:not(:empty) {
+    margin-top: param-margin-size(paddingSize, $padding-size);
+  }
+
+  + #description:not(:empty) {
+    margin-top: param-margin-size(paddingSize, $padding-size);
+  }
+}
+
+#description:empty {
+  margin-bottom: 0;
+}
+
+#title:not(:empty) + #description:empty {
+  margin-bottom: param-margin-size(paddingSize, $padding-size);
+}
+
+@include align-states();
+
+[data-state~="noLink"] #link {
+  display: none;
+}

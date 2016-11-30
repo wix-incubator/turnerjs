@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions.
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$webThemeDir: WEB_THEME_DIRECTORY;
+
+:host {
+  width: 237px;
+  height: 377px;
+}
+
+#iframe {
+  border: 0;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+}
+
+[data-state~="noError"] {
+  #errorDiv {
+    display: none;
+  }
+}
+
+[data-state~="error"] {
+  #errorDiv {
+    display: inline;
+    position: absolute;
+    height: 274px;
+    width: 225px;
+    background: transparent param-url(webThemeDir, $webThemeDir, "pinWidget/pinWidgetError.png");
+  }
+}

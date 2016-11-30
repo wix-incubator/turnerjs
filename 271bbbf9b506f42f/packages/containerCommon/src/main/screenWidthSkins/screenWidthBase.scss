@@ -1,0 +1,20 @@
+@charset "UTF-8";
+@import '../../../../components/src/main/mixins/components-base';
+
+#screenWidthBackground {
+  @include abs-distance(0);
+}
+
+[data-state ~="mobileView"] {
+  position: absolute!important;
+}
+
+[data-state ~="fixedPosition"] {
+  position: fixed!important;
+  left: auto!important;
+  z-index: $zindex-screen-width-base-fixedPosition;
+  &.footer{
+    top: auto;
+    bottom: 0;
+  }
+}

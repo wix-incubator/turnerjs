@@ -1,0 +1,11 @@
+{
+  "services": {
+    "metasite": "http://localhost:3034",
+    "publicHtml": "http://localhost:3033",
+    "htmlRenderer": "http://localhost:3033"
+  },
+  "clientTopology": {
+    "baseStaticUrl": "http://localhost:3200/"
+  },
+  "petriScopes": []
+}

@@ -1,0 +1,8 @@
+@import '../../../../components/src/main/mixins/components-base';
+
+[data-state~="squared"] {
+  &,
+  #mapContainer {
+    border-radius: 0;
+  }
+}

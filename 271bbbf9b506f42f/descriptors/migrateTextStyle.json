@@ -1,0 +1,8 @@
+{
+    "owner": "noamsi",
+    "description": "Enable data fixer to fix the very old text styles and skin",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

@@ -1,0 +1,19 @@
+{
+    "plugins": [
+        "jasmine"
+    ],
+    "rules": {
+        "santa/module-definition": 0,
+        "santa/enforce-package-access": 0,
+        "jasmine/no-spec-dupes": 0,
+        "jasmine/no-suite-dupes": 0,
+        "jasmine/missing-expect": 0,
+        "jasmine/no-suite-callback-args": 2,
+        "jasmine/no-focused-tests": 2,
+        "jasmine/valid-expect": 2,
+        "jasmine/no-disabled-tests": 0
+    },
+    "env": {
+        "jasmine": true
+    }
+}

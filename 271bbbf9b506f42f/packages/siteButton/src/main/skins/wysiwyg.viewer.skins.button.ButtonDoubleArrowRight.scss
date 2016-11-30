@@ -1,0 +1,146 @@
+@charset "UTF-8";
+
+@import '../../../../components/src/main/mixins/components-base';
+@import './button-common';
+
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bg: color_17;
+$bgh: color_18;
+$txth: color_15;
+$txt: color_15;
+$fnt: font_5;
+
+
+
+.wrapper {
+  @include abs-distance(0);
+  width: 50%;
+}
+
+.container {
+  position: absolute;
+  height: 50%;
+  overflow: hidden;
+  width: 80%;
+}
+
+.right {
+  left: 120%;
+  height: 100%;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.ribbon {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-style: solid;
+}
+
+.right .ribbon {
+  right: 0;
+  height: 100%;
+}
+
+.top .ribbon {
+  top: 0;
+}
+
+.bottom .ribbon {
+  bottom: 0;
+}
+
+.top.left .ribbon {
+  border-color: transparent param-border-color-alpha(bg, $bg) transparent transparent;
+  border-width: 0 500px 500px 0;
+}
+
+.bottom.left .ribbon {
+  border-color: transparent transparent param-border-color-alpha(bg, $bg) transparent;
+  border-width: 0 0 500px 500px;
+}
+
+.right .ribbon:before {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  right: 0;
+  width: 100%;
+  border-style: solid;
+  border-color: param-border-color-alpha(bg, $bg) transparent;
+  border-width: 500px 500px 0 0;
+  top: 50%;
+}
+
+.right .ribbon:after {
+  position: absolute;
+  content: "";
+  overflow: hidden;
+  right: 0;
+  width: 100%;
+  border-style: solid;
+  border-color: param-border-color-alpha(bg, $bg) transparent;
+  border-width: 0 500px 500px 0;
+  bottom: 50%;
+}
+
+.filler {
+  position: absolute;
+  width: 50%;
+  background-color: param-border-color-alpha(bg, $bg);
+  width: 40%;
+  height: 100%;
+  left: 80%;
+}
+
+#link {
+  @include abs-distance(0);
+  overflow: hidden;
+  height: 100%;
+  cursor: pointer !important;
+}
+
+#label {
+  @include param-font(fnt, $fnt);
+  color: param-text-color(txt, $txt);
+  white-space: nowrap;
+  display: inline-block;
+  position: relative;
+}
+
+:host {
+  &:active[data-state~="mobile"],
+  &:hover[data-state~="desktop"] {
+    #label {
+      color: param-text-color(txth, $txth);
+    }
+
+    .top.left .ribbon {
+      border-right-color: param-border-color-alpha(bgh, $bgh);
+    }
+
+    .bottom.left .ribbon {
+      border-bottom-color: param-border-color-alpha(bgh, $bgh);
+    }
+
+    .right .ribbon:before {
+      border-color: param-border-color-alpha(bgh, $bgh) transparent;
+    }
+
+    .right .ribbon:after {
+      border-color: param-border-color-alpha(bgh, $bgh) transparent;
+    }
+
+    .filler {
+      background-color: param-border-color-alpha(bgh, $bgh);
+    }
+  }
+}

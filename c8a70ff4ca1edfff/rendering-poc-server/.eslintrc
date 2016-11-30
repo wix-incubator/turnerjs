@@ -1,0 +1,7 @@
+{
+  extends: "wix/react",
+  "env": {
+    "browser": true,
+    "node": true
+  }
+}

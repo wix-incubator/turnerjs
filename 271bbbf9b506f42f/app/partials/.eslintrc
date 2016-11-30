@@ -1,0 +1,17 @@
+{
+    "rules": {
+        "no-unused-vars": 0,
+        "santa/enforce-package-access": 0,
+        "santa/module-definition": 2,
+        "simplify-if": 0,
+        "strict": 0,
+        "lodash/prefer-includes": 0
+    },
+    "env": {
+      "browser": true
+    },
+    "globals": {
+        "joinURL": true,
+        "queryUtil": true
+    }
+}

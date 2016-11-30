@@ -1,0 +1,8 @@
+{
+    "owner": "lidanh",
+    "description": "report new contact form activity payload",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

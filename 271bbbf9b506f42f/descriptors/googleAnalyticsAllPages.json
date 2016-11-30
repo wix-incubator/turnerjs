@@ -1,0 +1,8 @@
+{
+    "owner": "shaila",
+    "description": "report google analytics page event also for internal pages such as tpa",
+    "scopes": [
+        "santa-viewer"
+    ],
+    "constraints": {}
+}

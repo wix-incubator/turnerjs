@@ -1,0 +1,15 @@
+.hidden-comp-ghost-mode {
+  opacity: 0.5;
+}
+
+.g-transparent-a {
+  &:link,
+  &:visited {
+    border-color: transparent;
+  }
+}
+
+.transitioning-comp * {
+  transition: inherit !important;
+  -webkit-transition: inherit !important;
+}

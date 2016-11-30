@@ -1,0 +1,10 @@
+.floating-dropdown {
+  position: fixed;
+  background: white;
+  border: 1px solid black;
+  left: 0;
+  top: 30px;
+  padding: 8px;
+  z-index: 1;
+  min-width: 100px;
+}

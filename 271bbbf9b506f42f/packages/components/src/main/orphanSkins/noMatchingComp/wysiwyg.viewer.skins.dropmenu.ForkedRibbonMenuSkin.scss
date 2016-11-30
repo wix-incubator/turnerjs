@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$bgDrop: color_11;
+$bg: color_14;
+
+@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.ForkedRibbonMenuButtonSkin");
+@include exports("repeaterButton:styleGroup", "inherit");
+
+b {
+  position: absolute;
+  width: 50%;
+  height: 50%;
+  overflow: hidden;
+}
+
+#itemsContainer {
+  position: absolute;
+  margin: 0 50px;
+  background-color: param-border-color(bg, $bg);
+}
+
+b.tr {
+  right: 0;
+}
+
+b.bl {
+  bottom: 0;
+}
+
+b.br {
+  bottom: 0;
+  right: 0;
+}
+
+b:after {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  content: "";
+  border: 1000px solid transparent;
+  @include rotate(360);
+}
+
+b.tl:after {
+  top: 0;
+  left: 0;
+  border-top-color: param-border-color(bg, $bg);
+  border-left-width: 500px;
+}
+
+b.tr:after {
+  top: 0;
+  right: 0;
+  border-top-color: param-border-color(bg, $bg);
+  border-right-width: 500px;
+}
+
+b.bl:after {
+  bottom: 0;
+  left: 0;
+  border-bottom-color: param-border-color(bg, $bg);
+  border-left-width: 500px;
+}
+
+b.br:after {
+  bottom: 0;
+  right: 0;
+  border-bottom-color: param-border-color(bg, $bg);
+  border-right-width: 500px;
+}
+
+#dropWrapper {
+  position: absolute;
+  top: 100%;
+  margin-bottom: -42px;
+}
+
+#dropWrapper:after {
+  content: "⬆";
+  position: absolute;
+  font-size: 20px;
+  top: -13px;
+  left: 50%;
+  margin-left: -6px;
+  color: param-text-color(bgDrop, $bgDrop);
+  overflow: hidden;
+  height: 13px;
+}
+
+#moreContainer {
+  background-color: param-text-color(bgDrop, $bgDrop);
+}
+

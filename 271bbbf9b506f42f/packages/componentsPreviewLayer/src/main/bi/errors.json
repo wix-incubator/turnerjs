@@ -1,0 +1,11 @@
+{
+    "CONTACT_FORM_EMAIL_DECRYPT_FAILURE": {
+        "errorCode": 21052,
+        "severity": "warning",
+        "params": {
+            "p1": "dataFieldName",
+            "p2": "originalMail",
+            "p3": "errorMsg"
+        }
+    }
+}

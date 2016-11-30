@@ -1,0 +1,7 @@
+{
+    "owner": "omerga",
+    "description": "Call tpa's post-save settle on autosave",
+    "scopes": [
+        "santa-viewer"
+    ]
+}

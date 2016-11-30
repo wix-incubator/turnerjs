@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+@import 'VerticalMenuBaseSkin';
+
+// ***************************************************************************************************************************************
+// NOTE: *DO NOT* change the param names on existing skins (e.g. brd, shd, bg, etc) - the first argument passed to the param() functions. 
+// these are saved in the site's data, changing them will break the site.
+// you may give skin params any name you wish - but only in new components and their (new) skins.
+// ***************************************************************************************************************************************
+$font: font_1;
+$sub-menu-font: font_1;
+
+$text-color: color_15;
+$hover-text-color: color_13;
+$selected-text-color: color_13;
+
+$separator-color: color_15;
+$separator-width: 1px;
+
+$background-color: color_11;
+$sub-menu-background-color: color_11;
+$hover-background-color: color_15;
+$selected-background-color: color_15;
+
+$border-radius: 0;
+$border-width: 1px;
+$border-color: color_15;
+
+$sub-menu-border-radius: 0;
+$sub-menu-margin: 0;
+$sub-menu-opacity-transition: all .4s ease 0s;
+
+$text-spacing: 10px;
+$box-shadow: 0 1px 4px rgba(0, 0, 0, .6);
+$item-background-color-transition: background-color .4s ease 0s;
+
+@include define-mapped-param(separatorHeight, sepw);
+@include sum-params(dropdownMarginReal, SKINS_submenuMargin, brw);
+@include exports(separatorNotIncludedInLineHeight, true);
+
+#menuContainer {
+  padding: 0;
+  margin: 0;
+  border: solid param-border-size(brw, $border-width) param-border-color-alpha(brd, $border-color);
+  position: relative;
+  @include param-box-shadow(shd, $box-shadow);
+  @include param-border-radius(rd, $border-radius);
+
+  .emptySubMenu {
+    display: none !important;
+  }
+}
+
+.itemHoverArea {
+  box-sizing: content-box;
+  border-bottom: solid param-border-bottom-size(sepw, $separator-width) param-color-alpha(sep, $separator-color);
+
+  &:first-child > .item {
+    @include param-border-radius(rd, $border-radius);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  &:last-child {
+    border-bottom: 0 solid transparent;
+
+    > .item {
+      @include param-border-radius(rd, $border-radius);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom: 0 solid transparent;
+    }
+  }
+
+  &.hover,
+  &.selected,
+  &.selectedContainer {
+    > .item {
+      @include param-transition(itemBGColorTrans, $item-background-color-transition);
+    }
+  }
+
+  &.hover {
+    .subMenu {
+      @include opacity(1);
+      display: block;
+    }
+
+    :not(.noLink) {
+      > .item {
+        background-color: param-bg-color(bgh, $hover-background-color);
+
+        > .label {
+          color: param-text-color(txth, $hover-text-color);
+        }
+      }
+    }
+  }
+
+  &.selected,
+  &.selectedContainer {
+    > .item {
+      background-color: param-bg-color(bgs, $selected-background-color);
+
+      > .label {
+        color: param-text-color(txts, $selected-text-color);
+      }
+    }
+  }
+}
+
+.item {
+  height: 100%;
+  padding-left: param-padding-size(textSpacing, $text-spacing);
+  padding-right: param-padding-size(textSpacing, $text-spacing);
+  @include param-transition(itemBGColorTrans, $item-background-color-transition);
+  margin: 0;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+  background-color: param-bg-color(bg, $background-color);
+}
+
+.label {
+  @include param-font(fnt, $font);
+  color: param-text-color(txt, $text-color);
+  display: inline;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.subMenu {
+  z-index: $zindex-vertical-menu-solid-color-skin-sub-menu;
+  min-width: 100%;
+  display: none;
+  @include opacity(0);
+  @include param-transition(subMenuOpacityTrans, $sub-menu-opacity-transition);
+  position: absolute;
+  border: solid param-border-size(brw, $border-width) param-border-color-alpha(brd, $border-color);
+  @include param-border-radius(SKINS_submenuBR, $sub-menu-border-radius);
+  @include param-box-shadow(shd, $box-shadow);
+
+  .item {
+    background-color: param-bg-color(SKINS_bgSubmenu, $sub-menu-background-color);
+  }
+
+  .label {
+    @include param-font(SKINS_fntSubmenu, $sub-menu-font);
+  }
+
+  > .itemHoverArea:first-child {
+    > .item,
+    &:last-child > .item {
+      @include param-border-radius(SKINS_submenuBR, $sub-menu-border-radius);
+    }
+
+    > .item {
+      border-bottom-left-radius: 0;
+      border-bottom-right-radius: 0;
+    }
+  }
+
+  > .itemHoverArea:last-child {
+    border-bottom: 0 solid transparent;
+
+    > .item {
+      @include param-border-radius(SKINS_submenuBR, $sub-menu-border-radius);
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom: 0 solid transparent;
+    }
+  }
+
+  &:before {
+    background-color: #fff;
+    @include opacity(0);
+    z-index: $zindex-vertical-menu-solid-color-skin-sub-menu-before;
+    content: " ";
+    display: block;
+    width: calc(#{param-margin-size(SKINS_submenuMargin, $sub-menu-margin)} + #{param-border-size(brw, $border-width)});
+    height: 100%;
+    position: absolute;
+    top: 0;
+  }
+}
+
+[data-state~="items-align-left"] .item {
+  text-align: left;
+}
+
+[data-state~="items-align-center"] .item {
+  text-align: center;
+}
+
+[data-state~="items-align-right"] .item {
+  text-align: right;
+}
+
+[data-state~="subItems-align-left"] .subMenu > .item {
+  text-align: left;
+  padding-left: param-padding-size(textSpacing, $text-spacing);
+  padding-right: mutate-size-param(subItemAlterAlignPad, increase, 7, textSpacing);
+}
+
+[data-state~="subItems-align-center"] .subMenu > .item {
+  text-align: center;
+  padding-left: param-padding-size(textSpacing, $text-spacing);
+  padding-right: param-padding-size(textSpacing, $text-spacing);
+}
+
+[data-state~="subItems-align-right"] .subMenu > .item {
+  text-align: right;
+  padding-left: mutate-size-param(subItemAlterAlignPad, increase, 7, textSpacing);
+  padding-right: param-padding-size(textSpacing, $text-spacing);
+}
+
+[data-state~="subMenuOpenSide-right"] .subMenu {
+  left: 100%;
+  float: left;
+  margin-left: param-margin-size(SKINS_submenuMargin, $sub-menu-margin);
+
+  &:before {
+    right: 100%;
+  }
+}
+
+[data-state~="subMenuOpenSide-left"] .subMenu {
+  right: 100%;
+  float: right;
+  margin-right: param-margin-size(SKINS_submenuMargin, $sub-menu-margin);
+
+  &:before {
+    left: 100%;
+  }
+}
+
+[data-state~="subMenuOpenDir-down"] .subMenu {
+  top: calc(-1 * #{param-border-size(brw, $border-width)});
+}
+
+[data-state~="subMenuOpenDir-up"] .subMenu {
+  bottom: calc(-1 * #{param-border-size(brw, $border-width)});
+}

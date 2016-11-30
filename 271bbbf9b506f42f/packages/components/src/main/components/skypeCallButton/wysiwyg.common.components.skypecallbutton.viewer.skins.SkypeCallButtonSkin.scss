@@ -1,0 +1,33 @@
+@charset "UTF-8";
+
+@import '../../mixins/components-base';
+
+#placeholder {
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+@function get-size($size) {
+  @return map_get((
+          small: 16px,
+          medium: 24px,
+          large: 32px
+  ), $size);
+}
+
+@function get-color($color) {
+  @return map_get((
+          blue: '',
+          white: 'trans_'
+  ), $color);
+}
+
+@each $type in (call, chat) {
+  @each $size in (small, medium, large) {
+    @each $color in (white, blue) {
+      [data-state~="#{$type}"][data-state~="#{$size}"][data-state~="#{$color}"] #placeholder {
+        background-image: unquote("url(http://www.skypeassets.com/i/scom/images/skype-buttons/#{$type}button_#{get-color($color)}#{get-size($size)}.png);")
+      }
+    }
+  }
+}

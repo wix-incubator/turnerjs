@@ -1,0 +1,43 @@
+@charset "UTF-8";
+@import "../skinParams/skinParamsUtils";
+
+@mixin distance($distance) {
+  top: safe-unquote($distance);
+  right: safe-unquote($distance);
+  bottom: safe-unquote($distance);
+  left: safe-unquote($distance);
+}
+
+@mixin distances($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+}
+
+@mixin sizes($width, $height) {
+  width: safe-unquote($width);
+  height: safe-unquote($height);
+}
+
+@mixin abs-distance($distance: 0) {
+  position: absolute;
+  @include distance($distance);
+}
+
+@mixin abs-distances($top: 0, $right: 0, $bottom: 0, $left: 0) {
+  position: absolute;
+  @include distances($top, $right, $bottom, $left);
+}
+
+@mixin rotate($deg) {
+  transform: unquote("rotate(#{$deg}deg)");
+}
+
+@mixin scale($ratio) {
+  transform: unquote("scale(#{$ratio})");
+}
+
+@mixin translate3d($x, $y, $z) {
+  transform: unquote("translate3d(#{$x, $y, $z})");
+}
