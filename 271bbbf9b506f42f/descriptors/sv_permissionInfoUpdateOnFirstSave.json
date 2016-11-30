@@ -1,8 +1,0 @@
-{
-    "owner": "akaspi",
-    "description": "set permission info into documentServicesModel after first save success",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

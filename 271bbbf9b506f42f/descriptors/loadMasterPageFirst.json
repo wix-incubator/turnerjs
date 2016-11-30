@@ -1,8 +1,0 @@
-{
-    "owner": "guyr",
-    "description": "always create displayed page for masterPage before other pages",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

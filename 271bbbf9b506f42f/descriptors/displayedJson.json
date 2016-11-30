@@ -1,8 +1,0 @@
-{
-    "owner": "shimiL",
-    "description": "Hold 2 jsons - one is displayed and one is full",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

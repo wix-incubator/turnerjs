@@ -1,8 +1,0 @@
-{
-    "owner": "dimar",
-    "description": "during render of text components, remove any unsafe data to prevent cross-site scripting",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

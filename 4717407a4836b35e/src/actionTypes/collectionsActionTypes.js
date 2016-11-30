@@ -1,7 +1,0 @@
-export const COLLECTIONS_LIST = 'wix.merchant.order.COLLECTIONS_LIST';
-export const COLLECTIONS_LIST_LOADING = 'wix.merchant.order.COLLECTIONS_LIST_LOADING';
-export const COLLECTIONS_LIST_REFRESH = 'wix.merchant.order.COLLECTIONS_LIST_REFRESH';
-export const COLLECTIONS_SELECT_COLLECTION = 'wix.merchant.order.COLLECTIONS_SELECT_COLLECTION';
-export const COLLECTIONS_LIST_FETCHING_FAILED = 'wix.merchant.order.COLLECTIONS_LIST_FETCHING_FAILED';
-export const COLLECTIONS_ADD_PRODUCT = 'wix.merchant.order.COLLECTIONS_ADD_PRODUCT';
-export const COLLECTIONS_ADD_TO_DEFAULT = 'wix.merchant.order.COLLECTIONS_ADD_TO_DEFAULT';

@@ -1,8 +1,0 @@
-{
-    "owner": "guyr",
-    "description": "viewer support for hoverbox",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

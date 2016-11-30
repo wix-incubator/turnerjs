@@ -1,6 +1,0 @@
-@charset "UTF-8";
-
-@import 'dropDownMenuBase';
-@import 'wysiwyg.common.components.dropdownmenu.viewer.skins.SeparateShinyIIMenuButtonSkin';
-
-@include exports("repeaterButton:skin", "wysiwyg.viewer.skins.dropmenubutton.SeparateShinyIIMenuButtonNBorderRadiusFixSkin");

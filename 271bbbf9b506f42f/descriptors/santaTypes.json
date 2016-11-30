@@ -1,8 +1,0 @@
-{
-  "owner": "eliranh",
-  "description": "Property injection for santa components",
-  "scopes": [
-    "santa-viewer"
-  ],
-  "constraints": {}
-}

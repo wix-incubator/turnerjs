@@ -1,9 +1,0 @@
-{
-    "createTime": "2016-09-26T10:00:00",
-    "owner": "odedg",
-    "description": "Adds the correct robots indexing meta tag for each page while taking in mind the 'hide from search engine' toggle value in page settings",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

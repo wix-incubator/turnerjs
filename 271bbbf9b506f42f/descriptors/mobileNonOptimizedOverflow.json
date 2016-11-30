@@ -1,8 +1,0 @@
-{
-    "owner": "kobiz",
-    "description": "fix full width component on tablet",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

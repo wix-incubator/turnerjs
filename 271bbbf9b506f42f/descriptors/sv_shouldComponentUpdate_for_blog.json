@@ -1,8 +1,0 @@
-{
-    "owner": "javinor",
-    "description": "implement shouldComponentUpdate for blog appPart",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

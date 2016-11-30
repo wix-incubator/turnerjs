@@ -1,9 +1,0 @@
-.idea/*
-
-node_modules/*
-
-npm-debug.log
-
-*-snapshot.tar.gz
-santa/
-santa-editor/

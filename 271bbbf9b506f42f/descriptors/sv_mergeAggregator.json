@@ -1,9 +1,0 @@
-{
-    "owner": "mariao",
-    "description": "Ignore results of intermediate automatic merges occurred withing one session",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "onlyForLoggedInUsers": "true",
-    "constraints": {}
-}

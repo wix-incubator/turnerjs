@@ -1,1 +1,0 @@
-window['class load plugin'] = 'working';

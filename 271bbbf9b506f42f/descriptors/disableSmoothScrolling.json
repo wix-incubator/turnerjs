@@ -1,8 +1,0 @@
-{
-    "owner": "shaharz",
-    "description": "Migrates component behaviors to a new data type (ObsoleteBehaviorsList)",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

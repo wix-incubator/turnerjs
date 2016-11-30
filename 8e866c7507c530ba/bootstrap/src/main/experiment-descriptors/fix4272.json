@@ -1,8 +1,0 @@
-{
-    "createTime": "2014-06-23T08:30:00",
-    "owner": "noamsi",
-    "description": "Fix bug woh-4272:  wrong value in text drop down",
-    "tags": [
-        "editor"
-    ]
-}

@@ -1,8 +1,0 @@
-{
-    "owner": "alexandrer",
-    "description": "remove preloaders for all images across the viewer - wphoto, displayer, image",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

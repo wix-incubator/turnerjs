@@ -1,8 +1,0 @@
-{
-    "owner": "javinor",
-    "description": "updates og tags between page navigations in viewer",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

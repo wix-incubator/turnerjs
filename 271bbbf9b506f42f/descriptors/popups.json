@@ -1,8 +1,0 @@
-{
-    "owner": "Gonchar",
-    "description": "Popup system for the users",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

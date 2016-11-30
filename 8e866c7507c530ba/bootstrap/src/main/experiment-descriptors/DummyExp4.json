@@ -1,8 +1,0 @@
-{
-    "createTime": "2000-01-01T00:56:00",
-    "owner": "Leonid",
-    "description": "Dummy Empty Experiment - Permanent - used to sanity check the ABTest mechanism",
-    "tags": [
-        "editor"
-    ]
-}

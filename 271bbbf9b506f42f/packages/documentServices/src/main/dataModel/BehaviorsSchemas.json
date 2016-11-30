@@ -1,8 +1,0 @@
-{
-    "ObsoleteBehaviorsList": {
-        "type": "object",
-        "properties": {
-            "items": {"type": ["string"]}
-        }
-    }
-}

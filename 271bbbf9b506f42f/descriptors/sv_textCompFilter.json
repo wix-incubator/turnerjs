@@ -1,8 +1,0 @@
-{
-    "owner": "dimar",
-    "description": "send BI of filtered data in text components",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

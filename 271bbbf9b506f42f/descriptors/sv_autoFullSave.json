@@ -1,9 +1,0 @@
-{
-    "owner": "alonk",
-    "description": "Perform partial save periodically after several incremental autosaves",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "onlyForLoggedInUsers": "true",
-    "constraints": {}
-}

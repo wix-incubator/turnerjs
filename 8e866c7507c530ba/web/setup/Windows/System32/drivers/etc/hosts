@@ -1,5 +1,0 @@
-# Add the following to windows' hosts file
-# NOTE: for servers other then pita, change the domain to 
-127.0.0.1		localhost
-127.0.0.1		dev.pita.wixpress.com
-127.0.0.1		wysiwyg.pita.wixpress.com

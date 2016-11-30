@@ -1,8 +1,0 @@
-{
-    "owner": "andreys",
-    "description": "Cache views to prevent view traversal on each render",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

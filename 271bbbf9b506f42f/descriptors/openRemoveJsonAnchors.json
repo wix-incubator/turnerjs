@@ -1,8 +1,0 @@
-{
-    "owner": "alissav",
-    "description": "open the experiment to users who had it and lost it",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

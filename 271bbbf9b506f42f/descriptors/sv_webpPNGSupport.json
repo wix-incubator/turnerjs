@@ -1,7 +1,0 @@
-{
-    "owner": "yanivz",
-    "description": "allow to serve PNG images as webp ones (if supported by browser)",
-    "scopes": [
-        "santa-viewer"
-    ]
-}

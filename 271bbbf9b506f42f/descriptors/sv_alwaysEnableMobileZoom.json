@@ -1,9 +1,0 @@
-{
-    "createTime": "2016-10-27T10:00:00",
-    "owner": "noamr",
-    "description": "Always enable user-scaling in mobile",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

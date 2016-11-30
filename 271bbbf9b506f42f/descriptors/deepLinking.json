@@ -1,8 +1,0 @@
-{
-    "owner": "naamaa",
-    "description": "define deep linking behavior",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

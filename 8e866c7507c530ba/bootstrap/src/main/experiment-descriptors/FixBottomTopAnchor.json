@@ -1,8 +1,0 @@
-{
-    "createTime": "2013-09-15T15:00:00",
-    "owner": "guyr",
-    "description": "Fix behavior of bottom top anchor - use original value as minimum Y",
-    "tags": [
-        "editor", "viewer"
-    ]
-}

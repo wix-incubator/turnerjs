@@ -1,8 +1,0 @@
-{
-    "owner": "sv_blogStudioExperiment",
-    "description": "Enables studio to customize blog comps",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

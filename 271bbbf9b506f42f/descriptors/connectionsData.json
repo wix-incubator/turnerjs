@@ -1,8 +1,0 @@
-{
-    "owner": "shaharz",
-    "description": "Adding connections_data map to our document and supporting new schema type - ConnectionsList",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

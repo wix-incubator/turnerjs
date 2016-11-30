@@ -1,9 +1,0 @@
-{
-    "createTime": "2015-10-14T10:00:00",
-    "owner": "lirank",
-    "description": "clicking on authors name filters post by him",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

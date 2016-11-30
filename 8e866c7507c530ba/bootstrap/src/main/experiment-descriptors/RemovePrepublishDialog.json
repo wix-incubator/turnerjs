@@ -1,8 +1,0 @@
-{
-    "createTime": "2000-01-01T03:00:00",
-    "owner": "LeoniJ",
-    "description": "when user click on publish link, the prepublish dialog will not appear and the publish action will happen",
-    "tags": [
-        "editor"
-    ]
-}

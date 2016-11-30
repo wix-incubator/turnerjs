@@ -1,8 +1,0 @@
-@charset "UTF-8";
-@import '../../mixins/components-base';
-
-:host {
-  user-select: none;
-  @include user-drag(none);
-  @include user-modify(ready-only);
-}

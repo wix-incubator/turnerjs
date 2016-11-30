@@ -1,8 +1,0 @@
-{
-    "owner": "shaila",
-    "description": "use new google analytics universal script (instead of old DC script)",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

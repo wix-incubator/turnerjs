@@ -1,8 +1,0 @@
-{
-    "owner": "nirm",
-    "description": "DocumentServices support for hoverbox",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

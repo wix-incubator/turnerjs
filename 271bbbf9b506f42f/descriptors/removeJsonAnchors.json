@@ -1,9 +1,0 @@
-{
-    "owner": "guyr",
-    "description": "delete layout anchors from site json",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "onlyForLoggedInUsers": "true",
-    "constraints": {}
-}

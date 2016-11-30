@@ -1,9 +1,0 @@
-{
-    "createTime": "2000-01-01T02:54:00",
-    "owner": "tanyak",
-    "description": "Add TPA application widgets from add menu",
-    "constraints": {
-		"Ecom2G" : "required-before"
-    },
-    "tags": ["editor"]
-}

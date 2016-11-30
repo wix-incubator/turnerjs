@@ -1,7 +1,0 @@
-{
-    "owner": "alonk",
-    "description": "Call wixapps's post-save settle on autosave",
-    "scopes": [
-        "santa-viewer"
-    ]
-}

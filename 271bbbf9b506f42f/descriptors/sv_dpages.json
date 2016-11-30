@@ -1,8 +1,0 @@
-{
-    "owner": "talm",
-    "description": "dynamic pages experiment - viewer side",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

@@ -1,8 +1,0 @@
-// For 3D Transforms Safari Workaround
-[data-z-counter] {
-  z-index: 0;
-}
-
-[data-z-counter="0"] {
-  z-index: auto;
-}

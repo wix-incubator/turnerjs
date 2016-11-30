@@ -1,8 +1,0 @@
-{
-    "owner": "yevhenp",
-    "description": "Merge batchable lists requests into single batch request",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

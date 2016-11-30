@@ -1,8 +1,0 @@
-{
-    "owner": "yotamb",
-    "description": "migrate OB sites on save in editor",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

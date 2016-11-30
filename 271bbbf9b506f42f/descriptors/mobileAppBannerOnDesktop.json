@@ -1,8 +1,0 @@
-{
-    "owner": "talkol",
-    "description": "For mobile sites that published apps using Wix Touch, adds a banner for downloading the mobile app itself",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

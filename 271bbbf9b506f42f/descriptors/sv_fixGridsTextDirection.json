@@ -1,8 +1,0 @@
-{
-    "owner": "maory",
-    "description": "Change text direction to RTL when text is aligned right on Grid and slide show galleries",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

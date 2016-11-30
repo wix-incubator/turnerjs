@@ -1,9 +1,0 @@
-{
-  "createTime": "2015-03-24T09:26:36",
-  "owner": "andreys@wix.com",
-  "description": "Provide post message interface for blog manager (new one) access to page anchors",
-  "tags": [
-    "editor"
-  ],
-  "name": "pageanchorsoptimization"
-}

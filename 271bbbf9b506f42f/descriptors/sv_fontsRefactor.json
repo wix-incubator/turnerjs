@@ -1,8 +1,0 @@
-{
-    "owner": "chene",
-    "description": "refactor font utils and expose needed logics from DS",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}

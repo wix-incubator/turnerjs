@@ -1,9 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'sass'
-gem 'scss_lint'
-
-gem 'win32console', :platforms => [:mswin, :mingw]
-gem 'windows-pr', :platforms => [:mswin, :mingw]
-
-

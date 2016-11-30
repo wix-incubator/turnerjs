@@ -1,9 +1,0 @@
-{
-    "createTime": "2016-11-03T10:00:00",
-    "owner": "tombigel",
-    "description": "Add border size when calculating elementBounds in domMeasureUtils",
-    "scopes": [
-        "santa-viewer"
-    ],
-    "constraints": {}
-}
