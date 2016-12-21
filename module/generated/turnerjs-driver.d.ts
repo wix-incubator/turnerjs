@@ -22,9 +22,9 @@ declare class TurnerComponentDriver {
     private childDrivers;
     constructor();
     static byDataHook(dataHook: any): string;
-    element: ng.IAugmentedJQuery;
-    scope: ng.IScope;
-    isRendered: boolean;
+    readonly element: ng.IAugmentedJQuery;
+    readonly scope: ng.IScope;
+    readonly isRendered: boolean;
     connectToBody(): void;
     disconnectFromBody(): void;
     applyChanges(): void;
