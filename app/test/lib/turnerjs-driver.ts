@@ -77,7 +77,7 @@ class TurnerComponentDriver {
   }
 
   protected renderFromTemplate(template: string, args: Object = {}, selector?) {
-    inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
+    angular.mock.inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
       this.$rootScope = $rootScope;
       this.$compile = $compile;
     });

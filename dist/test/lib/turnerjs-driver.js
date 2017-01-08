@@ -54,7 +54,7 @@ var TurnerComponentDriver = (function () {
     TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector) {
         var _this = this;
         if (args === void 0) { args = {}; }
-        inject(function ($rootScope, $compile) {
+        angular.mock.inject(function ($rootScope, $compile) {
             _this.$rootScope = $rootScope;
             _this.$compile = $compile;
         });
