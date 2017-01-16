@@ -1,8 +1,7 @@
 # Angular Components Test Kit
 
-## Talk
-Can be downloaded via [Slideshare](https://u5283.ct.sendgrid.net/wf/click?upn=uO6HrIECmgsMyMFzOPMkJYGYLADpdUHdfI6J1dVtgwnTWzZ1-2B1a5bySNoLYlu9QIldML-2FPycLoyx-2FRfHUroVVRKQI0G-2BB7wD2GmagU-2F-2BaFO1GcQKZqTrLfcvI0-2Feq88U4MDDbWxKTMQq15nEkNaTrkhZIEN-2BIjBAqqg35v-2BUjy2Twh3o7-2F-2BMoBQuxY83o7cP_-2F0-2FOxt-2FTDNjPdgoVegGf3gWbc1x6lNE40K0OYIqiiEvA6QswJ-2BwAuEpEMZUWwF9pCCtXpZHa-2Blt19xDW8YLhwNH0buvisU141e9DwO8i-2FtHG4W1yIqIwmvtfz6eqxMt-2FKGTTQY4eR-2F43Sq5XMM2Dcv8czg-2FptYVNvd7fSa-2Fk1ulilJE5DRaYf8AWqy7gUQ2GQKrYehzRQiMwRXFmhxUPi9p5elNaeRifJJbzOrwyHJCJE85erCOU9BC6cqRFonXG-2FgLI0fQq9IJA61i4Z8AJDcRFZrLP3ZQqfF2Xvf-2FiSZ1jKPBpFVsd9RO-2FsqBDo6BeXrm5zSCKTDfxsL0cHIUqkcH4jesDUnfJR67EoqU8SyJo0NnGZlbOM04OaAwKTZDw)
-**Note** - please download in order to be able to utilize the animations included in the deck.
+## Post
+A detailed post with examples and explanations can be found in [Medium](https://goo.gl/pk6EoA)
 
 ## Overview
 Component tests allows testing the UI (provided that it is build as components/directives of course) in order to get instant feedback and minimize the use of protractor.
