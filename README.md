@@ -1,7 +1,9 @@
 # Angular Components Test Kit
 
 ## Post
-A detailed post with examples and explanations can be found in [Medium](https://goo.gl/pk6EoA)
+A detailed post with examples and explanations can be found in the following Medium article:
+
+[Testing angular components — you don’t know what you’re missing](https://goo.gl/pk6EoA)
 
 ## Overview
 Component tests allows testing the UI (provided that it is build as components/directives of course) in order to get instant feedback and minimize the use of protractor.
