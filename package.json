@@ -25,9 +25,6 @@
   "devDependencies": {
     "wix-gruntfile": "^0.1.231"
   },
-  "optionalDependencies": {
-    "wix-statics-parent": "*"
-  },
   "engines": {
     "node": ">=0.8.0"
   }
