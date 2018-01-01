@@ -14,6 +14,10 @@ class NamesAppDriver extends TurnerComponentDriver {
     this.renderFromTemplate(`<names-app></names-app>`);
   }
 
+  renderToBody() {
+    this.renderFromTemplate(`<names-app></names-app>`, {}, null, true);
+  }
+
   addName(name: string) {
     this.input.addName(name);
   }
@@ -39,6 +43,12 @@ describe('Component: namesApp', () => {
 
   afterEach(() => {
     driver.disconnectFromBody();
+  });
+
+  it('should be appended to body', () => {
+    driver.renderToBody();
+
+    expect(angular.element(document.body).find('names-app').length).toBe(1);
   });
 
   it('Should initialize the names list as an empty list', () => {

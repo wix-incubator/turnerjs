@@ -30,10 +30,11 @@ declare class TurnerComponentDriver {
     applyChanges(): void;
     protected findByDataHook(dataHook: string): ng.IAugmentedJQuery;
     protected findAllByDataHook(dataHook: string): ng.IAugmentedJQuery;
-    protected renderFromTemplate(template: string, args?: Object, selector?: any): void;
+    protected renderFromTemplate(template: string, args?: Object, selector?: any, appendToBody?: boolean): void;
     protected initChildDrivers(): void;
     protected defineChild<T extends TurnerComponentDriver>(childDriver: T, selector?: string): T;
     protected defineChildren<T extends TurnerComponentDriver>(factory: (item?, index?) => T, selector: string): Array<T>;
+    private appendTemplateToBody();
     private defineIndexedChild<T>(childDriver, selector?, selectorIndex?);
     private initializeDriver(containingElement, selector?, selectorIndex?);
     private initArrayChild(child);

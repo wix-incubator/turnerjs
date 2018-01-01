@@ -32,7 +32,7 @@ var TurnerComponentDriver = (function () {
     });
     TurnerComponentDriver.prototype.connectToBody = function () {
         this.verifyRendered();
-        this.body.append(this.templateRoot);
+        this.appendTemplateToBody();
     };
     TurnerComponentDriver.prototype.disconnectFromBody = function () {
         if (this.templateRoot) {
@@ -51,9 +51,10 @@ var TurnerComponentDriver = (function () {
     TurnerComponentDriver.prototype.findAllByDataHook = function (dataHook) {
         return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
     };
-    TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector) {
+    TurnerComponentDriver.prototype.renderFromTemplate = function (template, args, selector, appendToBody) {
         var _this = this;
         if (args === void 0) { args = {}; }
+        if (appendToBody === void 0) { appendToBody = false; }
         angular.mock.inject(function ($rootScope, $compile) {
             _this.$rootScope = $rootScope;
             _this.$compile = $compile;
@@ -62,6 +63,9 @@ var TurnerComponentDriver = (function () {
         scope = angular.extend(scope, args);
         this.templateRoot = angular.element(template);
         this.$compile(this.templateRoot)(scope);
+        if (appendToBody) {
+            this.appendTemplateToBody();
+        }
         this.$rootScope.$digest();
         this.initializeDriver(this.templateRoot, selector);
         this.$rootScope.$watch(function () { return _this.initChildDrivers(); });
@@ -90,6 +94,9 @@ var TurnerComponentDriver = (function () {
             fullDriversArr: []
         });
         return children;
+    };
+    TurnerComponentDriver.prototype.appendTemplateToBody = function () {
+        this.body.append(this.templateRoot);
     };
     TurnerComponentDriver.prototype.defineIndexedChild = function (childDriver, selector, selectorIndex) {
         if (selectorIndex === void 0) { selectorIndex = 0; }

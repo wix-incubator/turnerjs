@@ -52,7 +52,7 @@ class TurnerComponentDriver {
 
   public connectToBody() {
     this.verifyRendered();
-    this.body.append(this.templateRoot);
+    this.appendTemplateToBody();
   }
 
   public disconnectFromBody() {
@@ -76,7 +76,7 @@ class TurnerComponentDriver {
     return angular.element(this.element[0].querySelectorAll(TurnerComponentDriver.byDataHook(dataHook)));
   }
 
-  protected renderFromTemplate(template: string, args: Object = {}, selector?) {
+  protected renderFromTemplate(template: string, args: Object = {}, selector?, appendToBody = false) {
     angular.mock.inject(($rootScope: ng.IRootScopeService, $compile: ng.ICompileService) => {
       this.$rootScope = $rootScope;
       this.$compile = $compile;
@@ -86,6 +86,9 @@ class TurnerComponentDriver {
 
     this.templateRoot = angular.element(template);
     this.$compile(this.templateRoot)(scope);
+    if (appendToBody) {
+      this.appendTemplateToBody();
+    }
     this.$rootScope.$digest();
 
     this.initializeDriver(this.templateRoot, selector);
@@ -116,6 +119,10 @@ class TurnerComponentDriver {
       fullDriversArr: []
     });
     return children;
+  }
+
+  private appendTemplateToBody() {
+    this.body.append(this.templateRoot);
   }
 
   private defineIndexedChild<T extends TurnerComponentDriver>(childDriver: T, selector?: string, selectorIndex: number = 0): T {
