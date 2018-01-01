@@ -2,10 +2,11 @@
   "name": "turnerjs",
   "version": "1.0.248",
   "scripts": {
-    "build": "node_modules/wix-gruntfile/scripts/build.sh",
     "release": "node_modules/wix-gruntfile/scripts/release.sh",
     "test": "grunt build",
-    "start": "grunt serve"
+    "start": "grunt serve",
+    "build": ":",
+    "postinstall": "node_modules/wix-gruntfile/scripts/postinstall.sh || true"
   },
   "repository": {
     "type": "git",
@@ -23,7 +24,8 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "wix-gruntfile": "^0.1.231"
+    "wix-gruntfile": "^0.1.231",
+    "wix-statics-parent": "*"
   },
   "engines": {
     "node": ">=0.8.0"
