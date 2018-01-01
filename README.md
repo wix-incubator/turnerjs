@@ -82,7 +82,7 @@ It implements the approach demonstrates in [this](http://html5doctor.com/html5-c
 |Param|Type|Arguments|Details|
 |---|---|---|---|
 |constructor|Constructor|N/A|Creates the driver|
-|renderFromTemplate|protected method|**template**: string, **args**?: Object, **selector**?: string|Allows rendering the component/directive, the args is a key value pairs object that will be added to the scope of the element, initializes the root of the driver according to the selector |
+|renderFromTemplate|protected method|**template**: string, **args**?: Object, **selector**?: string, appendToBody?: boolean|Allows rendering the component/directive, the args is a key value pairs object that will be added to the scope of the element, initializes the root of the driver according to the selector |
 |findByDataHook|protected method|**dataHook**: string|a utility method that should be used by drivers that inherits from the base driver in order to select an element (first if there are several) by **data-hook** attribute. It will throws an error if called before ***renderFromTemplate*** was called|
 |findAllByDataHook|protected method|**dataHook**: string|similar to ***findByDataHook*** but allows selecting several elements with the same **data-hook**|
 |defineChild|protected method|**childDriver**: Instance of T such that T extends **TurnerComponentDriver**, **selector**: string representing a CSS selector (preferably called with ***byDataHook(dataHook)***)|Declare a child driver of the current driver, allows components hierarchy, which is also returned by the method. This method should be called before ***renderFromTemplate*** was called|
