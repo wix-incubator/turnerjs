@@ -19,6 +19,7 @@
   "files": [
     "index.js",
     "index.d.ts",
+    "module/index.d.ts",
     "module/generated/turnerjs-driver.js",
     "module/generated/turnerjs-driver.d.ts"
   ],
