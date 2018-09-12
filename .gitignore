@@ -20,3 +20,4 @@ Gruntfile.private.js
 .tscache
 npm-debug.log*
 index.d.ts
+turnerjs-module.d.ts

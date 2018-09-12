@@ -2,6 +2,8 @@
 'use strict';
 
 module.exports = function (grunt) {
+  var turnerModuleNames = ['index.d.ts', 'module/index.d.ts'];
+
   require('wix-gruntfile')(grunt, {
     version: '1.0.88',
     karmaConf: require('./karma.conf.js'),
@@ -10,23 +12,26 @@ module.exports = function (grunt) {
   });
   var copy = grunt.config('copy');
   copy.dist.files.push({
-      expand: true,
-      cwd: '.tmp/test/lib/',
-      src: ['*.d.ts', '*.js'],
-      dest: 'module/generated'
-    }, {
+    expand: true,
+    cwd: '.tmp/test/lib/',
+    src: ['*.d.ts', '*.js'],
+    dest: 'module/generated'
+  });
+  copy.dist.files = copy.dist.files.concat(turnerModuleNames.map(function (name) {
+    return {
       expand: true,
       cwd: '.tmp/test/lib/',
       src: ['*.d.ts'],
       rename: function () {
-        return 'index.d.ts';
+        return name;
       }
-    });
+    };
+  }));
   grunt.config('copy', copy);
 
   var replace = grunt.config('replace');
   replace.dtsAsModule = {
-    src: ['index.d.ts'],
+    src: turnerModuleNames,
     overwrite: true,
     replacements: [{
       from: /declare /g,
