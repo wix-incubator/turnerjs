@@ -22,3 +22,4 @@ Gruntfile.private.js
 npm-debug.log*
 index.d.ts
 turnerjs-module.d.ts
+module

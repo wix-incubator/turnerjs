@@ -17,6 +17,14 @@ module.exports = function (grunt) {
     src: ['*.d.ts', '*.js'],
     dest: 'module/generated'
   });
+  copy.dist.files.push({
+    expand: true,
+    cwd: '.tmp/test/lib/',
+    src: 'turnerjs-driver.js',
+    rename: function () {
+      return 'module/index.js';
+    }
+  });
   copy.dist.files = copy.dist.files.concat(turnerModuleNames.map(function (name) {
     return {
       expand: true,
