@@ -16,6 +16,7 @@
     "registry": "https://registry.npmjs.org/"
   },
   "main": "module/generated/turnerjs-driver.js",
+  "types": "index.d.ts",
   "files": [
     "index.js",
     "index.d.ts",
