@@ -1,6 +1,6 @@
 {
   "name": "turnerjs",
-  "version": "1.0.562",
+  "version": "1.0.563",
   "main": "dist/test/lib/turner-driver.js",
   "ignore": [
     ".*",
